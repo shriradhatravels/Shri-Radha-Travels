@@ -20,60 +20,226 @@ color:#fff;
 
 header{
 background:#111;
-padding:15px;
-text-align:center;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+}
+
+.logo{
 font-size:28px;
 font-weight:bold;
 color:gold;
 }
 
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:18px;
+}
+
 .hero{
 height:90vh;
-background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1500&q=80");
+background-size:cover;
+background-position:center;
 }
 
 .hero h1{
-font-size:42px;
+font-size:52px;
+margin-bottom:20px;
 }
 
 .hero p{
-margin-top:15px;
-font-size:20px;
+font-size:22px;
+margin-bottom:25px;
 }
 
 .btn{
 display:inline-block;
-margin-top:20px;
-padding:15px 30px;
 background:gold;
 color:#000;
+padding:15px 35px;
+border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-border-radius:8px;
 }
-</style>
+  .hero{
+padding:20px;
+}
 
+.services{
+padding:70px 20px;
+text-align:center;
+}
+
+.services h2{
+font-size:38px;
+color:gold;
+margin-bottom:40px;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+}
+
+.card{
+background:#111;
+padding:25px;
+width:300px;
+border-radius:15px;
+border:1px solid gold;
+}
+
+.card h3{
+color:gold;
+margin-bottom:15px;
+}
+
+.card p{
+line-height:1.7;
+}
+
+footer{
+background:#111;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-Shri Radha Travels
+<div class="logo">Shri Radha Travels</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
 <div>
-<h1>Explore North India With Shri Radha Travels</h1>
+<h1>Explore North India</h1>
 <p>Premium Taxi & Tour Services</p>
+<a href="tel:+919999999999" class="btn">Book Now</a>
+</div>
+</section.hero{
+padding:20px;
+}
 
-<a href="#" class="btn">Book Now</a>
+.services{
+padding:70px 20px;
+text-align:center;
+}
 
+.services h2{
+font-size:38px;
+color:gold;
+margin-bottom:40px;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+}
+
+.card{
+background:#111;
+padding:25px;
+width:300px;
+border-radius:15px;
+border:1px solid gold;
+}
+
+.card h3{
+color:gold;
+margin-bottom:15px;
+}
+
+.card p{
+line-height:1.7;
+}
+
+footer{
+background:#111;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Shri Radha Travels</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+<div>
+<h1>Explore North India</h1>
+<p>Premium Taxi & Tour Services</p>
+<a href="tel:+919999999999" class="btn">Book Now</a>
 </div>
 </section>
 
-</body>
+  <section id="services">
+  <h2>Our Services</h2>
+
+  <div class="card">
+    <h3>🚖 Taxi Service</h3>
+    <p>24×7 Local & Outstation Taxi Available.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏔️ Tour Packages</h3>
+    <p>Shimla, Manali, Kashmir, Leh Ladakh, Amritsar & More.</p>
+  </div>
+
+  <div class="card">
+    <h3>✈️ Airport Pickup & Drop</h3>
+    <p>Reliable pickup and drop service at affordable prices.</p>
+  </div>
+</section>
+  <section id="contact">
+  <h2>Contact Us</h2>
+
+  <p><strong>📞 Phone:</strong> +91 9999999999</p>
+  <p><strong>📍 Address:</strong> Chandigarh, India</p>
+  <p><strong>📧 Email:</strong> info@shriradhatravels.com</p>
+
+  <a href="tel:+919999999999" class="btn">Call Now</a>
+  <a href="https://wa.me/919999999999" class="btn">WhatsApp</a>
+</section>
+
+<footer>
+  <p>©️ 2026 Shri Radha Travels. All Rights Reserved.</p>
+</footer>
+  </body>
 </html>
