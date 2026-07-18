@@ -11,7 +11,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<style>
+  @media (max-width: 768px) {
+    .fleet-grid, .destinations-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      padding: 10px !important;
+    }
+    .fleet-card, .destination-card {
+      border-radius: 8px !important;
+      overflow: hidden !important;
+      background: #111111 !important;
+      border: 1px solid #d4af37 !important;
+    }
+    .fleet-card img, .destination-card img {
+      height: 120px !important;
+      width: 100% !important;
+      object-fit: cover !important;
+    }
+    .fleet-card h3, .destination-card h3 {
+      font-size: 14px !important;
+      padding: 8px 4px 2px 4px !important;
+      margin: 0 !important;
+      color: #ffffff !important;
+    }
+    .fleet-card p, .destination-card p {
+      font-size: 11px !important;
+      padding: 0 4px 8px 4px !important;
+      margin: 0 !important;
+      color: #cccccc !important;
+    }
+  }
+</style>
 </head>
 
 <body>
