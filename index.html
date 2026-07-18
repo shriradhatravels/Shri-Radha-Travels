@@ -12,33 +12,53 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
+  /* Mobile Horizontal Swipe Slider Layout */
   @media (max-width: 768px) {
+    /* Grid ko horizontal scroll wrapper me badal rahe hain */
     .fleet-grid, .destinations-grid {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 12px !important;
-      padding: 10px !important;
+      display: flex !important;
+      flex-direction: row !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      gap: 16px !important;
+      padding: 10px 20px 25px 20px !important;
+      scrollbar-width: none !important; /* Hide scrollbar for Firefox */
     }
+
+    /* Hide scrollbar for Chrome/Safari */
+    .fleet-grid::-webkit-scrollbar, .destinations-grid::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    /* Ek card ab pure view ka 82% area lega taaki side waala card halka sa dikhe */
     .fleet-card, .destination-card {
-      border-radius: 8px !important;
+      flex: 0 0 82% !important;
+      width: 82% !important;
+      scroll-snap-align: center !important; /* Swipe karte hi card center me rukega */
+      border-radius: 12px !important;
       overflow: hidden !important;
       background: #111111 !important;
       border: 1px solid #d4af37 !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
     }
+
+    /* Image aur text layout settings */
     .fleet-card img, .destination-card img {
-      height: 120px !important;
+      height: 200px !important; /* Height badi rakhi taaki Premium look aaye */
       width: 100% !important;
       object-fit: cover !important;
     }
+
     .fleet-card h3, .destination-card h3 {
-      font-size: 14px !important;
-      padding: 8px 4px 2px 4px !important;
+      font-size: 18px !important;
+      padding: 15px 10px 5px 10px !important;
       margin: 0 !important;
       color: #ffffff !important;
     }
+
     .fleet-card p, .destination-card p {
-      font-size: 11px !important;
-      padding: 0 4px 8px 4px !important;
+      font-size: 13px !important;
+      padding: 0 10px 15px 10px !important;
       margin: 0 !important;
       color: #cccccc !important;
     }
