@@ -262,31 +262,45 @@
 
 <!-- HERO -->
 <!-- ==========================================
-     SHRI RADHA TRAVELS - PREMIUM LUXURY THEME
+     SHRI RADHA TRAVELS - FULL BOOKING FORM
      ========================================== -->
-<section style="min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); padding: 20px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); padding: 20px;">
 
-  <div style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 30px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+  <div style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px); border: 1px solid #d4af37; border-radius: 30px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
     
     <div style="text-align: center; margin-bottom: 20px;">
-      <img src="https://i.ibb.co/C5D16EF3/C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5.jpg" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #d4af37; margin-bottom: 10px;">
-      <h2 style="color: #333; font-family: 'Cinzel', serif; margin: 0; font-size: 20px;">Shri Radha</h2>
-      <p style="color: #d4af37; font-size: 11px; letter-spacing: 3px; font-weight: bold;">PREMIUM TRAVELS</p>
+      <img src="https://i.ibb.co/C5D16EF3/C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5.jpg" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #d4af37;">
+      <h2 style="margin: 10px 0 0; font-family: 'Cinzel', serif;">Shri Radha</h2>
+      <p style="color: #d4af37; font-size: 11px; letter-spacing: 2px; font-weight: bold;">PREMIUM TRAVELS</p>
     </div>
 
-    <!-- Trip Type -->
-    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-      <button style="flex: 1; padding: 12px; border: 1px solid #d4af37; border-radius: 10px; background: transparent; color: #333; font-weight: bold;">One Way</button>
-      <button style="flex: 1; padding: 12px; border: none; border-radius: 10px; background: #d4af37; color: white; font-weight: bold;">Round Trip</button>
-    </div>
+    <form style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; gap: 10px;">
+        <button type="button" style="flex: 1; padding: 10px; border: 1px solid #d4af37; background: transparent; border-radius: 8px;">One Way</button>
+        <button type="button" style="flex: 1; padding: 10px; border: none; background: #d4af37; color: white; border-radius: 8px;">Round Trip</button>
+      </div>
 
-    <!-- Inputs -->
-    <input type="text" placeholder="Pickup Location" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; background: #fff;">
-    <input type="text" placeholder="Drop Location" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; background: #fff;">
-    <input type="date" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; background: #fff;">
-    <input type="time" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 10px; background: #fff;">
-    
-    <button style="width: 100%; padding: 15px; background: #333; color: #d4af37; border-radius: 10px; font-weight: bold; border: none; font-size: 16px; margin-top: 10px;">Book Now</button>
+      <input type="text" placeholder="Pickup Location" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+      <input type="text" placeholder="Drop Location" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+      
+      <div style="display: flex; gap: 10px;">
+        <input type="date" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        <input type="time" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+      </div>
+
+      <input type="number" placeholder="Number of Passengers" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+
+      <select style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; background: white;">
+        <option>Select Vehicle Type</option>
+        <option>Hatchback - Toyota Glanza</option>
+        <option>Sedan - Swift Dzire</option>
+        <option>SUV - Maruti Ertiga</option>
+        <option>MPV - Innova Crysta (7+1)</option>
+        <option>Tempo Traveller - Urbania</option>
+      </select>
+
+      <button type="submit" style="padding: 15px; background: #333; color: #d4af37; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px;">Book Now</button>
+    </form>
   </div>
 </section>
 
