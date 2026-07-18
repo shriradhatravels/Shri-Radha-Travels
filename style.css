@@ -573,3 +573,43 @@ grid-template-columns:1fr;
 }
 
 }
+/* Fleet Grid and Responsive Design */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.fleet-card {
+    background: #111111; /* Premium Black */
+    border: 1px solid #d4af37; /* Gold Border */
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.fleet-card:hover {
+    transform: translateY(-5px);
+}
+
+.fleet-card img {
+    width: 100%;
+    height: 200px; /* Fixed Height for all images */
+    object-fit: cover; /* Stops stretching, crops perfectly */
+    border-bottom: 1px solid #d4af37;
+}
+
+.fleet-card h3 {
+    color: #ffffff;
+    margin: 15px 0 5px 0;
+    font-size: 1.3rem;
+}
+
+.fleet-card p {
+    color: #a8a8a8;
+    font-size: 0.9rem;
+    padding-bottom: 15px;
+}
