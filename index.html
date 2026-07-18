@@ -202,31 +202,26 @@
 
 <body>
   
-  <!-- ==========================================
-     ULTRA-PREMIUM CSS GOLD MONOGRAM PRELOADER
+<!-- ==========================================
+     SHRIRADHA TRAVELS - OFFICIAL PRELOADER
      ========================================== -->
-<div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #070707; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; transition: opacity 0.8s ease; font-family: 'Cinzel', serif;">
+<div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #070707; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; transition: opacity 0.8s ease;">
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Monsieur+La+Douceur&display=swap">
+  <!-- Aapka Premium Gold Logo -->
+  <img src="https://i.ibb.co/3k1wV2y9/C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5-946569FB-C024-4698-B95E-59C5796012AC.jpg" alt="Shri Radha Travels" style="width: 250px; height: auto; object-fit: contain; animation: pulse 2.5s ease-in-out infinite;">
 
-  <!-- Logo Container -->
-  <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; border: 2px solid #d4af37; border-radius: 50%; margin-bottom: 25px; animation: pulse 2s infinite;">
-    <!-- Monogram Text -->
-    <div style="color: #d4af37; font-size: 60px; font-weight: 700; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(212,175,55,0.5);">SR</div>
+  <!-- Loading Animation Bar -->
+  <div style="width: 200px; height: 2px; background: #333; margin-top: 30px; border-radius: 2px; overflow: hidden;">
+    <div style="width: 30%; height: 100%; background: #d4af37; animation: loadBar 2s infinite linear;"></div>
   </div>
-
-  <span style="font-family: 'Monsieur La Douceur', cursive; color: #d4af37; font-size: 38px; margin-bottom: -10px;">Shri</span>
-  <h1 style="color: #d4af37; font-size: 24px; text-transform: uppercase; letter-spacing: 6px; margin: 5px 0;">RADHA TRAVELS</h1>
-  
-  <p style="color: #666; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-top: 15px;">LOADING YOUR JOURNEY...</p>
 </div>
 
 <style>
-  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  @keyframes pulse { 0%, 100% { opacity: 0.8; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1.02); } }
+  @keyframes loadBar { 0% { margin-left: -100%; } 100% { margin-left: 100%; } }
 </style>
 
 <script>
-  // Automatic loader dismiss after 4 seconds
   window.addEventListener('load', () => {
     setTimeout(() => {
       const loader = document.getElementById('preloader');
@@ -234,7 +229,7 @@
         loader.style.opacity = '0';
         setTimeout(() => loader.style.display = 'none', 800);
       }
-    }, 4000);
+    }, 4500);
   });
 </script>
   
