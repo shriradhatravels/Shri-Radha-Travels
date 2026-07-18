@@ -351,3 +351,49 @@ color:#ddd;
 transform:translateY(-10px);
 box-shadow:0 0 25px rgba(212,175,55,.5);
 }
+.hotel{
+padding:100px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:50px;
+background:#000;
+flex-wrap:wrap;
+}
+
+.hotel-content{
+flex:1;
+}
+
+.hotel-content h5{
+color:#d4af37;
+font-size:18px;
+margin-bottom:10px;
+}
+
+.hotel-content h2{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.hotel-content p{
+color:#ddd;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.hotel-btn{
+display:inline-block;
+padding:15px 35px;
+background:#d4af37;
+color:#000;
+border-radius:50px;
+font-weight:700;
+}
+
+.hotel-image img{
+width:100%;
+max-width:500px;
+border-radius:20px;
+border:3px solid #d4af37;
+}
