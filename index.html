@@ -203,43 +203,61 @@
 <body>
 
 <!-- ==========================================
-     PREMIUM PRELOADER (FIXED & AUTOMATED)
+     ULTRA-LUXURY ROYAL PRELOADER (EXTENDED TIME)
      ========================================== -->
-<div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; transition: opacity 0.5s ease; font-family: 'Poppins', sans-serif;">
+<div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #070707; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99999; transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1); font-family: 'Cinzel', 'Playfair Display', serif;">
   
-  <!-- Glowing Golden Ring & Initials -->
-  <div style="position: relative; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center;">
-    <div style="box-sizing: border-box; position: absolute; width: 100%; height: 100%; border: 3px solid transparent; border-top: 3px solid #d4af37; border-radius: 50%; animation: srtSpin 1s linear infinite;"></div>
-    <div style="color: #d4af37; font-size: 22px; font-weight: 700; font-family: 'Playfair Display', serif; letter-spacing: 1px;">SRT</div>
+  <!-- Premium Custom Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Monsieur+La+Douceur&display=swap">
+
+  <!-- Royal Luxury Minimalist Emblem Animation -->
+  <div style="position: relative; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+    <!-- Outer Elegant Glow Ring -->
+    <div style="box-sizing: border-box; position: absolute; width: 100%; height: 100%; border: 1px solid rgba(214,175,55,0.15); border-radius: 50%;"></div>
+    <!-- Spinning Royal Core Accent (Slowed down for elegancy) -->
+    <div style="box-sizing: border-box; position: absolute; width: 100%; height: 100%; border: 2px solid transparent; border-top: 2px solid #d4af37; border-bottom: 2px solid #d4af37; border-radius: 50%; animation: royalSpin 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;"></div>
+    
+    <!-- Central Luxury Logo Monogram -->
+    <div style="color: #d4af37; font-size: 28px; font-weight: 400; font-family: 'Cinzel', serif; letter-spacing: 2px; text-shadow: 0 0 15px rgba(214,175,55,0.4); animation: pulseGlow 2.5s ease-in-out infinite;">SRT</div>
   </div>
 
-  <!-- Brand Title Text -->
-  <h1 style="color: #d4af37; font-size: 26px; font-weight: 700; margin: 20px 0 0 0; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 0 10px rgba(212,175,55,0.3);">
-    Shri Radha Travels
+  <!-- Cursive Aesthetic Tag (Shri) -->
+  <span style="font-family: 'Monsieur La Douceur', cursive; color: rgba(214,175,55,0.85); font-size: 42px; margin-bottom: -18px; transform: rotate(-5deg); letter-spacing: 2px;">Shri</span>
+
+  <!-- Brand Title - Pure Luxury Styling -->
+  <h1 style="color: #d4af37; font-size: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 6px; margin: 10px 0 0 0; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5); font-family: 'Cinzel', serif;">
+    Radha Travels
   </h1>
-  <p style="color: #666; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin: 5px 0 0 0;">Premium Journey Awaits</p>
+  
+  <!-- Elegant Divider Line -->
+  <div style="width: 50px; height: 1px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 15px 0;"></div>
+  
+  <!-- Luxury Subtitle -->
+  <p style="color: #8a8a8a; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 400;">
+    Premium Experiences
+  </p>
 </div>
 
 <style>
-  @keyframes srtSpin {
+  @keyframes royalSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.7; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
   }
 </style>
 
 <script>
-  // Safe Auto-Dismiss Backup System
-  function hideSrtLoader() {
+  // Minimum time to show the luxury loader: 4.5 seconds
+  setTimeout(function() {
     const loader = document.getElementById('preloader');
-    if (loader && loader.style.display !== 'none') {
+    if (loader) {
       loader.style.opacity = '0';
-      setTimeout(() => loader.style.display = 'none', 500);
+      setTimeout(() => loader.style.display = 'none', 800);
     }
-  }
-  // 1. Jab page load ho jaye
-  window.addEventListener('load', hideSrtLoader);
-  // 2. Maximum 2 seconds ka backup timeout (loading par kabhi nahi atkega)
-  setTimeout(hideSrtLoader, 2000);
+  }, 4500);
 </script>
 
 <!-- HERO -->
