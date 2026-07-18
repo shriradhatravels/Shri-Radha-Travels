@@ -262,35 +262,37 @@
 
 <!-- HERO -->
 <!-- ==========================================
-     SHRI RADHA TRAVELS - FULL BOOKING FORM
+     SHRI RADHA TRAVELS - PREMIUM DESTINATION SLIDER
      ========================================== -->
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); padding: 20px;">
+<section id="hero-section" style="min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 20px;">
+  
+  <!-- Automatic Places Slider -->
+  <div class="slider-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; animation: slideShow 15s infinite;"></div>
 
-  <div style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px); border: 1px solid #d4af37; border-radius: 30px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+  <!-- Premium Glassmorphism Card -->
+  <div style="background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); border: 1px solid rgba(212, 175, 55, 0.5); border-radius: 30px; padding: 30px; width: 100%; max-width: 400px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); text-align: center;">
     
-    <div style="text-align: center; margin-bottom: 20px;">
-      <img src="https://i.ibb.co/C5D16EF3/C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5.jpg" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #d4af37;">
-      <h2 style="margin: 10px 0 0; font-family: 'Cinzel', serif;">Shri Radha</h2>
-      <p style="color: #d4af37; font-size: 11px; letter-spacing: 2px; font-weight: bold;">PREMIUM TRAVELS</p>
+    <div style="margin-bottom: 20px;">
+      <img src="https://i.ibb.co/C5D16EF3/C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5.jpg" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #d4af37;">
+      <h2 style="margin: 10px 0 0; font-family: 'Cinzel', serif; color: #333;">Shri Radha</h2>
+      <p style="color: #d4af37; font-size: 11px; letter-spacing: 3px; font-weight: bold;">PREMIUM TRAVELS</p>
     </div>
 
-    <form style="display: flex; flex-direction: column; gap: 10px;">
+    <h3 style="color: #444; font-size: 16px; margin-bottom: 20px;">Book Your Experience</h3>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
       <div style="display: flex; gap: 10px;">
         <button type="button" style="flex: 1; padding: 10px; border: 1px solid #d4af37; background: transparent; border-radius: 8px;">One Way</button>
         <button type="button" style="flex: 1; padding: 10px; border: none; background: #d4af37; color: white; border-radius: 8px;">Round Trip</button>
       </div>
-
-      <input type="text" placeholder="Pickup Location" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
-      <input type="text" placeholder="Drop Location" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
-      
+      <input type="text" name="Pickup" placeholder="Pickup Location" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+      <input type="text" name="Drop" placeholder="Drop Location" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
       <div style="display: flex; gap: 10px;">
-        <input type="date" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
-        <input type="time" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        <input type="date" name="Date" required style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+        <input type="time" name="Time" required style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
       </div>
-
-      <input type="number" placeholder="Number of Passengers" style="padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
-
-      <select style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; background: white;">
+      <input type="number" name="Passengers" placeholder="Number of Passengers" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+      <select name="Vehicle" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; background: white;">
         <option>Select Vehicle Type</option>
         <option>Hatchback - Toyota Glanza</option>
         <option>Sedan - Swift Dzire</option>
@@ -298,11 +300,19 @@
         <option>MPV - Innova Crysta (7+1)</option>
         <option>Tempo Traveller - Urbania</option>
       </select>
-
       <button type="submit" style="padding: 15px; background: #333; color: #d4af37; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px;">Book Now</button>
     </form>
   </div>
 </section>
+
+<style>
+  @keyframes slideShow {
+    0% { background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b') center/cover; }
+    33% { background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover; }
+    66% { background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1') center/cover; }
+    100% { background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b') center/cover; }
+  }
+</style>
 
 
 <script src="script.js"></script>
