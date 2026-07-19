@@ -199,7 +199,20 @@
   });
 </script>
 </head>
-
+<script>
+    const buttons = document.querySelectorAll('button[type="button"]');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            buttons.forEach(btn => {
+                btn.style.background = 'transparent';
+                btn.style.color = '#d4af37';
+                btn.style.border = '1px solid #d4af37';
+            });
+            this.style.background = '#d4af37';
+            this.style.color = 'white';
+        });
+    });
+</script>
 <body>
 
 <!-- ==========================================
