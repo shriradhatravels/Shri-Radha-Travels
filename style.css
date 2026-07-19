@@ -642,3 +642,15 @@ button[type="submit"]:hover {
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
     transform: scale(1.02);
 }
+/* Final Override to stabilize background */
+body {
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.hero {
+    background: rgba(0, 0, 0, 0.4) !important; /* Hero ka background transparent kiya taaki body ka image dikhe */
+}
