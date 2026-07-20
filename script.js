@@ -55,6 +55,25 @@ setInterval(() => {
         container.scrollBy({left: 300, behavior: 'smooth'});
     }
 }, 3000);
+// Trending Locations Carousel Logic
+const scrollContainer = document.getElementById('scrollContainer');
+
+function scrollLeftBtn() {
+    scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+}
+
+function scrollRightBtn() {
+    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+}
+
+// Auto-scroll functionality
+setInterval(() => {
+    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollLeft = 0; // Reset to start
+    } else {
+        scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+}, 3000); // 3 seconds interval
         });
     });
 });
