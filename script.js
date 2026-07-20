@@ -1,3 +1,4 @@
+console.log("Script loaded!");
 // 1. Loading Screen Animation
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
