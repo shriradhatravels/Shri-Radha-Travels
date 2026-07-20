@@ -37,26 +37,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
             // 5. Trending Locations Carousel
-const container = document.getElementById('scrollContainer');
-
-function scrollLeftBtn() {
-    container.scrollBy({left: -300, behavior: 'smooth'});
-}
-
-function scrollRightBtn() {
-    container.scrollBy({left: 300, behavior: 'smooth'});
-}
-
-// Auto-scroll ka logic
-setInterval(() => {
-    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
-        container.scrollLeft = 0;
-    } else {
-        container.scrollBy({left: 300, behavior: 'smooth'});
-    }
-}, 3000);
-// Trending Locations Carousel Logic
-const scrollContainer = document.getElementById('scrollContainer');
+const container = const scrollContainer = document.getElementById('scrollContainer');
 
 function scrollLeftBtn() {
     scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
@@ -69,11 +50,11 @@ function scrollRightBtn() {
 // Auto-scroll functionality
 setInterval(() => {
     if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
-        scrollContainer.scrollLeft = 0; // Reset to start
+        scrollContainer.scrollLeft = 0;
     } else {
         scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
     }
-}, 3000); // 3 seconds interval
+}, 3000);
         });
     });
 });
