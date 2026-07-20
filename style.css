@@ -632,11 +632,39 @@ flex-direction:column;
 
 }
 .trending-section { padding: 40px 20px; background: #f9f9f9; }
-.destinations-container { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    flex-wrap: wrap; 
+.destinations-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dest-card {
+    min-width: 250px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px solid #d4af37;
+}
+
+.carousel-nav {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.carousel-nav button {
+    background: #003399;
+    color: #d4af37;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
 }
 .dest-card { text-align: center; }
 .circle { 
