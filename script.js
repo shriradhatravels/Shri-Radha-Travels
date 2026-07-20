@@ -35,6 +35,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
+            // 5. Trending Locations Carousel
+const container = document.getElementById('scrollContainer');
+
+function scrollLeftBtn() {
+    container.scrollBy({left: -300, behavior: 'smooth'});
+}
+
+function scrollRightBtn() {
+    container.scrollBy({left: 300, behavior: 'smooth'});
+}
+
+// Auto-scroll ka logic
+setInterval(() => {
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+        container.scrollLeft = 0;
+    } else {
+        container.scrollBy({left: 300, behavior: 'smooth'});
+    }
+}, 3000);
         });
     });
 });
