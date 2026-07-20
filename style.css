@@ -652,8 +652,10 @@ flex-direction:column;
 }
 
 .carousel-nav {
-    text-align: center;
-    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .carousel-nav button {
