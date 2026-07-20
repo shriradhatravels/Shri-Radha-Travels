@@ -42,13 +42,21 @@ overflow-x:hidden;
 
 }
 .trending-section { padding: 40px 20px; text-align: center; }
+
 .destinations-container { 
     display: flex; 
-    justify-content: center; 
     gap: 20px; 
-    flex-wrap: wrap; 
+    overflow-x: auto; 
+    padding: 20px; 
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }
-.dest-card { text-align: center; }
+
+.dest-card { 
+    flex: 0 0 auto; 
+    text-align: center; 
+}
 .circle { 
     width: 100px; 
     height: 100px; 
