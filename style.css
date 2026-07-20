@@ -597,3 +597,21 @@ flex-direction:column;
 }
 
 }
+.trending-section { padding: 40px 20px; background: #f9f9f9; }
+.destinations-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+.dest-card { text-align: center; }
+.circle { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background: #e6e6e6; 
+    border: 3px solid #d4af37; /* Gold Border */
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+.circle:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(212,175,55,0.5); }
