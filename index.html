@@ -74,64 +74,59 @@
 
 
 <!-- Booking Form -->
-<section class="booking-section" id="book">
+<!-- Booking Form -->
+<section class="booking-section" id="book" style="display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 20px; padding: 25px; width: 100%; max-width: 400px; border: 2px solid #d4af37; box-sizing: border-box; position: relative;">
+        
+        <h3 style="color: white; font-size: 18px; margin-top: 0; margin-bottom: 20px; text-align: center;">Book Your Experience</h3>
+        
+        <!-- One Way / Round Trip Interactive Buttons -->
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <button type="button" class="trip-btn" style="flex: 1; padding: 12px; border: 1px solid #d4af37; background: #d4af37; color: white; border-radius: 8px; font-weight: bold; cursor: pointer;">One Way</button>
+            <button type="button" class="trip-btn" style="flex: 1; padding: 12px; border: 1px solid #d4af37; background: transparent; color: #d4af37; border-radius: 8px; font-weight: bold; cursor: pointer;">Round Trip</button>
+        </div>
 
-<div class="booking-card">
+        <!-- Form Fields -->
+        <form action="https://formspree.io/f/xkodrkqy" method="POST">
+            <div style="margin-bottom: 12px;">
+                <input type="text" name="Pickup" placeholder="Pickup Location" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <input type="text" name="Drop" placeholder="Drop Location" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px;">
+            </div>
 
-<h2>Book Your Ride</h2>
+            <div style="margin-bottom: 12px;">
+                <select name="Passengers" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333;">
+                    <option value="1">1 Passenger</option>
+                    <option value="2" selected>2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4+ Passengers</option>
+                </select>
+            </div>
 
-<div class="trip-type">
+            <div style="margin-bottom: 15px;">
+                <input type="tel" name="Phone" placeholder="Enter your phone number" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px;">
+            </div>
 
-<button class="active">
-One Way
-</button>
-
-<button>
-Round Trip
-</button>
-
-</div>
-
-<form>
-    <input type="text" placeholder="Pickup Location">
-    <input type="text" placeholder="Drop Location">
-    <input type="date">
-    <input type="time">
-    
-    <!-- Passenger Dropdown -->
-    <select>
-        <option value="" disabled selected>Select Passengers</option>
-        <option>1 Passenger</option>
-        <option>2 Passengers</option>
-        <option>3 Passengers</option>
-        <option>4 Passengers</option>
-        <option>5 Passengers</option>
-        <option>6 Passengers</option>
-        <option>7 Passengers</option>
-        <option>8 Passengers</option>
-        <option>9 Passengers</option>
-        <option>10 Passengers</option>
-        <option>11 Passengers</option>
-        <option>12 Passengers</option>
-    </select>
-
-    <!-- Vehicle Selection Dropdown -->
-    <select>
-        <option value="" disabled selected>Select Vehicle</option>
-        <option>Hatchback - Toyota Glanza</option>
-        <option>Sedan - Swift Dzire</option>
-        <option>SUV - Maruti Ertiga</option>
-        <option>MPV - Innova Crysta (7+1)</option>
-        <option>Tempo Traveller - Urbania</option>
-    </select>
-
-    <input type="tel" placeholder="Phone Number">
-    <button type="submit" class="btn-gold">Book Now</button>
-</form>
-
-</div>
-
+            <button type="submit" style="width: 100%; padding: 12px; background: #d4af37; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                Book Now
+            </button>
+        </form>
+    </div>
 </section>
+
+<!-- Floating WhatsApp & Call Buttons -->
+<div style="position: fixed; right: 20px; bottom: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 12px;">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" style="background: #25d366; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none;">
+        <svg style="width: 30px; height: 30px; fill: white;" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.9-7.01-2.9zm0 1.67c4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24-1.51 0-2.95-.42-4.21-1.21l-.3-.19-3.12.82.83-3.04-.2-.31c-.84-1.34-1.28-2.9-1.28-4.5 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+    </a>
+    <!-- Call Floating Button -->
+    <a href="tel:+91XXXXXXXXXX" style="background: #d4af37; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none;">
+        <svg style="width: 26px; height: 26px; fill: white;" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+</div>
 <!-- Trending Travel Locations -->
 <section class="trending-section">
     <h2>Trending Locations</h2>
