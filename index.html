@@ -74,7 +74,6 @@
 
 
 <!-- Booking Form -->
-<!-- Booking Form -->
 <section class="booking-section" id="book" style="display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
     <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 20px; padding: 25px; width: 100%; max-width: 400px; border: 2px solid #d4af37; box-sizing: border-box; position: relative;">
         
@@ -105,10 +104,96 @@
                 </select>
             </div>
 
-            <div style="margin-bottom: 15px;">
-                <input type="tel" name="Phone" placeholder="Enter your phone number" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px;">
+<!-- Booking Form Section -->
+<section class="booking-section" id="book" style="display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
+    
+    <!-- Input Focus & Toggle Style Script -->
+    <style>
+        .gold-input:focus, .gold-select:focus {
+            background-color: #1e3a8a !important; /* Dark Blue */
+            color: white !important;
+            outline: none;
+        }
+        .gold-input:focus::placeholder {
+            color: #cbd5e1 !important;
+        }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const tripButtons = document.querySelectorAll('.trip-btn');
+        tripButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                tripButtons.forEach(btn => {
+                    btn.style.background = 'transparent';
+                    btn.style.color = '#d4af37';
+                });
+                this.style.background = '#d4af37';
+                this.style.color = 'white';
+            });
+        });
+    });
+    </script>
+
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 20px; padding: 25px; width: 100%; max-width: 400px; border: 2px solid #d4af37; box-sizing: border-box; position: relative;">
+        
+        <h3 style="color: white; font-size: 18px; margin-top: 0; margin-bottom: 20px; text-align: center;">Book Your Experience</h3>
+        
+        <!-- One Way / Round Trip Interactive Buttons -->
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <button type="button" class="trip-btn" style="flex: 1; padding: 12px; border: 1px solid #d4af37; background: #d4af37; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">One Way</button>
+            <button type="button" class="trip-btn" style="flex: 1; padding: 12px; border: 1px solid #d4af37; background: transparent; color: #d4af37; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">Round Trip</button>
+        </div>
+
+        <!-- Form Fields -->
+        <form action="https://formspree.io/f/xkodrkqy" method="POST">
+            <!-- Pickup Location -->
+            <div style="margin-bottom: 12px;">
+                <input type="text" name="Pickup" placeholder="Pickup Location" class="gold-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+            </div>
+            
+            <!-- Drop Location -->
+            <div style="margin-bottom: 12px;">
+                <input type="text" name="Drop" placeholder="Drop Location" class="gold-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
             </div>
 
+            <!-- Passengers Dropdown (1 to 12) -->
+            <div style="margin-bottom: 12px;">
+                <select name="Passengers" class="gold-select" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
+                    <option value="" disabled selected>Select Passengers</option>
+                    <option value="1">1 Passenger</option>
+                    <option value="2">2 Passengers</option>
+                    <option value="3">3 Passengers</option>
+                    <option value="4">4 Passengers</option>
+                    <option value="5">5 Passengers</option>
+                    <option value="6">6 Passengers</option>
+                    <option value="7">7 Passengers</option>
+                    <option value="8">8 Passengers</option>
+                    <option value="9">9 Passengers</option>
+                    <option value="10">10 Passengers</option>
+                    <option value="11">11 Passengers</option>
+                    <option value="12">12 Passengers</option>
+                </select>
+            </div>
+
+            <!-- Vehicle Type Dropdown -->
+            <div style="margin-bottom: 12px;">
+                <select name="Vehicle_Type" class="gold-select" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
+                    <option value="" disabled selected>Select Vehicle Type</option>
+                    <option value="Hatchback - Toyota Glanza">Hatchback - Toyota Glanza</option>
+                    <option value="Sedan - Swift Dzire">Sedan - Swift Dzire</option>
+                    <option value="SUV - Maruti Ertiga">SUV - Maruti Ertiga</option>
+                    <option value="MPV - Innova Crysta 7+1">MPV - Innova Crysta 7+1</option>
+                    <option value="Tempo Traveller - Urbania">Tempo Traveller - Urbania</option>
+                </select>
+            </div>
+
+            <!-- Phone Number -->
+            <div style="margin-bottom: 15px;">
+                <input type="tel" name="Phone" placeholder="Enter your phone number" class="gold-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+            </div>
+
+            <!-- Book Now Button -->
             <button type="submit" style="width: 100%; padding: 12px; background: #d4af37; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">
                 Book Now
             </button>
@@ -116,16 +201,23 @@
     </div>
 </section>
 
-<!-- Floating WhatsApp & Call Buttons -->
-<div style="position: fixed; right: 20px; bottom: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 12px;">
+<!-- Floating Action Buttons -->
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000;">
+    
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" style="background: #25d366; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none;">
-        <svg style="width: 30px; height: 30px; fill: white;" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.9-7.01-2.9zm0 1.67c4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24-1.51 0-2.95-.42-4.21-1.21l-.3-.19-3.12.82.83-3.04-.2-.31c-.84-1.34-1.28-2.9-1.28-4.5 0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+    <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20taxi." target="_blank" style="width: 50px; height: 50px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.068 7.925c0 1.399.366 2.76 1.057 3.965L0 16l4.22-1.107a7.85 7.85 0 0 0 3.772.96h.004c4.363 0 7.926-3.558 7.926-7.93 0-2.11-.822-4.102-2.321-5.627zM7.994 14.521h-.003a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.556 6.556 0 0 1 4.663 1.931 6.558 6.558 0 0 1 1.928 4.65c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.087-.401.089-.088.198-.232.298-.347.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.342l-.381-.007c-.133 0-.348.05-.53.248-.183.199-.7 685-.7 1.665 0 .98 1.07 1.93 1.22 2.13.15.198 2.106 3.214 5.102 4.505.714.308 1.27.493 1.704.634.714.228 1.362.195 1.875.118.571-.085 1.17-.478 1.335-.943.165-.465.165-.864.115-.943-.05-.079-.182-.128-.38-.228z"/>
+        </svg>
     </a>
+
     <!-- Call Floating Button -->
-    <a href="tel:+91XXXXXXXXXX" style="background: #d4af37; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none;">
-        <svg style="width: 26px; height: 26px; fill: white;" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <a href="tel:+916280544730" style="width: 50px; height: 50px; background-color: #d4af37; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.748 1.748 0 0 1-1.657-.459L5.482 8.062a1.748 1.748 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .643.178l2.19-.547c.52-.13 1.072.014 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.363-1.03-.038-2.137.702-2.877L1.884.511z"/>
+        </svg>
     </a>
+
 </div>
 <!-- Trending Travel Locations -->
 <section class="trending-section">
