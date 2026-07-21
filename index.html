@@ -20,8 +20,8 @@
 <!-- Navbar -->
 
 <!-- Hero Section -->
-<!-- Hero & Booking Combined Section -->
-<section class="hero" id="home" style="position: relative; padding: 15px 15px 10px 15px; box-sizing: border-box; width: 100%;">
+<!-- Hero Section -->
+<section class="hero" id="home" style="position: relative; padding: 15px 15px 5px 15px; box-sizing: border-box; width: 100%;">
     
     <div class="hero-slider" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
         <div class="slide active" style="width: 100%; height: 100%; background-size: cover; background-position: center;"></div>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Blue Heading Box -->
-    <div class="hero-content" style="position: relative; z-index: 10; width: 100%; max-width: 400px; margin: 0 auto 15px auto; background: rgba(30, 58, 138, 0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 2px solid #d4af37; border-radius: 16px; padding: 15px 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); text-align: left; box-sizing: border-box;">
+    <div class="hero-content" style="position: relative; z-index: 10; width: 100%; max-width: 400px; margin: 0 auto; background: rgba(30, 58, 138, 0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 2px solid #d4af37; border-radius: 16px; padding: 15px 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); text-align: left; box-sizing: border-box;">
         
         <h1 style="font-size: clamp(22px, 4vw, 28px); font-weight: 800; color: white; margin: 0; line-height: 1.2; letter-spacing: 0.5px;">
             Shri Radha <span style="color: #d4af37; display: inline-block;">Travels</span>
@@ -44,13 +44,12 @@
     </div>
 </section>
 
-<!-- Booking Form Section -->
-<section class="booking-section" id="book" style="display: flex; justify-content: center; align-items: center; padding: 0 15px 30px 15px; position: relative; z-index: 10;">
+<!-- Booking Form Section (Moved Up) -->
+<section class="booking-section" id="book" style="display: flex; justify-content: center; align-items: center; padding: 5px 15px 20px 15px; position: relative; z-index: 10;">
     
-    <!-- Input Focus & Toggle Style Script -->
     <style>
         .gold-input:focus, .gold-select:focus {
-            background-color: #1e3a8a !important; /* Dark Blue */
+            background-color: #1e3a8a !important;
             color: white !important;
             outline: none;
         }
@@ -75,31 +74,31 @@
     });
     </script>
 
-    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 20px; padding: 20px; width: 100%; max-width: 400px; border: 2px solid #d4af37; box-sizing: border-box; position: relative;">
+    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 20px; padding: 18px; width: 100%; max-width: 400px; border: 2px solid #d4af37; box-sizing: border-box; position: relative;">
         
-        <h3 style="color: white; font-size: 18px; margin-top: 0; margin-bottom: 15px; text-align: center;">Book Your Experience</h3>
+        <h3 style="color: white; font-size: 18px; margin-top: 0; margin-bottom: 12px; text-align: center;">Book Your Experience</h3>
         
         <!-- One Way / Round Trip Interactive Buttons -->
-        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
-            <button type="button" class="trip-btn" style="flex: 1; padding: 10px; border: 1px solid #d4af37; background: #d4af37; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">One Way</button>
-            <button type="button" class="trip-btn" style="flex: 1; padding: 10px; border: 1px solid #d4af37; background: transparent; color: #d4af37; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">Round Trip</button>
+        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+            <button type="button" class="trip-btn" style="flex: 1; padding: 8px; border: 1px solid #d4af37; background: #d4af37; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">One Way</button>
+            <button type="button" class="trip-btn" style="flex: 1; padding: 8px; border: 1px solid #d4af37; background: transparent; color: #d4af37; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">Round Trip</button>
         </div>
 
         <!-- Form Fields -->
         <form action="https://formspree.io/f/xkodrkqy" method="POST">
             <!-- Pickup Location -->
-            <div style="margin-bottom: 10px;">
-                <input type="text" name="Pickup" placeholder="Pickup Location" class="gold-input" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+            <div style="margin-bottom: 8px;">
+                <input type="text" name="Pickup" placeholder="Pickup Location" class="gold-input" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
             </div>
             
             <!-- Drop Location -->
-            <div style="margin-bottom: 10px;">
-                <input type="text" name="Drop" placeholder="Drop Location" class="gold-input" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+            <div style="margin-bottom: 8px;">
+                <input type="text" name="Drop" placeholder="Drop Location" class="gold-input" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
             </div>
 
-            <!-- Passengers Dropdown (1 to 12) -->
-            <div style="margin-bottom: 10px;">
-                <select name="Passengers" class="gold-select" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
+            <!-- Passengers Dropdown -->
+            <div style="margin-bottom: 8px;">
+                <select name="Passengers" class="gold-select" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
                     <option value="" disabled selected>Select Passengers</option>
                     <option value="1">1 Passenger</option>
                     <option value="2">2 Passengers</option>
@@ -117,8 +116,8 @@
             </div>
 
             <!-- Vehicle Type Dropdown -->
-            <div style="margin-bottom: 10px;">
-                <select name="Vehicle_Type" class="gold-select" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
+            <div style="margin-bottom: 8px;">
+                <select name="Vehicle_Type" class="gold-select" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
                     <option value="" disabled selected>Select Vehicle Type</option>
                     <option value="Hatchback - Toyota Glanza">Hatchback - Toyota Glanza</option>
                     <option value="Sedan - Swift Dzire">Sedan - Swift Dzire</option>
@@ -129,8 +128,8 @@
             </div>
 
             <!-- Phone Number -->
-            <div style="margin-bottom: 12px;">
-                <input type="tel" name="Phone" placeholder="Enter your phone number" class="gold-input" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+            <div style="margin-bottom: 10px;">
+                <input type="tel" name="Phone" placeholder="Enter your phone number" class="gold-input" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
             </div>
 
             <!-- Book Now Button -->
