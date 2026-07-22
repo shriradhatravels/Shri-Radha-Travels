@@ -82,13 +82,13 @@
             z-index: 10;
         }
 
-        /* Premium Glass/Card Box Container */
+        /* Dark Premium Card Box Container */
         .places-card-box {
-            background: #ffffff;
-            color: #1e293b;
+            background: #131b2e;
+            color: #fff;
             border-radius: 24px;
             padding: 22px 18px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             border: 1px solid rgba(212, 175, 55, 0.3);
             animation: fadeIn 0.8s ease;
         }
@@ -98,13 +98,13 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 18px;
-            border-bottom: 2px solid #f1f5f9;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 12px;
         }
 
         .section-header h2 {
             font-size: 1.2rem;
-            color: #0b0f19;
+            color: #fff;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -115,25 +115,25 @@
             color: #d4af37;
         }
 
-        /* Individual Attraction Card Style */
+        /* Individual Attraction Card Style in Dark Mode */
         .place-item {
             display: flex;
             align-items: flex-start;
             gap: 14px;
             padding: 14px 12px;
             margin-bottom: 10px;
-            background: #f8fafc;
+            background: #1a233a;
             border-radius: 14px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(212, 175, 55, 0.15);
             transition: all 0.3s ease;
             animation: slideUp 0.5s ease both;
         }
 
         .place-item:hover {
             border-color: #d4af37;
-            background: #fffdf4;
+            background: #1e2946;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
 
         /* Staggered entrance animation index-wise */
@@ -146,8 +146,8 @@
         .place-item:nth-child(7) { animation-delay: 0.35s; }
 
         .place-number {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            color: #b45309;
+            background: linear-gradient(135deg, #d4af37, #aa8c2c);
+            color: #0b0f19;
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -157,19 +157,19 @@
             font-weight: 700;
             font-size: 0.85rem;
             flex-shrink: 0;
-            box-shadow: 0 2px 6px rgba(180, 83, 9, 0.2);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
         }
 
         .place-info h3 {
             font-size: 0.95rem;
-            color: #0f172a;
+            color: #fff;
             font-weight: 600;
             margin-bottom: 2px;
         }
 
         .place-info p {
             font-size: 0.8rem;
-            color: #64748b;
+            color: #94a3b8;
             line-height: 1.35;
         }
 
@@ -249,7 +249,7 @@
         <div class="places-card-box">
             <div class="section-header">
                 <h2><i class="fa-solid fa-map-location-dot"></i> Places to Visit</h2>
-                <span id="places-count" style="font-size: 0.8rem; color: #b45309; font-weight: 600; background: #fef3c7; padding: 4px 10px; border-radius: 20px;">Top attractions</span>
+                <span id="places-count" style="font-size: 0.8rem; color: #d4af37; font-weight: 600; background: rgba(212, 175, 55, 0.15); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Top attractions</span>
             </div>
 
             <div id="places-list">
@@ -265,7 +265,6 @@
     </div>
 
     <script>
-        // Comprehensive database containing all famous attractions for each destination
         const destinationData = {
             "shimla": [
                 { name: "Jakhu Temple", desc: "Hilltop Hanuman temple featuring a giant statue and panoramic views of Shimla." },
@@ -340,16 +339,13 @@
             ]
         };
 
-        // Get place from URL
         const params = new URLSearchParams(window.location.search);
         const placeKey = params.get('place') ? params.get('place').toLowerCase() : 'shimla';
         const formattedTitle = placeKey.replace(/-/g, ' ');
 
-        // Set title and heading
         document.getElementById('place-name').innerText = formattedTitle;
         document.title = `${formattedTitle} - Shri Radha Travels`;
 
-        // Populate dynamic places list
         const placesContainer = document.getElementById('places-list');
         const selectedPlaces = destinationData[placeKey] || destinationData['shimla'];
 
