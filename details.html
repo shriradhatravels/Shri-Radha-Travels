@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destination Details - Shri Radha Travels</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Playball & Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -29,7 +29,6 @@
             color: var(--text-main);
             min-height: 100vh;
             padding: 20px;
-            background-image: radial-gradient(circle at 50% 0%, #1a233a 0%, var(--bg-color) 70%);
         }
 
         .container {
@@ -37,31 +36,29 @@
             margin: 0 auto;
         }
 
-        /* Header Navigation */
+        /* Original Header Style */
         .nav-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding: 10px 0;
-            border-bottom: 1px solid var(--border-gold);
         }
 
         .brand-title {
             font-family: 'Playball', cursive;
             color: var(--gold);
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .home-btn {
-            background: var(--card-bg);
+            background: transparent;
             border: 1px solid var(--border-gold);
             color: var(--gold-light);
-            padding: 8px 18px;
+            padding: 6px 16px;
             border-radius: 30px;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
             transition: all 0.3s ease;
         }
 
@@ -70,71 +67,56 @@
             color: var(--bg-color);
         }
 
-        /* Destination Detail Card */
+        /* Original Top Card Style */
         .detail-card {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
             border: 1px solid var(--border-gold);
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            margin-bottom: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
         }
 
         .destination-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 600;
-            color: var(--gold-light);
-            margin-bottom: 15px;
+            color: var(--gold);
+            margin-bottom: 12px;
         }
 
         .destination-desc {
-            font-size: 16px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.7;
             color: var(--text-muted);
-            margin-bottom: 25px;
         }
 
-        /* Unique Luxury CTA Section */
+        /* Newly Styled Unique Bottom CTA Section */
         .cta-box {
-            background: linear-gradient(135deg, rgba(26, 35, 58, 0.9) 0%, rgba(10, 14, 26, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(26, 35, 58, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%);
             border: 1px solid var(--gold);
             border-radius: 20px;
-            padding: 35px 25px;
+            padding: 30px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .cta-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
         .cta-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--gold);
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
         .cta-subtitle {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -143,37 +125,36 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
+            gap: 8px;
+            padding: 12px 24px;
             border-radius: 50px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .btn-call {
-            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+            background: var(--gold);
             color: #060913;
             border: none;
         }
 
         .btn-call:hover {
+            opacity: 0.9;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
 
         .btn-whatsapp {
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            background: #25d366;
             color: #ffffff;
             border: none;
         }
 
         .btn-whatsapp:hover {
+            opacity: 0.9;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
 
         @media (max-width: 480px) {
@@ -195,15 +176,15 @@
             <a href="index.html" class="home-btn">← Home</a>
         </header>
 
-        <!-- Dynamic Content Section -->
+        <!-- Destination Detail Card (Original Look Preserved) -->
         <main class="detail-card">
-            <h1 class="destination-title" id="dest-title">Royal Destination Experience</h1>
+            <h1 class="destination-title" id="dest-title">Destination Details</h1>
             <p class="destination-desc" id="dest-desc">
-                Immerse yourself in breathtaking landscapes, curated luxury travel itineraries, and world-class hospitality tailored exclusively for your royal getaway with Shri Radha Travels.
+                Loading destination details...
             </p>
         </main>
 
-        <!-- Unique Luxury Conversion / CTA Section -->
+        <!-- Unique Bottom CTA Section with Call & WhatsApp -->
         <section class="cta-box">
             <h2 class="cta-title">Curate Your Royal Journey Today</h2>
             <p class="cta-subtitle">
@@ -211,10 +192,10 @@
             </p>
             <div class="cta-buttons">
                 <a href="tel:+919876543210" class="btn btn-call">
-                    📞 Connect with Concierge
+                    📞 Call Now to Book
                 </a>
                 <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20would%20like%20to%20customize%20a%20luxury%20tour%20package." target="_blank" class="btn btn-whatsapp">
-                    💬 Instant WhatsApp Inquiry
+                    💬 WhatsApp Inquiry
                 </a>
             </div>
         </section>
@@ -227,12 +208,12 @@
 
         const destinationsData = {
             'atal-tunnel': {
-                title: 'Atal Tunnel & High Altitude Marvel',
-                desc: 'Experience the engineering marvel connecting grandeur through majestic snow-capped peaks, offering a seamless luxury drive amidst pristine Himalayan landscapes.'
+                title: 'Atal Tunnel',
+                desc: 'Engineering marvel connecting Manali to Lahaul-Spiti through high altitude.'
             },
             'vashisht': {
                 title: 'Vashisht Hot Water Springs',
-                desc: 'Rejuvenate your senses in natural therapeutic sulphur springs imbued with historical heritage and surrounded by serene pine-covered valley views.'
+                desc: 'Natural sulphur springs known for their traditional medicinal and healing properties.'
             }
         };
 
