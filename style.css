@@ -705,4 +705,4 @@ flex-direction:column;
     margin-bottom: 10px;
     transition: 0.3s;
 }
-.circle:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(212,175,55,0.5); }
+.circle:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(212,175,55,0.5); } 
