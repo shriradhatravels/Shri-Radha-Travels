@@ -287,6 +287,41 @@ window.addEventListener("load", function() {
         <button onclick="scrollRightBtn()">&#8594;</button>
     </div>
 </section>
+</section> <!-- Line 289 -->
+
+<!-- YAHAN APNA JAVASCRIPT PASTE KAREIN -->
+<script>
+    const scrollContainer = document.getElementById("scrollContainer");
+
+    function scrollLeftBtn() {
+        if (scrollContainer) {
+            scrollContainer.scrollBy({ left: -250, behavior: 'smooth' });
+        }
+    }
+
+    function scrollRightBtn() {
+        if (scrollContainer) {
+            scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+        }
+    }
+
+    let autoScroll = setInterval(() => {
+        if (scrollContainer) {
+            if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
+                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+            }
+        }
+    }, 3000);
+
+    if (scrollContainer) {
+        scrollContainer.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    }
+</script>
+
+<!-- Amazing Tour Places Section -->
+<section class="destinations-section"...> <!-- Line 291 -->
 <!-- Amazing Tour Places Section -->
 <section class="destinations-section" style="padding: 40px 20px; text-align: center;">
     <div style="margin-bottom: 30px;">
