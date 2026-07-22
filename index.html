@@ -14,8 +14,6 @@
 </head>
 
 <body>
-    
-    
 
 <!-- Loading Screen with Logo Animation -->
 <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0b0f19; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.6s ease, visibility 0.6s ease;">
@@ -62,24 +60,19 @@ window.addEventListener("load", function() {
     }, 800);
 });
 </script>
-<!-- Top Heading Section (Directly under Navbar) -->
-<section id="home" style="padding: 25px 15px 15px 15px; background: #f4f6f9; display: flex; justify-content: center; align-items: center;">
-    
-    <!-- Blue Heading Box -->
-    <div style="width: 100%; max-width: 400px; background: rgba(30, 58, 138, 0.95); border: 2px solid #d4af37; border-radius: 12px; padding: 15px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left;">
-        <h1 style="font-size: 24px; font-weight: 800; color: white; margin: 0; line-height: 1.2;">
-            Shri Radha <span style="color: #d4af37;">Travels</span>
-        </h1>
-        <div style="width: 40px; height: 3px; background: #d4af37; margin: 8px 0; border-radius: 2px;"></div>
-        <p style="font-size: 13px; color: #e2e8f0; margin: 0; font-weight: 500; line-height: 1.4;">
-            ✨ Experience Ultimate Luxury • Verified Chauffeurs • 24/7 Outstation & Tour Packages
-        </p>
-    </div>
-    
-</section>
 
+<!-- Shri Radha Travels Blue Heading Box (Above Booking Form) -->
+<div style="width: 100%; max-width: 420px; margin: 15px auto 10px auto; background: rgba(30, 58, 138, 0.95); border: 2px solid #d4af37; border-radius: 14px; padding: 15px 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); text-align: left; box-sizing: border-box;">
+    <h1 style="font-size: 24px; font-weight: 800; color: white; margin: 0; line-height: 1.2;">
+        Shri Radha <span style="color: #d4af37;">Travels</span>
+    </h1>
+    <div style="width: 40px; height: 3px; background: #d4af37; margin: 8px 0; border-radius: 2px;"></div>
+    <p style="font-size: 13px; color: #e2e8f0; margin: 0; font-weight: 500; line-height: 1.4;">
+        ✨ Experience Ultimate Luxury • Verified Chauffeurs • 24/7 Outstation & Tour Packages
+    </p>
+</div>
 
-<!-- Booking Form Section (Moved Up) -->
+<!-- Booking Form Section -->
 <section class="booking-section" id="book" style="display: flex; justify-content: center; align-items: center; padding: 5px 15px 20px 15px; position: relative; z-index: 10;">
     
     <style>
@@ -174,44 +167,46 @@ window.addEventListener("load", function() {
         </form>
     </div>
 </section>
-<!-- Glassy Places Slider (Directly Below Booking Form) -->
-<section style="margin: 20px 15px 40px 15px; padding: 15px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 16px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);">
+
+<!-- Modern Floating Action Buttons (WhatsApp, Call, Scroll-to-Top Stacked) -->
+<div style="position: fixed; bottom: 25px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; align-items: flex-end;">
     
-    <h3 style="text-align: center; color: #0b0f19; font-size: 16px; margin-top: 0; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Trending Destinations</h3>
-    
-    <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 5px; scroll-behavior: smooth;">
-        
-        
-<!-- Floating Action Buttons -->
-<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000;">
-    
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20taxi." target="_blank" style="width: 50px; height: 50px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.068 7.925c0 1.399.366 2.76 1.057 3.965L0 16l4.22-1.107a7.85 7.85 0 0 0 3.772.96h.004c4.363 0 7.926-3.558 7.926-7.93 0-2.11-.822-4.102-2.321-5.627zM7.994 14.521h-.003a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.556 6.556 0 0 1 4.663 1.931 6.558 6.558 0 0 1 1.928 4.65c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.087-.401.089-.088.198-.232.298-.347.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.342l-.381-.007c-.133 0-.348.05-.53.248-.183.199-.7 685-.7 1.665 0 .98 1.07 1.93 1.22 2.13.15.198 2.106 3.214 5.102 4.505.714.308 1.27.493 1.704.634.714.228 1.362.195 1.875.118.571-.085 1.17-.478 1.335-.943.165-.465.165-.864.115-.943-.05-.079-.182-.128-.38-.228z"/>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20taxi." target="_blank" style="width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.068 7.925c0 1.399.366 2.76 1.057 3.965L0 16l4.22-1.107a7.85 7.85 0 0 0 3.772.96h.004c4.363 0 7.926-3.558 7.926-7.93 0-2.11-.822-4.102-2.321-5.627zM7.994 14.521h-.003a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.556 6.556 0 0 1 4.663 1.931 6.558 6.558 0 0 1 1.928 4.65c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.087-.401.089-.088.198-.232.298-.347.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.342l-.381-.007c-.133 0-.348.05-.53.248-.183.199-.7.685-.7 1.665 0 .98 1.07 1.93 1.22 2.13.15.198 2.106 3.214 5.102 4.505.714.308 1.27.493 1.704.634.714.228 1.362.195 1.875.118.571-.085 1.17-.478 1.335-.943.165-.465.165-.864.115-.943-.05-.079-.182-.128-.38-.228z"/>
         </svg>
     </a>
 
-    <!-- Call Floating Button -->
-    <a href="tel:+916280544730" style="width: 50px; height: 50px; background-color: #d4af37; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16">
+    <!-- Call Button -->
+    <a href="tel:+916280544730" style="width: 54px; height: 54px; background: #eab308; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(234,179,8,0.4); text-decoration: none; transition: transform 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 16 16">
             <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.748 1.748 0 0 1-1.657-.459L5.482 8.062a1.748 1.748 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .643.178l2.19-.547c.52-.13 1.072.014 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.363-1.03-.038-2.137.702-2.877L1.884.511z"/>
         </svg>
     </a>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="width: 48px; height: 48px; background: #f97316; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(249,115,22,0.4); text-decoration: none; transition: transform 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+    </a>
+
 </div>
+
 <!-- Trending Travel Locations -->
 <section class="trending-section">
     <h2>Trending Locations</h2>
     <div class="destinations-container" id="scrollContainer">
         <a href="destination-detail.html?place=Shimla" style="text-decoration: none; color: inherit;"><div class="dest-card">Shimla</div></a>
-<a href="destination-detail.html?place=Manali" style="text-decoration: none; color: inherit;"><div class="dest-card">Manali</div></a>
-<a href="destination-detail.html?place=Spiti-Valley" style="text-decoration: none; color: inherit;"><div class="dest-card">Spiti Valley</div></a>
-<a href="destination-detail.html?place=Dalhousie" style="text-decoration: none; color: inherit;"><div class="dest-card">Dalhousie</div></a>
-<a href="destination-detail.html?place=Dehradun" style="text-decoration: none; color: inherit;"><div class="dest-card">Dehradun</div></a>
-<a href="destination-detail.html?place=Delhi" style="text-decoration: none; color: inherit;"><div class="dest-card">Delhi</div></a>
-<a href="destination-detail.html?place=Amritsar" style="text-decoration: none; color: inherit;"><div class="dest-card">Amritsar</div></a>
-<a href="destination-detail.html?place=Mussoorie" style="text-decoration: none; color: inherit;"><div class="dest-card">Mussoorie</div></a>
-<a href="destination-detail.html?place=Jaipur" style="text-decoration: none; color: inherit;"><div class="dest-card">Jaipur</div></a>
+        <a href="destination-detail.html?place=Manali" style="text-decoration: none; color: inherit;"><div class="dest-card">Manali</div></a>
+        <a href="destination-detail.html?place=Spiti-Valley" style="text-decoration: none; color: inherit;"><div class="dest-card">Spiti Valley</div></a>
+        <a href="destination-detail.html?place=Dalhousie" style="text-decoration: none; color: inherit;"><div class="dest-card">Dalhousie</div></a>
+        <a href="destination-detail.html?place=Dehradun" style="text-decoration: none; color: inherit;"><div class="dest-card">Dehradun</div></a>
+        <a href="destination-detail.html?place=Delhi" style="text-decoration: none; color: inherit;"><div class="dest-card">Delhi</div></a>
+        <a href="destination-detail.html?place=Amritsar" style="text-decoration: none; color: inherit;"><div class="dest-card">Amritsar</div></a>
+        <a href="destination-detail.html?place=Mussoorie" style="text-decoration: none; color: inherit;"><div class="dest-card">Mussoorie</div></a>
+        <a href="destination-detail.html?place=Jaipur" style="text-decoration: none; color: inherit;"><div class="dest-card">Jaipur</div></a>
     </div>
     <div class="carousel-nav">
         <button onclick="scrollLeftBtn()">&#8592;</button>
