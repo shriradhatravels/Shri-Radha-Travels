@@ -68,3 +68,20 @@ setInterval(() => {
         }
     }
 }, 3000);
+function toggleMoreDestinations() {
+    const hiddenCards = document.querySelectorAll('.hidden-card');
+    const btn = document.getElementById('explore-more-btn');
+
+    if (hiddenCards[0].style.display === 'none' || hiddenCards[0].style.display === '') {
+        hiddenCards.forEach(card => {
+            card.style.display = 'flex';
+        });
+        btn.innerHTML = 'Show Less <span>⬆</span>';
+    } else {
+        hiddenCards.forEach(card => {
+            card.style.display = 'none';
+        });
+        btn.innerHTML = 'Explore more <span style="font-size: 18px;">➔</span>';
+        document.querySelector('.destinations-section').scrollIntoView({ behavior: 'smooth' });
+    }
+}
