@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destination Details - Shri Radha Travels</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #060913;
+            --card-bg: rgba(18, 24, 38, 0.7);
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,438 +25,221 @@
         }
 
         body {
-            background-color: #060913;
-            color: #fff;
-            line-height: 1.6;
-            padding-bottom: 50px;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at 50% 0%, #1a233a 0%, var(--bg-color) 70%);
         }
 
-        /* Top Navigation Bar */
-        .top-bar {
-            background: rgba(6, 9, 19, 0.85);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            color: #fff;
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .top-bar span {
-            font-weight: 600;
-            background: linear-gradient(135deg, #fff 30%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 0.95rem;
-        }
-
-        .top-bar a {
-            color: #d4af37;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            background: rgba(212, 175, 55, 0.1);
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.3s;
-        }
-
-        .top-bar a:hover {
-            background: rgba(212, 175, 55, 0.2);
-        }
-
-        /* Hero Banner */
-        .hero-banner {
-            height: 300px;
-            background: linear-gradient(to bottom, rgba(6, 9, 19, 0.2), rgba(6, 9, 19, 0.95) 90%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px 30px 20px;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
-            position: relative;
-        }
-
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(to top, #060913, transparent);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-banner h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 4px;
-            text-transform: capitalize;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-            background: linear-gradient(135deg, #ffd700 20%, #ffaa00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        .hero-banner p {
-            font-size: 0.88rem;
-            max-width: 500px;
-            color: #94a3b8;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        /* Container & Cards Wrapper */
         .container {
-            max-width: 500px;
-            margin: -15px auto 0 auto;
-            padding: 0 15px;
-            position: relative;
-            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .places-card-box {
-            background: rgba(19, 27, 46, 0.75);
-            backdrop-filter: blur(20px);
-            color: #fff;
-            border-radius: 28px;
-            padding: 24px 16px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            animation: fadeIn 0.8s ease;
-        }
-
-        .section-header {
+        /* Header Navigation */
+        .nav-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 14px;
+            margin-bottom: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-gold);
         }
 
-        .section-header h2 {
-            font-size: 1.2rem;
-            color: #fff;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: 0.3px;
+        .brand-title {
+            font-family: 'Playball', cursive;
+            color: var(--gold);
+            font-size: 24px;
         }
 
-        .section-header h2 i {
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.15);
-            padding: 8px;
-            border-radius: 12px;
-            font-size: 1rem;
-        }
-
-        .badge-count {
-            font-size: 0.78rem;
-            color: #ffd700;
-            font-weight: 600;
-            background: rgba(212, 175, 55, 0.12);
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            letter-spacing: 0.3px;
-        }
-
-        /* Gorgeous Attraction Card Style */
-        .place-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 16px 14px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, rgba(26, 35, 58, 0.9), rgba(15, 23, 42, 0.95));
-            border-radius: 18px;
-            border: 1px solid rgba(212, 175, 55, 0.18);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: slideUp 0.6s ease both;
-        }
-
-        .place-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: linear-gradient(to bottom, #d4af37, transparent);
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .place-item:hover {
-            border-color: rgba(212, 175, 55, 0.6);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
-            background: linear-gradient(135deg, rgba(34, 46, 75, 0.95), rgba(19, 27, 46, 0.98));
-        }
-
-        .place-item:hover::before {
-            opacity: 1;
-        }
-
-        /* Staggered entrance animation */
-        .place-item:nth-child(1) { animation-delay: 0.05s; }
-        .place-item:nth-child(2) { animation-delay: 0.1s; }
-        .place-item:nth-child(3) { animation-delay: 0.15s; }
-        .place-item:nth-child(4) { animation-delay: 0.2s; }
-        .place-item:nth-child(5) { animation-delay: 0.25s; }
-        .place-item:nth-child(6) { animation-delay: 0.3s; }
-        .place-item:nth-child(7) { animation-delay: 0.35s; }
-
-        .place-number {
-            background: linear-gradient(135deg, #ffd700, #d4af37);
-            color: #060913;
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            font-size: 0.85rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-        }
-
-        .place-info h3 {
-            font-size: 0.98rem;
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 3px;
-            letter-spacing: 0.2px;
-        }
-
-        .place-info p {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            line-height: 1.4;
-        }
-
-        /* Call To Action Box */
-        .cta-box {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0b0f19 100%);
-            color: #fff;
-            padding: 26px 20px;
-            border-radius: 22px;
-            text-align: center;
-            margin-top: 25px;
-            border: 1.5px solid rgba(212, 175, 55, 0.5);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-box h3 {
-            color: #ffd700;
-            margin-bottom: 6px;
-            font-size: 1.15rem;
-            font-weight: 700;
-        }
-
-        .cta-box p {
-            font-size: 0.82rem;
-            color: #cbd5e1;
-            margin-bottom: 18px;
-        }
-
-        .btn-book {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
-            color: #060913;
-            padding: 12px 30px;
-            font-size: 0.95rem;
-            font-weight: 700;
+        .home-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-light);
+            padding: 8px 18px;
             border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
-            transition: 0.3s ease;
-            letter-spacing: 0.3px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .btn-book:hover {
+        .home-btn:hover {
+            background: var(--gold);
+            color: var(--bg-color);
+        }
+
+        /* Destination Detail Card */
+        .detail-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .destination-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+        }
+
+        .destination-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* Unique Luxury CTA Section */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(26, 35, 58, 0.9) 0%, rgba(10, 14, 26, 0.95) 100%);
+            border: 1px solid var(--gold);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+            color: #060913;
+            border: none;
+        }
+
+        .btn-call:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.65);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #ffffff;
+            border: none;
         }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 480px) {
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <span>✨ Shri Radha Travels</span>
-        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
-    </div>
-
-    <div class="hero-banner">
-        <div class="hero-content">
-            <h1 id="place-name">Loading...</h1>
-            <p>Explore elite tourist attractions with private luxury cabs & verified chauffeurs.</p>
-        </div>
-    </div>
-
     <div class="container">
-        <div class="places-card-box">
-            <div class="section-header">
-                <h2><i class="fa-solid fa-map-location-dot"></i> Places to Visit</h2>
-                <span id="places-count" class="badge-count">Top attractions</span>
-            </div>
+        <!-- Navigation Header -->
+        <header class="nav-header">
+            <div class="brand-title">✨ Shri Radha Travels</div>
+            <a href="index.html" class="home-btn">← Home</a>
+        </header>
 
-            <div id="places-list">
-                <!-- Data will load dynamically -->
-            </div>
-        </div>
+        <!-- Dynamic Content Section -->
+        <main class="detail-card">
+            <h1 class="destination-title" id="dest-title">Royal Destination Experience</h1>
+            <p class="destination-desc" id="dest-desc">
+                Immerse yourself in breathtaking landscapes, curated luxury travel itineraries, and world-class hospitality tailored exclusively for your royal getaway with Shri Radha Travels.
+            </p>
+        </main>
 
-        <div class="cta-box">
-            <h3>Ready to Experience This Luxury?</h3>
-            <p>Book your tailor-made custom tour package today with Shri Radha Travels.</p>
-            <a href="tel:+916280544730" class="btn-book"><i class="fa-solid fa-phone"></i> Call Now to Book</a>
-        </div>
+        <!-- Unique Luxury Conversion / CTA Section -->
+        <section class="cta-box">
+            <h2 class="cta-title">Curate Your Royal Journey Today</h2>
+            <p class="cta-subtitle">
+                Allow our elite travel concierges to craft a bespoke, tailor-made itinerary designed exclusively for your royal retreat.
+            </p>
+            <div class="cta-buttons">
+                <a href="tel:+919876543210" class="btn btn-call">
+                    📞 Connect with Concierge
+                </a>
+                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20would%20like%20to%20customize%20a%20luxury%20tour%20package." target="_blank" class="btn btn-whatsapp">
+                    💬 Instant WhatsApp Inquiry
+                </a>
+            </div>
+        </section>
     </div>
 
     <script>
-        const destinationData = {
-            "shimla": [
-                { name: "Jakhu Temple", desc: "Hilltop Hanuman temple featuring a giant statue and panoramic views of Shimla." },
-                { name: "Mall Road", desc: "Shimla's lively heart lined with heritage shops, fine cafes, and colonial-era charm." },
-                { name: "Indian Institute of Advanced Study", desc: "Historic academic landmark set inside a magnificent Victorian-era British building." },
-                { name: "Chadwick Falls", desc: "A serene and refreshing waterfall tucked away amidst dense deodar forests." },
-                { name: "Kufri", desc: "Scenic hill station famous for thrilling winter sports, yak rides, and snow views." },
-                { name: "Christ Church", desc: "Second oldest church in North India known for its neo-Gothic architecture." },
-                { name: "Scandal Point", desc: "Historic square where Mall Road meets Ridge road with stunning sunset views." }
-            ],
-            "manali": [
-                { name: "Solang Valley", desc: "Hub for adventure sports like paragliding, zorbing, and breathtaking snow peaks." },
-                { name: "Rohtang Pass", desc: "High mountain pass offering majestic glacier views and year-round snow landscapes." },
-                { name: "Hadimba Temple", desc: "Ancient wooden temple uniquely built inside a quiet, dense dhungri van cedar forest." },
-                { name: "Old Manali", desc: "Charming village vibe filled with aesthetic cafes, live music, and apple orchards." },
-                { name: "Jogini Waterfalls", desc: "A scenic trekking trail leading to a pristine, cascading waterfall stream." },
-                { name: "Vashisht Hot Water Springs", desc: "Natural sulphur springs known for their traditional medicinal and healing properties." },
-                { name: "Atal Tunnel", desc: "Engineering marvel connecting Manali to Lahaul-Spiti through high altitude." }
-            ],
-            "spiti-valley": [
-                { name: "Key Monastery", desc: "Famed Tibetan Buddhist monastery perched high on a conical hill overlooking the river." },
-                { name: "Chandratal Lake", desc: "Mesmerizing high-altitude crescent lake reflecting crystal clear blue skies." },
-                { name: "Kaza", desc: "The vibrant commercial hub of Spiti surrounded by dramatic barren mountain slopes." },
-                { name: "Hikkim", desc: "Home to the world's highest post office located in a remote high-altitude village." },
-                { name: "Langza Village", desc: "Famous for fossil hunting and giant Buddha statue overlooking the valley." },
-                { name: "Pin Valley National Park", desc: "High altitude cold desert park home to the snow leopard and unique flora." }
-            ],
-            "dalhousie": [
-                { name: "Khajjiar", desc: "Often called the 'Mini Switzerland of India', featuring lush green meadows and a lake." },
-                { name: "Panchpula", desc: "Scenic spot known for natural water springs, monuments, and flowing streams." },
-                { name: "Dainkund Peak", desc: "Highest peak in Dalhousie offering 360-degree views of the green valleys." },
-                { name: "Kalatop Wildlife Sanctuary", desc: "Dense forested reserve housing diverse wildlife and beautiful walking trails." },
-                { name: "St. John's Church", desc: "Historic British-era church showcasing gorgeous stained-glass windows." }
-            ],
-            "dehradun": [
-                { name: "Robber's Cave", desc: "Natural river cave formation where water flows mysteriously out of a narrow gorge." },
-                { name: "Sahastradhara", desc: "Famous 'thousand-fold springs' known for therapeutic sulphur water pools." },
-                { name: "Mindrolling Monastery", desc: "One of India's largest Buddhist centers featuring stunning architecture and gardens." },
-                { name: "Tapkeshwar Temple", desc: "Ancient cave temple dedicated to Lord Shiva situated by a river stream." },
-                { name: "Rajaji National Park Safari", desc: "Renowned wildlife reserve famous for Asian elephants and diverse fauna." }
-            ],
-            "delhi": [
-                { name: "India Gate", desc: "Iconic war memorial standing tall at the heart of the national capital." },
-                { name: "Qutub Minar", desc: "Towering 73-meter victory minaret showcasing brilliant historic Mughal architecture." },
-                { name: "Red Fort", desc: "Magnificent red sandstone fortress representing centuries of Indian history." },
-                { name: "Lotus Temple", desc: "Stark white architectural marvel shaped like a lotus flower open to all faiths." },
-                { name: "Akshardham Temple", desc: "Grand spiritual-cultural complex featuring stunning carvings and boat rides." },
-                { name: "Chandni Chowk", desc: "Historic bustling street market famous for street food and traditional shopping." }
-            ],
-            "amritsar": [
-                { name: "Golden Temple", desc: "The holiest Sikh shrine glowing brilliantly with spiritual peace and architecture." },
-                { name: "Jallianwala Bagh", desc: "Historic public garden and national memorial site with deep historical significance." },
-                { name: "Wagah Border", desc: "Fascinating daily military Beating Retreat ceremony held at the international border." },
-                { name: "Partition Museum", desc: "Poignant museum documenting the stories and history of the 1947 partition." },
-                { name: "Durgiana Temple", desc: "Hindu temple mirroring the architectural elegance of the Golden Temple." }
-            ],
-            "mussoorie": [
-                { name: "Kempty Falls", desc: "Famous cascading waterfall surrounded by high cliffs, popular for relaxing dips." },
-                { name: "Mall Road Mussoorie", desc: "Bustling colonial hill station promenade with shops, eateries, and valley views." },
-                { name: "Lal Tibba", desc: "The highest vantage point in Mussoorie providing telescopes to view snow peaks." },
-                { name: "Gun Hill Point", desc: "Second highest peak accessible via ropeway offering stunning Doon valley views." },
-                { name: "Company Garden", desc: "Vibrant picnic spot featuring manicured flower gardens, artificial lake, and rides." },
-                { name: "Camel's Back Road", desc: "Scenic nature walk path named after a rock formation shaped like a camel's hump." }
-            ],
-            "jaipur": [
-                { name: "Amber Fort", desc: "Majestic hilltop fort featuring grand artistic Hindu style architectural elements." },
-                { name: "Hawa Mahal", desc: "The iconic 'Palace of Winds' built with a unique honeycomb facade of 953 windows." },
-                { name: "City Palace", desc: "A sprawling royal residence blending Rajasthani and Mughal architectural designs." },
-                { name: "Jantar Mantar", desc: "UNESCO World Heritage site featuring the world's largest stone astronomical observatory." },
-                { name: "Nahargarh Fort", desc: "Scenic hilltop fort offering mesmerizing panoramic sunset views over Jaipur city." },
-                { name: "Albert Hall Museum", desc: "Oldest museum in Rajasthan displaying rich heritage artifacts and paintings." }
-            ]
+        // Dynamic Content Loading via URLSearchParams
+        const params = new URLSearchParams(window.location.search);
+        const destination = params.get('dest');
+
+        const destinationsData = {
+            'atal-tunnel': {
+                title: 'Atal Tunnel & High Altitude Marvel',
+                desc: 'Experience the engineering marvel connecting grandeur through majestic snow-capped peaks, offering a seamless luxury drive amidst pristine Himalayan landscapes.'
+            },
+            'vashisht': {
+                title: 'Vashisht Hot Water Springs',
+                desc: 'Rejuvenate your senses in natural therapeutic sulphur springs imbued with historical heritage and surrounded by serene pine-covered valley views.'
+            }
         };
 
-        const params = new URLSearchParams(window.location.search);
-        const placeKey = params.get('place') ? params.get('place').toLowerCase() : 'shimla';
-        const formattedTitle = placeKey.replace(/-/g, ' ');
-
-        document.getElementById('place-name').innerText = formattedTitle;
-        document.title = `${formattedTitle} - Shri Radha Travels`;
-
-        const placesContainer = document.getElementById('places-list');
-        const selectedPlaces = destinationData[placeKey] || destinationData['shimla'];
-
-        document.getElementById('places-count').innerText = `Top ${selectedPlaces.length} attractions`;
-
-        let listHTML = '';
-        selectedPlaces.forEach((item, index) => {
-            listHTML += `
-                <div class="place-item">
-                    <div class="place-number">${index + 1}</div>
-                    <div class="place-info">
-                        <h3>${item.name}</h3>
-                        <p>${item.desc}</p>
-                    </div>
-                </div>
-            `;
-        });
-
-        placesContainer.innerHTML = listHTML;
+        if (destination && destinationsData[destination]) {
+            document.getElementById('dest-title').innerText = destinationsData[destination].title;
+            document.getElementById('dest-desc').innerText = destinationsData[destination].desc;
+        }
     </script>
 </body>
-</html>    
+</html>
