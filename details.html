@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destination Details - Shri Radha Travels</title>
-    <!-- Google Fonts (Playball & Poppins) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #060913;
-            --card-bg: rgba(18, 24, 38, 0.7);
+            --card-bg: #0b1120;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
             --text-main: #f8fafc;
@@ -36,7 +36,7 @@
             margin: 0 auto;
         }
 
-        /* Original Header Style */
+        /* Header */
         .nav-header {
             display: flex;
             justify-content: space-between;
@@ -67,7 +67,7 @@
             color: var(--bg-color);
         }
 
-        /* Original Top Card Style */
+        /* Main Destination Card */
         .detail-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
@@ -90,9 +90,9 @@
             color: var(--text-muted);
         }
 
-        /* Newly Styled Unique Bottom CTA Section */
+        /* Bottom CTA Section with WhatsApp & Call */
         .cta-box {
-            background: linear-gradient(135deg, rgba(26, 35, 58, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%);
+            background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
             border: 1px solid var(--gold);
             border-radius: 20px;
             padding: 30px 20px;
@@ -176,25 +176,25 @@
             <a href="index.html" class="home-btn">← Home</a>
         </header>
 
-        <!-- Destination Detail Card (Original Look Preserved) -->
+        <!-- Destination Details Card -->
         <main class="detail-card">
-            <h1 class="destination-title" id="dest-title">Destination Details</h1>
+            <h1 class="destination-title" id="dest-title">Luxury Tour Experience</h1>
             <p class="destination-desc" id="dest-desc">
-                Loading destination details...
+                Experience ultimate comfort and verified chauffeurs with Shri Radha Travels.
             </p>
         </main>
 
-        <!-- Unique Bottom CTA Section with Call & WhatsApp -->
+        <!-- Bottom CTA Section -->
         <section class="cta-box">
             <h2 class="cta-title">Curate Your Royal Journey Today</h2>
             <p class="cta-subtitle">
                 Allow our elite travel concierges to craft a bespoke, tailor-made itinerary designed exclusively for your royal retreat.
             </p>
             <div class="cta-buttons">
-                <a href="tel:+919876543210" class="btn btn-call">
+                <a href="tel:+916280544730" class="btn btn-call">
                     📞 Call Now to Book
                 </a>
-                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20would%20like%20to%20customize%20a%20luxury%20tour%20package." target="_blank" class="btn btn-whatsapp">
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20would%20like%20to%20book%20a%20luxury%20taxi%20service." target="_blank" class="btn btn-whatsapp">
                     💬 WhatsApp Inquiry
                 </a>
             </div>
@@ -202,25 +202,59 @@
     </div>
 
     <script>
-        // Dynamic Content Loading via URLSearchParams
+        // Support both 'place' (from home cards) and 'dest' parameters
         const params = new URLSearchParams(window.location.search);
-        const destination = params.get('dest');
+        const placeKey = params.get('place') || params.get('dest') || 'Manali';
 
         const destinationsData = {
-            'atal-tunnel': {
-                title: 'Atal Tunnel',
-                desc: 'Engineering marvel connecting Manali to Lahaul-Spiti through high altitude.'
+            'Shimla': {
+                title: 'Shimla Royal Tour',
+                desc: 'Explore the colonial architecture, scenic pine-covered hills, and the famous Mall Road with our luxury cab service.'
             },
-            'vashisht': {
-                title: 'Vashisht Hot Water Springs',
-                desc: 'Natural sulphur springs known for their traditional medicinal and healing properties.'
+            'Manali': {
+                title: 'Manali Snow Valley Expedition',
+                desc: 'Experience majestic snow-capped peaks, solang valley adventures, and premium comfort rides through pristine Himalayan landscapes.'
+            },
+            'Spiti-Valley': {
+                title: 'Spiti Valley High Altitude Adventure',
+                desc: 'Journey through breathtaking cold desert mountain terrain, ancient monasteries, and rugged terrains safely with our expert chauffeurs.'
+            },
+            'Dalhousie': {
+                title: 'Dalhousie Serene Retreat',
+                desc: 'Immerse yourself in peaceful green valleys, old-world charm, and Victorian-style architecture.'
+            },
+            'Dehradun': {
+                title: 'Dehradun Scenic Gateway',
+                desc: 'Enjoy a pleasant getaway surrounded by picturesque landscapes at the foothills of the Himalayas.'
+            },
+            'Delhi': {
+                title: 'Delhi Heritage & City Tour',
+                desc: 'Explore historical monuments, vibrant culture, and modern luxury travel across the capital city.'
+            },
+            'Amritsar': {
+                title: 'Amritsar Golden Temple Journey',
+                desc: 'Witness the spiritual serenity of the Golden Temple and rich Punjabi heritage with comfortable outstation rides.'
+            },
+            'Mussoorie': {
+                title: 'Mussoorie Queen of Hills',
+                desc: 'Discover panoramic views of the Doon Valley and cascading waterfalls with our elite travel packages.'
+            },
+            'Jaipur': {
+                title: 'Jaipur Pink City Royal Tour',
+                desc: 'Experience royal palaces, historic forts, and traditional Rajasthani hospitality in ultimate luxury.'
             }
         };
 
-        if (destination && destinationsData[destination]) {
-            document.getElementById('dest-title').innerText = destinationsData[destination].title;
-            document.getElementById('dest-desc').innerText = destinationsData[destination].desc;
+        // Format name properly if hyphens exist (e.g. Spiti-Valley -> Spiti Valley)
+        const formattedKey = placeKey.replace(/-/g, ' ');
+
+        if (destinationsData[formattedKey]) {
+            document.getElementById('dest-title').innerText = destinationsData[formattedKey].title;
+            document.getElementById('dest-desc').innerText = destinationsData[formattedKey].desc;
+        } else {
+            document.getElementById('dest-title').innerText = formattedKey + ' Tour Package';
+            document.getElementById('dest-desc').innerText = 'Embark on an unforgettable luxury journey to ' + formattedKey + ' with Shri Radha Travels, featuring verified chauffeurs and 24/7 support.';
         }
     </script>
 </body>
-</html>  
+</html>
