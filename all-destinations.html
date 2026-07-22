@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Destinations - Shri Radha Travels</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #060913;
+            --card-bg: #0b1120;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --border-gold: rgba(212, 175, 55, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-title {
+            font-family: 'Playball', cursive;
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        .home-btn {
+            background: transparent;
+            border: 1px solid var(--border-gold);
+            color: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: var(--gold);
+            color: var(--bg-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h1 {
+            color: var(--gold);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Grid for All Destinations */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tour-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .tour-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tour-card-content {
+            padding: 20px;
+        }
+
+        .tour-card-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .tour-card-content span {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation Header -->
+        <header class="nav-header">
+            <a href="index.html" class="brand-container">
+                <div class="brand-title">Shri Radha Travels</div>
+            </a>
+            <a href="index.html" class="home-btn">← Home</a>
+        </header>
+
+        <div class="section-header">
+            <h1>All Premium Destinations</h1>
+            <p>Explore our complete collection of luxury tour packages with Shri Radha Travels</p>
+        </div>
+
+        <!-- All Places Grid -->
+        <div class="destinations-grid">
+            
+            <!-- 1. Shimla & Manali -->
+            <a href="details.html?place=Manali" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=800&q=80" alt="Manali">
+                <div class="tour-card-content">
+                    <p>Experience majestic snow-capped peaks, solang valley adventures, and premium comfort rides.</p>
+                    <span>📍 Shimla & Manali</span>
+                </div>
+            </a>
+
+            <!-- 2. Vaishno Devi Yatra -->
+            <a href="details.html?place=Vaishno-Devi" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" alt="Vaishno Devi">
+                <div class="tour-card-content">
+                    <p>Safe and comfortable cab services for your sacred pilgrimage journey to Katra and Vaishno Devi.</p>
+                    <span>📍 Vaishno Devi Yatra</span>
+                </div>
+            </a>
+
+            <!-- 3. Amritsar & Wagah Border -->
+            <a href="details.html?place=Amritsar" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=800&q=80" alt="Amritsar">
+                <div class="tour-card-content">
+                    <p>Witness the spiritual serenity of the Golden Temple and patriotic fervor at Wagah Border.</p>
+                    <span>📍 Amritsar & Wagah Border</span>
+                </div>
+            </a>
+
+            <!-- 4. Char Dham Yatra -->
+            <a href="details.html?place=Char-Dham" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80" alt="Char Dham">
+                <div class="tour-card-content">
+                    <p>Embark on the divine spiritual circuit with experienced drivers and well-maintained vehicles.</p>
+                    <span>📍 Char Dham Yatra</span>
+                </div>
+            </a>
+
+            <!-- 5. Vrindavan & Mathura -->
+            <a href="details.html?place=Vrindavan" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&q=80" alt="Vrindavan">
+                <div class="tour-card-content">
+                    <p>Immerse in divine temple darshans, Yamuna ghats, and vibrant spiritual culture.</p>
+                    <span>📍 Vrindavan & Mathura</span>
+                </div>
+            </a>
+
+            <!-- 6. Leh-Ladakh Adventure -->
+            <a href="details.html?place=Leh-Ladakh" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" alt="Ladakh">
+                <div class="tour-card-content">
+                    <p>A paradise for adventure seekers — high passes, Pangong Lake, and cinematic landscapes.</p>
+                    <span>📍 Leh-Ladakh Adventure</span>
+                </div>
+            </a>
+
+            <!-- 7. Shimla -->
+            <a href="details.html?place=Shimla" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1598091383028-de18f5ea4c5b?auto=format&fit=crop&w=800&q=80" alt="Shimla">
+                <div class="tour-card-content">
+                    <p>Explore colonial architecture, scenic pine hills, and the famous Mall Road.</p>
+                    <span>📍 Shimla Tour</span>
+                </div>
+            </a>
+
+            <!-- 8. Dalhousie -->
+            <a href="details.html?place=Dalhousie" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1590053541639-6efb3ce02587?auto=format&fit=crop&w=800&q=80" alt="Dalhousie">
+                <div class="tour-card-content">
+                    <p>Immerse yourself in peaceful green valleys and Victorian-style architecture.</p>
+                    <span>📍 Dalhousie Retreat</span>
+                </div>
+            </a>
+
+            <!-- 9. Mussoorie -->
+            <a href="details.html?place=Mussoorie" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Mussoorie">
+                <div class="tour-card-content">
+                    <p>Discover panoramic views of the Doon Valley and cascading waterfalls.</p>
+                    <span>📍 Mussoorie Queen of Hills</span>
+                </div>
+            </a>
+
+            <!-- 10. Jaipur -->
+            <a href="details.html?place=Jaipur" class="tour-card">
+                <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&q=80" alt="Jaipur">
+                <div class="tour-card-content">
+                    <p>Experience royal palaces, historic forts, and traditional Rajasthani hospitality.</p>
+                    <span>📍 Jaipur Pink City</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</body>
+</html>
