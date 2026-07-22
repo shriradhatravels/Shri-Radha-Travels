@@ -178,55 +178,6 @@ window.addEventListener("load", function() {
         </form>
     </div>
 </section>
-<!-- Trending Locations Auto-Image Slider -->
-<div style="width: 100%; max-width: 420px; margin: 20px auto; padding: 0 15px; box-sizing: border-box;">
-    <h3 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 12px; text-align: left;">Trending Destinations</h3>
-    <div style="position: relative; width: 100%; height: 220px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1.5px solid #d4af37;">
-        
-        <!-- Slide 1: Shimla -->
-        <div class="travel-slide" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 1s ease-in-out;">
-            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Shimla">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 15px; color: white;">
-                <h4 style="margin: 0; font-size: 16px; color: #d4af37;">Shimla</h4>
-                <p style="margin: 3px 0 0 0; font-size: 12px; color: #e2e8f0;">Experience the Queen of Hills</p>
-            </div>
-        </div>
-
-        <!-- Slide 2: Manali -->
-        <div class="travel-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out;">
-            <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Manali">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 15px; color: white;">
-                <h4 style="margin: 0; font-size: 16px; color: #d4af37;">Manali</h4>
-                <p style="margin: 3px 0 0 0; font-size: 12px; color: #e2e8f0;">Snow peaks & Adventure await</p>
-            </div>
-        </div>
-
-        <!-- Slide 3: Kasauli -->
-        <div class="travel-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out;">
-            <img src="https://images.unsplash.com/photo-1590053541639-6efb3ce02587?auto=format&fit=crop&w=600&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Kasauli">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 15px; color: white;">
-                <h4 style="margin: 0; font-size: 16px; color: #d4af37;">Kasauli</h4>
-                <p style="margin: 3px 0 0 0; font-size: 12px; color: #e2e8f0;">Peaceful colonial retreat</p>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- Auto Slider Script -->
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.travel-slide');
-    
-    function nextSlide() {
-        slides[currentSlide].style.opacity = '0';
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].style.opacity = '1';
-    }
-    
-    // Changes image every 3 seconds
-    setInterval(nextSlide, 3000);
-</script>
 
 <!-- Modern Floating Action Buttons (WhatsApp, Call, Scroll-to-Top Stacked) -->
 <div style="position: fixed; bottom: 25px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; align-items: flex-end;">
