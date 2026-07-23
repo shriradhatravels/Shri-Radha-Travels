@@ -1101,3 +1101,28 @@ window.addEventListener("load", function() {
         padding-top: 90px !important;
     }
 </style>
+<script>
+    // Trending Locations Slider Controls
+    const slider = document.querySelector('.trending-slider');
+    const nextBtn = document.querySelector('.fa-arrow-right');
+    const prevBtn = document.querySelector('.fa-arrow-left');
+
+    if (nextBtn && slider) {
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    }
+    if (prevBtn && slider) {
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+    }
+
+    // Destination Cards Click to Details Page
+    document.querySelectorAll('.destination-card, .card').forEach(card => {
+        card.addEventListener('click', function() {
+            const placeName = this.getAttribute('data-place') || this.querySelector('h3, h4, span')?.innerText.trim() || 'shimla';
+            window.location.href = `details.html?place=${encodeURIComponent(placeName.toLowerCase())}`;
+        });
+    });
+</script>
