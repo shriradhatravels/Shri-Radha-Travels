@@ -117,11 +117,11 @@
 <body>
 
     <!-- Hero Section -->
-    <div class="detail-hero" id="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80');">
+    <div class="detail-hero" id="hero-bg">
         <a href="index.html" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Destinations</a>
         <div class="hero-content">
-            <h1 id="place-title" style="margin: 0; font-size: 32px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Shimla Trip</h1>
-            <p id="place-location" style="margin: 8px 0 0 0; font-size: 14px; color: #93c5fd;"><i class="fa fa-map-marker-alt"></i> Himachal Pradesh, India &nbsp; | &nbsp; <i class="fa fa-star" style="color: #d4af37;"></i> 4.8</p>
+            <h1 id="place-title" style="margin: 0; font-size: 32px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Trip Details</h1>
+            <p id="place-location" style="margin: 8px 0 0 0; font-size: 14px; color: #93c5fd;"><i class="fa fa-map-marker-alt"></i> India &nbsp; | &nbsp; <i class="fa fa-star" style="color: #d4af37;"></i> 4.8</p>
         </div>
     </div>
 
@@ -129,7 +129,7 @@
         <!-- Booking Box -->
         <div class="card-box">
             <h3>Book This Trip</h3>
-            <p id="book-title-sub" style="color: #93c5fd; font-weight: 600; margin-bottom: 15px;">Shimla</p>
+            <p id="book-title-sub" style="color: #93c5fd; font-weight: 600; margin-bottom: 15px;"></p>
             
             <label style="font-size: 13px; color: #94a3b8;">Trip Type</label>
             <div style="display: flex; gap: 10px; margin: 8px 0 15px 0;">
@@ -149,15 +149,13 @@
         <!-- About Experience -->
         <div class="card-box">
             <h3>About This Experience</h3>
-            <p id="place-desc" style="color: #cbd5e1; line-height: 1.6;">Experience scenic beauty, colonial-era charm, pine forests, and magnificent valley views with Shri Radha Travels.</p>
+            <p id="place-desc" style="color: #cbd5e1; line-height: 1.6;"></p>
         </div>
 
         <!-- Places to Visit List -->
         <div class="card-box">
             <h3 id="places-heading">Places to Visit</h3>
-            <div class="places-list" id="places-container">
-                <!-- Populated dynamically -->
-            </div>
+            <div class="places-list" id="places-container"></div>
         </div>
 
         <!-- What's Included -->
@@ -173,8 +171,9 @@
     </div>
 
     <script>
+        // URL se place ka naam saaf tarike se read karna (decode karke)
         const urlParams = new URLSearchParams(window.location.search);
-        const placeKey = urlParams.get('place') || 'shimla';
+        let placeKey = urlParams.get('place') ? decodeURIComponent(urlParams.get('place')).toLowerCase().trim() : 'shimla';
 
         const database = {
             'shimla': {
@@ -243,6 +242,7 @@
             }
         };
 
+        // Agar database me key match na ho toh default shimla uthao
         const current = database[placeKey] || database['shimla'];
 
         document.getElementById('place-title').innerText = current.title;
