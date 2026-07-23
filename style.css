@@ -774,3 +774,63 @@ header {
     color: #0b0f19 !important;
     transform: scale(1.05);
 }
+/* ===========================
+   LUXURY GOLDEN & BLUE UPGRADE
+=========================== */
+
+/* Section background: Rich Golden Gradient Base with Deep Blue contrast */
+.tours-section, .blogs-section, .trending-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+    padding: 60px 20px;
+    position: relative;
+    border-bottom: 2px solid #d4af37;
+}
+
+/* Cards Design: Golden border with Glassmorphism & Smooth Animation */
+.tour-card, .blog-card, .dest-card {
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9)) !important;
+    backdrop-filter: blur(20px);
+    border: 2px solid #d4af37 !important;
+    border-radius: 24px !important;
+    padding: 35px !important;
+    margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Animation: Card zoom-in & golden glow effect */
+.tour-card:hover, .blog-card:hover, .dest-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: #f6c453 !important;
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95)) !important;
+}
+
+/* Headings Styling */
+.tour-card h3, .blog-card h3, h2 {
+    color: #f6c453 !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Buttons Styling */
+.tour-card a, .blog-card a, .tour-card button, .blog-card button {
+    background: linear-gradient(135deg, #d4af37, #f6c453) !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    padding: 12px 28px !important;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.tour-card a:hover, .blog-card a:hover {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    transform: scale(1.08);
+}
