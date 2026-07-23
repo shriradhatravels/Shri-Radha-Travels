@@ -171,9 +171,8 @@
     </div>
 
     <script>
-        // URL se place ka naam saaf tarike se read karna (decode karke)
         const urlParams = new URLSearchParams(window.location.search);
-        let placeKey = urlParams.get('place') ? decodeURIComponent(urlParams.get('place')).toLowerCase().trim() : 'shimla';
+        let rawPlace = urlParams.get('place') ? decodeURIComponent(urlParams.get('place')).toLowerCase().trim() : 'shimla';
 
         const database = {
             'shimla': {
@@ -224,8 +223,8 @@
                     { name: 'Bapu Bazaar', desc: 'Vibrant traditional market famous for textiles, mojris, and handicrafts.' }
                 ]
             },
-            'mathura & vrindavan': {
-                title: 'Mathura & Vrindavan',
+            'mathura': {
+                title: 'Mathura & Vrindavan Tour',
                 location: 'Uttar Pradesh, India',
                 image: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Immerse yourself in the divine land of Lord Krishna, ancient temples, ghats, and spiritual heritage.',
@@ -239,11 +238,33 @@
                     { name: 'Nidhivan', desc: 'Mystical forest where divine leelas are believed to happen every night.' },
                     { name: 'Dwarkadhish Temple', desc: 'Historic temple known for its intricate architecture and grand festivities.' }
                 ]
+            },
+            'kashmir': {
+                title: 'Kashmir Valley Tour',
+                location: 'Jammu & Kashmir, India',
+                image: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=1200&q=80',
+                desc: 'Experience heaven on earth with snow mountains, Dal lake houseboats, and gardens.',
+                subPlaces: [
+                    { name: 'Dal Lake', desc: 'Famous for iconic houseboat stays and peaceful shikara rides.' },
+                    { name: 'Gulmarg', desc: 'World famous ski resort and breathtaking meadow of flowers.' },
+                    { name: 'Pahalgam', desc: 'Scenic valley surrounded by pine forests and gushing streams.' },
+                    { name: 'Sonamarg', desc: 'The meadow of gold offering glacier views and river rafting.' },
+                    { name: 'Mughal Gardens', desc: 'Historic terraced gardens built during the Mughal era.' },
+                    { name: 'Shankaracharya Temple', desc: 'Ancient hilltop temple overlooking Srinagar city.' },
+                    { name: 'Betaab Valley', desc: 'Lush green valley named after the Bollywood movie shot here.' },
+                    { name: 'Thajiwas Glacier', desc: 'Stunning glacier accessible via a short pony ride or trek from Sonamarg.' }
+                ]
             }
         };
 
-        // Agar database me key match na ho toh default shimla uthao
-        const current = database[placeKey] || database['shimla'];
+        // Smart matching logic taaki agar URL me partial name bhi ho toh match ho jaye
+        let current = database['shimla'];
+        for (let key in database) {
+            if (rawPlace.includes(key)) {
+                current = database[key];
+                break;
+            }
+        }
 
         document.getElementById('place-title').innerText = current.title;
         document.getElementById('book-title-sub').innerText = current.title;
