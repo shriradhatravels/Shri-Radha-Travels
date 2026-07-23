@@ -834,3 +834,25 @@ header {
     color: #0f172a !important;
     transform: scale(1.08);
 }
+/* Animated Golden Border for Photos */
+img, .royal-image {
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    animation: goldShine 3s infinite alternate;
+}
+
+@keyframes goldShine {
+    0% {
+        border-color: #d4af37;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        border-color: #ffd700;
+        box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+    }
+    100% {
+        border-color: #d4af37;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    }
+}
