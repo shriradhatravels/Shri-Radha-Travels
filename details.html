@@ -290,3 +290,24 @@
     </script>
 </body>
 </html>   
+<script>
+    // Direct onclick handlers taaki button 100% chalein
+    document.getElementById('oneWayBtn').onclick = function() {
+        this.classList.add('active');
+        document.getElementById('roundTripBtn').classList.remove('active');
+    };
+
+    document.getElementById('roundTripBtn').onclick = function() {
+        this.classList.add('active');
+        document.getElementById('oneWayBtn').classList.remove('active');
+    };
+
+    document.getElementById('bookNowBtn').onclick = function() {
+        const phone = document.getElementById('phoneInput').value.trim();
+        if (phone.length < 10) {
+            alert('Please enter a valid phone number!');
+            return;
+        }
+        alert('Booking Confirmed Successfully!');
+    };
+</script>
