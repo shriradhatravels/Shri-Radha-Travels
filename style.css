@@ -710,11 +710,11 @@ flex-direction:column;
 }
 
 body {
-    padding-top: 70px;
+    padding-top: 130px; /* Isse navbar ke niche proper jagah ban jayegi aur text overlap nahi hoga */
 }
 
-nav {
-    position: fixed !important;
+header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
