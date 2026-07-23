@@ -65,17 +65,18 @@
     <div class="bg-slide" style="background-image: url('IMG_4507.jpeg');"></div>
 </div>
 
-<!-- Background Slideshow Script -->
 <script>
     const bgSlides = document.querySelectorAll('.bg-slide');
     let currentBgIndex = 0;
-
+    
     function changeBackground() {
         bgSlides[currentBgIndex].classList.remove('active');
-        currentBgIndex = (currentBgIndex + 1) bgSlides.length;
+        currentBgIndex = (currentBgIndex + 1) % bgSlides.length;
         bgSlides[currentBgIndex].classList.add('active');
     }
-
+    
+    setInterval(changeBackground, 4000);
+</script>
     // Har 4 seconds mein background image change hogi
     setInterval(changeBackground, 4000);
 </script>
