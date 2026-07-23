@@ -77,3 +77,42 @@
         document.getElementById('dest-desc').innerText = matchedDest.desc;
         document.getElementById('dest-img').src = matchedDest.image;
     </script>  
+<script>
+    // URL se place ka naam nikalna
+    const urlParams = new URLSearchParams(window.location.search);
+    const place = urlParams.get('place') || 'shimla';
+
+    // Data object jisme alag-alag places ki details hain
+    const placeData = {
+        'shimla': {
+            title: 'Shimla Trip',
+            description: 'Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys.',
+            image: 'images/shimla.jpg' // Apni image ka path yahan match kar sakte hain
+        },
+        'manali': {
+            title: 'Manali Tour',
+            description: 'Experience snow-capped mountains, adventure sports, and serene landscapes in Manali.',
+            image: 'images/manali.jpg'
+        },
+        'jaipur': {
+            title: 'Jaipur - Pink City',
+            description: 'Discover the royal heritage, vibrant culture, magnificent forts, and timeless beauty of Jaipur.',
+            image: 'images/jaipur.jpg'
+        },
+        'mathura & vrindavan': {
+            title: 'Mathura & Vrindavan',
+            description: 'Immerse yourself in the divine land of Lord Krishna, ancient temples, ghats, and spiritual heritage.',
+            image: 'images/mathura.jpg'
+        }
+    };
+
+    // Agar data match ho jaye toh page par show karna
+    const currentData = placeData[place] || placeData['shimla'];
+    
+    // Aapke page ke elements jinme data set hona hai (agar IDs match karein)
+    const titleEl = document.getElementById('place-title');
+    const descEl = document.getElementById('place-desc');
+    
+    if(titleEl) titleEl.innerText = currentData.title;
+    if(descEl) descEl.innerText = currentData.description;
+</script>
