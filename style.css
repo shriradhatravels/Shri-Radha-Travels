@@ -856,3 +856,13 @@ img, .royal-image {
         box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
     }
 }
+/* Golden Animated Border for Details/Explore Page Images */
+.destination-details img, 
+.explore-content img, 
+.detail-card img,
+.details-container img {
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    animation: goldShine 3s infinite alternate;
+}
