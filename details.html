@@ -77,6 +77,23 @@
             margin-bottom: 25px;
         }
 
+        /* Golden Animated Border for Images */
+        .detail-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            animation: goldShine 3s infinite alternate;
+        }
+
+        @keyframes goldShine {
+            0% { border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
+            100% { border-color: #f3e5ab; box-shadow: 0 0 20px rgba(243, 229, 171, 0.8); }
+        }
+
         .destination-title {
             font-size: 26px;
             font-weight: 600;
@@ -178,6 +195,7 @@
 
         <!-- Destination Details Card -->
         <main class="detail-card">
+            <img id="dest-img" src="" alt="Destination Image">
             <h1 class="destination-title" id="dest-title">Luxury Tour Experience</h1>
             <p class="destination-desc" id="dest-desc">
                 Experience ultimate comfort and verified chauffeurs with Shri Radha Travels.
@@ -202,59 +220,83 @@
     </div>
 
     <script>
-        // Support both 'place' (from home cards) and 'dest' parameters
         const params = new URLSearchParams(window.location.search);
         const placeKey = params.get('place') || params.get('dest') || 'Manali';
 
         const destinationsData = {
             'Shimla': {
                 title: 'Shimla Royal Tour',
-                desc: 'Explore the colonial architecture, scenic pine-covered hills, and the famous Mall Road with our luxury cab service.'
+                desc: 'Explore the colonial architecture, scenic pine-covered hills, and the famous Mall Road with our luxury cab service.',
+                image: 'IMG_4541.jpeg'
             },
             'Manali': {
                 title: 'Manali Snow Valley Expedition',
-                desc: 'Experience majestic snow-capped peaks, solang valley adventures, and premium comfort rides through pristine Himalayan landscapes.'
+                desc: 'Experience majestic snow-capped peaks, solang valley adventures, and premium comfort rides through pristine Himalayan landscapes.',
+                image: 'IMG_4543.jpeg'
             },
             'Spiti-Valley': {
                 title: 'Spiti Valley High Altitude Adventure',
-                desc: 'Journey through breathtaking cold desert mountain terrain, ancient monasteries, and rugged terrains safely with our expert chauffeurs.'
+                desc: 'Journey through breathtaking cold desert mountain terrain, ancient monasteries, and rugged terrains safely with our expert chauffeurs.',
+                image: 'IMG_4545.jpeg'
             },
             'Dalhousie': {
                 title: 'Dalhousie Serene Retreat',
-                desc: 'Immerse yourself in peaceful green valleys, old-world charm, and Victorian-style architecture.'
+                desc: 'Immerse yourself in peaceful green valleys, old-world charm, and Victorian-style architecture.',
+                image: 'IMG_4540.jpeg'
             },
             'Dehradun': {
                 title: 'Dehradun Scenic Gateway',
-                desc: 'Enjoy a pleasant getaway surrounded by picturesque landscapes at the foothills of the Himalayas.'
+                desc: 'Enjoy a pleasant getaway surrounded by picturesque landscapes at the foothills of the Himalayas.',
+                image: 'IMG_4538.jpeg'
             },
             'Delhi': {
                 title: 'Delhi Heritage & City Tour',
-                desc: 'Explore historical monuments, vibrant culture, and modern luxury travel across the capital city.'
+                desc: 'Explore historical monuments, vibrant culture, and modern luxury travel across the capital city.',
+                image: 'IMG_4536.jpeg'
             },
             'Amritsar': {
                 title: 'Amritsar Golden Temple Journey',
-                desc: 'Witness the spiritual serenity of the Golden Temple and rich Punjabi heritage with comfortable outstation rides.'
+                desc: 'Witness the spiritual serenity of the Golden Temple and rich Punjabi heritage with comfortable outstation rides.',
+                image: 'IMG_4539.jpeg'
             },
             'Mussoorie': {
                 title: 'Mussoorie Queen of Hills',
-                desc: 'Discover panoramic views of the Doon Valley and cascading waterfalls with our elite travel packages.'
+                desc: 'Discover panoramic views of the Doon Valley and cascading waterfalls with our elite travel packages.',
+                image: 'IMG_4538.jpeg'
             },
             'Jaipur': {
                 title: 'Jaipur Pink City Royal Tour',
-                desc: 'Experience royal palaces, historic forts, and traditional Rajasthani hospitality in ultimate luxury.'
+                desc: 'Experience royal palaces, historic forts, and traditional Rajasthani hospitality in ultimate luxury.',
+                image: 'IMG_4536.jpeg'
+            },
+            'Mathura Vrindavan': {
+                title: 'Mathura Vrindavan Divine Tour',
+                desc: 'Experience the divine land of Lord Krishna with utmost comfort and peace.',
+                image: 'IMG_4537.jpeg'
+            },
+            'Char Dham Yatra': {
+                title: 'Char Dham Yatra',
+                desc: 'Embark on the sacred spiritual pilgrimage with verified chauffeurs.',
+                image: 'IMG_4542.jpeg'
+            },
+            'Vaishno Devi Yatra': {
+                title: 'Vaishno Devi Yatra',
+                desc: 'Safe and comfortable cab services for your sacred pilgrimage journey to Katra and Vaishno Devi.',
+                image: 'IMG_4544.jpeg'
             }
         };
 
-        // Format name properly if hyphens exist (e.g. Spiti-Valley -> Spiti Valley)
         const formattedKey = placeKey.replace(/-/g, ' ');
 
         if (destinationsData[formattedKey]) {
             document.getElementById('dest-title').innerText = destinationsData[formattedKey].title;
             document.getElementById('dest-desc').innerText = destinationsData[formattedKey].desc;
+            document.getElementById('dest-img').src = destinationsData[formattedKey].image;
         } else {
             document.getElementById('dest-title').innerText = formattedKey + ' Tour Package';
             document.getElementById('dest-desc').innerText = 'Embark on an unforgettable luxury journey to ' + formattedKey + ' with Shri Radha Travels, featuring verified chauffeurs and 24/7 support.';
+            document.getElementById('dest-img').src = 'IMG_4536.jpeg';
         }
     </script>
 </body>
-</html>   
+</html>
