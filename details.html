@@ -1,302 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destination Details - Shri Radha Travels</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #060913;
-            --card-bg: #0b1120;
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-gold: rgba(212, 175, 55, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        .nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 10px 0;
-        }
-
-        .brand-title {
-            font-family: 'Playball', cursive;
-            color: var(--gold);
-            font-size: 26px;
-        }
-
-        .home-btn {
-            background: transparent;
-            border: 1px solid var(--border-gold);
-            color: var(--gold-light);
-            padding: 6px 16px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .home-btn:hover {
-            background: var(--gold);
-            color: var(--bg-color);
-        }
-
-        /* Main Destination Card */
-        .detail-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            margin-bottom: 25px;
-        }
-
-        /* Golden Animated Border for Images */
-        .detail-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-            animation: goldShine 3s infinite alternate;
-        }
-
-        @keyframes goldShine {
-            0% { border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
-            100% { border-color: #f3e5ab; box-shadow: 0 0 20px rgba(243, 229, 171, 0.8); }
-        }
-
-        .destination-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .destination-desc {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-muted);
-        }
-
-        /* Bottom CTA Section with WhatsApp & Call */
-        .cta-box {
-            background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
-            border: 1px solid var(--gold);
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-        }
-
-        .cta-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 8px;
-        }
-
-        .cta-subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-call {
-            background: var(--gold);
-            color: #060913;
-            border: none;
-        }
-
-        .btn-call:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        .btn-whatsapp {
-            background: #25d366;
-            color: #ffffff;
-            border: none;
-        }
-
-        .btn-whatsapp:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 480px) {
-            .cta-buttons {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- Navigation Header -->
-        <header class="nav-header">
-            <div class="brand-title">✨ Shri Radha Travels</div>
-            <a href="index.html" class="home-btn">← Home</a>
-        </header>
-
-        <!-- Destination Details Card -->
-        <main class="detail-card">
-            <img id="dest-img" src="" alt="Destination Image">
-            <h1 class="destination-title" id="dest-title">Luxury Tour Experience</h1>
-            <p class="destination-desc" id="dest-desc">
-                Experience ultimate comfort and verified chauffeurs with Shri Radha Travels.
-            </p>
-        </main>
-
-        <!-- Bottom CTA Section -->
-        <section class="cta-box">
-            <h2 class="cta-title">Curate Your Royal Journey Today</h2>
-            <p class="cta-subtitle">
-                Allow our elite travel concierges to craft a bespoke, tailor-made itinerary designed exclusively for your royal retreat.
-            </p>
-            <div class="cta-buttons">
-                <a href="tel:+916280544730" class="btn btn-call">
-                    📞 Call Now to Book
-                </a>
-                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20would%20like%20to%20book%20a%20luxury%20taxi%20service." target="_blank" class="btn btn-whatsapp">
-                    💬 WhatsApp Inquiry
-                </a>
-            </div>
-        </section>
-    </div>
-
-    <script>
+<script>
         const params = new URLSearchParams(window.location.search);
-        const placeKey = params.get('place') || params.get('dest') || 'Manali';
+        const placeKey = params.get('place') || params.get('dest') || '';
 
         const destinationsData = {
-            'Shimla': {
+            'shimla': {
                 title: 'Shimla Royal Tour',
                 desc: 'Explore the colonial architecture, scenic pine-covered hills, and the famous Mall Road with our luxury cab service.',
                 image: 'IMG_4541.jpeg'
             },
-            'Manali': {
+            'manali': {
                 title: 'Manali Snow Valley Expedition',
                 desc: 'Experience majestic snow-capped peaks, solang valley adventures, and premium comfort rides through pristine Himalayan landscapes.',
                 image: 'IMG_4543.jpeg'
             },
-            'Spiti-Valley': {
+            'spiti valley': {
                 title: 'Spiti Valley High Altitude Adventure',
                 desc: 'Journey through breathtaking cold desert mountain terrain, ancient monasteries, and rugged terrains safely with our expert chauffeurs.',
                 image: 'IMG_4545.jpeg'
             },
-            'Dalhousie': {
+            'dalhousie': {
                 title: 'Dalhousie Serene Retreat',
                 desc: 'Immerse yourself in peaceful green valleys, old-world charm, and Victorian-style architecture.',
                 image: 'IMG_4540.jpeg'
             },
-            'Dehradun': {
+            'dehradun': {
                 title: 'Dehradun Scenic Gateway',
                 desc: 'Enjoy a pleasant getaway surrounded by picturesque landscapes at the foothills of the Himalayas.',
                 image: 'IMG_4538.jpeg'
             },
-            'Delhi': {
+            'delhi': {
                 title: 'Delhi Heritage & City Tour',
                 desc: 'Explore historical monuments, vibrant culture, and modern luxury travel across the capital city.',
                 image: 'IMG_4536.jpeg'
             },
-            'Amritsar': {
+            'amritsar': {
                 title: 'Amritsar Golden Temple Journey',
                 desc: 'Witness the spiritual serenity of the Golden Temple and rich Punjabi heritage with comfortable outstation rides.',
                 image: 'IMG_4539.jpeg'
             },
-            'Mussoorie': {
+            'mussoorie': {
                 title: 'Mussoorie Queen of Hills',
                 desc: 'Discover panoramic views of the Doon Valley and cascading waterfalls with our elite travel packages.',
                 image: 'IMG_4538.jpeg'
             },
-            'Jaipur': {
+            'jaipur': {
                 title: 'Jaipur Pink City Royal Tour',
                 desc: 'Experience royal palaces, historic forts, and traditional Rajasthani hospitality in ultimate luxury.',
                 image: 'IMG_4536.jpeg'
             },
-            'Mathura Vrindavan': {
+            'mathura vrindavan': {
                 title: 'Mathura Vrindavan Divine Tour',
                 desc: 'Experience the divine land of Lord Krishna with utmost comfort and peace.',
                 image: 'IMG_4537.jpeg'
             },
-            'Char Dham Yatra': {
+            'char dham yatra': {
                 title: 'Char Dham Yatra',
                 desc: 'Embark on the sacred spiritual pilgrimage with verified chauffeurs.',
                 image: 'IMG_4542.jpeg'
             },
-            'Vaishno Devi Yatra': {
+            'vaishno devi yatra': {
                 title: 'Vaishno Devi Yatra',
                 desc: 'Safe and comfortable cab services for your sacred pilgrimage journey to Katra and Vaishno Devi.',
                 image: 'IMG_4544.jpeg'
             }
         };
 
-        const formattedKey = placeKey.replace(/-/g, ' ');
+        // Clean up URL parameter to lowercase and match keys smoothly
+        const cleanKey = decodeURIComponent(placeKey).replace(/[-_]/g, ' ').trim().toLowerCase();
+        const matchedDest = destinationsData[cleanKey] || {
+            title: decodeURIComponent(placeKey) || 'Royal Tour Package',
+            desc: 'Experience ultimate comfort, luxury vehicles, and verified chauffeurs with Shri Radha Travels.',
+            image: 'IMG_4536.jpeg'
+        };
 
-        if (destinationsData[formattedKey]) {
-            document.getElementById('dest-title').innerText = destinationsData[formattedKey].title;
-            document.getElementById('dest-desc').innerText = destinationsData[formattedKey].desc;
-            document.getElementById('dest-img').src = destinationsData[formattedKey].image;
-        } else {
-            document.getElementById('dest-title').innerText = formattedKey + ' Tour Package';
-            document.getElementById('dest-desc').innerText = 'Embark on an unforgettable luxury journey to ' + formattedKey + ' with Shri Radha Travels, featuring verified chauffeurs and 24/7 support.';
-            document.getElementById('dest-img').src = 'IMG_4536.jpeg';
-        }
+        document.getElementById('dest-title').innerText = matchedDest.title;
+        document.getElementById('dest-desc').innerText = matchedDest.desc;
+        document.getElementById('dest-img').src = matchedDest.image;
     </script>
-</body>
-</html> 
