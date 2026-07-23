@@ -902,7 +902,7 @@ window.addEventListener("load", function() {
     reviewContainer.addEventListener('mouseenter', () => clearInterval(reviewAutoSlide));
     reviewContainer.addEventListener('mouseleave', () => reviewAutoSlide = setInterval(nextReview, 4500));
 </script>
-<!-- Footer Section with Dark Blue & Golden Theme -->
+<!-- Footer Section with Official Logo & Dark Blue/Golden Theme -->
 <footer style="background: #0f172a; color: #ffffff; padding: 50px 20px 30px 20px; font-family: 'Poppins', sans-serif;">
     <div style="max-width: 500px; margin: 0 auto; text-align: left;">
         
@@ -910,7 +910,10 @@ window.addEventListener("load", function() {
         <div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 30px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 45px; height: 45px; background: linear-gradient(135deg, #d4af37, #aa820a); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0f172a; font-weight: 800; font-size: 16px;">SRT</div>
+                    <!-- Official Circular Logo Image -->
+                    <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.4); display: flex; align-items: center; justify-content: center; background: #000;">
+                        <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'color:#d4af37; font-weight:800; font-size:14px;\'>SRT</span>';">
+                    </div>
                     <div>
                         <h3 style="font-size: 18px; font-weight: 800; color: #ffffff; margin: 0; letter-spacing: 0.5px;">Shri Radha</h3>
                         <span style="font-size: 10px; font-weight: 600; color: #d4af37; letter-spacing: 1.5px; text-transform: uppercase;">TRAVELS</span>
