@@ -8,59 +8,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #0b0f19;
+            color: #e2e8f0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding-top: 80px;
+            padding-top: 0;
         }
         .detail-hero {
             position: relative;
-            height: 350px;
+            height: 400px;
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 20px;
-            color: #fff;
+            padding: 30px 20px;
+            color: #ffffff;
         }
         .detail-hero::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.2), rgba(11, 15, 25, 0.95));
             z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 2;
+            margin-bottom: 20px;
         }
         .back-btn {
             position: absolute;
             top: 20px;
             left: 20px;
-            z-index: 2;
-            color: #fff;
-            background: rgba(0,0,0,0.5);
-            padding: 8px 15px;
+            z-index: 10;
+            color: #ffffff;
+            background: rgba(212, 175, 55, 0.3);
+            border: 1px solid #d4af37;
+            padding: 8px 16px;
             border-radius: 20px;
             text-decoration: none;
             font-size: 14px;
+            backdrop-filter: blur(5px);
         }
         .container {
             max-width: 800px;
-            margin: -30px auto 30px auto;
+            margin: -40px auto 40px auto;
             position: relative;
             z-index: 3;
             padding: 0 15px;
         }
         .card-box {
-            background: #fff;
+            background: #121826;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             margin-bottom: 20px;
+        }
+        .card-box h3 {
+            color: #d4af37;
+            margin-top: 0;
         }
         .places-list {
             display: flex;
@@ -71,16 +79,15 @@
         .place-item {
             display: flex;
             align-items: flex-start;
-            background: #fff;
+            background: #1a2234;
+            border: 1px solid rgba(212, 175, 55, 0.15);
             padding: 15px 20px;
             border-radius: 12px;
-            border: 1px solid #eaeaea;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
         .place-num {
-            background: #fff3cd;
-            color: #856404;
-            width: 30px; height: 30px;
+            background: #d4af37;
+            color: #0b0f19;
+            width: 32px; height: 32px;
             display: flex; align-items: center; justify-content: center;
             border-radius: 50%;
             font-weight: bold;
@@ -88,27 +95,33 @@
             flex-shrink: 0;
         }
         .btn-primary-custom {
-            background-color: #ffc107;
-            color: #000;
+            background: linear-gradient(135deg, #d4af37, #aa8c2c);
+            color: #0b0f19;
             font-weight: bold;
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
             margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        input, select {
+            background: #1a2234 !important;
+            color: #fff !important;
+            border: 1px solid rgba(212, 175, 55, 0.3) !important;
         }
     </style>
 </head>
 <body>
 
     <!-- Hero Section -->
-    <div class="detail-hero" id="hero-bg" style="background-image: url('images/shimla.jpg');">
+    <div class="detail-hero" id="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80');">
         <a href="index.html" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Destinations</a>
         <div class="hero-content">
-            <h1 id="place-title" style="margin: 0; font-size: 28px;">Shimla Trip</h1>
-            <p id="place-location" style="margin: 5px 0 0 0; font-size: 14px;"><i class="fa fa-map-marker-alt"></i> Himachal Pradesh, India &nbsp; | &nbsp; <i class="fa fa-star" style="color: #ffc107;"></i> 4.7</p>
+            <h1 id="place-title" style="margin: 0; font-size: 32px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Shimla Trip</h1>
+            <p id="place-location" style="margin: 8px 0 0 0; font-size: 14px; color: #93c5fd;"><i class="fa fa-map-marker-alt"></i> Himachal Pradesh, India &nbsp; | &nbsp; <i class="fa fa-star" style="color: #d4af37;"></i> 4.8</p>
         </div>
     </div>
 
@@ -116,19 +129,19 @@
         <!-- Booking Box -->
         <div class="card-box">
             <h3>Book This Trip</h3>
-            <p id="book-title-sub" style="color: #d4af37; font-weight: 600;">Shimla</p>
+            <p id="book-title-sub" style="color: #93c5fd; font-weight: 600; margin-bottom: 15px;">Shimla</p>
             
-            <label style="font-size: 13px; color: #666;">Trip Type</label>
+            <label style="font-size: 13px; color: #94a3b8;">Trip Type</label>
             <div style="display: flex; gap: 10px; margin: 8px 0 15px 0;">
-                <button type="button" style="flex: 1; padding: 10px; border: 2px solid #ffc107; background: #fff3cd; border-radius: 8px; font-weight: bold;">One Way</button>
-                <button type="button" style="flex: 1; padding: 10px; border: 1px solid #ddd; background: #fff; border-radius: 8px;">Round Trip</button>
+                <button type="button" style="flex: 1; padding: 12px; border: 2px solid #d4af37; background: rgba(212, 175, 55, 0.15); color: #fff; border-radius: 8px; font-weight: bold;">One Way</button>
+                <button type="button" style="flex: 1; padding: 12px; border: 1px solid rgba(212, 175, 55, 0.3); background: #1a2234; color: #aaa; border-radius: 8px;">Round Trip</button>
             </div>
 
-            <label style="font-size: 13px; color: #666;">Select Date</label>
-            <input type="date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin: 8px 0 15px 0; box-sizing: border-box;">
+            <label style="font-size: 13px; color: #94a3b8;">Select Date</label>
+            <input type="date" style="width: 100%; padding: 12px; border-radius: 8px; margin: 8px 0 15px 0; box-sizing: border-box;">
 
-            <label style="font-size: 13px; color: #666;">Phone Number</label>
-            <input type="text" placeholder="Enter your phone number" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin: 8px 0 15px 0; box-sizing: border-box;">
+            <label style="font-size: 13px; color: #94a3b8;">Phone Number</label>
+            <input type="text" placeholder="Enter your phone number" style="width: 100%; padding: 12px; border-radius: 8px; margin: 8px 0 15px 0; box-sizing: border-box;">
 
             <button class="btn-primary-custom">Book Now</button>
         </div>
@@ -136,96 +149,108 @@
         <!-- About Experience -->
         <div class="card-box">
             <h3>About This Experience</h3>
-            <p id="place-desc" style="color: #555; line-height: 1.6;">Experience scenic beauty, colonial-era charm, pine forests, and magnificent valley views with Shri Radha Travels.</p>
+            <p id="place-desc" style="color: #cbd5e1; line-height: 1.6;">Experience scenic beauty, colonial-era charm, pine forests, and magnificent valley views with Shri Radha Travels.</p>
         </div>
 
         <!-- Places to Visit List -->
         <div class="card-box">
-            <h3 id="places-heading">Places to Visit (4)</h3>
+            <h3 id="places-heading">Places to Visit</h3>
             <div class="places-list" id="places-container">
-                <!-- Dynamically populated via script -->
+                <!-- Populated dynamically -->
             </div>
         </div>
 
         <!-- What's Included -->
         <div class="card-box">
             <h3>What's Included</h3>
-            <ul style="padding-left: 20px; color: #555; line-height: 2;">
-                <li><i class="fa fa-check" style="color: #28a745;"></i> Professional verified driver</li>
-                <li><i class="fa fa-check" style="color: #28a745;"></i> Comfortable AC vehicle</li>
-                <li><i class="fa fa-check" style="color: #28a745;"></i> Flexible pickup & drop</li>
-                <li><i class="fa fa-check" style="color: #28a745;"></i> 24/7 customer support</li>
+            <ul style="padding-left: 20px; color: #cbd5e1; line-height: 2; list-style: none;">
+                <li><i class="fa fa-check-circle" style="color: #d4af37;"></i> Professional verified driver</li>
+                <li><i class="fa fa-check-circle" style="color: #d4af37;"></i> Comfortable AC vehicle</li>
+                <li><i class="fa fa-check-circle" style="color: #d4af37;"></i> Flexible pickup & drop</li>
+                <li><i class="fa fa-check-circle" style="color: #d4af37;"></i> 24/7 customer support</li>
             </ul>
         </div>
     </div>
 
     <script>
-        // URL se place ka naam read karna
         const urlParams = new URLSearchParams(window.location.search);
         const placeKey = urlParams.get('place') || 'shimla';
 
-        // Saari destinations ka data (Reference layout ke mutabiq)
         const database = {
             'shimla': {
                 title: 'Shimla Trip',
                 location: 'Himachal Pradesh, India',
-                image: 'images/shimla.jpg',
+                image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys.',
                 subPlaces: [
                     { name: 'Mall Road', desc: 'Famous shopping hub and scenic walking area in the heart of Shimla.' },
                     { name: 'Kufri', desc: 'Snow-capped peaks, amusement park, and breathtaking panoramic views.' },
                     { name: 'Jakhoo Temple', desc: 'Ancient Hanuman temple situated on Shimla’s highest peak.' },
-                    { name: 'Christ Church', desc: 'Second oldest church in North India with stunning neo-gothic architecture.' }
+                    { name: 'Christ Church', desc: 'Second oldest church in North India with stunning neo-gothic architecture.' },
+                    { name: 'Viceregal Lodge', desc: 'Historic British-era building showcasing magnificent architecture and lawns.' },
+                    { name: 'Scandal Point', desc: 'Famous meeting point offering majestic views of the surrounding hills.' },
+                    { name: 'Green Valley', desc: 'Breathtaking stretch of pine and deodar forests surrounded by mountains.' },
+                    { name: 'Chadwick Falls', desc: 'Serene waterfall cascading down through dense green forests.' }
                 ]
             },
             'manali': {
                 title: 'Manali Tour',
                 location: 'Himachal Pradesh, India',
-                image: 'images/manali.jpg',
+                image: 'https://images.unsplash.com/photo-1605648916361-9bc12ad6a566?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Experience snow-capped mountains, adventure sports, and serene landscapes in Manali.',
                 subPlaces: [
                     { name: 'Solang Valley', desc: 'Hub for adventure sports like paragliding, zorbing, and skiing.' },
                     { name: 'Atal Tunnel & Sissu', desc: 'Engineering marvel leading to scenic waterfalls and cold desert vibes.' },
                     { name: 'Hadimba Temple', desc: 'Historic wooden temple nestled inside dense dhungri van Vihar forests.' },
-                    { name: 'Old Manali', desc: 'Cafes, vibrant culture, orchards, and peaceful village paths.' }
+                    { name: 'Old Manali', desc: 'Cafes, vibrant culture, orchards, and peaceful village paths.' },
+                    { name: 'Jogini Waterfalls', desc: 'Scenic trek leading to a spectacular multi-tiered waterfall.' },
+                    { name: 'Rohtang Pass', desc: 'High mountain pass offering glacier views and snow activities.' },
+                    { name: 'Vashisht Hot Springs', desc: 'Natural sulphur springs known for their medicinal and relaxing properties.' },
+                    { name: 'Mall Road Manali', desc: 'Vibrant local market filled with handicrafts, local woolen clothes, and cafes.' }
                 ]
             },
             'jaipur': {
                 title: 'Jaipur - Pink City',
                 location: 'Rajasthan, India',
-                image: 'images/jaipur.jpg',
+                image: 'https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Discover the royal heritage, vibrant culture, magnificent forts, and timeless beauty of Jaipur.',
                 subPlaces: [
                     { name: 'Amber Fort', desc: 'Majestic hilltop fort featuring artistic Hindu style elements.' },
                     { name: 'Hawa Mahal', desc: 'The Palace of Winds with its unique 953 small windows.' },
                     { name: 'City Palace', desc: 'Royal residence with museums, courtyards, and gardens.' },
-                    { name: 'Jantar Mantar', desc: 'World’s largest stone astronomical observatory.' }
+                    { name: 'Jantar Mantar', desc: 'World’s largest stone astronomical observatory.' },
+                    { name: 'Nahargarh Fort', desc: 'Fort standing on the edge of the Aravalli Hills overlooking the city.' },
+                    { name: 'Jal Mahal', desc: 'Stunning palace situated right in the middle of Man Sagar Lake.' },
+                    { name: 'Albert Hall Museum', desc: 'State museum showcasing rich artifacts, paintings, and royal costumes.' },
+                    { name: 'Bapu Bazaar', desc: 'Vibrant traditional market famous for textiles, mojris, and handicrafts.' }
                 ]
             },
             'mathura & vrindavan': {
                 title: 'Mathura & Vrindavan',
                 location: 'Uttar Pradesh, India',
-                image: 'images/mathura.jpg',
+                image: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1200&q=80',
                 desc: 'Immerse yourself in the divine land of Lord Krishna, ancient temples, ghats, and spiritual heritage.',
                 subPlaces: [
                     { name: 'Banke Bihari Temple', desc: 'One of the holiest and most revered shrines in Vrindavan.' },
-                    { name: 'Prem Mandir', desc: 'Magnificent marble temple illuminated with colorful lights at night.' },
-                    { name: 'Krishna Janmabhoomi', desc: 'The birthplace of Lord Krishna in Mathura.' },
-                    { name: 'Vishram Ghat', desc: 'Sacred river bank on the Yamuna for evening Aarti.' }
+                    { name: 'Prem Mandir', desc: 'Magnificent white marble temple illuminated with colorful lights at night.' },
+                    { name: 'Krishna Janmabhoomi', desc: 'The sacred birthplace of Lord Krishna in Mathura.' },
+                    { name: 'Vishram Ghat', desc: 'Sacred river bank on the Yamuna for evening Aarti and boat rides.' },
+                    { name: 'ISKCON Vrindavan', desc: 'Beautiful temple complex known for peaceful chants and spiritual ambiance.' },
+                    { name: 'Govardhan Hill', desc: 'Sacred hill associated with Lord Krishna lifting it on his finger.' },
+                    { name: 'Nidhivan', desc: 'Mystical forest where divine leelas are believed to happen every night.' },
+                    { name: 'Dwarkadhish Temple', desc: 'Historic temple known for its intricate architecture and grand festivities.' }
                 ]
             }
         };
 
         const current = database[placeKey] || database['shimla'];
 
-        // UI elements ko update karna
         document.getElementById('place-title').innerText = current.title;
         document.getElementById('book-title-sub').innerText = current.title;
-        document.getElementById('place-location').innerHTML = `<i class="fa fa-map-marker-alt"></i> ${current.location} &nbsp; | &nbsp; <i class="fa fa-star" style="color: #ffc107;"></i> 4.7`;
+        document.getElementById('place-location').innerHTML = `<i class="fa fa-map-marker-alt"></i> ${current.location} &nbsp; | &nbsp; <i class="fa fa-star" style="color: #d4af37;"></i> 4.8`;
         document.getElementById('hero-bg').style.backgroundImage = `url('${current.image}')`;
         document.getElementById('place-desc').innerText = current.desc;
 
-        // Places to visit list loop karna
         const container = document.getElementById('places-container');
         document.getElementById('places-heading').innerText = `Places to Visit (${current.subPlaces.length})`;
         
@@ -235,8 +260,8 @@
                 <div class="place-item">
                     <div class="place-num">${index + 1}</div>
                     <div>
-                        <h4 style="margin: 0 0 5px 0; font-size: 16px; color: #222;">${p.name}</h4>
-                        <p style="margin: 0; font-size: 13px; color: #666;">${p.desc}</p>
+                        <h4 style="margin: 0 0 5px 0; font-size: 16px; color: #f8fafc;">${p.name}</h4>
+                        <p style="margin: 0; font-size: 13px; color: #94a3b8;">${p.desc}</p>
                     </div>
                 </div>
             `;
