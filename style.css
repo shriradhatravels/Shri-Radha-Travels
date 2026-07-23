@@ -866,3 +866,20 @@ img, .royal-image {
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     animation: goldShine 3s infinite alternate;
 }
+/* Fixed & Bigger Navbar */
+header, .navbar, nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(6, 9, 19, 0.95); /* Thoda dark premium background */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 15px 20px !important; /* Size bada karne ke liye padding badha di */
+}
+
+/* Body ke upar space taaki content navbar ke peeche na chhupe */
+body {
+    padding-top: 90px !important; 
+}
