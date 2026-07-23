@@ -1,118 +1,246 @@
-<script>
-        const params = new URLSearchParams(window.location.search);
-        const placeKey = params.get('place') || params.get('dest') || '';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Details - Shri Radha Travels</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding-top: 80px;
+        }
+        .detail-hero {
+            position: relative;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: #fff;
+        }
+        .detail-hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            color: #fff;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 800px;
+            margin: -30px auto 30px auto;
+            position: relative;
+            z-index: 3;
+            padding: 0 15px;
+        }
+        .card-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        .places-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .place-item {
+            display: flex;
+            align-items: flex-start;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .place-num {
+            background: #fff3cd;
+            color: #856404;
+            width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .btn-primary-custom {
+            background-color: #ffc107;
+            color: #000;
+            font-weight: bold;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
 
-        const destinationsData = {
+    <!-- Hero Section -->
+    <div class="detail-hero" id="hero-bg" style="background-image: url('images/shimla.jpg');">
+        <a href="index.html" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Destinations</a>
+        <div class="hero-content">
+            <h1 id="place-title" style="margin: 0; font-size: 28px;">Shimla Trip</h1>
+            <p id="place-location" style="margin: 5px 0 0 0; font-size: 14px;"><i class="fa fa-map-marker-alt"></i> Himachal Pradesh, India &nbsp; | &nbsp; <i class="fa fa-star" style="color: #ffc107;"></i> 4.7</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Booking Box -->
+        <div class="card-box">
+            <h3>Book This Trip</h3>
+            <p id="book-title-sub" style="color: #d4af37; font-weight: 600;">Shimla</p>
+            
+            <label style="font-size: 13px; color: #666;">Trip Type</label>
+            <div style="display: flex; gap: 10px; margin: 8px 0 15px 0;">
+                <button type="button" style="flex: 1; padding: 10px; border: 2px solid #ffc107; background: #fff3cd; border-radius: 8px; font-weight: bold;">One Way</button>
+                <button type="button" style="flex: 1; padding: 10px; border: 1px solid #ddd; background: #fff; border-radius: 8px;">Round Trip</button>
+            </div>
+
+            <label style="font-size: 13px; color: #666;">Select Date</label>
+            <input type="date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin: 8px 0 15px 0; box-sizing: border-box;">
+
+            <label style="font-size: 13px; color: #666;">Phone Number</label>
+            <input type="text" placeholder="Enter your phone number" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin: 8px 0 15px 0; box-sizing: border-box;">
+
+            <button class="btn-primary-custom">Book Now</button>
+        </div>
+
+        <!-- About Experience -->
+        <div class="card-box">
+            <h3>About This Experience</h3>
+            <p id="place-desc" style="color: #555; line-height: 1.6;">Experience scenic beauty, colonial-era charm, pine forests, and magnificent valley views with Shri Radha Travels.</p>
+        </div>
+
+        <!-- Places to Visit List -->
+        <div class="card-box">
+            <h3 id="places-heading">Places to Visit (4)</h3>
+            <div class="places-list" id="places-container">
+                <!-- Dynamically populated via script -->
+            </div>
+        </div>
+
+        <!-- What's Included -->
+        <div class="card-box">
+            <h3>What's Included</h3>
+            <ul style="padding-left: 20px; color: #555; line-height: 2;">
+                <li><i class="fa fa-check" style="color: #28a745;"></i> Professional verified driver</li>
+                <li><i class="fa fa-check" style="color: #28a745;"></i> Comfortable AC vehicle</li>
+                <li><i class="fa fa-check" style="color: #28a745;"></i> Flexible pickup & drop</li>
+                <li><i class="fa fa-check" style="color: #28a745;"></i> 24/7 customer support</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // URL se place ka naam read karna
+        const urlParams = new URLSearchParams(window.location.search);
+        const placeKey = urlParams.get('place') || 'shimla';
+
+        // Saari destinations ka data (Reference layout ke mutabiq)
+        const database = {
             'shimla': {
-                title: 'Shimla Royal Tour',
-                desc: 'Explore the colonial architecture, scenic pine-covered hills, and the famous Mall Road with our luxury cab service.',
-                image: 'IMG_4541.jpeg'
+                title: 'Shimla Trip',
+                location: 'Himachal Pradesh, India',
+                image: 'images/shimla.jpg',
+                desc: 'Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys.',
+                subPlaces: [
+                    { name: 'Mall Road', desc: 'Famous shopping hub and scenic walking area in the heart of Shimla.' },
+                    { name: 'Kufri', desc: 'Snow-capped peaks, amusement park, and breathtaking panoramic views.' },
+                    { name: 'Jakhoo Temple', desc: 'Ancient Hanuman temple situated on Shimla’s highest peak.' },
+                    { name: 'Christ Church', desc: 'Second oldest church in North India with stunning neo-gothic architecture.' }
+                ]
             },
             'manali': {
-                title: 'Manali Snow Valley Expedition',
-                desc: 'Experience majestic snow-capped peaks, solang valley adventures, and premium comfort rides through pristine Himalayan landscapes.',
-                image: 'IMG_4543.jpeg'
-            },
-            'spiti valley': {
-                title: 'Spiti Valley High Altitude Adventure',
-                desc: 'Journey through breathtaking cold desert mountain terrain, ancient monasteries, and rugged terrains safely with our expert chauffeurs.',
-                image: 'IMG_4545.jpeg'
-            },
-            'dalhousie': {
-                title: 'Dalhousie Serene Retreat',
-                desc: 'Immerse yourself in peaceful green valleys, old-world charm, and Victorian-style architecture.',
-                image: 'IMG_4540.jpeg'
-            },
-            'dehradun': {
-                title: 'Dehradun Scenic Gateway',
-                desc: 'Enjoy a pleasant getaway surrounded by picturesque landscapes at the foothills of the Himalayas.',
-                image: 'IMG_4538.jpeg'
-            },
-            'delhi': {
-                title: 'Delhi Heritage & City Tour',
-                desc: 'Explore historical monuments, vibrant culture, and modern luxury travel across the capital city.',
-                image: 'IMG_4536.jpeg'
-            },
-            'amritsar': {
-                title: 'Amritsar Golden Temple Journey',
-                desc: 'Witness the spiritual serenity of the Golden Temple and rich Punjabi heritage with comfortable outstation rides.',
-                image: 'IMG_4539.jpeg'
-            },
-            'mussoorie': {
-                title: 'Mussoorie Queen of Hills',
-                desc: 'Discover panoramic views of the Doon Valley and cascading waterfalls with our elite travel packages.',
-                image: 'IMG_4538.jpeg'
+                title: 'Manali Tour',
+                location: 'Himachal Pradesh, India',
+                image: 'images/manali.jpg',
+                desc: 'Experience snow-capped mountains, adventure sports, and serene landscapes in Manali.',
+                subPlaces: [
+                    { name: 'Solang Valley', desc: 'Hub for adventure sports like paragliding, zorbing, and skiing.' },
+                    { name: 'Atal Tunnel & Sissu', desc: 'Engineering marvel leading to scenic waterfalls and cold desert vibes.' },
+                    { name: 'Hadimba Temple', desc: 'Historic wooden temple nestled inside dense dhungri van Vihar forests.' },
+                    { name: 'Old Manali', desc: 'Cafes, vibrant culture, orchards, and peaceful village paths.' }
+                ]
             },
             'jaipur': {
-                title: 'Jaipur Pink City Royal Tour',
-                desc: 'Experience royal palaces, historic forts, and traditional Rajasthani hospitality in ultimate luxury.',
-                image: 'IMG_4536.jpeg'
+                title: 'Jaipur - Pink City',
+                location: 'Rajasthan, India',
+                image: 'images/jaipur.jpg',
+                desc: 'Discover the royal heritage, vibrant culture, magnificent forts, and timeless beauty of Jaipur.',
+                subPlaces: [
+                    { name: 'Amber Fort', desc: 'Majestic hilltop fort featuring artistic Hindu style elements.' },
+                    { name: 'Hawa Mahal', desc: 'The Palace of Winds with its unique 953 small windows.' },
+                    { name: 'City Palace', desc: 'Royal residence with museums, courtyards, and gardens.' },
+                    { name: 'Jantar Mantar', desc: 'World’s largest stone astronomical observatory.' }
+                ]
             },
-            'mathura vrindavan': {
-                title: 'Mathura Vrindavan Divine Tour',
-                desc: 'Experience the divine land of Lord Krishna with utmost comfort and peace.',
-                image: 'IMG_4537.jpeg'
-            },
-            'char dham yatra': {
-                title: 'Char Dham Yatra',
-                desc: 'Embark on the sacred spiritual pilgrimage with verified chauffeurs.',
-                image: 'IMG_4542.jpeg'
-            },
-            'vaishno devi yatra': {
-                title: 'Vaishno Devi Yatra',
-                desc: 'Safe and comfortable cab services for your sacred pilgrimage journey to Katra and Vaishno Devi.',
-                image: 'IMG_4544.jpeg'
+            'mathura & vrindavan': {
+                title: 'Mathura & Vrindavan',
+                location: 'Uttar Pradesh, India',
+                image: 'images/mathura.jpg',
+                desc: 'Immerse yourself in the divine land of Lord Krishna, ancient temples, ghats, and spiritual heritage.',
+                subPlaces: [
+                    { name: 'Banke Bihari Temple', desc: 'One of the holiest and most revered shrines in Vrindavan.' },
+                    { name: 'Prem Mandir', desc: 'Magnificent marble temple illuminated with colorful lights at night.' },
+                    { name: 'Krishna Janmabhoomi', desc: 'The birthplace of Lord Krishna in Mathura.' },
+                    { name: 'Vishram Ghat', desc: 'Sacred river bank on the Yamuna for evening Aarti.' }
+                ]
             }
         };
 
-        // Clean up URL parameter to lowercase and match keys smoothly
-        const cleanKey = decodeURIComponent(placeKey).replace(/[-_]/g, ' ').trim().toLowerCase();
-        const matchedDest = destinationsData[cleanKey] || {
-            title: decodeURIComponent(placeKey) || 'Royal Tour Package',
-            desc: 'Experience ultimate comfort, luxury vehicles, and verified chauffeurs with Shri Radha Travels.',
-            image: 'IMG_4536.jpeg'
-        };
+        const current = database[placeKey] || database['shimla'];
 
-        document.getElementById('dest-title').innerText = matchedDest.title;
-        document.getElementById('dest-desc').innerText = matchedDest.desc;
-        document.getElementById('dest-img').src = matchedDest.image;
-    </script>  
-<script>
-    // URL se place ka naam nikalna
-    const urlParams = new URLSearchParams(window.location.search);
-    const place = urlParams.get('place') || 'shimla';
+        // UI elements ko update karna
+        document.getElementById('place-title').innerText = current.title;
+        document.getElementById('book-title-sub').innerText = current.title;
+        document.getElementById('place-location').innerHTML = `<i class="fa fa-map-marker-alt"></i> ${current.location} &nbsp; | &nbsp; <i class="fa fa-star" style="color: #ffc107;"></i> 4.7`;
+        document.getElementById('hero-bg').style.backgroundImage = `url('${current.image}')`;
+        document.getElementById('place-desc').innerText = current.desc;
 
-    // Data object jisme alag-alag places ki details hain
-    const placeData = {
-        'shimla': {
-            title: 'Shimla Trip',
-            description: 'Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys.',
-            image: 'images/shimla.jpg' // Apni image ka path yahan match kar sakte hain
-        },
-        'manali': {
-            title: 'Manali Tour',
-            description: 'Experience snow-capped mountains, adventure sports, and serene landscapes in Manali.',
-            image: 'images/manali.jpg'
-        },
-        'jaipur': {
-            title: 'Jaipur - Pink City',
-            description: 'Discover the royal heritage, vibrant culture, magnificent forts, and timeless beauty of Jaipur.',
-            image: 'images/jaipur.jpg'
-        },
-        'mathura & vrindavan': {
-            title: 'Mathura & Vrindavan',
-            description: 'Immerse yourself in the divine land of Lord Krishna, ancient temples, ghats, and spiritual heritage.',
-            image: 'images/mathura.jpg'
-        }
-    };
-
-    // Agar data match ho jaye toh page par show karna
-    const currentData = placeData[place] || placeData['shimla'];
-    
-    // Aapke page ke elements jinme data set hona hai (agar IDs match karein)
-    const titleEl = document.getElementById('place-title');
-    const descEl = document.getElementById('place-desc');
-    
-    if(titleEl) titleEl.innerText = currentData.title;
-    if(descEl) descEl.innerText = currentData.description;
-</script>
+        // Places to visit list loop karna
+        const container = document.getElementById('places-container');
+        document.getElementById('places-heading').innerText = `Places to Visit (${current.subPlaces.length})`;
+        
+        container.innerHTML = '';
+        current.subPlaces.forEach((p, index) => {
+            container.innerHTML += `
+                <div class="place-item">
+                    <div class="place-num">${index + 1}</div>
+                    <div>
+                        <h4 style="margin: 0 0 5px 0; font-size: 16px; color: #222;">${p.name}</h4>
+                        <p style="margin: 0; font-size: 13px; color: #666;">${p.desc}</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
