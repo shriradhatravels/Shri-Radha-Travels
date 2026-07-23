@@ -87,18 +87,22 @@
 </div>
 
 <!-- Sticky Luxury Navbar -->
-<nav style="position: sticky; top: 0; z-index: 1000; background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+<nav style="position: sticky; top: 0; z-index: 1000; background: #0f172a; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
     
     <!-- Brand Logo & Name in Navbar -->
     <a href="#home" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-        <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid #d4af37; object-fit: contain;">
-        <span style="color: white; font-weight: 700; font-size: 16px; letter-spacing: 0.5px;">Shri Radha <span style="color: #d4af37;">Travels</span></span>
+        <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1px solid #d4af37;">
+            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <span style="color: white; font-weight: 700; font-size: 16px;">Shri Radha <span style="color: #d4af37;">Travels</span></span>
     </a>
 
-    <!-- Menu Trigger Button (Replaces Call Now) -->
+    <!-- Menu Trigger Button -->
     <div onclick="openMenu()" style="width: 42px; height: 42px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #d4af37; font-size: 18px;">
         <i class="fas fa-bars"></i>
     </div>
+
+</nav>
 
 <!-- CSS Animations for Loading Screen -->
 <style>
