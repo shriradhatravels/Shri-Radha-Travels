@@ -720,3 +720,57 @@ header {
     width: 100%;
     z-index: 1000;
 }
+/* ===========================
+   LUXURY TOURS & BLOGS CARDS UPGRADE
+=========================== */
+
+/* Section background & overall styling */
+.tours-section, .blogs-section, .trending-section {
+    background: linear-gradient(135deg, #0b0f19 0%, #1e293b 50%, #0b0f19 100%);
+    padding: 60px 20px;
+    position: relative;
+}
+
+/* Luxury Animated Cards Design */
+.tour-card, .blog-card, .dest-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(15px);
+    border: 2px solid #d4af37 !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Card thoda upar aayega aur golden glow badh jayega */
+.tour-card:hover, .blog-card:hover, .dest-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #f6c453 !important;
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Headings ko aur zyada attractive aur golden touch dene ke liye */
+.tour-card h3, .blog-card h3, h2 {
+    color: #f6c453 !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons ko luxury gold gradient look dene ke liye */
+.tour-card a, .blog-card a, .tour-card button, .blog-card button {
+    background: linear-gradient(135deg, #d4af37, #f6c453) !important;
+    color: #0b0f19 !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.tour-card a:hover, .blog-card a:hover {
+    background: #ffffff !important;
+    color: #0b0f19 !important;
+    transform: scale(1.05);
+}
