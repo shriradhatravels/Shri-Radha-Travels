@@ -1162,3 +1162,14 @@
         });
     });
 </script> 
+<!-- AAKHRI AUR PAKKA FIX -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const allLinks = document.querySelectorAll('a');
+        allLinks.forEach(link => {
+            if (link.textContent.trim() === 'Tours') {
+                link.href = 'all-destinations.html';
+            }
+        });
+    });
+</script>
