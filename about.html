@@ -342,7 +342,17 @@
     <footer>
         <p>&copy; 2026 Shri Radha Travels. All rights reserved.</p>
     </footer>
-
+<!-- AAKHRI AUR PAKKA FIX -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const allLinks = document.querySelectorAll('a');
+        allLinks.forEach(link => {
+            if (link.textContent.trim() === 'Tours') {
+                link.href = 'all-destinations.html';
+            }
+        });
+    });
+</script>
 </body>
 </html>
  
