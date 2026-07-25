@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Details - Shri Radha Travels</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -36,6 +38,39 @@
             margin: 0 auto;
         }
 
+        /* Header Navigation */
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .brand-title {
+            font-family: 'Playball', cursive;
+            color: #fbbf24;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .home-btn {
+            background: transparent;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #f3e5ab;
+            padding: 6px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: #fbbf24;
+            color: #0b0f19;
+        }
+
         .trip-header {
             text-align: center;
             margin-bottom: 25px;
@@ -52,7 +87,7 @@
             font-size: 14px;
         }
 
-        .booking-card, .experience-card {
+        .booking-card, .experience-card, .section-box {
             background: #131b2e;
             border: 1px solid #1e293b;
             border-radius: 16px;
@@ -107,8 +142,7 @@
             font-weight: 600;
             cursor: pointer;
             position: relative;
-            z-index: 999;
-            pointer-events: auto !important;
+            z-index: 99;
             transition: all 0.2s ease;
         }
 
@@ -129,8 +163,7 @@
             font-size: 15px;
             outline: none;
             position: relative;
-            z-index: 999;
-            pointer-events: auto !important;
+            z-index: 99;
         }
 
         .input-field:focus {
@@ -148,8 +181,7 @@
             font-weight: 700;
             cursor: pointer;
             position: relative;
-            z-index: 999;
-            pointer-events: auto !important;
+            z-index: 99;
             box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
             margin-top: 10px;
         }
@@ -164,11 +196,89 @@
             line-height: 1.6;
             margin-top: 8px;
         }
+
+        /* Places to Visit Styling */
+        .places-section-title {
+            font-size: 22px;
+            color: #fbbf24;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .place-item-card {
+            background: #131b2e;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .place-number {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .place-details h4 {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .place-details p {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        /* What's Included List Styling */
+        .included-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .included-list li {
+            font-size: 14px;
+            color: #cbd5e1;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+
+        .included-list li:last-child {
+            border-bottom: none;
+        }
+
+        .included-list li span {
+            color: #fbbf24;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Navigation Header -->
+        <header class="nav-header">
+            <a href="index.html" class="brand-title">Shri Radha Travels</a>
+            <a href="index.html" class="home-btn">← Home</a>
+        </header>
+
         <div class="trip-header">
             <h1 id="placeTitle">Explore Trip</h1>
             <div class="trip-meta" id="placeLocation">📍 Loading Destination...</div>
@@ -203,6 +313,23 @@
             <div class="card-title" style="font-size: 18px;">About This Experience</div>
             <p id="placeDescription">Discover breathtaking landscapes and rich culture with Shri Radha Travels.</p>
         </div>
+
+        <!-- Places to Visit Section -->
+        <div id="placesToVisitContainer">
+            <h3 class="places-section-title" id="placesHeaderTitle">Places to Visit</h3>
+            <div id="placesListWrapper"></div>
+        </div>
+
+        <!-- What's Included Section -->
+        <div class="section-box">
+            <div class="card-title" style="font-size: 18px;">What's Included</div>
+            <ul class="included-list">
+                <li><span>›</span> Professional verified driver</li>
+                <li><span>›</span> Comfortable AC vehicle</li>
+                <li><span>›</span> Flexible pickup & drop</li>
+                <li><span>›</span> 24/7 customer support</li>
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -210,19 +337,201 @@
         const placeKey = urlParams.get('place') || 'Shimla';
 
         const locationsData = {
-            "Shimla": { title: "Shimla Trip", location: "Himachal Pradesh, India | ⭐ 4.8", description: "Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys." },
-            "Manali": { title: "Manali Adventure Trip", location: "Himachal Pradesh, India | ⭐ 4.9", description: "Experience snow-capped mountains, thrilling adventure sports in Solang Valley, and Rohtang Pass." },
-            "Spiti-Valley": { title: "Spiti Valley Expedition", location: "Himachal Pradesh, India | ⭐ 4.9", description: "Journey through rugged cold desert mountains, ancient monasteries, and high-altitude lakes." },
-            "Dalhousie": { title: "Dalhousie Peaceful Getaway", location: "Himachal Pradesh, India | ⭐ 4.7", description: "Relax amidst pine-clad valleys, colonial-era buildings, and gorgeous sunset viewpoints." },
-            "Dehradun": { title: "Dehradun Nature Tour", location: "Uttarakhand, India | ⭐ 4.6", description: "Enjoy pleasant weather, picturesque waterfalls, caves, and a gateway to several hill stations." },
-            "Delhi": { title: "Delhi Heritage & Food Walk", location: "Delhi, India | ⭐ 4.7", description: "Dive into rich history with majestic monuments, bustling street markets, and famous street food." },
-            "Amritsar": { title: "Amritsar Cultural Tour", location: "Punjab, India | ⭐ 4.9", description: "Pay respects at the divine Golden Temple and experience the patriotic fervor at Wagah Border." },
-            "Mussoorie": { title: "Mussoorie Queen of Hills", location: "Uttarakhand, India | ⭐ 4.8", description: "Stroll down Mall Road, visit Kempty Falls, and witness breathtaking views of the Doon Valley." },
-            "Jaipur": { title: "Jaipur Royal Pink City Tour", location: "Rajasthan, India | ⭐ 4.8", description: "Explore majestic forts, royal palaces, rich Rajasthani heritage, and vibrant local bazaars." },
-            "Mathura-Vrindavan": { title: "Mathura & Vrindavan Divine Tour", location: "Uttar Pradesh, India | ⭐ 4.9", description: "Immerse yourself in the divine land of Lord Krishna, beautiful temples, and vibrant cultural festivities." },
-            "Vaishno-Devi": { title: "Vaishno Devi Yatra", location: "Jammu & Kashmir, India | ⭐ 4.9", description: "Experience a spiritual journey to the holy shrine nestled in the Trikuta mountains." },
-            "Char-Dham": { title: "Char Dham Yatra", location: "Uttarakhand, India | ⭐ 5.0", description: "Embark on the sacred pilgrimage of Yamunotri, Gangotri, Kedarnath, and Badrinath." },
-            "Leh-Ladakh": { title: "Leh Ladakh Adventure", location: "Ladakh, India | ⭐ 4.9", description: "Discover high-altitude passes, crystal clear blue lakes, and stunning cold desert landscapes." }
+            "Shimla": { 
+                title: "Shimla Trip", 
+                location: "Himachal Pradesh, India | ⭐ 4.8", 
+                description: "Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys.",
+                places: [
+                    { name: "Mall Road", desc: "The main heart of Shimla filled with vibrant shops, cafes, and historic colonial buildings." },
+                    { name: "The Ridge & Christ Church", desc: "A wide open cultural hub featuring the second oldest church in North India." },
+                    { name: "Jakhoo Temple", desc: "Famous hilltop temple dedicated to Lord Hanuman with a massive 108ft statue." },
+                    { name: "Kufri", desc: "Scenic hill station nearby known for panoramic snow views, fun parks, and horse riding." },
+                    { name: "Viceregal Lodge (Rashtrapati Niwas)", desc: "Magnificent British architecture structure showcasing historical heritage." },
+                    { name: "Green Valley", desc: "Breathtaking photography viewpoint surrounded by dense pine and deodar forests." },
+                    { name: "Summer Hill", desc: "A quiet, serene town covered in greenery, part of the seven hills cluster." },
+                    { name: "Mall Road Gaiety Theatre", desc: "Historic cultural center hosting plays, heritage exhibitions, and social events." }
+                ]
+            },
+            "Manali": { 
+                title: "Manali Adventure Trip", 
+                location: "Himachal Pradesh, India | ⭐ 4.9", 
+                description: "Experience snow-capped mountains, thrilling adventure sports in Solang Valley, and Rohtang Pass.",
+                places: [
+                    { name: "Solang Valley", desc: "Hub for adventure sports like paragliding, zorbing, quad biking, and skiing." },
+                    { name: "Hadimba Temple", desc: "Historic wooden pagoda-style temple nestled peacefully inside dense cedar forests." },
+                    { name: "Atal Tunnel & Sissu", desc: "Engineering marvel leading to breathtaking waterfalls and cold desert views." },
+                    { name: "Old Manali", desc: "Charming cafes, beautiful apple orchards, and a vibrant bohemian backpacker culture." },
+                    { name: "Jogini Waterfall", desc: "A scenic trek leading to a gorgeous cascading waterfall amidst nature." },
+                    { name: "Vashisht Hot Water Springs", desc: "Natural sulfur springs known for their traditional healing and relaxing properties." },
+                    { name: "Manali Gompa (Buddhist Monastery)", desc: "Peaceful monastery featuring striking Tibetan architecture and prayer wheels." },
+                    { name: "Naggar Castle", desc: "Historic medieval stone-and-wood castle overlooking the Kullu valley." }
+                ]
+            },
+            "Spiti-Valley": { 
+                title: "Spiti Valley Expedition", 
+                location: "Himachal Pradesh, India | ⭐ 4.9", 
+                description: "Journey through rugged cold desert mountains, ancient monasteries, and high-altitude lakes.",
+                places: [
+                    { name: "Key Monastery", desc: "Famous thousand-year-old Tibetan Buddhist monastery perched dramatically on a hilltop." },
+                    { name: "Chandratal Lake", desc: "Stunning crescent-shaped high altitude lake with crystal clear changing blue water." },
+                    { name: "Kaza", desc: "The commercial hub and main administrative headquarters of the remote Spiti valley." },
+                    { name: "Hikkim (World's Highest Post Office)", desc: "Send postcards from one of the highest inhabited settlements globally." },
+                    { name: "Komic Village", desc: "One of the highest motorable villages in the world with a unique monastery." },
+                    { name: "Langza Buddha Statue", desc: "Giant statue of Lord Buddha overlooking the stunning valley landscape." },
+                    { name: "Pin Valley National Park", desc: "Cold desert national park famous for spotting the elusive snow leopard." },
+                    { name: "Dhankar Lake & Monastery", desc: "Cliff-hanging ancient fort monastery offering jaw-dropping gorge views." }
+                ]
+            },
+            "Dalhousie": { 
+                title: "Dalhousie Peaceful Getaway", 
+                location: "Himachal Pradesh, India | ⭐ 4.7", 
+                description: "Relax amidst pine-clad valleys, colonial-era buildings, and gorgeous sunset viewpoints.",
+                places: [
+                    { name: "Khajjiar (Mini Switzerland)", desc: "Stunning saucer-shaped lush green meadow surrounded by dense pine forests." },
+                    { name: "Dainkund Peak", desc: "Highest peak in Dalhousie offering incredible 360-degree valley vistas." },
+                    { name: "Panchpula", desc: "Picturesque waterfalls and bubbling streams dedicated to freedom fighter Ajit Singh." },
+                    { name: "Kalatop Wildlife Sanctuary", desc: "Dense forest reserve rich in flora, fauna, and scenic trekking trails." },
+                    { name: "St. John's Church", desc: "Oldest church in town showcasing remarkable British-era stained glass windows." },
+                    { name: "Subhash Baoli", desc: "Peaceful water spring surrounded by giant pine trees where Subhash Chandra Bose rested." },
+                    { name: "Bakrota Hills", desc: "Scenic walking circuit providing panoramic views of snow-capped mountains." },
+                    { name: "Gandhi Chowk", desc: "The bustling commercial market center lined with local handicrafts and eateries." }
+                ]
+            },
+            "Dehradun": { 
+                title: "Dehradun Nature Tour", 
+                location: "Uttarakhand, India | ⭐ 4.6", 
+                description: "Enjoy pleasant weather, picturesque waterfalls, caves, and a gateway to several hill stations.",
+                places: [
+                    { name: "Robber's Cave (Guchhupani)", desc: "Natural river cave formation popular for fun short water walks and echoes." },
+                    { name: "Sahastradhara", desc: "Thousand-fold spring known for its therapeutic sulfur water and waterfalls." },
+                    { name: "Mindrolling Monastery", desc: "Magnificent Buddhist monastery featuring stunning gardens and huge stupa architecture." },
+                    { name: "Tapkeshwar Mahadev Temple", desc: "Ancient cave temple dedicated to Lord Shiva situated by a river stream." },
+                    { name: "Malsi Deer Park", desc: "Charming zoological park home to deer, nilgai, and diverse bird species." },
+                    { name: "Robber's Cave Trek", desc: "Scenic nature walking pathways nestled amidst lush lower Himalayan foothills." },
+                    { name: "Forest Research Institute (FRI)", desc: "Imposing colonial-era Greco-Roman architecture and massive forestry museum." },
+                    { name: "Rajaji National Park Safari", desc: "Exciting wildlife safari gateway known for elephants, leopards, and tigers." }
+                ]
+            },
+            "Delhi": { 
+                title: "Delhi Heritage & Food Walk", 
+                location: "Delhi, India | ⭐ 4.7", 
+                description: "Dive into rich history with majestic monuments, bustling street markets, and famous street food.",
+                places: [
+                    { name: "Red Fort & Chandni Chowk", desc: "Historic Mughal fortress and vibrant, bustling old Delhi street markets." },
+                    { name: "Qutub Minar", desc: "Towering 73-meter victory tower built in the 12th century with rich carvings." },
+                    { name: "India Gate", desc: "Iconic war memorial located grandly in the heart of New Delhi." },
+                    { name: "Humayun's Tomb", desc: "Stunning red sandstone Mughal garden-tomb that inspired the Taj Mahal." },
+                    { name: "Lotus Temple (Bahá'í House of Worship)", desc: "Architectural marvel shaped like a lotus flower, known for absolute silence." },
+                    { name: "Akshardham Temple", desc: "Massive spiritual-cultural complex featuring stunning architecture and boat rides." },
+                    { name: "Connaught Place", desc: "The vibrant commercial and shopping hub built in a grand circular Georgian style." },
+                    { name: "Hauz Khas Village", desc: "Trendy urban neighborhood blending medieval Islamic structures with chic cafes." }
+                ]
+            },
+            "Amritsar": { 
+                title: "Amritsar Cultural Tour", 
+                location: "Punjab, India | ⭐ 4.9", 
+                description: "Pay respects at the divine Golden Temple and experience the patriotic fervor at Wagah Border.",
+                places: [
+                    { name: "Golden Temple (Harmandir Sahib)", desc: "The holiest Sikh shrine known for golden architecture and world's largest community kitchen." },
+                    { name: "Wagah Border", desc: "Famous energetic daily ceremonial lowering of flags border retreat ceremony." },
+                    { name: "Jallianwala Bagh", desc: "Historic public garden and emotional national freedom movement memorial." },
+                    { name: "Partition Museum", desc: "Deeply moving museum documenting the historical stories of the 1947 partition." },
+                    { name: "Gobindgarh Fort", desc: "Historic military fort turned cultural theme park with laser shows and museums." },
+                    { name: "Durgiana Temple", desc: "Hindu temple closely resembling the design style of the Golden Temple." },
+                    { name: "Hall Bazaar", desc: "Vibrant traditional shopping market famous for Phulkari suits and jootis." },
+                    { name: "Aam Papad Street", desc: "Famous local food lane offering mouth-watering spicy and sweet traditional snacks." }
+                ]
+            },
+            "Mussoorie": { 
+                title: "Mussoorie Queen of Hills", 
+                location: "Uttarakhand, India | ⭐ 4.8", 
+                description: "Stroll down Mall Road, visit Kempty Falls, and witness breathtaking views of the Doon Valley.",
+                places: [
+                    { name: "Kempty Falls", desc: "Picturesque cascading waterfall surrounded by high rocky cliffs and splash pools." },
+                    { name: "Mall Road & Camel's Back Road", desc: "Scenic walking trails, colonial shopping hubs, and sunset view points." },
+                    { name: "Lal Tibba Scenic Point", desc: "Highest point in Mussoorie providing Japanese telescopes to view snow peaks." },
+                    { name: "Gun Hill Point", desc: "Second highest peak accessible via ropeway with stunning panoramic valley views." },
+                    { name: "Company Garden", desc: "Lush botanical garden featuring an artificial lake, boating, and colorful flowers." },
+                    { name: "Cloud's End", desc: "The scenic geographical end of Mussoorie surrounded by dense oak and deodar forests." },
+                    { name: "George Everest's House", desc: "Historic heritage landmark home to the surveyor general of India." },
+                    { name: "Jharipani Waterfall", desc: "A quiet, peaceful natural waterfall ideal for nature lovers and trekkers." }
+                ]
+            },
+            "Jaipur": { 
+                title: "Jaipur Royal Pink City Tour", 
+                location: "Rajasthan, India | ⭐ 4.8", 
+                description: "Explore majestic forts, royal palaces, rich Rajasthani heritage, and vibrant local bazaars.",
+                places: [
+                    { name: "Amber Fort", desc: "Magnificent hilltop fortress blending stunning Hindu and Mughal architecture." },
+                    { name: "Hawa Mahal", desc: "The iconic Palace of Winds featuring its unique honeycombed windows facade." },
+                    { name: "City Palace", desc: "Grand royal residence featuring stunning courtyards, museums, and royal artifacts." },
+                    { name: "Jantar Mantar", desc: "UNESCO world heritage astronomical observatory built with massive stone instruments." },
+                    { name: "Jal Mahal", desc: "Enchanting water palace sitting gracefully in the middle of Man Sagar Lake." },
+                    { name: "Nahargarh Fort", desc: "Hilltop fort offering magical sunset views overlooking the entire pink city." },
+                    { name: "Jaigarh Fort", desc: "Historic fort housing the world's largest wheeled cannon known as Jaivana." },
+                    { name: "Bapu Bazaar", desc: "Vibrant traditional market famous for textiles, mojris, and handicrafts." }
+                ]
+            },
+            "Mathura-Vrindavan": { 
+                title: "Mathura & Vrindavan Divine Tour", 
+                location: "Uttar Pradesh, India | ⭐ 4.9", 
+                description: "Immerse yourself in the divine land of Lord Krishna, beautiful temples, and vibrant cultural festivities.",
+                places: [
+                    { name: "Shri Krishna Janmabhoomi", desc: "The holy sacred birthplace temple complex of Lord Krishna in Mathura." },
+                    { name: "Banke Bihari Temple", desc: "One of the most revered, lively, and visited temples in Vrindavan." },
+                    { name: "Prem Mandir", desc: "Stunning white marble temple brilliantly illuminated with colorful changing lights at night." },
+                    { name: "ISKCON Temple (Balaram Mandir)", desc: "Peaceful international spiritual center famous worldwide for joyful kirtans." },
+                    { name: "Dwarkadhish Temple", desc: "Historic, architecturally rich temple located in the heart of Mathura." },
+                    { name: "Vishram Ghat", desc: "Sacred bathing ghat on the Yamuna river bank where evening aarti is performed." },
+                    { name: "Radha Raman Temple", desc: "Ancient temple holding immense spiritual value in Gaudiya Vaishnavism." },
+                    { name: "Nidhivan", desc: "Mysterious sacred forest where divine nocturnal Leelas are believed to happen." }
+                ]
+            },
+            "Vaishno-Devi": { 
+                title: "Vaishno Devi Yatra", 
+                location: "Jammu & Kashmir, India | ⭐ 4.9", 
+                description: "Experience a spiritual journey to the holy shrine nestled in the Trikuta mountains.",
+                places: [
+                    { name: "Katra Base Camp", desc: "The bustling starting point town for the holy mountain trek." },
+                    { name: "Bhavan (Main Cave Shrine)", desc: "The sacred holy natural cave where Mata Vaishno Devi resides in pindies." },
+                    { name: "Bhairon Nath Temple", desc: "Essential hilltop temple visit required to complete the spiritual pilgrimage loop." },
+                    { name: "Adhkuwari Cave (Garbhganj)", desc: "Sacred meditation cave halfway up the trek where the Goddess rested." },
+                    { name: "Sanji Sathi", desc: "Scenic resting plateau offering breathtaking views of the surrounding mountains." },
+                    { name: "Himkoti", desc: "Beautiful resting spot with landscaped gardens and nature walking tracks." },
+                    { name: "Baan Ganga", desc: "Sacred holy stream where it's believed Arjun shot an arrow to create water." },
+                    { name: "Charan Paduka", desc: "Holy shrine mark featuring the sacred footprints imprint of Goddess Vaishnavi." }
+                ]
+            },
+            "Char-Dham": { 
+                title: "Char Dham Yatra", 
+                location: "Uttarakhand, India | ⭐ 5.0", 
+                description: "Embark on the sacred pilgrimage of Yamunotri, Gangotri, Kedarnath, and Badrinath.",
+                places: [
+                    { name: "Yamunotri Dham", desc: "Source of the sacred Yamuna river surrounded by majestic high-altitude peaks." },
+                    { name: "Gangotri Dham", desc: "Holy shrine dedicated to Goddess Ganga situated at her actual origin point." },
+                    { name: "Kedarnath Dham", desc: "Ancient and powerful Shiva Jyotirlinga nestled dramatically in the high Himalayas." },
+                    { name: "Badrinath Dham", desc: "Sacred holy abode of Lord Vishnu situated peacefully along the Alaknanda river." },
+                    { name: "Tapt Kund (Badrinath)", desc: "Natural hot sulfur water spring where pilgrims take a holy dip before temple darshan." },
+                    { name: "Gaumukh Glacier", desc: "The official true geographical source of the holy River Ganga near Gangotri." },
+                    { name: "Bhairavnath Temple (Kedarnath)", desc: "Guardian deity temple protecting the sacred Kedarnath valley shrine." },
+                    { name: "Mana Village", desc: "Last inhabited Indian village near the Indo-China border rich in mythological lore." }
+                ]
+            },
+            "Leh-Ladakh": { 
+                title: "Leh Ladakh Adventure", 
+                location: "Ladakh, India | ⭐ 4.9", 
+                description: "Discover high-altitude passes, crystal clear blue lakes, and stunning cold desert landscapes.",
+                places: [
+                    { name: "Pangong Tso Lake", desc: "Breathtaking high-altitude changing-color blue lake stretching into Tibet." },
+                    { name: "Nubra Valley & Sand Dunes", desc: "Famous for cold desert sand dunes, double-humped Bactrian camels, and monasteries." },
+                    { name: "Khardung La Pass", desc: "One of the highest motorable mountain passes in the world at 18,380 feet." },
+                    { name: "Shanti Stupa", desc: "White-domed Buddhist stupa offering panoramic sunset views overlooking Leh city." },
+                    { name: "Magnetic Hill", desc: "Gravity-defying phenomenon where vehicles appear to roll uphill on neutral." },
+                    { name: "Thiksey Monastery", desc: "Stunning 12-story monastery complex resembling Tibet's Potala Palace." },
+                    { name: "Hemis Monastery", desc: "Wealthy and largest historical monastery known for its vibrant annual festival." },
+                    { name: "Confluence of Indus & Zanskar Rivers", desc: "Stunning visible meeting point of two contrasting colored rivers at Nimmu." }
+                ]
+            }
         };
 
         const currentData = locationsData[placeKey] || locationsData["Shimla"];
@@ -230,6 +539,24 @@
         document.getElementById('subPlaceTitle').innerText = currentData.title;
         document.getElementById('placeLocation').innerText = "📍 " + currentData.location;
         document.getElementById('placeDescription').innerText = currentData.description;
+
+        // Render dynamic Places to Visit list
+        if(currentData.places) {
+            document.getElementById('placesHeaderTitle').innerText = `Places to Visit (${currentData.places.length})`;
+            const wrapper = document.getElementById('placesListWrapper');
+            wrapper.innerHTML = "";
+            currentData.places.forEach((p, index) => {
+                wrapper.innerHTML += `
+                    <div class="place-item-card">
+                        <div class="place-number">${index + 1}</div>
+                        <div class="place-details">
+                            <h4>${p.name}</h4>
+                            <p>${p.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
 
         document.getElementById('tripDate').value = new Date().toISOString().split('T')[0];
 
@@ -260,4 +587,4 @@
         };
     </script>
 </body>
-</html> 
+</html>
