@@ -15,27 +15,36 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        @keyframes fadeInUp {
-            from {
+        /* Animation with Soft Blue Glow */
+        @keyframes containerBlueAnim {
+            0% {
                 opacity: 0;
                 transform: translateY(20px);
+                box-shadow: 0 0 0 rgba(30, 58, 138, 0);
             }
-            to {
+            50% {
+                box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+            }
+            100% {
                 opacity: 1;
                 transform: translateY(0);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             }
         }
 
         body {
-            background-color: #0b0f19;
-            color: #ffffff;
+            /* Base background: Golden / Warm Amber Gradient */
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #f59e0b 100%);
+            background-attachment: fixed;
+            color: #1e293b;
             padding: 20px;
-            animation: fadeInUp 0.6s ease-out forwards;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
+            animation: containerBlueAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         /* Header Navigation */
@@ -45,30 +54,32 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            border-bottom: 1px solid rgba(30, 58, 138, 0.2);
         }
 
         .brand-title {
             font-family: 'Playball', cursive;
-            color: #fbbf24;
-            font-size: 24px;
+            color: #1e3a8a; /* Blue brand title */
+            font-size: 26px;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .home-btn {
-            background: transparent;
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            color: #f3e5ab;
+            background: rgba(30, 58, 138, 0.1);
+            border: 1px solid #1e3a8a;
+            color: #1e3a8a;
             padding: 6px 16px;
             border-radius: 30px;
             text-decoration: none;
             font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .home-btn:hover {
-            background: #fbbf24;
-            color: #0b0f19;
+            background: #1e3a8a;
+            color: #ffffff;
         }
 
         .trip-header {
@@ -79,35 +90,38 @@
         .trip-header h1 {
             font-size: 28px;
             margin-bottom: 8px;
-            color: #fff;
+            color: #111827;
         }
 
         .trip-meta {
-            color: #9ca3af;
+            color: #4b5563;
             font-size: 14px;
+            font-weight: 500;
         }
 
+        /* Upar ke Cards/Elements: Blue Shades */
         .booking-card, .experience-card, .section-box {
-            background: #131b2e;
-            border: 1px solid #1e293b;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%); /* Blue top cards */
+            border: 1px solid #93c5fd;
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.25);
+            color: #ffffff;
             position: relative;
             z-index: 1;
         }
 
         .card-title {
             font-size: 20px;
-            color: #fbbf24;
+            color: #fde047; /* Golden Highlight on cards */
             margin-bottom: 6px;
             font-weight: 600;
         }
 
         .card-subtitle {
             font-size: 15px;
-            color: #e2e8f0;
+            color: #93c5fd;
             margin-bottom: 20px;
         }
 
@@ -120,7 +134,7 @@
         .form-group label {
             display: block;
             font-size: 13px;
-            color: #94a3b8;
+            color: #bfdbfe;
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -134,9 +148,9 @@
         .trip-btn {
             flex: 1;
             padding: 14px;
-            background: #0f172a;
-            border: 2px solid #334155;
-            color: #94a3b8;
+            background: #172554;
+            border: 2px solid #3b82f6;
+            color: #93c5fd;
             border-radius: 10px;
             font-size: 14px;
             font-weight: 600;
@@ -147,17 +161,17 @@
         }
 
         .trip-btn.active {
-            border-color: #fbbf24;
+            border-color: #fde047; /* Golden active border */
             color: #ffffff;
-            background: #1e293b;
-            box-shadow: 0 0 12px rgba(251, 191, 36, 0.2);
+            background: #1e40af;
+            box-shadow: 0 0 12px rgba(253, 224, 71, 0.3);
         }
 
         .input-field {
             width: 100%;
             padding: 12px 15px;
-            background: #0f172a;
-            border: 2px solid #334155;
+            background: #172554;
+            border: 2px solid #3b82f6;
             border-radius: 10px;
             color: #ffffff;
             font-size: 15px;
@@ -167,23 +181,25 @@
         }
 
         .input-field:focus {
-            border-color: #fbbf24;
+            border-color: #fde047;
+            box-shadow: 0 0 8px rgba(253, 224, 71, 0.4);
         }
 
         .book-submit-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #fbbf24, #d97706);
+            background: linear-gradient(135deg, #fde047, #ca8a04); /* Golden Button */
             border: none;
             border-radius: 10px;
-            color: #0b0f19;
+            color: #172554;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             position: relative;
             z-index: 99;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 4px 15px rgba(202, 138, 4, 0.4);
             margin-top: 10px;
+            transition: transform 0.2s;
         }
 
         .book-submit-btn:active {
@@ -191,7 +207,7 @@
         }
 
         .experience-card p {
-            color: #cbd5e1;
+            color: #e0e7ff;
             font-size: 14px;
             line-height: 1.6;
             margin-top: 8px;
@@ -200,26 +216,27 @@
         /* Places to Visit Styling */
         .places-section-title {
             font-size: 22px;
-            color: #fbbf24;
+            color: #1e3a8a;
             margin: 25px 0 15px 0;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .place-item-card {
-            background: #131b2e;
-            border: 1px solid #1e293b;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            border: 1px solid #93c5fd;
             border-radius: 14px;
             padding: 16px 20px;
             margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
+            color: #ffffff;
         }
 
         .place-number {
-            background: rgba(251, 191, 36, 0.15);
-            color: #fbbf24;
+            background: rgba(253, 224, 71, 0.2);
+            color: #fde047;
             width: 32px;
             height: 32px;
             border-radius: 50%;
@@ -229,7 +246,7 @@
             font-weight: 700;
             font-size: 14px;
             flex-shrink: 0;
-            border: 1px solid rgba(251, 191, 36, 0.3);
+            border: 1px solid #fde047;
         }
 
         .place-details h4 {
@@ -240,7 +257,7 @@
 
         .place-details p {
             font-size: 13px;
-            color: #94a3b8;
+            color: #cbd5e1;
             line-height: 1.4;
         }
 
@@ -252,12 +269,12 @@
 
         .included-list li {
             font-size: 14px;
-            color: #cbd5e1;
+            color: #e0e7ff;
             padding: 8px 0;
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px dashed rgba(255,255,255,0.05);
+            border-bottom: 1px dashed rgba(255,255,255,0.15);
         }
 
         .included-list li:last-child {
@@ -265,7 +282,7 @@
         }
 
         .included-list li span {
-            color: #fbbf24;
+            color: #fde047;
             font-weight: bold;
         }
     </style>
