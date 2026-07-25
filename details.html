@@ -96,7 +96,6 @@
             gap: 12px;
         }
 
-        /* 100% Clickable & Force-Enabled Buttons */
         .trip-btn {
             flex: 1;
             padding: 14px;
@@ -219,7 +218,11 @@
             "Delhi": { title: "Delhi Heritage & Food Walk", location: "Delhi, India | ⭐ 4.7", description: "Dive into rich history with majestic monuments, bustling street markets, and famous street food." },
             "Amritsar": { title: "Amritsar Cultural Tour", location: "Punjab, India | ⭐ 4.9", description: "Pay respects at the divine Golden Temple and experience the patriotic fervor at Wagah Border." },
             "Mussoorie": { title: "Mussoorie Queen of Hills", location: "Uttarakhand, India | ⭐ 4.8", description: "Stroll down Mall Road, visit Kempty Falls, and witness breathtaking views of the Doon Valley." },
-            "Jaipur": { title: "Jaipur Royal Pink City Tour", location: "Rajasthan, India | ⭐ 4.8", description: "Explore majestic forts, royal palaces, rich Rajasthani heritage, and vibrant local bazaars." }
+            "Jaipur": { title: "Jaipur Royal Pink City Tour", location: "Rajasthan, India | ⭐ 4.8", description: "Explore majestic forts, royal palaces, rich Rajasthani heritage, and vibrant local bazaars." },
+            "Mathura-Vrindavan": { title: "Mathura & Vrindavan Divine Tour", location: "Uttar Pradesh, India | ⭐ 4.9", description: "Immerse yourself in the divine land of Lord Krishna, beautiful temples, and vibrant cultural festivities." },
+            "Vaishno-Devi": { title: "Vaishno Devi Yatra", location: "Jammu & Kashmir, India | ⭐ 4.9", description: "Experience a spiritual journey to the holy shrine nestled in the Trikuta mountains." },
+            "Char-Dham": { title: "Char Dham Yatra", location: "Uttarakhand, India | ⭐ 5.0", description: "Embark on the sacred pilgrimage of Yamunotri, Gangotri, Kedarnath, and Badrinath." },
+            "Leh-Ladakh": { title: "Leh Ladakh Adventure", location: "Ladakh, India | ⭐ 4.9", description: "Discover high-altitude passes, crystal clear blue lakes, and stunning cold desert landscapes." }
         };
 
         const currentData = locationsData[placeKey] || locationsData["Shimla"];
@@ -230,7 +233,6 @@
 
         document.getElementById('tripDate').value = new Date().toISOString().split('T')[0];
 
-        // Direct Touch/Click Action Handlers
         const oneWayBtn = document.getElementById('oneWayBtn');
         const roundTripBtn = document.getElementById('roundTripBtn');
         const bookNowBtn = document.getElementById('bookNowBtn');
@@ -258,4 +260,4 @@
         };
     </script>
 </body>
-</html>    
+</html>
