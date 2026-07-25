@@ -583,126 +583,129 @@
         border-color: #ffffff !important;
     }
 </style>
-<!-- Our Fleet / Vehicle Showcase Slider Section -->
-<section class="fleet-section" style="padding: 70px 20px; background: #0f172a; font-family: 'Poppins', sans-serif; text-align: center;">
-    <div style="max-width: 600px; margin: 0 auto;">
+<!-- Clean Fixed Vehicle Slider Section -->
+<div style="width: 100%; max-width: 400px; margin: 0 auto; text-align: center; padding: 20px 0;">
+    <h2 style="color: #d4af37; font-size: 32px; font-weight: 800; margin: 10px 0;">Travel in</h2>
+    <h1 style="color: #d4af37; font-size: 38px; font-weight: 800; margin: 0 0 10px 0;">Cinematic Luxury</h1>
+    <p style="color: #a3bffa; font-size: 15px; margin-bottom: 20px;">Choose from our premium range of well-maintained vehicles</p>
+
+    <!-- Main Slider Box -->
+    <div style="position: relative; width: 100%; height: 460px; overflow: hidden; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #334155; background-color: #0f172a;">
         
-        <!-- Heading -->
-        <span style="color: #d4af37; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">OUR FLEET</span>
-        <h2 style="font-size: 36px; font-weight: 800; color: #ffffff; margin-bottom: 5px;">Travel in Cinematic Luxury</h2>
-        <p style="color: #94a3b8; font-size: 15px; margin-bottom: 35px;">Choose from our premium range of well-maintained vehicles</p>
-
-        <!-- Slider Container -->
-        <div class="vehicle-slider-container" style="position: relative; overflow: hidden; border-radius: 24px; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+        <!-- Track for Slides -->
+        <div id="sliderTrack" style="display: flex; transition: transform 0.5s ease-in-out; height: 100%; width: 100%;">
             
-            <!-- Slides Track -->
-            <div class="slides-track" id="slidesTrack" style="display: flex; transition: transform 0.5s ease-in-out; width: 100%;">
-                
-                <!-- Slide 1: Hatchback -->
-                <div class="vehicle-slide" style="min-width: 100%; box-sizing: border-box; padding: 25px;">
-                    <div style="border-radius: 16px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
-                        <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; display: block;">
-                    </div>
-                    <div style="text-align: left;">
-                        <h3 style="font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 5px;">Hatchback</h3>
-                        <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Toyota Glanza</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">4 Seats</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">AC</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">Compact</span>
-                        </div>
-
-                        <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Hatchback%20-%20Toyota%20Glanza" target="_blank" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #d4af37, #aa820a); color: #0f172a; padding: 14px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; transition: 0.3s;">Select Vehicle</a>
-                    </div>
+            <!-- Slide 1: Hatchback - Toyota Glanza -->
+            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
+                    <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                 </div>
-
-                <!-- Slide 2: Sedan -->
-                <div class="vehicle-slide" style="min-width: 100%; box-sizing: border-box; padding: 25px;">
-                    <div style="border-radius: 16px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
-                        <img src="IMG_4676.jpeg" alt="Swift Dzire" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; display: block;">
+                <div style="text-align: left; padding: 5px 0;">
+                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">Hatchback</h3>
+                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Toyota Glanza</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">5 Seats</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Comfort</span>
                     </div>
-                    <div style="text-align: left;">
-                        <h3 style="font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 5px;">Sedan</h3>
-                        <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Swift Dzire</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">4 Seats</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">AC</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">Comfortable Boot</span>
-                        </div>
-
-                        <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Sedan%20-%20Swift%20Dzire" target="_blank" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #d4af37, #aa820a); color: #0f172a; padding: 14px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; transition: 0.3s;">Select Vehicle</a>
-                    </div>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Hatchback%20Toyota%20Glanza" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
                 </div>
-
-                <!-- Slide 3: SUV -->
-                <div class="vehicle-slide" style="min-width: 100%; box-sizing: border-box; padding: 25px;">
-                    <div style="border-radius: 16px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
-                        <img src="IMG_4678.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; display: block;">
-                    <div>
-                    <div style="text-align: left;">
-                        <h3 style="font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 5px;">SUV</h3>
-                        <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Maruti Ertiga</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">6-7 Seats</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">AC</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">Family Trip</span>
-                        </div>
-
-                        <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20SUV%20-%20Maruti%20Ertiga" target="_blank" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #d4af37, #aa820a); color: #0f172a; padding: 14px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; transition: 0.3s;">Select Vehicle</a>
-                    </div>
-                </div>
-
-                <!-- Slide 4: MPV -->
-                <div class="vehicle-slide" style="min-width: 100%; box-sizing: border-box; padding: 25px;">
-                    <div style="border-radius: 16px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
-                        <img src="IMG_4675.jpeg" alt="Innova Crysta" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; display: block;">
-                    </div>
-                    <div style="text-align: left;">
-                        <h3 style="font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 5px;">MPV Luxury</h3>
-                        <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Innova Crysta</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">7+1 Seats</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">AC</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">Ultimate Comfort</span>
-                        </div>
-
-                        <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20MPV%20-%20Innova%20Crysta%20(7+1)" target="_blank" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #d4af37, #aa820a); color: #0f172a; padding: 14px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; transition: 0.3s;">Select Vehicle</a>
-                    </div>
-                </div>
-
-                <!-- Slide 5: Tempo Traveller -->
-                <div class="vehicle-slide" style="min-width: 100%; box-sizing: border-box; padding: 25px;">
-                    <div style="border-radius: 16px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
-                        <img src="IMG_4679.jpeg" alt="Force Urbania" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; display: block;">
-                    </div>
-                    <div style="text-align: left;">
-                        <h3 style="font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 5px;">Tempo Traveller</h3>
-                        <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Force Urbania</p>
-                        
-                        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">Pushback Seats</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">AC</span>
-                            <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid rgba(255,255,255,0.1);">Group Tour</span>
-                        </div>
-
-                        <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Tempo%20Traveller%20-%20Urbania" target="_blank" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #d4af37, #aa820a); color: #0f172a; padding: 14px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 16px; transition: 0.3s;">Select Vehicle</a>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Slide 2: Sedan - Swift Dzire -->
+            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
+                    <img src="IMG_4676.jpeg" alt="Swift Dzire" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+                <div style="text-align: left; padding: 5px 0;">
+                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">Sedan</h3>
+                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Swift Dzire</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">5 Seats</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Spacious Boot</span>
+                    </div>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Sedan%20Swift%20Dzire" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
+                </div>
+            </div>
+
+            <!-- Slide 3: SUV - Maruti Ertiga -->
+            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
+                    <img src="IMG_4678.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+                <div style="text-align: left; padding: 5px 0;">
+                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">SUV</h3>
+                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Maruti Ertiga</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">7 Seats</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Family Trip</span>
+                    </div>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20SUV%20Maruti%20Ertiga" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
+                </div>
+            </div>
+
+            <!-- Slide 4: MPV - Innova Crysta -->
+            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
+                    <img src="IMG_4675.jpeg" alt="Innova Crysta" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+                <div style="text-align: left; padding: 5px 0;">
+                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">MPV</h3>
+                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Innova Crysta 7+1</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">7+1 Seats</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Ultimate Comfort</span>
+                    </div>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20MPV%20Innova%20Crysta" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
+                </div>
+            </div>
+
+            <!-- Slide 5: Tempo Traveller - Force Urbania -->
+            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
+                    <img src="IMG_4679.jpeg" alt="Force Urbania" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+                <div style="text-align: left; padding: 5px 0;">
+                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">Tempo Traveller</h3>
+                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Force Urbania</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Pushback Seats</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Group Tour</span>
+                    </div>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Tempo%20Traveller%20Force%20Urbania" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Manual Arrow Navigation Buttons -->
-        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 25px;">
-            <button onclick="prevSlide()" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(212, 175, 55, 0.4); color: #ffffff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;" title="Previous"><i class="fas fa-chevron-left"></i></button>
-            <button onclick="nextSlide()" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(212, 175, 55, 0.4); color: #ffffff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;" title="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
+        <!-- Navigation Arrows -->
+        <button onclick="moveVehicleSlide(-1)" style="position: absolute; top: 40%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); border: 1px solid #d4af37; border-radius: 50%; width: 36px; height: 36px; color: #d4af37; font-size: 20px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&#10094;</button>
+        <button onclick="moveVehicleSlide(1)" style="position: absolute; top: 40%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); border: 1px solid #d4af37; border-radius: 50%; width: 36px; height: 36px; color: #d4af37; font-size: 20px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&#10095;</button>
 
     </div>
+</div>
+
+<!-- Script for Slider Movement -->
+<script>
+    let vehicleIndex = 0;
+    const totalVehicleSlides = 5;
+
+    function moveVehicleSlide(direction) {
+        const track = document.getElementById('sliderTrack');
+        if (!track) return;
+        vehicleIndex = (vehicleIndex + direction + totalVehicleSlides) % totalVehicleSlides;
+        track.style.transform = `translateX(-${vehicleIndex * 100}%)`;
+    }
+
+    // Auto slide every 4 seconds
+    setInterval(() => {
+        moveVehicleSlide(1);
+    }, 4000);
+</script>
 </section>
 
 <!-- JavaScript for Automatic and Manual Sliding -->
