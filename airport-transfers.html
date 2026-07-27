@@ -21,14 +21,14 @@
             min-height: 100vh;
         }
 
-        /* Fullscreen Background Auto Slider */
+        /* Background Photos Auto Slider */
         .bg-slider {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
         }
         .slide {
             position: absolute;
@@ -43,14 +43,13 @@
         .slide.active {
             opacity: 1;
         }
-        /* Dark Gradient Overlay to keep text readable */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
+            background: rgba(15, 23, 42, 0.65);
             z-index: -1;
         }
 
@@ -58,6 +57,7 @@
         .header {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
             align-items: center;
@@ -81,7 +81,7 @@
             color: #ffffff;
         }
 
-        /* Main Content Container */
+        /* Container */
         .container {
             max-width: 700px;
             margin: 30px auto;
@@ -90,29 +90,31 @@
             z-index: 2;
         }
 
-        /* Transparent Glassmorphism Overlay Card */
+        /* Transparent Blue Blur Glass Card with Animation */
         .service-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-left: 5px solid #d4af37;
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            animation: fadeIn 0.8s ease-in-out;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Vibrant Blue Heading */
         h1 {
             color: #38bdf8;
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 15px;
             line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
         }
         p {
             color: #cbd5e1;
@@ -134,8 +136,9 @@
             margin: 0 0 30px 0;
         }
         ul li {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             margin-bottom: 12px;
             padding: 14px 18px;
             border-radius: 10px;
@@ -180,13 +183,13 @@
 </head>
 <body>
 
-    <!-- Background Photos Auto Slider (Same as Front Page Style) -->
+    <!-- Background Photos Auto Slider -->
     <div class="bg-slider">
-        <img src="IMG_4760.jpeg" class="slide active" alt="Background Cab 1">
-        <img src="IMG_4765.jpeg" class="slide" alt="Background Cab 2">
-        <img src="IMG_4503.jpeg" class="slide" alt="Background Cab 3">
-        <img src="IMG_4504.jpeg" class="slide" alt="Background Cab 4">
-        <img src="IMG_4505.jpeg" class="slide" alt="Background Cab 5">
+        <img src="IMG_4760.jpeg" class="slide active" alt="Cab 1">
+        <img src="IMG_4765.jpeg" class="slide" alt="Cab 2">
+        <img src="IMG_4503.jpeg" class="slide" alt="Cab 3">
+        <img src="IMG_4504.jpeg" class="slide" alt="Cab 4">
+        <img src="IMG_4505.jpeg" class="slide" alt="Cab 5">
     </div>
     <div class="bg-overlay"></div>
 
@@ -196,7 +199,7 @@
         <span style="color: #d4af37; font-weight: bold; font-size: 16px;">Shri Radha Travels</span>
     </div>
 
-    <!-- Content Container with Transparent Blur Card -->
+    <!-- Container -->
     <div class="container">
         <div class="service-card">
             <h1>Airport Taxi Service – Chandigarh, Mohali & Zirakpur</h1>
