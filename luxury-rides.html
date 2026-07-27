@@ -4,17 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Rides - Shri Radha Travels</title>
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0f172a;
             color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
+
+        /* Background Photos Auto Slider */
+        .bg-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            z-index: -1;
+        }
+
+        /* Header Bar */
         .header {
-            background: #0f172a;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
             align-items: center;
@@ -37,29 +80,41 @@
         .back-btn:hover {
             color: #ffffff;
         }
+
+        /* Container */
         .container {
             max-width: 700px;
             margin: 30px auto;
-            padding: 0 20px;
+            padding: 0 20px 50px 20px;
+            position: relative;
+            z-index: 2;
         }
+
+        /* Transparent Blue Blur Glass Card with Animation */
         .service-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-left: 5px solid #d4af37;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            animation: fadeIn 0.5s ease-in-out;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Vibrant Blue Heading */
         h1 {
             color: #38bdf8;
             font-size: 24px;
             margin-top: 0;
             margin-bottom: 15px;
+            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
         }
         p {
             color: #cbd5e1;
@@ -69,9 +124,11 @@
         }
         .features-title {
             color: #d4af37;
-            font-size: 18px;
-            margin-bottom: 12px;
+            font-size: 17px;
+            margin-bottom: 15px;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
         ul {
             list-style: none;
@@ -80,18 +137,28 @@
         }
         ul li {
             background: rgba(30, 41, 59, 0.6);
-            margin-bottom: 10px;
-            padding: 12px 15px;
-            border-radius: 8px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            margin-bottom: 12px;
+            padding: 14px 18px;
+            border-radius: 10px;
             color: #f8fafc;
             font-size: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-left: 3px solid #38bdf8;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        ul li:hover {
+            transform: translateX(6px);
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
         }
         ul li i {
             color: #d4af37;
+            font-size: 16px;
         }
         .book-btn {
             display: block;
@@ -99,43 +166,72 @@
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
             color: #0f172a;
             text-align: center;
-            padding: 14px;
+            padding: 15px;
             border-radius: 10px;
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
         }
         .book-btn:hover {
-            opacity: 0.9;
+            opacity: 0.95;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
     </style>
 </head>
 <body>
 
+    <!-- Background Photos Auto Slider -->
+    <div class="bg-slider">
+        <img src="IMG_4760.jpeg" class="slide active" alt="Cab 1">
+        <img src="IMG_4765.jpeg" class="slide" alt="Cab 2">
+        <img src="IMG_4503.jpeg" class="slide" alt="Cab 3">
+        <img src="IMG_4504.jpeg" class="slide" alt="Cab 4">
+        <img src="IMG_4505.jpeg" class="slide" alt="Cab 5">
+    </div>
+    <div class="bg-overlay"></div>
+
+    <!-- Header -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
         <span style="color: #d4af37; font-weight: bold; font-size: 16px;">Shri Radha Travels</span>
     </div>
 
+    <!-- Container -->
     <div class="container">
         <div class="service-card">
-            <h1>Premium & Luxury Cab Service</h1>
-            <p>Experience premium travel with spacious, well-maintained vehicles driven by courteous chauffeurs. Perfect for VIP guests, weddings, business travel and special occasions.</p>
+            <h1>Luxury Car Rentals & VIP Rides</h1>
+            <p>Travel in supreme comfort and style with our premium luxury fleet. Perfect for VIP guests, weddings, high-end events, and special occasions where elegance matters most.</p>
             
-            <div class="features-title">Fleet Options:</div>
+            <div class="features-title">What's Included:</div>
             <ul>
-                <li><i class="fas fa-car"></i> Toyota Innova Crysta</li>
-                <li><i class="fas fa-car"></i> Toyota Hycross</li>
-                <li><i class="fas fa-car"></i> Ertiga / Rumion</li>
-                <li><i class="fas fa-car"></i> Sedan Cars</li>
+                <li><i class="fas fa-gem"></i> Premium High-End Luxury Cars & SUVs</li>
+                <li><i class="fas fa-user-tie"></i> Professionally Dressed & Courteous Chauffeurs</li>
+                <li><i class="fas fa-glass-cheers"></i> Special Arrangement for Weddings & Events</li>
+                <li><i class="fas fa-star"></i> VIP Meet & Greet Assistance</li>
+                <li><i class="fas fa-shield-alt"></i> Utmost Privacy & Elite Comfort Standards</li>
             </ul>
 
-            <a href="index.html#book" class="book-btn">Instant Booking Button</a>
+            <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Instant Booking</a>
         </div>
     </div>
+
+    <!-- JavaScript for Background Photo Slider -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change background image smoothly every 4 seconds
+        setInterval(nextSlide, 4000);
+    </script>
 
 </body>
 </html>
