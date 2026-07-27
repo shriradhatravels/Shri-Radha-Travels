@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airport Transfers - Shri Radha Travels</title>
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0f172a;
             color: #ffffff;
+            overflow-x: hidden;
         }
         .header {
             background: #0f172a;
@@ -39,17 +44,46 @@
         }
         .container {
             max-width: 700px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 25px auto;
+            padding: 0 20px 40px 20px;
         }
+        
+        /* Auto Slider Wrapper */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+            background: #1e293b;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Glassmorphic Card Details Container */
         .service-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: none;
             border-left: 5px solid #d4af37;
-            border-radius: 12px;
+            border-radius: 0 0 12px 12px;
             padding: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            animation: fadeIn 0.5s ease-in-out;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            animation: fadeIn 0.6s ease-in-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
@@ -57,9 +91,10 @@
         }
         h1 {
             color: #38bdf8;
-            font-size: 24px;
+            font-size: 22px;
             margin-top: 0;
             margin-bottom: 15px;
+            line-height: 1.4;
         }
         p {
             color: #cbd5e1;
@@ -69,9 +104,11 @@
         }
         .features-title {
             color: #d4af37;
-            font-size: 18px;
-            margin-bottom: 12px;
+            font-size: 17px;
+            margin-bottom: 15px;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
         ul {
             list-style: none;
@@ -79,19 +116,28 @@
             margin: 0 0 30px 0;
         }
         ul li {
-            background: rgba(30, 41, 59, 0.6);
-            margin-bottom: 10px;
-            padding: 12px 15px;
-            border-radius: 8px;
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(6px);
+            margin-bottom: 12px;
+            padding: 14px 18px;
+            border-radius: 10px;
             color: #f8fafc;
             font-size: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-left: 3px solid #38bdf8;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        ul li:hover {
+            transform: translateX(6px);
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
         }
         ul li i {
             color: #d4af37;
+            font-size: 16px;
         }
         .book-btn {
             display: block;
@@ -99,17 +145,18 @@
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
             color: #0f172a;
             text-align: center;
-            padding: 14px;
+            padding: 15px;
             border-radius: 10px;
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
         }
         .book-btn:hover {
-            opacity: 0.9;
+            opacity: 0.95;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
     </style>
 </head>
@@ -121,21 +168,48 @@
     </div>
 
     <div class="container">
+        
+        <!-- 5 Photos Auto Slider with Your Images -->
+        <div class="slider-container">
+            <img src="IMG_4760.jpeg" class="slide active" alt="Cab Image 1">
+            <img src="IMG_4765.jpeg" class="slide" alt="Cab Image 2">
+            <img src="IMG_4503.jpeg" class="slide" alt="Cab Image 3">
+            <img src="IMG_4504.jpeg" class="slide" alt="Cab Image 4">
+            <img src="IMG_4505.jpeg" class="slide" alt="Cab Image 5">
+        </div>
+
+        <!-- Service Details Card -->
         <div class="service-card">
             <h1>Airport Taxi Service – Chandigarh, Mohali & Zirakpur</h1>
-            <p>Reliable airport pickup and drop service with clean, comfortable cabs and professional drivers. We ensure on-time arrivals and departures for Chandigarh Airport and nearby destinations.</p>
+            <p>Experience hassle-free airport transfers with our punctual, professional chauffeurs and impeccably maintained premium cabs. We monitor your flight schedule to ensure seamless pickups without any waiting charges.</p>
             
             <div class="features-title">What's Included:</div>
             <ul>
                 <li><i class="fas fa-check-circle"></i> 24×7 Airport Pickup & Drop</li>
-                <li><i class="fas fa-check-circle"></i> Flight Tracking</li>
-                <li><i class="fas fa-check-circle"></i> Fixed Pricing</li>
-                <li><i class="fas fa-check-circle"></i> Meet & Greet Service</li>
+                <li><i class="fas fa-plane-arrival"></i> Live Flight Status Tracking</li>
+                <li><i class="fas fa-tag"></i> Transparent & Fixed Pricing</li>
+                <li><i class="fas fa-user-tie"></i> Meet & Greet Service at Arrival</li>
+                <li><i class="fas fa-shield-alt"></i> Sanitized & Safe Vehicles</li>
             </ul>
 
-            <a href="index.html#book" class="book-btn">Instant Booking Button</a>
+            <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Instant Booking</a>
         </div>
     </div>
 
+    <!-- JavaScript for 5-Photo Auto Slider Script -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Image will auto slide every 3.5 seconds
+        setInterval(nextSlide, 3500);
+    </script>
+
 </body>
-</html> 
+</html>
