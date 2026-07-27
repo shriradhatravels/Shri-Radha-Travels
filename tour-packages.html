@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Packages - Shri Radha Travels</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+        .header {
+            background: #0f172a;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .back-btn {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            color: #ffffff;
+        }
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .service-card {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-left: 5px solid #d4af37;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #38bdf8;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .features-title {
+            color: #d4af37;
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+        ul li {
+            background: rgba(30, 41, 59, 0.6);
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: #f8fafc;
+            font-size: 15px;
+            border-left: 3px solid #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        ul li i {
+            color: #d4af37;
+        }
+        .book-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+            color: #0f172a;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .book-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <span style="color: #d4af37; font-weight: bold; font-size: 16px;">Shri Radha Travels</span>
+    </div>
+
+    <div class="container">
+        <div class="service-card">
+            <h1>Holiday Tour Packages</h1>
+            <p>Explore North India's most beautiful destinations with carefully planned tour packages, comfortable transportation and personalized travel assistance.</p>
+            
+            <div class="features-title">Featured Tours:</div>
+            <ul>
+                <li><i class="fas fa-mountain"></i> Shimla – Manali</li>
+                <li><i class="fas fa-mountain"></i> Spiti Valley</li>
+                <li><i class="fas fa-mountain"></i> Dharamshala – Dalhousie</li>
+                <li><i class="fas fa-mountain"></i> Amritsar</li>
+                <li><i class="fas fa-mountain"></i> Jammu & Vaishno Devi</li>
+                <li><i class="fas fa-mountain"></i> Mathura – Vrindavan</li>
+            </ul>
+
+            <a href="index.html#book" class="book-btn">View Tour Packages</a>
+        </div>
+    </div>
+
+</body>
+</html>
