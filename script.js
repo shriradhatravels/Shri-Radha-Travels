@@ -28,11 +28,26 @@ window.addEventListener('scroll', () => {
 });
 
 // 3. Form Validation
-const bookingForm = document.querySelector('form');
+const bookingForm = document.getElementById("bookingForm");
+
 if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener("submit", async function (e) {
         e.preventDefault();
-        alert('Thank you! Our representative will contact you shortly.');
+
+        const formData = new FormData(bookingForm);
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            window.location.href = "/thank-you.html";
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
     });
 }
 
