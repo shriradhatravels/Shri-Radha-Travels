@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium One Way Cab Service | Shri Radha Travels</title>
-    <link rel="stylesheet" href="style.css?v=9005">
+    <link rel="stylesheet" href="style.css?v=9006">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
+        /* GLOBAL RESET & STYLES */
+        *, *::before, *::after {
             box-sizing: border-box !important;
+        }
+
+        body {
+            background: #060b14;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
         }
 
         /* ANIMATIONS ON SCROLL */
@@ -22,10 +31,11 @@
             transform: translateY(0);
         }
 
-        /* FORM INPUT BOX OVERFLOW FIX */
+        /* FORM INPUT BOX FIX - PREVENT OVERFLOW & STYLES */
         .form-input-box {
             width: 100% !important;
             max-width: 100% !important;
+            min-width: 0 !important;
             padding: 14px 16px;
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -33,19 +43,39 @@
             font-family: inherit;
             font-size: 14px;
             color: #0f172a;
-            box-sizing: border-box !important;
             outline: none;
             display: block;
-        }
-        .form-input-box:focus {
-            border-color: #dfba6d;
-            box-shadow: 0 0 0 3px rgba(223, 186, 109, 0.2);
+            -webkit-appearance: none;
+            appearance: none;
         }
         
-        /* ROUTE CARD GAP & TOUCH ANIMATION */
+        /* SPECIFIC FIX FOR Safari / Chrome DATE INPUT OVERFLOW */
+        input[type="date"].form-input-box {
+            position: relative;
+            background-color: #ffffff;
+            color: #0f172a;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .form-input-box:focus {
+            border-color: #dfba6d;
+            box-shadow: 0 0 0 3px rgba(223, 186, 109, 0.3);
+        }
+
+        /* LUXURY SHIMMER ANIMATED BORDER FOR ALL CARDS */
+        @keyframes borderGlow {
+            0% { border-color: rgba(223, 186, 109, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
+            50% { border-color: rgba(223, 186, 109, 0.75); box-shadow: 0 6px 22px rgba(223, 186, 109, 0.2); }
+            100% { border-color: rgba(223, 186, 109, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
+        }
+
+        /* ROUTE CARD ANIMATIONS */
         .route-card-item {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(223, 186, 109, 0.25);
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(223, 186, 109, 0.3);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 16px;
@@ -54,47 +84,61 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-        }
-        .route-card-item:hover, .route-card-item:active {
-            transform: translateY(-4px);
-            border-color: #dfba6d;
-            box-shadow: 0 8px 20px rgba(223, 186, 109, 0.15);
-            background: rgba(20, 30, 55, 0.9);
+            position: relative;
+            overflow: hidden;
+            animation: borderGlow 4s infinite ease-in-out;
         }
 
-        /* FLEET CARDS WITH REAL CAR IMAGES */
+        .route-card-item:hover, .route-card-item:active {
+            transform: translateY(-4px) scale(1.01);
+            border-color: #dfba6d !important;
+            box-shadow: 0 10px 25px rgba(223, 186, 109, 0.3) !important;
+            background: rgba(20, 30, 55, 0.95);
+        }
+
+        /* FLEET CARDS ANIMATIONS & IMAGES */
         .fleet-card {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(223, 186, 109, 0.25);
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(223, 186, 109, 0.3);
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 16px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: borderGlow 4s infinite ease-in-out;
         }
-        .fleet-card:hover {
-            transform: translateY(-4px);
-            border-color: #dfba6d;
-            box-shadow: 0 8px 20px rgba(223, 186, 109, 0.15);
+
+        .fleet-card:hover, .fleet-card:active {
+            transform: translateY(-4px) scale(1.01);
+            border-color: #dfba6d !important;
+            box-shadow: 0 10px 25px rgba(223, 186, 109, 0.3) !important;
+            background: rgba(20, 30, 55, 0.95);
         }
+
         .fleet-img {
             width: 110px;
             height: 75px;
             object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid rgba(223, 186, 109, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(223, 186, 109, 0.4);
             background: #0b1324;
             flex-shrink: 0;
+            transition: transform 0.3s ease;
         }
+
+        .fleet-card:hover .fleet-img {
+            transform: scale(1.05);
+        }
+
         .fleet-info {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
-        
-        /* FAQ STYLES */
+
+        /* FAQ ACCORDION */
         details summary {
             cursor: pointer;
             padding: 16px 0;
@@ -112,9 +156,9 @@
         details p { color: #94a3b8; font-size: 14px; padding: 10px 0 16px 0; line-height: 1.6; margin: 0; }
     </style>
 </head>
-<body style="background: #060b14; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden;">
+<body>
 
-    <!-- TOP BACK NAVIGATION -->
+    <!-- BACK NAVIGATION -->
     <div style="padding: 20px; max-width: 650px; margin: 0 auto;">
         <a href="index.html" style="color: #dfba6d; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
             &larr; Back to Main Website
@@ -145,7 +189,7 @@
 
     <!-- QUICK BOOKING FORM SECTION -->
     <section id="quick-booking" style="padding: 10px 20px 30px 20px;" class="reveal-on-scroll">
-        <div class="srt-container" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(223, 186, 109, 0.3); border-radius: 20px; padding: 20px; width: 100%; box-sizing: border-box;">
+        <div class="srt-container" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(223, 186, 109, 0.4); border-radius: 20px; padding: 20px; width: 100%; box-sizing: border-box;">
             <span class="srt-badge-tag">QUICK BOOKING</span>
             <form id="ow-booking-form" style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px; width: 100%;">
                 <div style="width: 100%;">
@@ -175,7 +219,7 @@
         </div>
     </section>
 
-    <!-- POPULAR ROUTES SECTION (12 SEPARATED & ANIMATED CARDS) -->
+    <!-- POPULAR ROUTES SECTION -->
     <section id="popular-routes" style="padding: 30px 20px 20px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">POPULAR ROUTES</span>
@@ -235,7 +279,7 @@
         </div>
     </section>
 
-    <!-- FLEET SHOWCASE SECTION WITH CAR IMAGES -->
+    <!-- FLEET SHOWCASE SECTION WITH REAL VEHICLE CARDS -->
     <section style="padding: 40px 20px 20px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">CHOOSE YOUR RIDE</span>
@@ -243,16 +287,16 @@
             <p class="srt-section-desc">Clean, fully insured, and well-maintained vehicles for your trip.</p>
 
             <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 20px;">
-                <!-- Hatchback -->
+                <!-- Hatchback (Toyota Glanza) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&q=80" alt="Toyota Glanza" class="fleet-img">
+                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400&q=80" alt="Toyota Glanza" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Hatchback</div>
                         <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Toyota Glanza</div>
                         <div style="font-size: 12px; color: #94a3b8;">Up to 4 Passengers | Fuel Efficient</div>
                     </div>
                 </div>
-                <!-- Sedan -->
+                <!-- Sedan (Swift Dzire) -->
                 <div class="fleet-card">
                     <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80" alt="Swift Dzire" class="fleet-img">
                     <div class="fleet-info">
@@ -261,7 +305,7 @@
                         <div style="font-size: 12px; color: #94a3b8;">Up to 4 Passengers | Extra Boot Space</div>
                     </div>
                 </div>
-                <!-- SUV -->
+                <!-- SUV (Maruti Ertiga) -->
                 <div class="fleet-card">
                     <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&q=80" alt="Maruti Ertiga" class="fleet-img">
                     <div class="fleet-info">
@@ -270,18 +314,18 @@
                         <div style="font-size: 12px; color: #94a3b8;">Up to 6+1 Passengers | Family Trip</div>
                     </div>
                 </div>
-                <!-- MPV -->
+                <!-- MPV (Innova Crysta) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&q=80" alt="Innova Crysta" class="fleet-img">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80" alt="Innova Crysta" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">MPV</div>
                         <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Innova Crysta 7+1</div>
                         <div style="font-size: 12px; color: #94a3b8;">Up to 7+1 Passengers | Premium Comfort</div>
                     </div>
                 </div>
-                <!-- Tempo Traveller -->
+                <!-- Tempo Traveller (Urbania) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=400&q=80" alt="Force Urbania" class="fleet-img">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80" alt="Force Urbania" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Tempo Traveller</div>
                         <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Urbania</div>
@@ -315,7 +359,7 @@
         </div>
     </section>
 
-    <!-- JAVASCRIPT FOR WHATSAPP & ANIMATION -->
+    <!-- JAVASCRIPT -->
     <script>
         const WHATSAPP_NUMBER = "916280544730";
 
@@ -362,4 +406,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
