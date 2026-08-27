@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium One Way Cab Service | Shri Radha Travels</title>
+    <link rel="stylesheet" href="style.css?v=9001">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .form-input-box {
+            width: 100%;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            color: #0f172a;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .form-input-box:focus {
+            border-color: #dfba6d;
+            box-shadow: 0 0 0 3px rgba(223, 186, 109, 0.2);
+        }
+        details summary {
+            cursor: pointer;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+            color: #ffffff;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after { content: '►'; color: #dfba6d; font-size: 12px; transition: transform 0.3s; }
+        details[open] summary::after { transform: rotate(90deg); }
+        details p { color: #94a3b8; font-size: 14px; padding: 10px 0 16px 0; line-height: 1.6; margin: 0; }
+    </style>
+</head>
+<body style="background: #060b14; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0;">
+
+    <!-- BACK TO MAIN WEBSITE NAVIGATION -->
+    <div style="padding: 20px; max-width: 650px; margin: 0 auto;">
+        <a href="index.html" style="color: #dfba6d; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+            &larr; Back to Main Website
+        </a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="srt-hero-section" style="padding: 10px 20px 40px 20px;">
+        <div class="srt-container reveal-on-scroll">
+            <span class="srt-badge-tag">PREMIUM ONE WAY CAB SERVICE</span>
+            <h1 class="srt-hero-title">One Way. <span class="srt-gold-shimmer">One Price.</span> Zero Hassle.</h1>
+            <p class="srt-hero-desc">
+                Seamless point-to-point intercity rides with verified chauffeurs, top-tier luxury vehicles, and total price transparency. You only pay for where you go.
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px;">
+                <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(223,186,109,0.3); padding: 8px 14px; border-radius: 30px; font-size: 12px; color: #dfba6d;">✓ Transparent Fare</span>
+                <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(223,186,109,0.3); padding: 8px 14px; border-radius: 30px; font-size: 12px; color: #dfba6d;">✓ Verified Chauffeurs</span>
+                <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(223,186,109,0.3); padding: 8px 14px; border-radius: 30px; font-size: 12px; color: #dfba6d;">✓ 24/7 Dedicated Support</span>
+                <span style="background: rgba(255,255,255,0.05); border: 1px solid rgba(223,186,109,0.3); padding: 8px 14px; border-radius: 30px; font-size: 12px; color: #dfba6d;">✓ Door-to-Door Pickup</span>
+            </div>
+
+            <div class="srt-btn-group" style="margin-bottom: 30px;">
+                <a href="#quick-booking" class="srt-btn srt-btn-gold">Get One Way Quote &rarr;</a>
+                <a href="#popular-routes" class="srt-btn srt-btn-outline">Explore Routes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK BOOKING FORM SECTION -->
+    <section id="quick-booking" style="padding: 20px;" class="reveal-on-scroll">
+        <div class="srt-container" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(223, 186, 109, 0.3); border-radius: 20px; padding: 24px;">
+            <span class="srt-badge-tag">QUICK BOOKING</span>
+            <form id="ow-booking-form" style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
+                <div>
+                    <label style="font-size: 12px; font-weight: 700; color: #dfba6d; display: block; margin-bottom: 6px;">Pickup Location</label>
+                    <input type="text" id="pickup_loc" class="form-input-box" placeholder="e.g. Chandigarh / Zirakpur" required>
+                </div>
+                <div>
+                    <label style="font-size: 12px; font-weight: 700; color: #dfba6d; display: block; margin-bottom: 6px;">Drop Location</label>
+                    <input type="text" id="drop_loc" class="form-input-box" placeholder="Enter destination city" required>
+                </div>
+                <div>
+                    <label style="font-size: 12px; font-weight: 700; color: #dfba6d; display: block; margin-bottom: 6px;">Travel Date</label>
+                    <input type="date" id="travel_date" class="form-input-box" required>
+                </div>
+                <div>
+                    <label style="font-size: 12px; font-weight: 700; color: #dfba6d; display: block; margin-bottom: 6px;">Passengers / Car</label>
+                    <select id="passenger_count" class="form-input-box">
+                        <option value="1-4 Passengers (Sedan)">1-4 Passengers (Sedan)</option>
+                        <option value="5-6 Passengers (Ertiga)">5-6 Passengers (Ertiga)</option>
+                        <option value="7+ Passengers (Innova Crysta)">7+ Passengers (Innova Crysta)</option>
+                    </select>
+                </div>
+                <button type="button" onclick="sendToWhatsApp()" class="srt-btn srt-btn-gold" style="border: none; cursor: pointer; margin-top: 10px;">Get Instant Quote on WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- POPULAR ROUTES SECTION (12 ROUTES) -->
+    <section id="popular-routes" style="padding: 50px 20px 20px 20px;" class="reveal-on-scroll">
+        <div class="srt-container">
+            <span class="srt-badge-tag">POPULAR ROUTES</span>
+            <h2 class="srt-section-title">Your route. <span class="srt-gold-shimmer">Our road.</span></h2>
+            <p class="srt-section-desc">Top handpicked intercity travel destinations with guaranteed fixed single-way rates.</p>
+
+            <div class="srt-cards-grid">
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Delhi')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Delhi</div>
+                    <p class="srt-card-text">One-way intercity transfer</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Manali')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Manali</div>
+                    <p class="srt-card-text">Himachal scenic luxury transfer</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Shimla')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Shimla</div>
+                    <p class="srt-card-text">Comfortable hill station cab</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Amritsar')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Amritsar</div>
+                    <p class="srt-card-text">Punjab express highway ride</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Jammu')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Jammu</div>
+                    <p class="srt-card-text">Long-distance point-to-point</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Zirakpur', 'Delhi Airport (T3)')" style="cursor: pointer;">
+                    <div class="srt-card-title">Zirakpur &rarr; Airport</div>
+                    <p class="srt-card-text">Private airport drop service</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Jalandhar')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Jalandhar</div>
+                    <p class="srt-card-text">Fast door-to-door connectivity</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Pathankot')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Pathankot</div>
+                    <p class="srt-card-text">Gateway to North intercity ride</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Ludhiana')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Ludhiana</div>
+                    <p class="srt-card-text">Industrial hub smooth transfer</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Dehradun')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Dehradun</div>
+                    <p class="srt-card-text">Uttarakhand scenic highway trip</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Dharamshala')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Dharamshala</div>
+                    <p class="srt-card-text">Peaceful valley mountain drive</p>
+                </div>
+                <div class="srt-service-card" onclick="quickBookRoute('Chandigarh', 'Rishikesh')" style="cursor: pointer;">
+                    <div class="srt-card-title">Chandigarh &rarr; Rishikesh</div>
+                    <p class="srt-card-text">Spiritual river destination ride</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLEET SHOWCASE SECTION -->
+    <section style="padding: 50px 20px 20px 20px;" class="reveal-on-scroll">
+        <div class="srt-container">
+            <span class="srt-badge-tag">CHOOSE YOUR RIDE</span>
+            <h2 class="srt-section-title">A fleet for <span class="srt-gold-shimmer">every journey.</span></h2>
+            <p class="srt-section-desc">Clean, fully insured, and well-maintained fleet categories for your comfort.</p>
+
+            <div class="srt-cards-grid">
+                <div class="srt-service-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🚗</div>
+                    <div class="srt-card-title">Sedan / Hatchback</div>
+                    <p class="srt-card-text">Up to 4+1 passengers</p>
+                </div>
+                <div class="srt-service-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🚙</div>
+                    <div class="srt-card-title">Ertiga / Rumion</div>
+                    <p class="srt-card-text">Up to 6+1 passengers</p>
+                </div>
+                <div class="srt-service-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🚐</div>
+                    <div class="srt-card-title">Innova Crysta</div>
+                    <p class="srt-card-text">Up to 7+1 passengers</p>
+                </div>
+                <div class="srt-service-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">✨</div>
+                    <div class="srt-card-title">Innova Hycross</div>
+                    <p class="srt-card-text">Premium 7+1 experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SHRI RADHA STANDARD SECTION -->
+    <section style="padding: 50px 20px 20px 20px;" class="reveal-on-scroll">
+        <div class="srt-container">
+            <span class="srt-badge-tag">THE SHRI RADHA STANDARD</span>
+            <h2 class="srt-section-title">More than a cab. <span class="srt-gold-shimmer">A better journey.</span></h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 25px;">
+                <div style="background: rgba(15,23,42,0.6); border-left: 3px solid #dfba6d; padding: 16px 20px; border-radius: 0 12px 12px 0;">
+                    <h4 style="color: #ffffff; margin: 0 0 6px 0;">Professional Chauffeurs</h4>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0;">Experienced drivers focused on safe, courteous travel.</p>
+                </div>
+                <div style="background: rgba(15,23,42,0.6); border-left: 3px solid #dfba6d; padding: 16px 20px; border-radius: 0 12px 12px 0;">
+                    <h4 style="color: #ffffff; margin: 0 0 6px 0;">Clear, Upfront Pricing</h4>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0;">No confusing journey flow — quote, confirm and travel.</p>
+                </div>
+                <div style="background: rgba(15,23,42,0.6); border-left: 3px solid #dfba6d; padding: 16px 20px; border-radius: 0 12px 12px 0;">
+                    <h4 style="color: #ffffff; margin: 0 0 6px 0;">Door-to-Door Convenience</h4>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0;">Pickup and drop arranged around your actual travel plan.</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(223, 186, 109, 0.15) 0%, rgba(15, 23, 42, 0.9) 100%); border: 1px solid #dfba6d; border-radius: 20px; padding: 30px 24px; text-align: center; margin-top: 40px;">
+                <span class="srt-badge-tag">BUILT FOR CONVENIENCE</span>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; color: #ffffff; margin: 10px 0 15px 0;">"Book once. Sit back. Let the road take care of the rest."</h3>
+                <a href="#quick-booking" class="srt-btn srt-btn-gold" style="max-width: 250px; margin: 0 auto;">Start Booking &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section style="padding: 50px 20px 20px 20px;" class="reveal-on-scroll">
+        <div class="srt-container">
+            <span class="srt-badge-tag">HOW IT WORKS</span>
+            <h2 class="srt-section-title">Simple from <span class="srt-gold-shimmer">start to finish.</span></h2>
+
+            <div class="srt-cards-grid" style="margin-top: 25px;">
+                <div class="srt-service-card">
+                    <span style="color: #dfba6d; font-size: 11px; font-weight: 700; letter-spacing: 2px;">01 — REQUEST</span>
+                    <h4 class="srt-card-title" style="margin-top: 8px;">Tell us your route</h4>
+                    <p class="srt-card-text">Share pickup, destination, date and passengers.</p>
+                </div>
+                <div class="srt-service-card">
+                    <span style="color: #dfba6d; font-size: 11px; font-weight: 700; letter-spacing: 2px;">02 — CONFIRM</span>
+                    <h4 class="srt-card-title" style="margin-top: 8px;">Get your quote</h4>
+                    <p class="srt-card-text">Choose the vehicle and confirm your journey.</p>
+                </div>
+                <div class="srt-service-card">
+                    <span style="color: #dfba6d; font-size: 11px; font-weight: 700; letter-spacing: 2px;">03 — TRAVEL</span>
+                    <h4 class="srt-card-title" style="margin-top: 8px;">Enjoy the ride</h4>
+                    <p class="srt-card-text">Your chauffeur arrives and your journey begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section style="padding: 50px 20px 80px 20px;" class="reveal-on-scroll">
+        <div class="srt-container">
+            <span class="srt-badge-tag">NEED TO KNOW</span>
+            <h2 class="srt-section-title">Frequently asked <span class="srt-gold-shimmer">questions.</span></h2>
+
+            <div style="margin-top: 20px;">
+                <details>
+                    <summary>What is a one-way cab?</summary>
+                    <p>A one-way cab service allows you to pay only for the distance traveled to your destination without paying return charges.</p>
+                </details>
+                <details>
+                    <summary>Can I book from Zirakpur or Chandigarh?</summary>
+                    <p>Yes, we offer doorstep pickups from anywhere across Chandigarh, Mohali, Zirakpur, Panchkula, and airport zones.</p>
+                </details>
+                <details>
+                    <summary>Can I choose my vehicle?</summary>
+                    <p>Yes, options range from compact Sedans to Ertiga, Innova Crysta, and luxury Hycross models based on your group size.</p>
+                </details>
+                <details>
+                    <summary>How do I make the booking live?</summary>
+                    <p>Simply fill out the form above or click any route to connect directly with us on WhatsApp for instant confirmation.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT FOR WHATSAPP INTEGRATION & SCROLL ANIMATIONS -->
+    <script>
+        const WHATSAPP_NUMBER = "916280544730";
+
+        function sendToWhatsApp() {
+            const pickup = document.getElementById('pickup_loc').value.trim();
+            const drop = document.getElementById('drop_loc').value.trim();
+            const date = document.getElementById('travel_date').value;
+            const passengers = document.getElementById('passenger_count').value;
+
+            if(!pickup || !drop || !date) {
+                alert("Please fill Pickup Location, Drop Location, and Travel Date.");
+                return;
+            }
+
+            const message = `*NEW ONE-WAY CAB BOOKING REQUEST*%0A%0A` +
+                            `📍 *Pickup:* ${encodeURIComponent(pickup)}%0A` +
+                            `🏁 *Drop:* ${encodeURIComponent(drop)}%0A` +
+                            `📅 *Date:* ${encodeURIComponent(date)}%0A` +
+                            `👥 *Vehicle/Passengers:* ${encodeURIComponent(passengers)}%0A%0A` +
+                            `Please share the fare quote for this trip.`;
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
+
+        function quickBookRoute(pickup, drop) {
+            const message = `*ONE-WAY CAB ENQUIRY*%0A%0A` +
+                            `Hi, I want to book a One Way Cab for route:%0A` +
+                            `🚗 *From:* ${encodeURIComponent(pickup)}%0A` +
+                            `📍 *To:* ${encodeURIComponent(drop)}%0A%0A` +
+                            `Please share price details and availability.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
