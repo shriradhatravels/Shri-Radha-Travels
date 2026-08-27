@@ -883,3 +883,199 @@ header, .navbar, nav {
 body {
     padding-top: 90px !important; 
 }
+/* ==========================================
+   SHRI RADHA TRAVELS - HERO & SERVICE STYLES
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+.srt-hero-section {
+    background: #060b14;
+    color: #ffffff;
+    padding: 70px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.srt-container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Badge Tag */
+.srt-badge-tag {
+    color: #d4a343;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* Premium Heading Styling */
+.srt-hero-title, .srt-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+/* Animated Golden Shimmer Effect for Accent Text */
+.srt-gold-shimmer {
+    background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: goldShine 4s linear infinite;
+    display: inline-block;
+}
+
+@keyframes goldShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.srt-hero-desc, .srt-section-desc {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+}
+
+/* Page Load Smooth Fade Up Animation */
+.srt-fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Group */
+.srt-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 60px;
+}
+
+.srt-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.srt-btn-gold {
+    background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+    color: #0b0f19;
+    box-shadow: 0 4px 18px rgba(200, 151, 54, 0.25);
+}
+
+.srt-btn-gold:hover, .srt-btn-gold:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(200, 151, 54, 0.4);
+}
+
+.srt-arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.srt-btn-gold:hover .srt-arrow {
+    transform: translateX(4px);
+}
+
+.srt-btn-outline {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    border: 1.5px solid rgba(223, 186, 109, 0.5);
+}
+
+.srt-btn-outline:hover, .srt-btn-outline:active {
+    background: rgba(223, 186, 109, 0.1);
+    border-color: #dfba6d;
+}
+
+/* Service Cards */
+.srt-services-wrapper {
+    padding-top: 20px;
+}
+
+.srt-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.srt-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.srt-service-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(223, 186, 109, 0.25);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+}
+
+.srt-card-icon {
+    color: #dfba6d;
+    margin-bottom: 18px;
+    transition: transform 0.3s ease;
+}
+
+.srt-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.srt-card-text {
+    color: #8a9bb1;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Interactive Card Touch Animation */
+.srt-card-link:hover .srt-service-card,
+.srt-card-link:active .srt-service-card {
+    transform: translateY(-6px);
+    border-color: #dfba6d;
+    background: rgba(26, 38, 64, 0.9);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(223, 186, 109, 0.2);
+}
+
+.srt-card-link:hover .srt-card-icon,
+.srt-card-link:active .srt-card-icon {
+    transform: translate(3px, -3px);
+}
