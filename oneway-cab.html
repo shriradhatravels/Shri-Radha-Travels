@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium One Way Cab Service | Shri Radha Travels</title>
-    <link rel="stylesheet" href="style.css?v=9006">
+    <link rel="stylesheet" href="style.css?v=9007">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* GLOBAL RESET & STYLES */
@@ -31,7 +31,7 @@
             transform: translateY(0);
         }
 
-        /* FORM INPUT BOX FIX - PREVENT OVERFLOW & STYLES */
+        /* FORM INPUT BOX FIX - PREVENT OVERFLOW */
         .form-input-box {
             width: 100% !important;
             max-width: 100% !important;
@@ -49,7 +49,6 @@
             appearance: none;
         }
         
-        /* SPECIFIC FIX FOR Safari / Chrome DATE INPUT OVERFLOW */
         input[type="date"].form-input-box {
             position: relative;
             background-color: #ffffff;
@@ -65,7 +64,7 @@
             box-shadow: 0 0 0 3px rgba(223, 186, 109, 0.3);
         }
 
-        /* LUXURY SHIMMER ANIMATED BORDER FOR ALL CARDS */
+        /* LUXURY SHIMMER ANIMATED BORDER FOR CARDS */
         @keyframes borderGlow {
             0% { border-color: rgba(223, 186, 109, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
             50% { border-color: rgba(223, 186, 109, 0.75); box-shadow: 0 6px 22px rgba(223, 186, 109, 0.2); }
@@ -96,7 +95,7 @@
             background: rgba(20, 30, 55, 0.95);
         }
 
-        /* FLEET CARDS ANIMATIONS & IMAGES */
+        /* FLEET CARDS WITH GITHUB IMAGE PATHS */
         .fleet-card {
             background: rgba(15, 23, 42, 0.75);
             border: 1px solid rgba(223, 186, 109, 0.3);
@@ -158,14 +157,12 @@
 </head>
 <body>
 
-    <!-- BACK NAVIGATION -->
     <div style="padding: 20px; max-width: 650px; margin: 0 auto;">
         <a href="index.html" style="color: #dfba6d; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
             &larr; Back to Main Website
         </a>
     </div>
 
-    <!-- HERO SECTION -->
     <section class="srt-hero-section" style="padding: 10px 20px 30px 20px;">
         <div class="srt-container reveal-on-scroll">
             <span class="srt-badge-tag">PREMIUM ONE WAY CAB SERVICE</span>
@@ -187,7 +184,6 @@
         </div>
     </section>
 
-    <!-- QUICK BOOKING FORM SECTION -->
     <section id="quick-booking" style="padding: 10px 20px 30px 20px;" class="reveal-on-scroll">
         <div class="srt-container" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(223, 186, 109, 0.4); border-radius: 20px; padding: 20px; width: 100%; box-sizing: border-box;">
             <span class="srt-badge-tag">QUICK BOOKING</span>
@@ -207,10 +203,10 @@
                 <div style="width: 100%;">
                     <label style="font-size: 12px; font-weight: 700; color: #dfba6d; display: block; margin-bottom: 6px;">Select Vehicle Category</label>
                     <select id="passenger_count" class="form-input-box">
-                        <option value="Hatchback - Toyota Glanza">Hatchback - Toyota Glanza</option>
-                        <option value="Sedan - Swift Dzire">Sedan - Swift Dzire</option>
-                        <option value="SUV - Maruti Ertiga">SUV - Maruti Ertiga</option>
-                        <option value="MPV - Innova Crysta 7+1">MPV - Innova Crysta 7+1</option>
+                        <option value="Hatchback - Toyota Glanza 4+1">Hatchback - Toyota Glanza (4+1)</option>
+                        <option value="Sedan - Swift Dzire 4+1">Sedan - Swift Dzire (4+1)</option>
+                        <option value="SUV - Maruti Ertiga 6+1">SUV - Maruti Ertiga (6+1)</option>
+                        <option value="MPV - Innova Crysta 7+1">MPV - Innova Crysta (7+1)</option>
                         <option value="Tempo Traveller - Urbania">Tempo Traveller - Urbania</option>
                     </select>
                 </div>
@@ -219,7 +215,6 @@
         </div>
     </section>
 
-    <!-- POPULAR ROUTES SECTION -->
     <section id="popular-routes" style="padding: 30px 20px 20px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">POPULAR ROUTES</span>
@@ -279,7 +274,6 @@
         </div>
     </section>
 
-    <!-- FLEET SHOWCASE SECTION WITH REAL VEHICLE CARDS -->
     <section style="padding: 40px 20px 20px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">CHOOSE YOUR RIDE</span>
@@ -287,48 +281,43 @@
             <p class="srt-section-desc">Clean, fully insured, and well-maintained vehicles for your trip.</p>
 
             <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 20px;">
-                <!-- Hatchback (Toyota Glanza) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400&q=80" alt="Toyota Glanza" class="fleet-img">
+                    <img src="IMG_4677.jpeg" alt="Toyota Glanza" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Hatchback</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Toyota Glanza</div>
-                        <div style="font-size: 12px; color: #94a3b8;">Up to 4 Passengers | Fuel Efficient</div>
+                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Toyota Glanza 4+1</div>
+                        <div style="font-size: 12px; color: #94a3b8;">4+1 Seating | Fuel Efficient & Comfortable</div>
                     </div>
                 </div>
-                <!-- Sedan (Swift Dzire) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80" alt="Swift Dzire" class="fleet-img">
+                    <img src="IMG_4678.jpeg" alt="Swift Dzire" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Sedan</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Swift Dzire</div>
-                        <div style="font-size: 12px; color: #94a3b8;">Up to 4 Passengers | Extra Boot Space</div>
+                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Swift Dzire 4+1</div>
+                        <div style="font-size: 12px; color: #94a3b8;">4+1 Seating | Extra Luggage Space</div>
                     </div>
                 </div>
-                <!-- SUV (Maruti Ertiga) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&q=80" alt="Maruti Ertiga" class="fleet-img">
+                    <img src="IMG_4938.jpeg" alt="Maruti Ertiga" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">SUV</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Maruti Ertiga</div>
-                        <div style="font-size: 12px; color: #94a3b8;">Up to 6+1 Passengers | Family Trip</div>
+                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Maruti Ertiga 6+1</div>
+                        <div style="font-size: 12px; color: #94a3b8;">6+1 Seating | Perfect for Family Trips</div>
                     </div>
                 </div>
-                <!-- MPV (Innova Crysta) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80" alt="Innova Crysta" class="fleet-img">
+                    <img src="IMG_4936.jpeg" alt="Innova Crysta" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">MPV</div>
                         <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Innova Crysta 7+1</div>
-                        <div style="font-size: 12px; color: #94a3b8;">Up to 7+1 Passengers | Premium Comfort</div>
+                        <div style="font-size: 12px; color: #94a3b8;">7+1 Seating | Luxury & Maximum Comfort</div>
                     </div>
                 </div>
-                <!-- Tempo Traveller (Urbania) -->
                 <div class="fleet-card">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80" alt="Force Urbania" class="fleet-img">
+                    <img src="IMG_4937.jpeg" alt="Force Urbania" class="fleet-img">
                     <div class="fleet-info">
                         <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Tempo Traveller</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Urbania</div>
+                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Force Urbania</div>
                         <div style="font-size: 12px; color: #94a3b8;">Large Group Luxury Travel</div>
                     </div>
                 </div>
@@ -336,7 +325,6 @@
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
     <section style="padding: 40px 20px 80px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">NEED TO KNOW</span>
@@ -353,13 +341,12 @@
                 </details>
                 <details>
                     <summary>Which cars are available?</summary>
-                    <p>Options include Hatchback (Glanza), Sedan (Swift Dzire), SUV (Maruti Ertiga), MPV (Innova Crysta 7+1), and Tempo Traveller (Urbania).</p>
+                    <p>Options include Hatchback (Glanza 4+1), Sedan (Swift Dzire 4+1), SUV (Maruti Ertiga 6+1), MPV (Innova Crysta 7+1), and Tempo Traveller (Urbania).</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- JAVASCRIPT -->
     <script>
         const WHATSAPP_NUMBER = "916280544730";
 
