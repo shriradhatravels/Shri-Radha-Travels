@@ -1079,3 +1079,10 @@ html {
 .srt-card-link:active .srt-card-icon {
     transform: translate(3px, -3px);
 }
+/* Booking card ke andar ke blue header box ko fix karne ke liye */
+.booking-card div[style*="background"], 
+.booking-card .bg-blue, 
+.booking-card [class*="blue"] {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
