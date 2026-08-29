@@ -18,8 +18,10 @@
         .font-serif-heading {
             font-family: 'Playfair Display', serif;
         }
+        
+        /* Premium Metallic Gold (Logo Matching) */
         .gold-text-gradient {
-            background: linear-gradient(135deg, #fff3a1 0%, #e5c158 50%, #b8860b 100%);
+            background: linear-gradient(135deg, #fef1c0 0%, #d4af37 40%, #aa7c11 80%, #684c04 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -27,19 +29,17 @@
             color: #d4af37;
         }
         .gold-btn {
-            background: linear-gradient(135deg, #e6c200 0%, #c59b27 100%);
-            color: #080c14;
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #070a0f;
+            font-weight: 700;
         }
         .gold-btn:hover {
-            background: linear-gradient(135deg, #f5d020 0%, #d4a72c 100%);
+            background: linear-gradient(135deg, #e5be49 0%, #c19119 100%);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.4);
-        }
-        .card-bg { 
-            background-color: #0d121c; 
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.35);
         }
         
-        /* Continuous Animated Golden Border Effect */
+        /* Continuous Animated Metallic Border Effect */
         .gold-animated-border {
             position: relative;
             z-index: 1;
@@ -56,8 +56,8 @@
             background: conic-gradient(
                 transparent 0deg,
                 transparent 120deg,
-                #ffd700 180deg,
-                #d4af37 240deg,
+                #d4af37 180deg,
+                #8a6309 240deg,
                 transparent 300deg
             );
             animation: rotateGoldBorder 4s linear infinite;
@@ -76,16 +76,14 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Hover Card Lift */
         .card-hover {
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card-hover:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.2);
         }
 
-        /* Scroll Reveal Pop-Up & Text Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px) scale(0.97);
@@ -104,13 +102,24 @@
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Modal Backdrop blur & transition */
+        .modal-active {
+            display: flex !important;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-yellow-500 selection:text-black">
+<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-amber-600 selection:text-white">
 
+    <!-- Header -->
     <header class="w-full px-5 py-4 flex justify-between items-center border-b border-gray-800/80 bg-[#090d15]/95 sticky top-0 z-50 backdrop-blur-md">
         <div class="flex items-center space-x-3">
-            <div class="w-11 h-11 rounded-full overflow-hidden border border-yellow-500/40 shadow-md">
+            <div class="w-11 h-11 rounded-full overflow-hidden border border-amber-500/40 shadow-md">
                 <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels Logo" class="w-full h-full object-cover">
             </div>
             <span class="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif-heading">
@@ -124,9 +133,10 @@
 
     <main class="max-w-4xl mx-auto px-4 py-8 w-full space-y-16">
         
+        <!-- Hero Section -->
         <section class="space-y-6 reveal active">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10">
-                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                 <span class="text-xs font-semibold gold-accent-text tracking-widest uppercase">PREMIUM ROUND TRIP TAXI SERVICES</span>
             </div>
 
@@ -140,8 +150,8 @@
             </p>
 
             <div class="flex flex-wrap gap-3.5 pt-2">
-                <a href="#destinations" class="px-7 py-3.5 rounded-xl bg-slate-900 border border-yellow-500/30 hover:border-yellow-500 text-white font-medium text-sm flex items-center transition shadow-lg">
-                    Explore Round Trips <i class="fa-solid fa-arrow-right ml-2 text-xs text-yellow-500"></i>
+                <a href="#destinations" class="px-7 py-3.5 rounded-xl bg-slate-900 border border-amber-500/30 hover:border-amber-500 text-white font-medium text-sm flex items-center transition shadow-lg">
+                    Explore Round Trips <i class="fa-solid fa-arrow-right ml-2 text-xs text-amber-500"></i>
                 </a>
                 <a href="https://wa.me/916280544730" target="_blank" class="px-7 py-3.5 rounded-xl gold-btn font-bold text-sm transition shadow-lg flex items-center">
                     <i class="fa-brands fa-whatsapp text-lg mr-2"></i> WhatsApp Booking
@@ -150,10 +160,10 @@
 
             <div class="relative mt-8 rounded-2xl overflow-hidden p-6 gold-animated-border flex flex-col justify-between h-60 sm:h-64 shadow-2xl reveal">
                 <div class="flex justify-between items-center z-10">
-                    <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-yellow-400 border border-yellow-500/30">
+                    <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-amber-400 border border-amber-500/30">
                         <i class="fa-solid fa-circle-check text-xs mr-1"></i> Door-to-Door
                     </span>
-                    <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-yellow-400 border border-yellow-500/30">
+                    <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-amber-400 border border-amber-500/30">
                         <i class="fa-solid fa-shield-halved text-xs mr-1"></i> Private Cab
                     </span>
                 </div>
@@ -164,6 +174,7 @@
             </div>
         </section>
 
+        <!-- Feature Cards -->
         <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="gold-animated-border p-5 card-hover reveal">
                 <h3 class="text-white font-bold text-base font-serif-heading z-10 relative">Private Vehicles</h3>
@@ -183,16 +194,19 @@
             </div>
         </section>
 
+        <!-- Destinations Section -->
         <section id="destinations" class="space-y-6">
             <div class="reveal">
                 <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">EXPLORE DESTINATIONS</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">Chandigarh Round Trips</h2>
                 <p class="text-xs sm:text-sm text-gray-400 mt-1">
-                    Select a destination and click <span class="text-yellow-400 font-semibold">View Journey</span> to inspect itinerary options.
+                    Select a destination and click <span class="text-amber-400 font-semibold">View Journey</span> to inspect detailed itinerary options.
                 </p>
             </div>
 
             <div class="space-y-5">
+                
+                <!-- 01 Shimla -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">01</span>
@@ -202,11 +216,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Premium private cab service for a comfortable Himalayan getaway to Shimla, Kufri, and surrounding attractions.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Weekend Trips &bull; Family Holidays &bull; Couples &bull; Corporate Travel</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Shimla', '3 Days / 2 Nights', 'Mall Road, Ridge, Kufri Fun World, Jakhoo Temple, Green Valley, Chail.', 'Sedan / Ertiga / Innova Crysta', 'Shimla')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Shimla%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 02 Manali -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">02</span>
@@ -216,11 +231,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A comfortable private round-trip journey to Manali covering Kullu Valley, Solang Valley, Atal Tunnel, and local sights.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Honeymoon &bull; Adventure Trips &bull; Group Travel</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Manali', '4 Days / 3 Nights or 5 Days', 'Solang Valley, Atal Tunnel, Sissu (Lahaul), Hadimba Temple, Mall Road, Jogini Waterfall.', 'Ertiga / Innova Crysta / Dzire', 'Manali')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Manali%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 03 Amritsar -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">03</span>
@@ -230,11 +246,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Travel comfortably to Amritsar and experience the Golden Temple, Jallianwala Bagh, local markets, and Wagah Border.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Trips &bull; Religious Tours &bull; Weekend Getaways</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Amritsar', '2 Days / 1 Night', 'Golden Temple (Sri Harmandir Sahib), Wagah Border Parade, Jallianwala Bagh, Partition Museum.', 'Sedan / SUV', 'Amritsar')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Amritsar%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 04 Dharamshala -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">04</span>
@@ -244,11 +261,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Experience the peaceful Kangra Valley, monasteries, Bhagsu Waterfall, Naddi, and beautiful mountain surroundings.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Spiritual Trips &bull; Couples</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Dharamshala & McLeod Ganj', '3 Days / 2 Nights', 'Dalai Lama Temple, Bhagsu Waterfall, HPCA Cricket Stadium, Naddi View Point, St. John Church.', 'Sedan / SUV / Innova', 'Dharamshala')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Dharamshala%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 05 Dalhousie -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">05</span>
@@ -258,11 +276,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Discover colonial Dalhousie, pine forests, scenic mountain roads, and the famous green meadows of Khajjiar.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Couples &bull; Nature Lovers</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Dalhousie & Khajjiar', '3 Days / 2 Nights', 'Khajjiar (Mini Switzerland), Panchpula, Dainkund Peak, Mall Road Dalhousie, Chamera Lake.', 'Sedan / SUV', 'Dalhousie')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Dalhousie%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 06 Kasol -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">06</span>
@@ -272,11 +291,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Explore the beautiful Parvati Valley with Kasol, Manikaran Sahib, riverside landscapes, and peaceful mountain vibes.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Young Travellers &bull; Couples &bull; Friends &bull; Trekkers</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Kasol & Manikaran', '3 Days / 2 Nights', 'Kasol Chalal Village walk, Manikaran Sahib Hot Springs, Tosh Village, Parvati Riverfront.', 'Sedan / SUV', 'Kasol')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Kasol%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 07 Kasauli -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">07</span>
@@ -286,11 +306,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A premium short mountain escape featuring Kasauli's peaceful pine forests, Mall Road, viewpoints, and colonial charm.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Weekend Getaways &bull; Couples &bull; Family Trips</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Kasauli', '1 Day or 2 Days / 1 Night', 'Monkey Point, Gilbert Trail, Heritage Mall Road, Christ Church.', 'Sedan / Hatchback / SUV', 'Kasauli')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Kasauli%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 08 Mussoorie -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">08</span>
@@ -300,11 +321,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Enjoy a scenic journey to the Queen of Hills with Mall Road, Kempty Falls, Gun Hill, and Landour.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Couples &bull; Weekend Trips</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Mussoorie', '3 Days / 2 Nights', 'Kempty Falls, Gun Hill Cable Car, Mall Road, Landour Bakehouse, Lal Tibba.', 'Sedan / SUV / Innova', 'Mussoorie')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Mussoorie%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 09 Rishikesh -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">09</span>
@@ -314,11 +336,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A perfect combination of spirituality and adventure with Ganga Ghats, temples, cafés, and rafting experiences.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Adventure &bull; Spiritual Trips &bull; Couples &bull; Friends</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Rishikesh', '2 Days / 1 Night', 'Laxman Jhula, Ram Jhula, Triveni Ghat Ganga Aarti, River Rafting, Beatles Ashram.', 'Sedan / SUV', 'Rishikesh')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Rishikesh%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 10 Haridwar -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">10</span>
@@ -328,11 +351,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Travel to the spiritual heart of Uttarakhand and experience Har Ki Pauri, temples, and the sacred Ganga Aarti.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Pilgrimage &bull; Family Trips &bull; Spiritual Tours</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Haridwar', '1 Day or 2 Days', 'Har Ki Pauri Snan & Evening Aarti, Mansa Devi Temple, Chandi Devi Temple.', 'Sedan / Ertiga / Innova', 'Haridwar')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Haridwar%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 11 Delhi -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">11</span>
@@ -342,11 +366,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Premium door-to-door round-trip cab service for business travel, shopping, airport transfers, events, and family visits.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Corporate Travel &bull; Airport Trips &bull; Business &bull; Family</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Delhi', '1 Day Express or Custom Days', 'IGI Airport T3 / T1 Drops, India Gate, Connaught Place, Shopping Hubs, Corporate Meetings.', 'Dzire / Etios / Crysta', 'Delhi')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Delhi%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 12 Katra -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">12</span>
@@ -356,11 +381,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Comfortable private transportation for Jammu and Mata Vaishno Devi journeys with flexible pickup, stay, and return options.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Religious Tours &bull; Family Trips &bull; Group Travel</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Jammu & Katra', '3 Days / 2 Nights', 'Mata Vaishno Devi Bhawan Darshan, Banganga, Shiv Khori, Jammu Raghunath Temple.', 'Ertiga / Innova Crysta / Dzire', 'Katra')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Katra%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 13 Dehradun -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">13</span>
@@ -370,11 +396,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A comfortable private round trip to Dehradun covering the city's major attractions and serving as gateway to Uttarakhand.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Business Travel &bull; Family Trips &bull; Weekend Getaways</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Dehradun', '2 Days / 1 Night', 'Robbers Cave (Guchhupani), Sahastradhara, FRI (Forest Research Institute), Tapkeshwar Temple.', 'Sedan / SUV', 'Dehradun')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Dehradun%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 14 Spiti Valley -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">14</span>
@@ -384,11 +411,12 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">The ultimate Himalayan road trip through Shimla, Kinnaur, and Spiti featuring high-altitude villages and monasteries.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Adventure &bull; Road Trips &bull; Photography &bull; Group Travel</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Spiti Valley Expedition', '7 to 9 Days', 'Kalpa, Nako, Tabo Monastery, Kaza, Key Monastery, Hikkim (Highest Post Office), Chandratal Lake.', '4x4 / Heavy SUV / Innova Crysta', 'Spiti Valley')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Spiti%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
+                <!-- 15 Chamba -->
                 <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center z-10 relative">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">15</span>
@@ -398,180 +426,162 @@
                     <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Explore the untouched Himalayan beauty of Chamba with ancient temples, mountain valleys, and nearby Khajjiar.</p>
                     <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Nature Lovers &bull; Family Holidays &bull; Long Weekend Trips</p>
                     <div class="flex gap-3 pt-2 z-10 relative">
-                        <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <button onclick="openJourneyModal('Chamba Valley', '4 Days / 3 Nights', 'Laxmi Narayan Temple, Chaugan, Chamera Lake Boating, Khajjiar Meadow.', 'Sedan / SUV / Innova', 'Chamba')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
                         <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Chamba%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="space-y-6">
-            <div class="reveal">
-                <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">CHOOSE YOUR RIDE</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">A fleet for every journey.</h2>
-                <p class="text-xs sm:text-sm text-gray-400 mt-1">Clean, insured, and luxury maintained vehicles for your road trips.</p>
+        <!-- Fleet Section -->
+        <section class="space-y-6 reveal">
+            <div>
+                <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">OUR FLEET</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">Choose Your Vehicle</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Well-maintained, fully air-conditioned & comfortable cabs driven by experts.</p>
             </div>
 
-            <div class="space-y-6">
-                <div class="gold-animated-border card-hover shadow-xl reveal">
-                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900 z-10 relative">
-                        <img src="IMG_4677.jpeg" alt="Toyota Glanza 4+1" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 sm:p-6 space-y-2 z-10 relative">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">Hatchback</span>
-                        <h3 class="text-2xl font-bold text-white font-serif-heading">Toyota Glanza 4+1</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">4+1 Seating &bull; Fuel Efficient &amp; Super Comfortable for City &amp; Hills</p>
-                    </div>
-                </div>
-
-                <div class="gold-animated-border card-hover shadow-xl reveal">
-                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900 z-10 relative">
-                        <img src="IMG_4678.jpeg" alt="Swift Dzire 4+1" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 sm:p-6 space-y-2 z-10 relative">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">Sedan</span>
-                        <h3 class="text-2xl font-bold text-white font-serif-heading">Swift Dzire 4+1</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">4+1 Seating &bull; Extra Luggage Space &amp; Smooth Long Highway Drives</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="gold-animated-border p-6 space-y-4 card-hover">
+                    <div class="z-10 relative">
+                        <i class="fa-solid fa-car text-3xl gold-accent-text"></i>
+                        <h3 class="text-xl font-bold text-white mt-2 font-serif-heading">Premium Sedan</h3>
+                        <p class="text-xs text-gray-400 mt-1">Dzire, Etios or equivalent</p>
+                        <ul class="text-xs text-gray-300 space-y-2 mt-4">
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> 4 Passengers + Driver</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> 2 Luggage Bags</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Ideal for small families</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="gold-animated-border card-hover shadow-xl reveal">
-                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900 z-10 relative">
-                        <img src="IMG_4938.jpeg" alt="Maruti Ertiga 6+1" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 sm:p-6 space-y-2 z-10 relative">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">SUV</span>
-                        <h3 class="text-2xl font-bold text-white font-serif-heading">Maruti Ertiga 6+1</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">6+1 Seating &bull; Spacious &amp; Ideal Choice for Family Trips &amp; Groups</p>
-                    </div>
-                </div>
-
-                <div class="gold-animated-border card-hover shadow-xl reveal">
-                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900 z-10 relative">
-                        <img src="IMG_4936.jpeg" alt="Innova Crysta 7+1" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 sm:p-6 space-y-2 z-10 relative">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">MPV</span>
-                        <h3 class="text-2xl font-bold text-white font-serif-heading">Innova Crysta 7+1</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">7+1 Seating &bull; Ultra Luxury &amp; Maximum Riding Comfort for Mountain Routes</p>
+                <div class="gold-animated-border p-6 space-y-4 card-hover">
+                    <div class="z-10 relative">
+                        <i class="fa-solid fa-truck-monster text-3xl gold-accent-text"></i>
+                        <h3 class="text-xl font-bold text-white mt-2 font-serif-heading">Spacious SUV</h3>
+                        <p class="text-xs text-gray-400 mt-1">Ertiga, Triber or equivalent</p>
+                        <ul class="text-xs text-gray-300 space-y-2 mt-4">
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> 6-7 Passengers + Driver</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Extra Luggage Space</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Perfect for mountain trips</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="gold-animated-border card-hover shadow-xl reveal">
-                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900 z-10 relative">
-                        <img src="IMG_4937.jpeg" alt="Force Urbania" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-5 sm:p-6 space-y-2 z-10 relative">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">Tempo Traveller</span>
-                        <h3 class="text-2xl font-bold text-white font-serif-heading">Force Urbania</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">Large Group Luxury Travel Experience &bull; Reclining Seats &amp; AC</p>
+                <div class="gold-animated-border p-6 space-y-4 card-hover">
+                    <div class="z-10 relative">
+                        <i class="fa-solid fa-car-side text-3xl gold-accent-text"></i>
+                        <h3 class="text-xl font-bold text-white mt-2 font-serif-heading">Luxury SUV / Crysta</h3>
+                        <p class="text-xs text-gray-400 mt-1">Innova Crysta</p>
+                        <ul class="text-xs text-gray-300 space-y-2 mt-4">
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> 6-7 Executive Seating</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Maximum Legroom & Comfort</li>
+                            <li><i class="fa-solid fa-check text-amber-400 mr-2"></i> Top choice for long road trips</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="space-y-6">
-            <div class="reveal">
-                <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">SIMPLE BOOKING PROCESS</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">How Your Round Trip Works</h2>
-                <p class="text-xs sm:text-sm text-gray-400 mt-1">Designed for a seamless booking experience from pickup to destination return.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="gold-animated-border p-6 space-y-2 card-hover reveal">
-                    <span class="text-xs font-bold gold-accent-text font-serif-heading text-base z-10 relative">01</span>
-                    <h4 class="text-white font-bold text-lg font-serif-heading z-10 relative">Select Destination</h4>
-                    <p class="text-xs text-gray-400 z-10 relative">Choose your round-trip route from the choices listed above.</p>
+        <!-- Call to Action Banner -->
+        <section class="gold-animated-border p-8 text-center space-y-4 reveal">
+            <div class="z-10 relative max-w-xl mx-auto space-y-3">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white font-serif-heading">Ready for your next round trip?</h2>
+                <p class="text-xs sm:text-sm text-gray-400">Tell us your destination, travel dates, and passenger count. We will recommend the ideal cab and itinerary for your ride.</p>
+                <div class="flex justify-center gap-4 pt-2">
+                    <a href="tel:6280544730" class="px-6 py-3 rounded-xl bg-slate-900 border border-amber-500/30 hover:border-amber-500 text-white font-medium text-xs transition">
+                        <i class="fa-solid fa-phone mr-1.5"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/916280544730" target="_blank" class="px-6 py-3 rounded-xl gold-btn text-xs font-bold transition">
+                        <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> WhatsApp Us
+                    </a>
                 </div>
-                <div class="gold-animated-border p-6 space-y-2 card-hover reveal">
-                    <span class="text-xs font-bold gold-accent-text font-serif-heading text-base z-10 relative">02</span>
-                    <h4 class="text-white font-bold text-lg font-serif-heading z-10 relative">Choose Vehicle</h4>
-                    <p class="text-xs text-gray-400 z-10 relative">Select the vehicle matching your group size and budget.</p>
-                </div>
-                <div class="gold-animated-border p-6 space-y-2 card-hover reveal">
-                    <span class="text-xs font-bold gold-accent-text font-serif-heading text-base z-10 relative">03</span>
-                    <h4 class="text-white font-bold text-lg font-serif-heading z-10 relative">Plan Your Journey</h4>
-                    <p class="text-xs text-gray-400 z-10 relative">Share travel dates, pickup location, and itinerary requirements.</p>
-                </div>
-                <div class="gold-animated-border p-6 space-y-2 card-hover reveal">
-                    <span class="text-xs font-bold gold-accent-text font-serif-heading text-base z-10 relative">04</span>
-                    <h4 class="text-white font-bold text-lg font-serif-heading z-10 relative">Confirm Booking</h4>
-                    <p class="text-xs text-gray-400 z-10 relative">Get instant cab quote &amp; trip confirmation right on WhatsApp.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="rounded-3xl p-8 bg-gradient-to-b from-yellow-500 to-amber-600 text-slate-950 text-center space-y-4 shadow-2xl reveal">
-            <h3 class="text-3xl sm:text-4xl font-black font-serif-heading">Ready for your next round trip?</h3>
-            <p class="text-xs sm:text-sm font-medium text-slate-900 max-w-md mx-auto leading-relaxed">
-                Tell us your destination, travel dates, and passenger count. We will recommend the ideal cab and itinerary for your ride.
-            </p>
-            <div class="flex flex-wrap justify-center gap-3.5 pt-2">
-                <a href="tel:6280544730" class="px-8 py-3.5 rounded-xl bg-slate-950 text-white font-bold text-xs sm:text-sm hover:bg-slate-900 transition shadow-lg">Call Now: 6280544730</a>
-                <a href="https://wa.me/916280544730" target="_blank" class="px-8 py-3.5 rounded-xl bg-white text-black font-bold text-xs sm:text-sm hover:bg-gray-100 transition shadow-lg">WhatsApp Us</a>
             </div>
         </section>
 
     </main>
 
-    <footer class="w-full border-t border-gray-800/80 bg-[#06090f] py-10 px-5 mt-16 text-xs text-gray-400 space-y-6 max-w-4xl mx-auto">
-        <div>
-            <h4 class="text-white font-bold text-lg font-serif-heading">Shri Radha Travels</h4>
-            <p class="mt-1 leading-relaxed">Premium private cab services from Chandigarh for Himachal, Punjab, Uttarakhand, Delhi, and North India.</p>
-            <p class="mt-1">Website: <a href="http://www.shriradhatravels.com" class="hover:underline text-yellow-400">www.shriradhatravels.com</a></p>
-        </div>
-
-        <div>
-            <h5 class="text-white font-bold mb-1 font-serif-heading">Round Trips</h5>
-            <p class="space-x-1 leading-relaxed">
-                <span>Shimla</span> &bull; <span>Manali</span> &bull; <span>Amritsar</span> &bull; <span>Spiti</span> &bull; <span>Dalhousie</span> &bull; <span>Mussoorie</span> &bull; <span>Rishikesh</span>
-            </p>
-        </div>
-
-        <div>
-            <h5 class="text-white font-bold mb-1 font-serif-heading">Book Your Ride</h5>
-            <p>Call: +91 62805 44730</p>
-            <p>WhatsApp available for quick booking &amp; fare details.</p>
-        </div>
-
-        <div class="border-t border-gray-800/60 pt-5 text-[11px] text-gray-500">
-            &copy; 2026 Shri Radha Travels. All rights reserved. Premium Cab Services.
-        </div>
+    <footer class="w-full border-t border-gray-800/80 bg-[#090d15] py-8 px-5 mt-16 text-center text-xs text-gray-500 space-y-2">
+        <p class="text-gray-400 font-medium">Shri Radha Travels &copy; 2026. All Rights Reserved.</p>
+        <p>Premium Round Trip Taxi & Tour Package Services in Chandigarh</p>
     </footer>
 
-    <div class="fixed bottom-5 right-5 flex flex-col items-center space-y-3 z-50">
-        <a href="https://wa.me/916280544730" target="_blank" class="w-12 h-12 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-2xl transition hover:scale-110">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
-        </a>
-        <a href="tel:6280544730" class="w-12 h-12 gold-btn rounded-full flex items-center justify-center text-black shadow-2xl transition hover:scale-110">
-            <i class="fa-solid fa-phone text-lg"></i>
-        </a>
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 bg-slate-800 hover:bg-slate-700 border border-gray-700 rounded-full flex items-center justify-center text-white shadow-2xl transition hover:scale-110">
-            <i class="fa-solid fa-arrow-up text-base text-yellow-500"></i>
-        </button>
+    <!-- VIEW JOURNEY POPUP MODAL -->
+    <div id="journeyModal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden justify-center items-center z-[100] p-4">
+        <div class="bg-[#0e1420] border border-amber-500/40 rounded-2xl max-w-lg w-full p-6 relative space-y-5 shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeJourneyModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-gray-400 hover:text-white flex justify-center items-center transition">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <div>
+                <span class="text-xs font-semibold gold-accent-text tracking-widest uppercase">JOURNEY DETAILS</span>
+                <h3 id="modalTitle" class="text-2xl font-bold text-white font-serif-heading mt-1">Chandigarh &#8644; Destination</h3>
+            </div>
+
+            <div class="space-y-3 text-xs text-gray-300">
+                <div class="p-3 bg-slate-900/90 border border-gray-800 rounded-xl">
+                    <p class="text-gray-400 font-medium"><i class="fa-regular fa-clock gold-accent-text mr-1.5"></i> Suggested Duration:</p>
+                    <p id="modalDuration" class="text-white font-semibold text-sm mt-0.5">3 Days / 2 Nights</p>
+                </div>
+
+                <div class="p-3 bg-slate-900/90 border border-gray-800 rounded-xl">
+                    <p class="text-gray-400 font-medium"><i class="fa-solid fa-map-location-dot gold-accent-text mr-1.5"></i> Key Attractions & Sightseeing:</p>
+                    <p id="modalAttractions" class="text-white font-medium text-xs mt-1 leading-relaxed">-</p>
+                </div>
+
+                <div class="p-3 bg-slate-900/90 border border-gray-800 rounded-xl">
+                    <p class="text-gray-400 font-medium"><i class="fa-solid fa-car-side gold-accent-text mr-1.5"></i> Recommended Cabs:</p>
+                    <p id="modalCabs" class="text-white font-medium text-xs mt-1">Sedan / SUV / Innova Crysta</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+                <a id="modalBookBtn" href="#" target="_blank" class="w-full py-3.5 rounded-xl gold-btn text-center text-xs font-bold transition flex justify-center items-center">
+                    <i class="fa-brands fa-whatsapp text-sm mr-2"></i> Book This Journey On WhatsApp
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -40px 0px',
-                threshold: 0.15
-            };
+        // Scroll Reveal Script
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+        // Journey Modal Script
+        function openJourneyModal(destination, duration, attractions, cabs, queryParam) {
+            document.getElementById('modalTitle').innerText = 'Chandigarh ⇄ ' + destination;
+            document.getElementById('modalDuration').innerText = duration;
+            document.getElementById('modalAttractions').innerText = attractions;
+            document.getElementById('modalCabs').innerText = cabs;
+            document.getElementById('modalBookBtn').href = 'https://wa.me/916280544730?text=Booking%20Query%20for%20' + encodeURIComponent(queryParam) + '%20Round%20Trip';
+            
+            document.getElementById('journeyModal').classList.add('modal-active');
+        }
 
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
+        function closeJourneyModal() {
+            document.getElementById('journeyModal').classList.remove('modal-active');
+        }
+
+        // Close modal on background click
+        document.getElementById('journeyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeJourneyModal();
+            }
         });
     </script>
-
 </body>
 </html>
