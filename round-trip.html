@@ -1,655 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Round Trips - Shri Radha Travels</title>
-  
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Trips Made Premium | Shri Radha Travels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #070a0f;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .font-serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #fff3a1 0%, #e5c158 50%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-accent-text {
+            color: #d4af37;
+        }
+        .gold-btn {
+            background: linear-gradient(135deg, #e6c200 0%, #c59b27 100%);
+            color: #080c14;
+        }
+        .gold-btn:hover {
+            background: linear-gradient(135deg, #f5d020 0%, #d4a72c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.4);
+        }
+        .card-bg { 
+            background-color: #0d121c; 
+        }
+        
+        /* Continuous Animated Golden Border Effect */
+        .gold-animated-border {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .gold-animated-border::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent 0deg,
+                transparent 120deg,
+                #ffd700 180deg,
+                #d4af37 240deg,
+                transparent 300deg
+            );
+            animation: rotateGoldBorder 4s linear infinite;
+            z-index: -2;
+        }
+        .gold-animated-border::after {
+            content: '';
+            position: absolute;
+            inset: 1.5px;
+            background: #0d121c;
+            border-radius: calc(1rem - 1.5px);
+            z-index: -1;
+        }
+        @keyframes rotateGoldBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-  <style>
-    /* ==========================================
-       ORIGINAL DARK & GOLD THEMING
-       ========================================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        /* Hover Card Lift */
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.25);
+        }
 
-    body {
-      background-color: #080d16;
-      color: #e2e8f0;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.5;
-      padding: 24px 16px 60px 16px;
-      overflow-x: hidden;
-    }
+        /* Scroll Reveal Pop-Up & Text Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.97);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .animated-text-pop {
+            animation: textPopIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes textPopIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .container {
-      max-width: 580px;
-      margin: 0 auto;
-    }
-
-    /* Headings */
-    .section-badge {
-      color: #d4af37;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: inline-block;
-    }
-
-    .main-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: #f7e7ce;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .sub-heading {
-      color: #94a3b8;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .section-spacing {
-      margin-top: 56px;
-    }
-
-    /* ==========================================
-       1. DESTINATION CARDS (ORIGINAL STYLE & POPUP ANIMATION)
-       ========================================== */
-    .trip-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .trip-card {
-      background: rgba(11, 19, 32, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 14px;
-      padding: 20px;
-      position: relative;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-      
-      /* Pure Original Card Pop-Up Animation */
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  box-shadow 0.35s ease, 
-                  border-color 0.35s ease;
-    }
-
-    .trip-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: #d4af37;
-      box-shadow: 0 14px 28px rgba(212, 175, 55, 0.25);
-    }
-
-    .trip-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .trip-number {
-      color: #d4af37;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .region-tag {
-      background: rgba(212, 175, 55, 0.15);
-      color: #d4af37;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .trip-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: #f7e7ce;
-      margin-bottom: 8px;
-    }
-
-    .trip-desc {
-      color: #94a3b8;
-      font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .trip-ideal {
-      color: #64748b;
-      font-size: 11px;
-      margin-bottom: 18px;
-    }
-
-    .trip-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn-card {
-      flex: 1;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      color: #ffffff;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: rgba(212, 175, 55, 0.15);
-      border-color: #d4af37;
-    }
-
-    .btn-solid {
-      background: #d4af37;
-      color: #0b1320;
-    }
-
-    /* ==========================================
-       2. FLEET CARDS (WITH ORIGINAL CAR IMAGES)
-       ========================================== */
-    .fleet-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .fleet-card {
-      background: rgba(11, 19, 32, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 14px;
-      padding: 16px;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-      
-      /* Matching Pop-Up Animation */
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  box-shadow 0.35s ease, 
-                  border-color 0.35s ease;
-    }
-
-    .fleet-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: #d4af37;
-      box-shadow: 0 14px 28px rgba(212, 175, 55, 0.25);
-    }
-
-    .fleet-img-wrapper {
-      width: 120px;
-      height: 82px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .fleet-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .fleet-card:hover .fleet-img-wrapper img {
-      transform: scale(1.08);
-    }
-
-    .fleet-info {
-      flex-grow: 1;
-    }
-
-    .fleet-category {
-      font-family: 'Playfair Display', serif;
-      color: #d4af37;
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .fleet-name {
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .fleet-desc {
-      color: #94a3b8;
-      font-size: 12px;
-    }
-
-    /* ==========================================
-       3. HOW YOUR ROUND TRIP WORKS
-       ========================================== */
-    .steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .step-card {
-      background: rgba(11, 19, 32, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 14px;
-      padding: 20px;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  border-color 0.35s ease;
-    }
-
-    .step-card:hover {
-      border-color: #d4af37;
-      transform: translateX(6px);
-    }
-
-    .step-number {
-      color: #d4af37;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .step-title {
-      font-family: 'Playfair Display', serif;
-      color: #f7e7ce;
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .step-desc {
-      color: #94a3b8;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* ==========================================
-       4. CTA BANNER CARD
-       ========================================== */
-    .cta-card {
-      background: linear-gradient(135deg, #eaf3fb, #dbe8f5);
-      color: #0b1320;
-      border-radius: 24px;
-      padding: 32px 24px;
-      text-align: center;
-      margin-top: 48px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .cta-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      color: #0d1726;
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-
-    .cta-desc {
-      color: #475569;
-      font-size: 13px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .btn {
-      flex: 1;
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-    }
-
-    .btn-dark {
-      background-color: #0b1320;
-      color: #ffffff;
-    }
-
-    .btn-gold {
-      background-color: #d4af37;
-      color: #0b1320;
-    }
-
-    /* ==========================================
-       5. FOOTER
-       ========================================== */
-    footer {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      color: #ffffff;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .footer-text {
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .footer-title {
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .footer-links {
-      color: #94a3b8;
-      font-size: 12px;
-      line-height: 1.8;
-      margin-bottom: 24px;
-    }
-
-    .copyright {
-      color: #475569;
-      font-size: 11px;
-      margin-top: 24px;
-    }
-
-    /* SCROLL ANIMATION */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+        /* Custom Scrollbar for Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #090d15;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2a3447;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-yellow-500 selection:text-black">
 
-  <div class="container">
+    <header class="w-full px-5 py-4 flex justify-between items-center border-b border-gray-800/80 bg-[#090d15]/95 sticky top-0 z-50 backdrop-blur-md">
+        <div class="flex items-center space-x-3">
+            <div class="w-11 h-11 rounded-full overflow-hidden border border-yellow-500/40 shadow-md">
+                <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels Logo" class="w-full h-full object-cover">
+            </div>
+            <span class="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif-heading">
+                Shri Radha <span class="gold-text-gradient italic">Travels</span>
+            </span>
+        </div>
+        <a href="tel:6280544730" class="px-4 py-2 rounded-lg gold-btn text-xs font-bold transition flex items-center">
+            <i class="fa-solid fa-phone mr-1.5"></i> Call Now
+        </a>
+    </header>
 
-    <!-- SECTION 1: DESTINATIONS -->
-    <section>
-      <div class="reveal">
-        <span class="section-badge">Popular Routes</span>
-        <h1 class="main-heading">Round Trip Packages</h1>
-        <p class="sub-heading">Explore North India with dedicated chauffeur services and flexible itineraries.</p>
-      </div>
-
-      <div class="trip-list">
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full space-y-16">
         
-        <!-- Trip 11 -->
-        <div class="trip-card reveal">
-          <div class="trip-header">
-            <span class="trip-number">11</span>
-            <span class="region-tag">NCR</span>
-          </div>
-          <h2 class="trip-title">Chandigarh ⇄ Delhi</h2>
-          <p class="trip-desc">Premium door-to-door round-trip cab service for business travel, shopping, airport transfers, events and family visits.</p>
-          <p class="trip-ideal">Ideal For: Corporate Travel · Airport Trips · Business · Family Travel</p>
-          <div class="trip-actions">
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20details%20for%20Chandigarh%20to%20Delhi%20Round%20Trip" class="btn-card btn-outline">View Journey</a>
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20book%20Chandigarh%20to%20Delhi%20Round%20Trip" class="btn-card btn-solid">Book</a>
-          </div>
-        </div>
+        <section class="space-y-6 reveal active">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10">
+                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                <span class="text-xs font-semibold gold-accent-text tracking-widest uppercase">PREMIUM ROUND TRIP TAXI SERVICES</span>
+            </div>
 
-        <!-- Trip 12 -->
-        <div class="trip-card reveal">
-          <div class="trip-header">
-            <span class="trip-number">12</span>
-            <span class="region-tag">Jammu Region</span>
-          </div>
-          <h2 class="trip-title">Chandigarh ⇄ Jammu & Katra</h2>
-          <p class="trip-desc">Comfortable private transportation for Jammu and Mata Vaishno Devi journeys with flexible pickup, stay and return options.</p>
-          <p class="trip-ideal">Ideal For: Religious Tours · Family Trips · Group Travel</p>
-          <div class="trip-actions">
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20details%20for%20Jammu%20Katra%20Round%20Trip" class="btn-card btn-outline">View Journey</a>
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20book%20Jammu%20Katra%20Round%20Trip" class="btn-card btn-solid">Book</a>
-          </div>
-        </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight font-serif-heading tracking-tight animated-text-pop">
+                Round Trips.<br>
+                <span class="gold-text-gradient italic">Made Premium.</span> Zero Hassle.
+            </h1>
 
-        <!-- Trip 13 -->
-        <div class="trip-card reveal">
-          <div class="trip-header">
-            <span class="trip-number">13</span>
-            <span class="region-tag">Uttarakhand</span>
-          </div>
-          <h2 class="trip-title">Chandigarh ⇄ Dehradun</h2>
-          <p class="trip-desc">A comfortable private round trip to Dehradun covering the city's major attractions and serving gateway to Uttarakhand.</p>
-          <p class="trip-ideal">Ideal For: Business Travel · Family Trips · Weekend Getaways</p>
-          <div class="trip-actions">
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20details%20for%20Dehradun%20Round%20Trip" class="btn-card btn-outline">View Journey</a>
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20book%20Dehradun%20Round%20Trip" class="btn-card btn-solid">Book</a>
-          </div>
-        </div>
+            <p class="text-gray-400 text-sm sm:text-base max-w-xl leading-relaxed animated-text-pop">
+                Private chauffeur-driven cabs from Chandigarh for comfortable Himalayan getaways, family holidays, business travel, and long-distance round trips.
+            </p>
 
-        <!-- Trip 14 -->
-        <div class="trip-card reveal">
-          <div class="trip-header">
-            <span class="trip-number">14</span>
-            <span class="region-tag">Premium Road Trip</span>
-          </div>
-          <h2 class="trip-title">Chandigarh ⇄ Spiti Valley</h2>
-          <p class="trip-desc">The ultimate Himalayan road trip through Shimla, Kinnaur and Spiti featuring high-altitude villages, monasteries and spectacular mountain landscapes.</p>
-          <p class="trip-ideal">Ideal For: Adventure · Road Trips · Photography · Premium Group Travel</p>
-          <div class="trip-actions">
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20details%20for%20Spiti%20Valley%20Round%20Trip" class="btn-card btn-outline">View Journey</a>
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20book%20Spiti%20Valley%20Round%20Trip" class="btn-card btn-solid">Book</a>
-          </div>
-        </div>
+            <div class="flex flex-wrap gap-3.5 pt-2">
+                <a href="#destinations" class="px-7 py-3.5 rounded-xl bg-slate-900 border border-yellow-500/30 hover:border-yellow-500 text-white font-medium text-sm flex items-center transition shadow-lg">
+                    Explore Round Trips <i class="fa-solid fa-arrow-right ml-2 text-xs text-yellow-500"></i>
+                </a>
+                <a href="https://wa.me/916280544730" target="_blank" class="px-7 py-3.5 rounded-xl gold-btn font-bold text-sm transition shadow-lg flex items-center">
+                    <i class="fa-brands fa-whatsapp text-lg mr-2"></i> WhatsApp Booking
+                </a>
+            </div>
 
-        <!-- Trip 15 -->
-        <div class="trip-card reveal">
-          <div class="trip-header">
-            <span class="trip-number">15</span>
-            <span class="region-tag">Himachal</span>
-          </div>
-          <h2 class="trip-title">Chandigarh ⇄ Chamba</h2>
-          <p class="trip-desc">Explore the untouched Himalayan beauty of Chamba with ancient temples, mountain valleys, scenic roads and nearby Khajjiar.</p>
-          <p class="trip-ideal">Ideal For: Nature Lovers · Family Holidays · Long Weekend Trips</p>
-          <div class="trip-actions">
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20details%20for%20Chamba%20Round%20Trip" class="btn-card btn-outline">View Journey</a>
-            <a href="https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20book%20Chamba%20Round%20Trip" class="btn-card btn-solid">Book</a>
-          </div>
-        </div>
+            <div class="relative mt-8 rounded-2xl overflow-hidden p-6 gold-animated-border flex flex-col justify-between h-60 sm:h-64 shadow-2xl reveal">
+                <div class="flex justify-between items-center z-10">
+                    <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-yellow-400 border border-yellow-500/30">
+                        <i class="fa-solid fa-circle-check text-xs mr-1"></i> Door-to-Door
+                    </span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-yellow-400 border border-yellow-500/30">
+                        <i class="fa-solid fa-shield-halved text-xs mr-1"></i> Private Cab
+                    </span>
+                </div>
+                <div class="bg-gray-950/80 border border-gray-800 rounded-xl p-4 backdrop-blur-md z-10">
+                    <p class="text-white font-bold text-base sm:text-lg font-serif-heading">Chandigarh &#8644; Himachal & North India</p>
+                    <p class="text-xs text-gray-400 mt-1">Comfort &bull; Safety &bull; Professional Mountain Driver</p>
+                </div>
+            </div>
+        </section>
 
-      </div>
-    </section>
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="gold-animated-border p-5 card-hover reveal">
+                <h3 class="text-white font-bold text-base font-serif-heading z-10 relative">Private Vehicles</h3>
+                <p class="text-xs text-gray-400 mt-1 z-10 relative">Your family, your cab, your flexible schedule.</p>
+            </div>
+            <div class="gold-animated-border p-5 card-hover reveal">
+                <h3 class="text-white font-bold text-base font-serif-heading z-10 relative">Experienced Drivers</h3>
+                <p class="text-xs text-gray-400 mt-1 z-10 relative">Mountain routes handled with utmost safety.</p>
+            </div>
+            <div class="gold-animated-border p-5 card-hover reveal">
+                <h3 class="text-white font-bold text-base font-serif-heading z-10 relative">Flexible Travel</h3>
+                <p class="text-xs text-gray-400 mt-1 z-10 relative">Pickup, sight-seeing & customized return options.</p>
+            </div>
+            <div class="gold-animated-border p-5 card-hover reveal">
+                <h3 class="text-white font-bold text-base font-serif-heading z-10 relative">Premium Comfort</h3>
+                <p class="text-xs text-gray-400 mt-1 z-10 relative">Clean, fully disinfected, modern vehicles.</p>
+            </div>
+        </section>
 
-    <!-- SECTION 2: FLEET CARDS (MISSING SECTION - ADDED) -->
-    <section class="section-spacing">
-      <div class="reveal">
-        <span class="section-badge">Choose Your Ride</span>
-        <h2 class="main-heading">A fleet for every journey.</h2>
-        <p class="sub-heading">Clean, fully insured, and well-maintained vehicles for your trip.</p>
-      </div>
+        <section id="destinations" class="space-y-6">
+            <div class="reveal">
+                <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">EXPLORE DESTINATIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">Chandigarh Round Trips</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                    Select a destination and click <span class="text-yellow-400 font-semibold">View Journey</span> to inspect itinerary options.
+                </p>
+            </div>
 
-      <div class="fleet-list">
-        
-        <!-- Hatchback -->
-        <div class="fleet-card reveal">
-          <div class="fleet-img-wrapper">
-            <img src="IMG_4677.jpeg" alt="Toyota Glanza">
-          </div>
-          <div class="fleet-info">
-            <div class="fleet-category">Hatchback</div>
-            <div class="fleet-name">Toyota Glanza 4+1</div>
-            <div class="fleet-desc">4+1 Seating | Fuel Efficient & Comfortable</div>
-          </div>
-        </div>
+            <div class="space-y-5">
+                <!-- 01 Shimla -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">01</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Shimla</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Premium private cab service for a comfortable Himalayan getaway to Shimla, Kufri, and surrounding attractions.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Weekend Trips &bull; Family Holidays &bull; Couples &bull; Corporate Travel</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('shimla')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Shimla%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <!-- Sedan -->
-        <div class="fleet-card reveal">
-          <div class="fleet-img-wrapper">
-            <img src="IMG_4678.jpeg" alt="Swift Dzire">
-          </div>
-          <div class="fleet-info">
-            <div class="fleet-category">Sedan</div>
-            <div class="fleet-name">Swift Dzire 4+1</div>
-            <div class="fleet-desc">4+1 Seating | Extra Luggage Space</div>
-          </div>
-        </div>
+                <!-- 02 Manali -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">02</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Manali</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A comfortable private round-trip journey to Manali covering Kullu Valley, Solang Valley, Atal Tunnel, and local sights.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Honeymoon &bull; Adventure Trips &bull; Group Travel</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('manali')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Manali%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <!-- SUV -->
-        <div class="fleet-card reveal">
-          <div class="fleet-img-wrapper">
-            <img src="IMG_4938.jpeg" alt="Maruti Ertiga">
-          </div>
-          <div class="fleet-info">
-            <div class="fleet-category">SUV</div>
-            <div class="fleet-name">Maruti Ertiga 6+1</div>
-            <div class="fleet-desc">6+1 Seating | Perfect for Family Trips</div>
-          </div>
-        </div>
+                <!-- 03 Amritsar -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">03</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-amber-950 text-amber-400 border border-amber-800/50">Punjab</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Amritsar</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Travel comfortably to Amritsar and experience the Golden Temple, Jallianwala Bagh, local markets, and Wagah Border.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Trips &bull; Religious Tours &bull; Weekend Getaways</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('amritsar')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Amritsar%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <!-- MPV -->
-        <div class="fleet-card reveal">
-          <div class="fleet-img-wrapper">
-            <img src="IMG_4936.jpeg" alt="Innova Crysta">
-          </div>
-          <div class="fleet-info">
-            <div class="fleet-category">MPV</div>
-            <div class="fleet-name">Innova Crysta 7+1</div>
-            <div class="fleet-desc">7+1 Seating | Luxury & Maximum Comfort</div>
-          </div>
-        </div>
+                <!-- 04 Dharamshala -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">04</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Dharamshala & McLeod Ganj</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Experience the peaceful Kangra Valley, monasteries, Bhagsu Waterfall, Naddi, and beautiful mountain surroundings.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Spiritual Trips &bull; Couples</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('dharamshala')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Dharamshala%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <!-- Tempo Traveller -->
-        <div class="fleet-card reveal">
-          <div class="fleet-img-wrapper">
-            <img src="IMG_4937.jpeg" alt="Force Urbania">
-          </div>
-          <div class="fleet-info">
-            <div class="fleet-category">Tempo Traveller</div>
-            <div class="fleet-name">Force Urbania</div>
-            <div class="fleet-desc">Large Group Luxury Travel</div>
-          </div>
-        </div>
+                <!-- 05 Dalhousie -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">05</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Dalhousie & Khajjiar</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Discover colonial Dalhousie, pine forests, scenic mountain roads, and the famous green meadows of Khajjiar.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Couples &bull; Nature Lovers</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('dalhousie')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Dalhousie%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-      </div>
-    </section>
+                <!-- 06 Kasol -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">06</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-emerald-950 text-emerald-400 border border-emerald-800/50">Parvati Valley</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Kasol & Manikaran</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Explore the beautiful Parvati Valley with Kasol, Manikaran Sahib, riverside landscapes, and peaceful mountain vibes.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Young Travellers &bull; Couples &bull; Friends &bull; Trekkers</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('kasol')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Kasol%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-    <!-- SECTION 3: HOW YOUR ROUND TRIP WORKS (MISSING SECTION - ADDED) -->
-    <section class="section-spacing">
-      <div class="reveal">
-        <span class="section-badge">Simple Booking</span>
-        <h2 class="main-heading">How Your Round Trip Works</h2>
-        <p class="sub-heading">Designed like a professional travel company website: clear destination selection, vehicle choice, itinerary planning and direct booking.</p>
-      </div>
+                <!-- 07 Kasauli -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">07</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-indigo-950 text-indigo-400 border border-indigo-800/50">Short Escape</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Kasauli</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A premium short mountain escape featuring Kasauli's peaceful pine forests, Mall Road, viewpoints, and colonial charm.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Weekend Getaways &bull; Couples &bull; Family Trips</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('kasauli')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Kasauli%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-      <div class="steps-list">
-        
-        <div class="step-card reveal">
-          <div class="step-number">01</div>
-          <div class="step-title">Select Destination</div>
-          <div class="step-desc">Choose any Round Trip destination from the list above.</div>
-        </div>
+                <!-- 08 Mussoorie -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">08</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Mussoorie</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Enjoy a scenic journey to the Queen of Hills with Mall Road, Kempty Falls, Gun Hill, and Landour.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Couples &bull; Weekend Trips</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('mussoorie')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Mussoorie%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <div class="step-card reveal">
-          <div class="step-number">02</div>
-          <div class="step-title">Choose Vehicle</div>
-          <div class="step-desc">Select the car that matches your family size and comfort level.</div>
-        </div>
+                <!-- 09 Rishikesh -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">09</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Rishikesh</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A perfect combination of spirituality and adventure with Ganga Ghats, temples, cafés, and rafting experiences.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Adventure &bull; Spiritual Trips &bull; Couples &bull; Friends</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('rishikesh')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Rishikesh%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <div class="step-card reveal">
-          <div class="step-number">03</div>
-          <div class="step-title">Plan Your Journey</div>
-          <div class="step-desc">Share travel dates, pickup point, stay and sightseeing requirements.</div>
-        </div>
+                <!-- 10 Haridwar -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">10</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Haridwar</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Travel to the spiritual heart of Uttarakhand and experience Har Ki Pauri, temples, and the sacred Ganga Aarti.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Pilgrimage &bull; Family Trips &bull; Spiritual Tours</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('haridwar')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Haridwar%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-        <div class="step-card reveal">
-          <div class="step-number">04</div>
-          <div class="step-title">Confirm Booking</div>
-          <div class="step-desc">Get your final quote and trip confirmation directly from our team.</div>
-        </div>
+                <!-- 11 Delhi -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">11</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-purple-950 text-purple-400 border border-purple-800/50">NCR</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Delhi</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Premium door-to-door round-trip cab service for business travel, shopping, airport transfers, events, and family visits.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Corporate Travel &bull; Airport Trips &bull; Business &bull; Family</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('delhi')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Delhi%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-      </div>
-    </section>
+                <!-- 12 Jammu & Katra -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">12</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-blue-950 text-blue-400 border border-blue-800/50">Jammu Region</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Jammu & Katra</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Comfortable private transportation for Jammu and Mata Vaishno Devi journeys with flexible pickup, stay, and return options.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Religious Tours &bull; Family Trips &bull; Group Travel</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('katra')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Katra%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-    <!-- SECTION 4: CTA BANNER -->
-    <div class="cta-card reveal">
-      <h3 class="cta-title">Ready for your next round trip?</h3>
-      <p class="cta-desc">Tell us your destination, travel dates and number of passengers. We'll recommend the right vehicle and route for your journey.</p>
-      <div class="cta-buttons">
-        <a href="tel:+919999999999" class="btn btn-dark">Call Now</a>
-        <a href="https://wa.me/919999999999" class="btn btn-gold">WhatsApp</a>
-      </div>
-    </div>
+                <!-- 13 Dehradun -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">13</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Dehradun</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">A comfortable private round trip to Dehradun covering the city's major attractions and serving as gateway to Uttarakhand.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Business Travel &bull; Family Trips &bull; Weekend Getaways</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('dehradun')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Dehradun%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-    <!-- SECTION 5: FOOTER -->
-    <footer class="reveal">
-      <div class="footer-brand">Shri Radha Travels</div>
-      <p class="footer-text">Premium private cab services from Chandigarh for Himachal, Punjab, Uttarakhand, Delhi and North India.<br>Website: www.shriradhatravels.com</p>
+                <!-- 14 Spiti Valley -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">14</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-rose-950 text-rose-400 border border-rose-800/50">Premium Road Trip</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Spiti Valley</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">The ultimate Himalayan road trip through Shimla, Kinnaur, and Spiti featuring high-altitude villages and monasteries.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Adventure &bull; Road Trips &bull; Photography &bull; Group Travel</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('spiti')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Spiti%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
 
-      <div class="footer-title">Round Trips</div>
-      <p class="footer-links">Shimla · Manali · Amritsar · Spiti<br>Dalhousie · Mussoorie · Rishikesh</p>
+                <!-- 15 Chamba -->
+                <div class="gold-animated-border p-6 card-hover space-y-4 reveal">
+                    <div class="flex justify-between items-center z-10 relative">
+                        <span class="text-xs font-bold text-gray-500 font-serif-heading">15</span>
+                        <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white font-serif-heading z-10 relative">Chandigarh &#8644; Chamba</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed z-10 relative">Explore the untouched Himalayan beauty of Chamba with ancient temples, mountain valleys, and nearby Khajjiar.</p>
+                    <p class="text-xs text-gray-500 z-10 relative"><strong class="text-gray-300">Ideal For:</strong> Nature Lovers &bull; Family Holidays &bull; Long Weekend Trips</p>
+                    <div class="flex gap-3 pt-2 z-10 relative">
+                        <button onclick="openJourneyModal('chamba')" class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
+                        <a href="https://wa.me/916280544730?text=Booking%20Query%20for%20Chamba%20Round%20Trip" target="_blank" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <div class="footer-title">Book Your Cab</div>
-      <p class="footer-links">Call: +91 99999 99999<br>WhatsApp available for quick booking & quote.</p>
-
-      <div class="copyright">
-        © 2026 Shri Radha Travels. All rights reserved. Premium Round Trip Cab Services
-      </div>
+    <footer class="w-full border-t border-gray-800/80 bg-[#070a0f] py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 Shri Radha Travels. All Rights Reserved.</p>
     </footer>
 
-  </div>
+    <!-- Interactive Journey Modal -->
+    <div id="journeyModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity duration-300">
+        <div class="gold-animated-border max-w-xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden relative">
+            <div class="p-6 space-y-5 bg-[#0d121c] z-10 overflow-y-auto custom-scrollbar">
+                
+                <!-- Modal Header -->
+                <div class="flex justify-between items-start border-b border-gray-800 pb-4">
+                    <div>
+                        <span id="modalRegion" class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-yellow-500/10 text-yellow-400 border border-yellow-500/30"></span>
+                        <h3 id="modalTitle" class="text-2xl font-extrabold text-white font-serif-heading mt-1"></h3>
+                    </div>
+                    <button onclick="closeJourneyModal()" class="text-gray-400 hover:text-white transition p-1">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
 
-  <!-- JAVASCRIPT FOR SCROLL ANIMATION -->
-  <script>
-    function handleScrollAnimations() {
-      const reveals = document.querySelectorAll('.reveal');
-      const windowHeight = window.innerHeight;
+                <!-- Modal Quick Meta -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-gray-950/70 p-3 rounded-lg border border-gray-800/80">
+                        <p class="text-[11px] text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-clock text-yellow-500"></i> Recommended Duration</p>
+                        <p id="modalDuration" class="text-xs sm:text-sm font-semibold text-white mt-1"></p>
+                    </div>
+                    <div class="bg-gray-950/70 p-3 rounded-lg border border-gray-800/80">
+                        <p class="text-[11px] text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-route text-yellow-500"></i> Approx. Distance</p>
+                        <p id="modalDistance" class="text-xs sm:text-sm font-semibold text-white mt-1"></p>
+                    </div>
+                </div>
 
-      reveals.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 80;
+                <!-- Highlights -->
+                <div>
+                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-star text-yellow-400 text-xs"></i> Key Journey Sightseeing
+                    </h4>
+                    <div id="modalHighlights" class="flex flex-wrap gap-1.5"></div>
+                </div>
 
-        if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('active');
+                <!-- Itinerary Steps -->
+                <div>
+                    <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot text-yellow-400 text-xs"></i> Suggested Round-Trip Itinerary
+                    </h4>
+                    <div id="modalItinerary" class="space-y-2.5 border-l-2 border-yellow-500/30 pl-4 ml-1"></div>
+                </div>
+
+                <!-- Action Footer -->
+                <div class="pt-4 border-t border-gray-800 flex gap-3">
+                    <button onclick="closeJourneyModal()" class="w-1/3 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">Close</button>
+                    <a id="modalBookBtn" href="#" target="_blank" class="w-2/3 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Book This Journey Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Handling Modals and Scroll Animations -->
+    <script>
+        const journeyData = {
+            shimla: {
+                title: "Chandigarh ⇄ Shimla",
+                region: "Himachal Pradesh",
+                duration: "2 to 3 Days",
+                distance: "115 km (One Way)",
+                highlights: ["Mall Road", "Ridge Ground", "Kufri Snow View", "Jakhoo Temple", "Green Valley"],
+                itinerary: [
+                    { day: "Day 1", desc: "Pickup from Chandigarh, scenic drive via Himalayan Expressway, check-in & Mall Road exploration." },
+                    { day: "Day 2", desc: "Full day sightseeing covering Kufri, Adventure Park, Green Valley & Jakhoo Temple hill climb." },
+                    { day: "Day 3", desc: "Leisure morning, local shopping, and comfortable return transfer to Chandigarh." }
+                ]
+            },
+            manali: {
+                title: "Chandigarh ⇄ Manali",
+                region: "Himachal Pradesh",
+                duration: "4 to 5 Days",
+                distance: "290 km (One Way)",
+                highlights: ["Solang Valley", "Atal Tunnel", "Old Manali", "Hadimba Temple", "Kullu Rafting point"],
+                itinerary: [
+                    { day: "Day 1", desc: "Drive from Chandigarh through Mandi and Kullu Valley to Manali." },
+                    { day: "Day 2", desc: "Local Sightseeing: Hadimba Temple, Vashisht Hot Springs, Club House & Old Manali." },
+                    { day: "Day 3", desc: "Excursion to Solang Valley, Atal Tunnel & Sissu (Lahaul Valley)." },
+                    { day: "Day 4", desc: "Kullu river rafting and shopping on Mall Road before starting return journey." }
+                ]
+            },
+            amritsar: {
+                title: "Chandigarh ⇄ Amritsar",
+                region: "Punjab",
+                duration: "1 to 2 Days",
+                distance: "230 km (One Way)",
+                highlights: ["Golden Temple", "Wagah Border Ceremony", "Jallianwala Bagh", "Heritage Street & Food"],
+                itinerary: [
+                    { day: "Day 1", desc: "Morning pickup, drive to Amritsar. Afternoon Wagah Border flag ceremony and evening lit-up Golden Temple." },
+                    { day: "Day 2", desc: "Morning holy visit to Sri Harmandir Sahib, Jallianwala Bagh, local food tour & drive back to Chandigarh." }
+                ]
+            },
+            dharamshala: {
+                title: "Chandigarh ⇄ Dharamshala & McLeod Ganj",
+                region: "Himachal Pradesh",
+                duration: "3 to 4 Days",
+                distance: "245 km (One Way)",
+                highlights: ["Dalai Lama Temple", "Bhagsu Waterfall", "Naddi Viewpoint", "HPCA Stadium", "St. John Church"],
+                itinerary: [
+                    { day: "Day 1", desc: "Scenic drive from Chandigarh to Dharamshala via Kangra Valley." },
+                    { day: "Day 2", desc: "Explore McLeod Ganj: Tsuglagkhang Complex, Bhagsu Nag Temple, and Naddi Sunset Point." },
+                    { day: "Day 3", desc: "Visit HPCA Stadium, Kangra Art Museum, War Memorial and return journey." }
+                ]
+            },
+            dalhousie: {
+                title: "Chandigarh ⇄ Dalhousie & Khajjiar",
+                region: "Himachal Pradesh",
+                duration: "3 to 4 Days",
+                distance: "310 km (One Way)",
+                highlights: ["Khajjiar (Mini Switzerland)", "Dainkund Peak", "Panchpula", "Subhash Baoli", "Mall Road"],
+                itinerary: [
+                    { day: "Day 1", desc: "Pickup from Chandigarh, scenic highway drive to colonial Dalhousie." },
+                    { day: "Day 2", desc: "Full day excursion to Khajjiar Lake & Meadow and Dainkund Peak." },
+                    { day: "Day 3", desc: "Local sightseeing at Panchpula and Rock Garden followed by return trip." }
+                ]
+            },
+            kasol: {
+                title: "Chandigarh ⇄ Kasol & Manikaran",
+                region: "Parvati Valley",
+                duration: "3 to 4 Days",
+                distance: "275 km (One Way)",
+                highlights: ["Kasol Cafes", "Manikaran Sahib Gurudwara", "Hot Springs", "Tosh/Chalal Village Hike", "Parvati River"],
+                itinerary: [
+                    { day: "Day 1", desc: "Drive along Parvati River to Kasol. Relax by the river and explore local cafés." },
+                    { day: "Day 2", desc: "Visit Holy Manikaran Sahib Gurudwara hot springs and short trek to Chalal." },
+                    { day: "Day 3", desc: "Optional hike to Tosh village or local nature walk before return journey." }
+                ]
+            },
+            kasauli: {
+                title: "Chandigarh ⇄ Kasauli",
+                region: "Short Escape",
+                duration: "1 to 2 Days",
+                distance: "60 km (One Way)",
+                highlights: ["Monkey Point", "Gilbert Trail", "Heritage Mall Road", "Christ Church", "Sunset Point"],
+                itinerary: [
+                    { day: "Day 1", desc: "Quick 2-hour comfortable drive from Chandigarh. Visit Christ Church & Gilbert Trail." },
+                    { day: "Day 2", desc: "Morning visit to Monkey Point (Air Force station) and peaceful return to Chandigarh." }
+                ]
+            },
+            mussoorie: {
+                title: "Chandigarh ⇄ Mussoorie",
+                region: "Uttarakhand",
+                duration: "3 Days",
+                distance: "200 km (One Way)",
+                highlights: ["Kempty Falls", "Mall Road", "Gun Hill Cable Car", "Landour Bakehouse", "Company Garden"],
+                itinerary: [
+                    { day: "Day 1", desc: "Drive via Dehradun to Mussoorie. Evening stroll at Mall Road." },
+                    { day: "Day 2", desc: "Visit Kempty Falls, Gun Hill point, Company Garden, and romantic Landour area." },
+                    { day: "Day 3", desc: "Morning panoramic viewpoints sight-seeing and return journey." }
+                ]
+            },
+            rishikesh: {
+                title: "Chandigarh ⇄ Rishikesh",
+                region: "Uttarakhand",
+                duration: "2 to 3 Days",
+                distance: "210 km (One Way)",
+                highlights: ["Laxman Jhula", "Ram Jhula", "Triveni Ghat Ganga Aarti", "River Rafting", "Beatles Ashram"],
+                itinerary: [
+                    { day: "Day 1", desc: "Drive to Rishikesh, visit Laxman & Ram Jhula. Witness evening Triveni Ghat Aarti." },
+                    { day: "Day 2", desc: "White water river rafting adventure, visit Beatles Ashram, café hopping." },
+                    { day: "Day 3", desc: "Peaceful morning riverside walk and comfortable return transfer." }
+                ]
+            },
+            haridwar: {
+                title: "Chandigarh ⇄ Haridwar",
+                region: "Uttarakhand",
+                duration: "1 to 2 Days",
+                distance: "200 km (One Way)",
+                highlights: ["Har Ki Pauri", "Grand Ganga Aarti", "Mansa Devi Temple", "Chandi Devi Temple"],
+                itinerary: [
+                    { day: "Day 1", desc: "Pickup from Chandigarh, drive to Haridwar. Cable car to Mansa Devi and attend evening Ganga Aarti." },
+                    { day: "Day 2", desc: "Holy dip at Har Ki Pauri, local market shopping, and drive back to Chandigarh." }
+                ]
+            },
+            delhi: {
+                title: "Chandigarh ⇄ Delhi NCR",
+                region: "NCR",
+                duration: "1 to 3 Days",
+                distance: "245 km (One Way)",
+                highlights: ["Airport Transfers", "India Gate", "Red Fort", "Connaught Place", "Custom Business Drops"],
+                itinerary: [
+                    { day: "Day 1", desc: "Smooth journey via NH44 Expressway. Custom drops for meetings, airport, or hotel." },
+                    { day: "Day 2", desc: "Full day customized city travel, shopping, or corporate business client visits." },
+                    { day: "Day 3", desc: "Flexible pickup from anywhere in Delhi/NCR for return drive to Chandigarh." }
+                ]
+            },
+            katra: {
+                title: "Chandigarh ⇄ Jammu & Katra",
+                region: "Jammu Region",
+                duration: "3 to 4 Days",
+                distance: "380 km (One Way)",
+                highlights: ["Mata Vaishno Devi Shrine", "Katra Base Camp", "Jammu City Temples", "Jhakri Temple"],
+                itinerary: [
+                    { day: "Day 1", desc: "Comfortable long-distance drive from Chandigarh to Katra base camp." },
+                    { day: "Day 2", desc: "Dedicated day for Mata Vaishno Devi Bhawan Yatra (Trek/Pony/Helicopter)." },
+                    { day: "Day 3", desc: "Return to base, visit local Jammu markets & temples, start return trip." }
+                ]
+            },
+            dehradun: {
+                title: "Chandigarh ⇄ Dehradun",
+                region: "Uttarakhand",
+                duration: "2 Days",
+                distance: "170 km (One Way)",
+                highlights: ["Robber's Cave (Guchhupani)", "Sahastradhara", "Mindrolling Monastery", "Tapkeshwar Temple"],
+                itinerary: [
+                    { day: "Day 1", desc: "Drive from Chandigarh. Sightseeing at Robber's Cave & Mindrolling Monastery." },
+                    { day: "Day 2", desc: "Visit Sahastradhara sulfur springs, local Doon valley markets and return trip." }
+                ]
+            },
+            spiti: {
+                title: "Chandigarh ⇄ Spiti Valley",
+                region: "Premium Road Trip",
+                duration: "7 to 9 Days",
+                distance: "500+ km (Circuit)",
+                highlights: ["Key Monastery", "Chandratal Lake", "Kibber Village", "Chicham Bridge", "Hikkim (Highest Post Office)"],
+                itinerary: [
+                    { day: "Day 1-2", desc: "Chandigarh to Narkanda/Sarahan & drive through Kinnaur Valley to Kalpa." },
+                    { day: "Day 3-5", desc: "Explore Kaza, Key Monastery, Hikkim, Komic, Langza, and Chicham Bridge." },
+                    { day: "Day 6-7", desc: "High altitude Chandratal Lake camping, crossing Kunzum Pass back via Manali." }
+                ]
+            },
+            chamba: {
+                title: "Chandigarh ⇄ Chamba",
+                region: "Himachal Pradesh",
+                duration: "4 Days",
+                distance: "340 km (One Way)",
+                highlights: ["Lakshmi Narayan Temple", "Chamera Lake Boating", "Bhuri Singh Museum", "Khajjiar Border"],
+                itinerary: [
+                    { day: "Day 1", desc: "Drive through scenic mountain roads from Chandigarh to historic Chamba town." },
+                    { day: "Day 2", desc: "Explore ancient 10th-century Lakshmi Narayan Temple complex and museum." },
+                    { day: "Day 3", desc: "Excursion to Chamera Lake for speedboat ride & scenic views." },
+                    { day: "Day 4", desc: "Leisurely departure and drive back to Chandigarh." }
+                ]
+            }
+        };
+
+        function openJourneyModal(key) {
+            const data = journeyData[key];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalRegion').innerText = data.region;
+            document.getElementById('modalDuration').innerText = data.duration;
+            document.getElementById('modalDistance').innerText = data.distance;
+
+            // Render Highlights
+            const highlightsContainer = document.getElementById('modalHighlights');
+            highlightsContainer.innerHTML = data.highlights.map(h => 
+                `<span class="px-2.5 py-1 rounded-md text-[11px] bg-gray-900 border border-gray-800 text-gray-300">${h}</span>`
+            ).join('');
+
+            // Render Itinerary
+            const itineraryContainer = document.getElementById('modalItinerary');
+            itineraryContainer.innerHTML = data.itinerary.map(item => 
+                `<div>
+                    <span class="text-xs font-bold text-yellow-400">${item.day}:</span>
+                    <span class="text-xs text-gray-400 ml-1">${item.desc}</span>
+                </div>`
+            ).join('');
+
+            // Update WhatsApp Link
+            const whatsappText = encodeURIComponent(`Hello Shri Radha Travels, I want to book/query about the ${data.title} Round Trip.`);
+            document.getElementById('modalBookBtn').href = `https://wa.me/916280544730?text=${whatsappText}`;
+
+            // Show Modal
+            const modal = document.getElementById('journeyModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
-      });
-    }
 
-    window.addEventListener('scroll', handleScrollAnimations);
-    window.addEventListener('load', handleScrollAnimations);
-  </script>
+        function closeJourneyModal() {
+            const modal = document.getElementById('journeyModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('journeyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeJourneyModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeJourneyModal();
+            }
+        });
+
+        // Scroll Reveal Animation Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            reveals.forEach(reveal => observer.observe(reveal));
+        });
+    </script>
 </body>
-</html> 
+</html>
