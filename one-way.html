@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shri Radha Travels - One-Way Cabs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0b0f19;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Golden border glow and smooth popup animation */
+    @keyframes borderGlow {
+      0% { border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+      50% { border-color: rgba(212, 175, 55, 0.7); box-shadow: 0 0 25px rgba(212, 175, 55, 0.3); }
+      100% { border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+    }
+
+    .animated-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      animation: borderGlow 4s infinite ease-in-out;
+    }
+
+    .animated-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #d4af37;
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal-section {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Call Button Section -->
+  <header style="background-color: #0b0f19; padding: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.15); display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <h3 style="font-size: 20px; color: #ffffff; font-weight: 700;">Shri Radha Travels</h3>
+    </div>
+    <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 10px 24px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">Call Now</a>
+  </header>
+
+  <!-- ONE WAY ROUTES SECTION -->
+  <section class="reveal-section" style="background-color: #0b0f19; padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Section Title Header -->
+      <div style="text-align: center; margin-bottom: 50px;">
+        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.5); padding: 8px 22px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.08); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
+          Point-to-Point Travel
+        </div>
+        <h2 style="font-size: 38px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">
+          Chandigarh One-Way Cab Routes
+        </h2>
+        <p style="color: #94a3b8; font-size: 16px; max-width: 650px; margin: 0 auto;">
+          Reliable, comfortable, and transparent one-way intercity cab rentals from Chandigarh to top destinations.
+        </p>
+      </div>
+
+      <!-- 15 Routes Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
+
+        <!-- 01 — Delhi -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">01 — Delhi</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Popular</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Delhi One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Seamless intercity travel with private, comfortable and reliable cab service from Chandigarh to Delhi.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Door-to-Door • Private Cab • Flexible Pickup</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 02 — Delhi Airport -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">02 — Delhi Airport</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Airport</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Delhi Airport One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Stress-free airport transfers from Chandigarh to IGI Airport with punctual pickup and comfortable highway travel.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Airport Transfer • 24×7 Pickup • Flight-Friendly Travel</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 03 — Shimla -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">03 — Shimla</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Himachal</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Shimla One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Your comfortable gateway to the hills. Travel from Chandigarh to Shimla with a dedicated private cab and professional driver.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Private Cab • Direct Transfer • Hill Journey</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 04 — Manali -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">04 — Manali</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Himachal</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Manali One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">A comfortable long-distance Himalayan transfer from Chandigarh to Manali with a dedicated vehicle and experienced driver.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Direct Transfer • Family Friendly • Premium Travel</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 05 — Amritsar -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">05 — Amritsar</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Punjab</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Amritsar One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Travel effortlessly to the Golden City with a private point-to-point cab from Chandigarh.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Direct Cab • Door-to-Door • Comfortable Journey</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 06 — Dharamshala -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">06 — Dharamshala</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Himachal</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Dharamshala One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">A smooth private transfer from Chandigarh to the Kangra Valley, designed for comfortable family and leisure travel.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Private Transfer • Scenic Route • Professional Driver</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 07 — Dalhousie -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">07 — Dalhousie</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Himachal</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Dalhousie One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Travel into the mountains with a comfortable one-way cab to Dalhousie, perfect for family holidays and hill getaways.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Hill Transfer • Private Cab • Comfortable Ride</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 08 — Kasauli -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">08 — Kasauli</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Quick Getaway</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Kasauli One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">A convenient private hill transfer from Chandigarh to peaceful Kasauli.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Quick Getaway • Private Cab • Door-to-Door</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 09 — Kasol -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">09 — Kasol</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Adventure</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Kasol One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Head into the Parvati Valley with a dedicated one-way cab from Chandigarh to Kasol.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Adventure Travel • Private Cab • Direct Transfer</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 10 — Kullu -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">10 — Kullu</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Himachal</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Kullu One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Comfortable point-to-point transportation from Chandigarh to the scenic Kullu Valley.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Himachal Transfer • Private Vehicle • Reliable Service</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 11 — Rishikesh -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">11 — Rishikesh</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Uttarakhand</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Rishikesh One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Travel comfortably to the adventure and spiritual capital of Uttarakhand with a private one-way cab.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Outstation Cab • Door-to-Door • Flexible Pickup</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 12 — Haridwar -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">12 — Haridwar</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Pilgrimage</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Haridwar One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">A comfortable private transfer from Chandigarh to Haridwar for pilgrimage, family travel and weekend journeys.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Pilgrimage Travel • Private Cab • Direct Transfer</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 13 — Dehradun -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">13 — Dehradun</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Uttarakhand</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Dehradun One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Professional point-to-point cab service for business, family and personal travel to Dehradun.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Corporate Friendly • Private Cab • Door-to-Door</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 14 — Jammu -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">14 — Jammu</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Long Distance</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Jammu One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">A dependable long-distance private cab service connecting Chandigarh with Jammu comfortably and conveniently.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Long Distance • Private Cab • Experienced Driver</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+        <!-- 15 — Katra -->
+        <div class="animated-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 16px; font-weight: 700; color: #d4af37; letter-spacing: 1px;">15 — Katra</span>
+              <span style="font-size: 11px; background: rgba(212, 175, 55, 0.15); color: #d4af37; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">Vaishno Devi</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Chandigarh ⇄ Katra One-Way Cab</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">Comfortable and convenient private transportation from Chandigarh to Katra for your Vaishno Devi journey.</p>
+            <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 20px; font-weight: 500;">Pilgrimage Transfer • Family Friendly • Direct Cab</p>
+          </div>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; text-align: center; display: block; box-shadow: 0 4px 15px rgba(212,175,55,0.3);">View Route →</a>
+        </div>
+
+      </div>
+
+      <!-- Ready for your next trip CTA Card -->
+      <div class="animated-card" style="margin-top: 60px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(15, 23, 42, 0.9)); border: 2px solid #d4af37; border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);">
+        <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">Need a One-Way Cab Right Now?</h3>
+        <p style="font-size: 16px; color: #cbd5e1; max-width: 600px; margin: 0 auto 25px auto;">
+          Contact Shri Radha Travels for instant booking, transparent fares, and safe intercity rides from Chandigarh.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(212,175,55,0.4);">Call Now</a>
+          <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20one-way%20cab." target="_blank" style="background: transparent; border: 2px solid #d4af37; color: #ffffff; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600;">WhatsApp Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Professional Footer Section -->
+  <footer style="background-color: #0b0f19; padding: 60px 20px 30px 20px; border-top: 1px solid rgba(212, 175, 55, 0.2); width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+        <div>
+          <h3 style="font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">Shri Radha Travels</h3>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-bottom: 15px;">
+            Premium private one-way cab services from Chandigarh for Punjab, Himachal, Uttarakhand, and North India.
+          </p>
+          <p style="font-size: 14px; color: #d4af37; margin: 0;">
+            Website: <a href="https://shriradhatravels.com" target="_blank" style="color: #d4af37; text-decoration: none;">www.shriradhatravels.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">One-Way Routes</h3>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 2; margin: 0;">
+            Delhi · Shimla · Manali · Amritsar<br>
+            Dharamshala · Rishikesh · Katra · Jammu
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">Book Your Cab</h3>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 1.8; margin-bottom: 10px;">
+            Call: <a href="tel:6280544730" style="color: #ffffff; text-decoration: none; font-weight: 600;">+91 62805 44730</a>
+          </p>
+          <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">
+            WhatsApp available for quick booking & quote.
+          </p>
+        </div>
+      </div>
+
+      <div style="width: 100%; height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 30px;"></div>
+
+      <div style="text-align: center;">
+        <p style="font-size: 13px; color: #64748b; margin: 0; line-height: 1.5;">
+          © 2026 Shri Radha Travels. All Rights Reserved. Premium One-Way Cab Services
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
