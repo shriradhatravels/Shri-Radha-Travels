@@ -4,47 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Details - Shri Radha Travels</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playball&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --bg-deep: #060911;
+            --bg-card: #111520;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Animation with Soft Blue Glow */
-        @keyframes containerBlueAnim {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-                box-shadow: 0 0 0 rgba(30, 58, 138, 0);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            }
-        }
-
         body {
-            /* Base background: Golden / Warm Amber Gradient */
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #f59e0b 100%);
-            background-attachment: fixed;
-            color: #1e293b;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
             padding: 20px;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            animation: containerBlueAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* --- Animations --- */
+        /* Watery / Shimmering Text Animation */
+        .watery-text {
+            background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37, #ffdf00, #d4af37);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: wateryFlow 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes wateryFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Scroll Reveal Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Golden Glowing Border Animation */
+        .glowing-border {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 18px;
+            z-index: 1;
+        }
+        .glowing-border::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, transparent, var(--gold), transparent, var(--gold));
+            z-index: -1;
+            opacity: 0.5;
+            animation: borderGlow 4s linear infinite;
+        }
+        @keyframes borderGlow {
+            0% { filter: hue-rotate(0deg); opacity: 0.3; }
+            50% { opacity: 0.8; }
+            100% { filter: hue-rotate(360deg); opacity: 0.3; }
         }
 
         /* Header Navigation */
@@ -52,23 +93,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.2);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .brand-title {
             font-family: 'Playball', cursive;
-            color: #1e3a8a; /* Blue brand title */
-            font-size: 26px;
+            color: var(--gold);
+            font-size: 28px;
             text-decoration: none;
             font-weight: bold;
         }
 
         .home-btn {
-            background: rgba(30, 58, 138, 0.1);
-            border: 1px solid #1e3a8a;
-            color: #1e3a8a;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
             padding: 6px 16px;
             border-radius: 30px;
             text-decoration: none;
@@ -78,8 +119,8 @@
         }
 
         .home-btn:hover {
-            background: #1e3a8a;
-            color: #ffffff;
+            background: var(--gold);
+            color: #000;
         }
 
         .trip-header {
@@ -88,40 +129,41 @@
         }
 
         .trip-header h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 28px;
             margin-bottom: 8px;
-            color: #111827;
         }
 
         .trip-meta {
-            color: #4b5563;
+            color: var(--text-muted);
             font-size: 14px;
             font-weight: 500;
         }
 
-        /* Upar ke Cards/Elements: Blue Shades */
+        /* Cards Styling */
         .booking-card, .experience-card, .section-box {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%); /* Blue top cards */
-            border: 1px solid #93c5fd;
+            background: var(--bg-card);
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.25);
-            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            color: var(--text-main);
             position: relative;
             z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .card-title {
+            font-family: 'Playfair Display', serif;
             font-size: 20px;
-            color: #fde047; /* Golden Highlight on cards */
+            color: var(--gold);
             margin-bottom: 6px;
             font-weight: 600;
         }
 
         .card-subtitle {
             font-size: 15px;
-            color: #93c5fd;
+            color: var(--text-muted);
             margin-bottom: 20px;
         }
 
@@ -134,7 +176,7 @@
         .form-group label {
             display: block;
             font-size: 13px;
-            color: #bfdbfe;
+            color: var(--text-muted);
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -148,9 +190,9 @@
         .trip-btn {
             flex: 1;
             padding: 14px;
-            background: #172554;
-            border: 2px solid #3b82f6;
-            color: #93c5fd;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
             border-radius: 10px;
             font-size: 14px;
             font-weight: 600;
@@ -161,17 +203,17 @@
         }
 
         .trip-btn.active {
-            border-color: #fde047; /* Golden active border */
+            border-color: var(--gold);
             color: #ffffff;
-            background: #1e40af;
-            box-shadow: 0 0 12px rgba(253, 224, 71, 0.3);
+            background: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
         }
 
         .input-field {
             width: 100%;
             padding: 12px 15px;
-            background: #172554;
-            border: 2px solid #3b82f6;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             color: #ffffff;
             font-size: 15px;
@@ -181,25 +223,29 @@
         }
 
         .input-field:focus {
-            border-color: #fde047;
-            box-shadow: 0 0 8px rgba(253, 224, 71, 0.4);
+            border-color: var(--gold);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .book-submit-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #fde047, #ca8a04); /* Golden Button */
+            background: linear-gradient(135deg, var(--gold), #b38f27);
             border: none;
             border-radius: 10px;
-            color: #172554;
+            color: #060911;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             position: relative;
             z-index: 99;
-            box-shadow: 0 4px 15px rgba(202, 138, 4, 0.4);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             margin-top: 10px;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .book-submit-btn:hover {
+            background: var(--gold-light);
         }
 
         .book-submit-btn:active {
@@ -207,7 +253,7 @@
         }
 
         .experience-card p {
-            color: #e0e7ff;
+            color: var(--text-muted);
             font-size: 14px;
             line-height: 1.6;
             margin-top: 8px;
@@ -215,28 +261,29 @@
 
         /* Places to Visit Styling */
         .places-section-title {
+            font-family: 'Playfair Display', serif;
             font-size: 22px;
-            color: #1e3a8a;
+            color: var(--gold);
             margin: 25px 0 15px 0;
             font-weight: 700;
         }
 
         .place-item-card {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
-            border: 1px solid #93c5fd;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 14px;
             padding: 16px 20px;
             margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
-            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color: var(--text-main);
         }
 
         .place-number {
-            background: rgba(253, 224, 71, 0.2);
-            color: #fde047;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
             width: 32px;
             height: 32px;
             border-radius: 50%;
@@ -246,18 +293,18 @@
             font-weight: 700;
             font-size: 14px;
             flex-shrink: 0;
-            border: 1px solid #fde047;
+            border: 1px solid var(--gold);
         }
 
         .place-details h4 {
             font-size: 16px;
-            color: #ffffff;
+            color: var(--text-main);
             margin-bottom: 4px;
         }
 
         .place-details p {
             font-size: 13px;
-            color: #cbd5e1;
+            color: var(--text-muted);
             line-height: 1.4;
         }
 
@@ -269,12 +316,12 @@
 
         .included-list li {
             font-size: 14px;
-            color: #e0e7ff;
+            color: var(--text-muted);
             padding: 8px 0;
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px dashed rgba(255,255,255,0.15);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
         }
 
         .included-list li:last-child {
@@ -282,7 +329,7 @@
         }
 
         .included-list li span {
-            color: #fde047;
+            color: var(--gold);
             font-weight: bold;
         }
     </style>
@@ -290,18 +337,17 @@
 <body>
 
     <div class="container">
-        <!-- Navigation Header -->
-        <header class="nav-header">
+        <header class="nav-header scroll-reveal">
             <a href="index.html" class="brand-title">Shri Radha Travels</a>
-            <a href="index.html" class="home-btn">← Home</a>
+            <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
         </header>
 
-        <div class="trip-header">
-            <h1 id="placeTitle">Explore Trip</h1>
+        <div class="trip-header scroll-reveal">
+            <h1 id="placeTitle" class="watery-text">Explore Trip</h1>
             <div class="trip-meta" id="placeLocation">📍 Loading Destination...</div>
         </div>
 
-        <div class="booking-card">
+        <div class="booking-card glowing-border scroll-reveal">
             <div class="card-title">Book This Trip</div>
             <div class="card-subtitle" id="subPlaceTitle">Trip Package</div>
 
@@ -326,19 +372,17 @@
             <button type="button" class="book-submit-btn" id="bookNowBtn">Book Now</button>
         </div>
 
-        <div class="experience-card">
+        <div class="experience-card scroll-reveal">
             <div class="card-title" style="font-size: 18px;">About This Experience</div>
             <p id="placeDescription">Discover breathtaking landscapes and rich culture with Shri Radha Travels.</p>
         </div>
 
-        <!-- Places to Visit Section -->
-        <div id="placesToVisitContainer">
+        <div id="placesToVisitContainer" class="scroll-reveal">
             <h3 class="places-section-title" id="placesHeaderTitle">Places to Visit</h3>
             <div id="placesListWrapper"></div>
         </div>
 
-        <!-- What's Included Section -->
-        <div class="section-box">
+        <div class="section-box scroll-reveal">
             <div class="card-title" style="font-size: 18px;">What's Included</div>
             <ul class="included-list">
                 <li><span>›</span> Professional verified driver</li>
@@ -602,6 +646,24 @@
             alert("🎉 Success! Your booking for " + currentData.title + " has been received.");
             phoneInput.value = "";
         };
+
+        // Scroll Reveal Animation Observer
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".scroll-reveal");
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -30px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
     </script>
 </body>
 </html>
