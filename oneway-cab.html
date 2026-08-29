@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Radha Travels - Premium Routes & Fleet</title>
+    <title>One-Way Taxi Services - Shri Radha Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #0b0f19;
-            --card-bg: rgba(17, 24, 39, 0.75);
+            --bg-deep: #0b0f19;
+            --bg-card: #111827;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
             --text-main: #f9fafb;
@@ -18,23 +20,30 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-deep);
             color: var(--text-main);
             overflow-x: hidden;
-            padding: 20px;
         }
 
+        h1, h2, h3, .serif-text {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header / Navbar */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 5%;
+            background: rgba(11, 15, 25, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 30px;
         }
 
         .logo-container {
@@ -50,477 +59,564 @@
             border: 1px solid var(--gold);
         }
 
-        .brand-name {
+        .logo-text {
             font-size: 1.2rem;
-            font-weight: bold;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            color: var(--text-main);
         }
 
-        .brand-name span {
+        .logo-text span {
             color: var(--gold);
             font-style: italic;
         }
 
         .call-btn {
             background-color: var(--gold);
-            color: var(--bg-dark);
+            color: #000;
             padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
+            border-radius: 8px;
+            font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: 0.3s;
         }
 
+        .call-btn:hover {
+            background-color: var(--gold-light);
+        }
+
+        /* Rotating Golden Border Animation Effect */
+        .animated-border-card {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .animated-border-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--gold));
+            animation: rotate-border 4s linear infinite;
+            z-index: -2;
+        }
+
+        .animated-border-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--bg-card);
+            border-radius: 14px;
+            z-index: -1;
+        }
+
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hero Section */
         .hero {
+            padding: 60px 5% 40px;
             text-align: center;
-            padding: 40px 10px;
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 18px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.1);
             border: 1px solid var(--gold);
             border-radius: 30px;
+            color: var(--gold);
             font-size: 0.85rem;
-            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 20px;
         }
 
-        /* Golden Spinning Animation */
-        .spinning-dot {
-            width: 10px;
-            height: 10px;
-            background-color: var(--gold);
+        .badge span {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
             border-radius: 50%;
-            display: inline-block;
-            animation: rotateGold 2s linear infinite;
-            box-shadow: 0 0 8px var(--gold);
         }
 
-        @keyframes rotateGold {
-            0% { transform: rotate(0deg) translate(8px) rotate(0deg); }
-            100% { transform: rotate(360deg) translate(8px) rotate(-360deg); }
-        }
-
-        h1 {
-            font-size: 2.3rem;
+        .hero h1 {
+            font-size: 2.8rem;
             line-height: 1.2;
             margin-bottom: 20px;
         }
 
-        h1 span {
+        .hero h1 span {
             color: var(--gold);
             font-style: italic;
         }
 
-        p.subtitle {
+        .hero p {
             color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            line-height: 1.5;
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            text-align: center;
-            margin: 40px 0 25px 0;
-            color: var(--gold);
-        }
-
-        /* Container Layouts */
-        .container {
-            max-width: 800px;
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 320px;
             margin: 0 auto;
         }
 
-        /* Scroll Popup Animation Base */
-        .popup-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            padding: 25px;
+        .btn-primary {
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            color: var(--text-main);
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-whatsapp {
+            background: var(--gold);
+            color: #000;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--gold-light);
+        }
+
+        /* Features Grid */
+        .features-section {
+            padding: 40px 5%;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            padding: 50px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-top: 5px;
+        }
+
+        .route-card {
             margin-bottom: 25px;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .popup-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Route Card Styling */
         .route-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .route-number {
-            color: var(--gold);
-            font-size: 0.95rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            margin-bottom: 15px;
         }
 
         .route-tag {
             background: rgba(212, 175, 55, 0.15);
-            color: var(--gold-light);
+            color: var(--gold);
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
-        .route-card h2 {
-            font-size: 1.35rem;
+        .route-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .route-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .route-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Fleet / Cars Section */
+        .fleet-section {
+            padding: 50px 5%;
+        }
+
+        .car-card {
+            max-width: 900px;
+            margin: 0 auto 30px;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .car-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .car-content {
+            padding: 25px;
+        }
+
+        .car-category {
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .car-title {
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
-        .route-card p {
+        .car-specs {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* How It Works */
+        .steps-section {
+            padding: 50px 5%;
+        }
+
+        .step-card {
+            max-width: 900px;
+            margin: 0 auto 20px;
+        }
+
+        .step-num {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #060911;
+            padding: 50px 5% 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        footer p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
         }
 
-        .route-features {
-            font-size: 0.85rem;
-            color: var(--gold-light);
-            margin-bottom: 18px;
-            opacity: 0.9;
-        }
-
-        .view-route-btn {
-            display: inline-block;
+        .footer-links {
             color: var(--gold);
-            text-decoration: none;
-            font-weight: bold;
+            margin-bottom: 20px;
             font-size: 0.9rem;
-            transition: 0.2s;
         }
 
-        .view-route-btn:hover {
-            color: var(--text-main);
-            padding-left: 5px;
-        }
-
-        /* Fleet Card Styling */
-        .fleet-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .fleet-info h3 {
-            color: var(--gold);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .fleet-info h2 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
-
-        .fleet-info p {
+        .copyright {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .feature-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-actions { flex-direction: row; max-width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="Shri Radha Travels Logo">
-            <div class="brand-name">Shri Radha <span>Travels</span></div>
+            <div class="logo-text">Shri Radha <span>Travels</span></div>
         </div>
-        <a href="tel:+91XXXXXXXXXX" class="call-btn">Call Now</a>
+        <a href="tel:+916280544730" class="call-btn">
+            <i class="fa-solid fa-phone"></i> Call Now
+        </a>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="badge">
-            <span class="spinning-dot"></span> Premium Intercity & Outstation Cabs
+        <div class="badge"><span></span> Premium One-Way Taxi Services</div>
+        <h1>One-Way Trips. <span>Made Seamless.</span> Zero Hassle.</h1>
+        <p>Private chauffeur-driven safe cabs from Chandigarh to Delhi, Manali, Shimla, Jaipur, and all major North Indian destinations.</p>
+        
+        <div class="hero-actions">
+            <a href="#routes" class="btn-primary">Explore Routes <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://wa.me/916280544730?text=Hi,%20I%20want%20to%20book%20a%20One-Way%20Cab." class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Booking</a>
         </div>
-        <h1>Complete Routes & Fleet.<br><i>Made Premium.</i> Zero Hassle.</h1>
-        <p class="subtitle">Explore all our professional point-to-point cab services and luxury vehicle options from Chandigarh.</p>
     </section>
 
-    <!-- ROUTES SECTION -->
-    <h2 class="section-title">Point-to-Point Cab Routes</h2>
-    <div class="container">
+    <!-- Features Overview -->
+    <section class="features-section">
+        <div class="feature-grid">
+            <div class="animated-border-card feature-item">
+                <h3>Door-to-Door</h3>
+                <p>Pickup directly from your location and drop off at your exact destination safely.</p>
+            </div>
+            <div class="animated-border-card feature-item">
+                <h3>Private Cab</h3>
+                <p>Dedicated sanitized cars exclusively for you and your family members.</p>
+            </div>
+            <div class="animated-border-card feature-item">
+                <h3>Expert Drivers</h3>
+                <p>Experienced mountain and highway drivers ensuring total comfort.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- 01 -->
-        <div class="popup-card route-card">
+    <!-- Top One-Way Routes -->
+    <section id="routes" class="destinations">
+        <div class="section-title">
+            <span>Popular Drop Destinations</span>
+            <h2>Chandigarh One-Way Routes</h2>
+        </div>
+
+        <!-- Route 1 -->
+        <div class="animated-border-card route-card">
             <div class="route-header">
-                <span class="route-number">01 — Delhi</span>
-                <span class="route-tag">Popular</span>
+                <span class="route-tag">Popular Drop</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem;"><i class="fa-solid fa-route"></i> Direct Drop</span>
             </div>
-            <h2>Chandigarh ⇄ Delhi One-Way Cab</h2>
-            <p>Seamless intercity travel with private, comfortable and reliable cab service from Chandigarh to Delhi.</p>
-            <div class="route-features">Door-to-Door • Private Cab • Flexible Pickup</div>
-            <a href="#" class="view-route-btn">View Route →</a>
+            <h3 class="route-title">Chandigarh ⇄ Delhi / NCR</h3>
+            <p class="route-desc">Smooth expressway transit to Delhi Airport, New Delhi railway stations, or residential areas.</p>
+            <div class="route-actions">
+                <a href="#fleet" class="btn-primary" style="padding: 10px; font-size: 0.9rem;">View Fleet</a>
+                <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Chandigarh%20to%20Delhi%20one-way%20taxi." class="btn-whatsapp" style="padding: 10px; font-size: 0.9rem;">Book Now</a>
+            </div>
         </div>
 
-        <!-- 02 -->
-        <div class="popup-card route-card">
+        <!-- Route 2 -->
+        <div class="animated-border-card route-card">
             <div class="route-header">
-                <span class="route-number">02 — Delhi Airport</span>
-                <span class="route-tag">Airport</span>
+                <span class="route-tag">Himachal Drop</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem;"><i class="fa-solid fa-route"></i> Scenic Drive</span>
             </div>
-            <h2>Chandigarh ⇄ Delhi Airport One-Way Cab</h2>
-            <p>Stress-free airport transfers from Chandigarh to IGI Airport with punctual pickup and comfortable highway travel.</p>
-            <div class="route-features">Airport Transfer • 24×7 Pickup • Flight-Friendly Travel</div>
-            <a href="#" class="view-route-btn">View Route →</a>
+            <h3 class="route-title">Chandigarh ⇄ Manali</h3>
+            <p class="route-desc">Enjoy a comfortable single-side drop to the scenic mountains of Manali via Mandi/Kullu.</p>
+            <div class="route-actions">
+                <a href="#fleet" class="btn-primary" style="padding: 10px; font-size: 0.9rem;">View Fleet</a>
+                <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Chandigarh%20to%20Manali%20one-way%20taxi." class="btn-whatsapp" style="padding: 10px; font-size: 0.9rem;">Book Now</a>
+            </div>
         </div>
 
-        <!-- 03 -->
-        <div class="popup-card route-card">
+        <!-- Route 3 -->
+        <div class="animated-border-card route-card">
             <div class="route-header">
-                <span class="route-number">03 — Shimla</span>
-                <span class="route-tag">Hills</span>
+                <span class="route-tag">Hill Drop</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem;"><i class="fa-solid fa-route"></i> Quick Transfer</span>
             </div>
-            <h2>Chandigarh ⇄ Shimla One-Way Cab</h2>
-            <p>Your comfortable gateway to the hills. Travel from Chandigarh to Shimla with a dedicated private cab and professional driver.</p>
-            <div class="route-features">Private Cab • Direct Transfer • Hill Journey</div>
-            <a href="#" class="view-route-btn">View Route →</a>
+            <h3 class="route-title">Chandigarh ⇄ Shimla</h3>
+            <p class="route-desc">Reliable one-way cab service straight to your hotel or home destination in Shimla or Kufri.</p>
+            <div class="route-actions">
+                <a href="#fleet" class="btn-primary" style="padding: 10px; font-size: 0.9rem;">View Fleet</a>
+                <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Chandigarh%20to%20Shimla%20one-way%20taxi." class="btn-whatsapp" style="padding: 10px; font-size: 0.9rem;">Book Now</a>
+            </div>
         </div>
 
-        <!-- 04 -->
-        <div class="popup-card route-card">
+        <!-- Route 4 -->
+        <div class="animated-border-card route-card">
             <div class="route-header">
-                <span class="route-number">04 — Manali</span>
-                <span class="route-tag">Himalayas</span>
+                <span class="route-tag">Interstate</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem;"><i class="fa-solid fa-route"></i> Heritage Route</span>
             </div>
-            <h2>Chandigarh ⇄ Manali One-Way Cab</h2>
-            <p>A comfortable long-distance Himalayan transfer from Chandigarh to Manali with a dedicated vehicle and experienced driver.</p>
-            <div class="route-features">Direct Transfer • Family Friendly • Premium Travel</div>
-            <a href="#" class="view-route-btn">View Route →</a>
+            <h3 class="route-title">Chandigarh ⇄ Jaipur</h3>
+            <p class="route-desc">Comfortable long-distance one-way drop to the Pink City of Rajasthan with professional drivers.</p>
+            <div class="route-actions">
+                <a href="#fleet" class="btn-primary" style="padding: 10px; font-size: 0.9rem;">View Fleet</a>
+                <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Chandigarh%20to%20Jaipur%20one-way%20taxi." class="btn-whatsapp" style="padding: 10px; font-size: 0.9rem;">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Fleet Section (All specified vehicles added) -->
+    <section id="fleet" class="fleet-section">
+        <div class="section-title">
+            <span>Choose Your Ride</span>
+            <h2>Our Fleet For One-Way Journeys</h2>
         </div>
 
-        <!-- 05 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">05 — Amritsar</span>
-                <span class="route-tag">Heritage</span>
-            </div>
-            <h2>Chandigarh ⇄ Amritsar One-Way Cab</h2>
-            <p>Travel effortlessly to the Golden City with a private point-to-point cab from Chandigarh.</p>
-            <div class="route-features">Direct Cab • Door-to-Door • Comfortable Journey</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 06 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">06 — Dharamshala</span>
-                <span class="route-tag">Scenic</span>
-            </div>
-            <h2>Chandigarh ⇄ Dharamshala One-Way Cab</h2>
-            <p>A smooth private transfer from Chandigarh to the Kangra Valley, designed for comfortable family and leisure travel.</p>
-            <div class="route-features">Private Transfer • Scenic Route • Professional Driver</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 07 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">07 — Dalhousie</span>
-                <span class="route-tag">Getaway</span>
-            </div>
-            <h2>Chandigarh ⇄ Dalhousie One-Way Cab</h2>
-            <p>Travel into the mountains with a comfortable one-way cab to Dalhousie, perfect for family holidays and hill getaways.</p>
-            <div class="route-features">Hill Transfer • Private Cab • Comfortable Ride</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 08 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">08 — Kasauli</span>
-                <span class="route-tag">Quick Trip</span>
-            </div>
-            <h2>Chandigarh ⇄ Kasauli One-Way Cab</h2>
-            <p>A convenient private hill transfer from Chandigarh to peaceful Kasauli.</p>
-            <div class="route-features">Quick Getaway • Private Cab • Door-to-Door</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 09 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">09 — Kasol</span>
-                <span class="route-tag">Adventure</span>
-            </div>
-            <h2>Chandigarh ⇄ Kasol One-Way Cab</h2>
-            <p>Head into the Parvati Valley with a dedicated one-way cab from Chandigarh to Kasol.</p>
-            <div class="route-features">Adventure Travel • Private Cab • Direct Transfer</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 10 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">10 — Kullu</span>
-                <span class="route-tag">Valley</span>
-            </div>
-            <h2>Chandigarh ⇄ Kullu One-Way Cab</h2>
-            <p>Comfortable point-to-point transportation from Chandigarh to the scenic Kullu Valley.</p>
-            <div class="route-features">Himachal Transfer • Private Vehicle • Reliable Service</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 11 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">11 — Rishikesh</span>
-                <span class="route-tag">Spiritual</span>
-            </div>
-            <h2>Chandigarh ⇄ Rishikesh One-Way Cab</h2>
-            <p>Travel comfortably to the adventure and spiritual capital of Uttarakhand with a private one-way cab.</p>
-            <div class="route-features">Outstation Cab • Door-to-Door • Flexible Pickup</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 12 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">12 — Haridwar</span>
-                <span class="route-tag">Pilgrimage</span>
-            </div>
-            <h2>Chandigarh ⇄ Haridwar One-Way Cab</h2>
-            <p>A comfortable private transfer from Chandigarh to Haridwar for pilgrimage, family travel and weekend journeys.</p>
-            <div class="route-features">Pilgrimage Travel • Private Cab • Direct Transfer</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 13 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">13 — Dehradun</span>
-                <span class="route-tag">Outstation</span>
-            </div>
-            <h2>Chandigarh ⇄ Dehradun One-Way Cab</h2>
-            <p>Professional point-to-point cab service for business, family and personal travel to Dehradun.</p>
-            <div class="route-features">Corporate Friendly • Private Cab • Door-to-Door</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 14 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">14 — Jammu</span>
-                <span class="route-tag">Long Distance</span>
-            </div>
-            <h2>Chandigarh ⇄ Jammu One-Way Cab</h2>
-            <p>A dependable long-distance private cab service connecting Chandigarh with Jammu comfortably and conveniently.</p>
-            <div class="route-features">Long Distance • Private Cab • Experienced Driver</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-        <!-- 15 -->
-        <div class="popup-card route-card">
-            <div class="route-header">
-                <span class="route-number">15 — Katra</span>
-                <span class="route-tag">Vaishno Devi</span>
-            </div>
-            <h2>Chandigarh ⇄ Katra One-Way Cab</h2>
-            <p>Comfortable and convenient private transportation from Chandigarh to Katra for your Vaishno Devi journey.</p>
-            <div class="route-features">Pilgrimage Transfer • Family Friendly • Direct Cab</div>
-            <a href="#" class="view-route-btn">View Route →</a>
-        </div>
-
-    </div>
-
-    <!-- FLEET SECTION -->
-    <h2 class="section-title">Our Vehicle Fleet</h2>
-    <div class="container">
-
-        <div class="popup-card fleet-card">
-            <img src="IMG_4677.jpeg" alt="Toyota Glanza">
-            <div class="fleet-info">
-                <h3>Hatchback</h3>
-                <h2>Toyota Glanza 4+1</h2>
-                <p>4+1 Seating | Fuel Efficient & Super Comfortable</p>
+        <!-- 1. Toyota Glanza -->
+        <div class="animated-border-card car-card">
+            <img src="glanza.jpg" alt="Toyota Glanza" class="car-img">
+            <div class="car-content">
+                <div class="car-category">Hatchback</div>
+                <h3 class="car-title">Toyota Glanza 4+1</h3>
+                <p class="car-specs">4+1 Seating | Fuel Efficient & Super Comfortable</p>
             </div>
         </div>
 
-        <div class="popup-card fleet-card">
-            <img src="IMG_4678.jpeg" alt="Swift Dzire">
-            <div class="fleet-info">
-                <h3>Sedan</h3>
-                <h2>Swift Dzire 4+1</h2>
-                <p>4+1 Seating | Ideal for Small Families & Business Trips</p>
+        <!-- 2. Swift Dzire -->
+        <div class="animated-border-card car-card">
+            <img src="dzire.jpg" alt="Swift Dzire" class="car-img">
+            <div class="car-content">
+                <div class="car-category">Sedan</div>
+                <h3 class="car-title">Swift Dzire 4+1</h3>
+                <p class="car-specs">4+1 Seating | Perfect for Small Families & Business Trips</p>
             </div>
         </div>
 
-        <div class="popup-card fleet-card">
-            <img src="IMG_4938.jpeg" alt="Maruti Ertiga">
-            <div class="fleet-info">
-                <h3>SUV</h3>
-                <h2>Maruti Ertiga 6+1</h2>
-                <p>6+1 Seating | Spacious & Perfect for Group Tours</p>
+        <!-- 3. Maruti Ertiga -->
+        <div class="animated-border-card car-card">
+            <img src="ertiga.jpg" alt="Maruti Ertiga" class="car-img">
+            <div class="car-content">
+                <div class="car-category">SUV</div>
+                <h3 class="car-title">Maruti Ertiga 6+1</h3>
+                <p class="car-specs">6+1 Seating | Spacious Luggage Space & Family Friendly</p>
             </div>
         </div>
 
-        <div class="popup-card fleet-card">
-            <img src="IMG_4936.jpeg" alt="Innova Crysta">
-            <div class="fleet-info">
-                <h3>MPV</h3>
-                <h2>Innova Crysta 7+1</h2>
-                <p>7+1 Seating | Ultimate Luxury & Long Distance Comfort</p>
+        <!-- 4. Innova Crysta -->
+        <div class="animated-border-card car-card">
+            <img src="innova.jpg" alt="Toyota Innova Crysta" class="car-img">
+            <div class="car-content">
+                <div class="car-category">MPV</div>
+                <h3 class="car-title">Toyota Innova Crysta 7+1</h3>
+                <p class="car-specs">7+1 Seating | Premium Comfort & Smooth Long-Distance Ride</p>
             </div>
         </div>
 
-        <div class="popup-card fleet-card">
-            <img src="IMG_4937.jpeg" alt="Tempo Traveller Urbania">
-            <div class="fleet-info">
-                <h3>Tempo Traveller</h3>
-                <h2>Urbania</h2>
-                <p>High Capacity Luxury Group Travel & Mountain Trips</p>
+        <!-- 5. Force Urbania -->
+        <div class="animated-border-card car-card">
+            <img src="urbania.jpg" alt="Force Urbania" class="car-img">
+            <div class="car-content">
+                <div class="car-category">Tempo Traveller</div>
+                <h3 class="car-title">Force Urbania Luxury Van</h3>
+                <p class="car-specs">Push-back Luxury Seats | Ideal for Group Tours & Spiti / Leh Trips</p>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- How It Works Section -->
+    <section class="steps-section">
+        <div class="section-title">
+            <span>Simple Booking</span>
+            <h2>How Your One-Way Trip Works</h2>
+        </div>
 
-    <script>
-        // Scroll Popup Observer Animation
-        document.addEventListener("DOMContentLoaded", function () {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+        <div class="animated-border-card step-card">
+            <div class="step-num">01</div>
+            <h3>Select Destination</h3>
+            <p>Choose your drop location from our extensive list of North Indian cities.</p>
+        </div>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+        <div class="animated-border-card step-card">
+            <div class="step-num">02</div>
+            <h3>Choose Vehicle</h3>
+            <p>Select from Hatchbacks, Sedans, SUVs, Innova Crysta, or Urbania based on passenger count.</p>
+        </div>
 
-            document.querySelectorAll('.popup-card').forEach(card => {
-                observer.observe(card);
-            });
-        });
-    </script>
+        <div class="animated-border-card step-card">
+            <div class="step-num">03</div>
+            <h3>Share Travel Details</h3>
+            <p>Provide your pickup address, date, and preferred time instantly via WhatsApp or call.</p>
+        </div>
+
+        <div class="animated-border-card step-card">
+            <div class="step-num">04</div>
+            <h3>Confirm Booking</h3>
+            <p>Get your fixed quote with zero hidden charges and enjoy your ride.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Shri Radha Travels</h3>
+        <p>Premium private cab services connecting Chandigarh to Himachal, Punjab, Uttarakhand, Delhi, and North India.</p>
+        <div class="footer-links">
+            Website: www.shriradhatravels.com | Call: +91 62805 44730
+        </div>
+        <div class="copyright">
+            &copy; 2026 Shri Radha Travels. All rights reserved. Premium One-Way & Round Trip Cab Services.
+        </div>
+    </footer>
+
 </body>
 </html>
