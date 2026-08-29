@@ -16,6 +16,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: #070a0f;
             color: #e2e8f0;
+            overflow-x: hidden;
         }
         .font-serif-heading {
             font-family: 'Playfair Display', serif;
@@ -41,50 +42,27 @@
             background-color: #0d121c; 
         }
         
-        /* Interactive Card Animations */
+        /* Interactive Hover Card Styling */
         .card-hover {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card-hover:hover {
             border-color: rgba(212, 175, 55, 0.5);
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
-        /* Entrance Keyframe Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Scroll Reveal Pop-Up Animation Styling */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px) scale(0.96);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
-        @keyframes popupScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
-
-        .animate-fade-in {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .animate-popup {
-            animation: popupScale 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Staggered Delay Helpers */
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col justify-between selection:bg-yellow-500 selection:text-black">
@@ -92,7 +70,7 @@
     <!-- Header -->
     <header class="w-full px-5 py-4 flex justify-between items-center border-b border-gray-800/80 bg-[#090d15]/95 sticky top-0 z-50 backdrop-blur-md">
         <div class="flex items-center space-x-3">
-            <!-- User Provided Logo Image -->
+            <!-- Logo Image -->
             <div class="w-11 h-11 rounded-full overflow-hidden border border-yellow-500/40 shadow-md">
                 <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels Logo" class="w-full h-full object-cover">
             </div>
@@ -106,11 +84,11 @@
         </button>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 py-8 w-full space-y-14">
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full space-y-16">
         
         <!-- Hero Section -->
-        <section class="space-y-6 animate-fade-in">
+        <section class="space-y-6 reveal active">
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10">
                 <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
                 <span class="text-xs font-semibold gold-accent-text tracking-widest uppercase">PREMIUM ROUND TRIP TAXI SERVICES</span>
@@ -126,7 +104,7 @@
                 Private chauffeur-driven cabs from Chandigarh for comfortable Himalayan getaways, family holidays, business travel, and long-distance round trips.
             </p>
 
-            <div class="flex flex-wrap gap-3.5 pt-2 animate-fade-in delay-1">
+            <div class="flex flex-wrap gap-3.5 pt-2">
                 <a href="#destinations" class="px-7 py-3.5 rounded-xl bg-slate-900 border border-yellow-500/30 hover:border-yellow-500 text-white font-medium text-sm flex items-center transition shadow-lg">
                     Explore Round Trips <i class="fa-solid fa-arrow-right ml-2 text-xs text-yellow-500"></i>
                 </a>
@@ -136,7 +114,7 @@
             </div>
 
             <!-- Hero Banner Container -->
-            <div class="relative mt-8 rounded-2xl overflow-hidden border border-gray-800 p-6 bg-gradient-to-b from-slate-900/90 to-[#0b0f19] flex flex-col justify-between h-60 sm:h-64 shadow-2xl animate-popup delay-2">
+            <div class="relative mt-8 rounded-2xl overflow-hidden border border-gray-800 p-6 bg-gradient-to-b from-slate-900/90 to-[#0b0f19] flex flex-col justify-between h-60 sm:h-64 shadow-2xl reveal">
                 <div class="flex justify-between items-center">
                     <span class="px-3.5 py-1.5 rounded-full bg-gray-900/90 text-xs font-semibold text-yellow-400 border border-yellow-500/30">
                         <i class="fa-solid fa-circle-check text-xs mr-1"></i> Door-to-Door
@@ -153,20 +131,20 @@
         </section>
 
         <!-- Feature Cards Grid -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-fade-in delay-3">
-            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover">
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover reveal">
                 <h3 class="text-white font-bold text-base font-serif-heading">Private Vehicles</h3>
                 <p class="text-xs text-gray-400 mt-1">Your family, your cab, your flexible schedule.</p>
             </div>
-            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover">
+            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover reveal">
                 <h3 class="text-white font-bold text-base font-serif-heading">Experienced Drivers</h3>
                 <p class="text-xs text-gray-400 mt-1">Mountain routes handled with utmost safety.</p>
             </div>
-            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover">
+            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover reveal">
                 <h3 class="text-white font-bold text-base font-serif-heading">Flexible Travel</h3>
                 <p class="text-xs text-gray-400 mt-1">Pickup, sight-seeing & customized return options.</p>
             </div>
-            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover">
+            <div class="card-bg p-5 rounded-xl border border-gray-800/80 card-hover reveal">
                 <h3 class="text-white font-bold text-base font-serif-heading">Premium Comfort</h3>
                 <p class="text-xs text-gray-400 mt-1">Clean, fully disinfected, modern vehicles.</p>
             </div>
@@ -174,7 +152,7 @@
 
         <!-- Explore Destinations -->
         <section id="destinations" class="space-y-6">
-            <div class="animate-fade-in">
+            <div class="reveal">
                 <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">EXPLORE DESTINATIONS</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">Chandigarh Round Trips</h2>
                 <p class="text-xs sm:text-sm text-gray-400 mt-1">
@@ -182,9 +160,9 @@
                 </p>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-5">
                 <!-- 01 Shimla -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">01</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
@@ -194,12 +172,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Weekend Trips &bull; Family Holidays &bull; Couples &bull; Corporate Travel</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Shimla%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Shimla%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 02 Manali -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">02</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
@@ -209,12 +187,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Honeymoon &bull; Adventure Trips &bull; Group Travel</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Manali%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Manali%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 03 Amritsar -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">03</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-amber-950 text-amber-400 border border-amber-800/50">Punjab</span>
@@ -224,12 +202,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Family Trips &bull; Religious Tours &bull; Weekend Getaways</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Amritsar%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Amritsar%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 04 Dharamshala -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">04</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
@@ -239,12 +217,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Spiritual Trips &bull; Couples</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Dharamshala%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Dharamshala%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 05 Dalhousie -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">05</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
@@ -254,12 +232,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Couples &bull; Nature Lovers</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Dalhousie%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Dalhousie%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 06 Kasol -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">06</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-emerald-950 text-emerald-400 border border-emerald-800/50">Parvati Valley</span>
@@ -269,12 +247,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Young Travellers &bull; Couples &bull; Friends &bull; Trekkers</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Kasol%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Kasol%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 07 Kasauli -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">07</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-indigo-950 text-indigo-400 border border-indigo-800/50">Short Escape</span>
@@ -284,12 +262,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Weekend Getaways &bull; Couples &bull; Family Trips</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Kasauli%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Kasauli%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 08 Mussoorie -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">08</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
@@ -299,12 +277,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Family Holidays &bull; Couples &bull; Weekend Trips</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Mussoorie%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Mussoorie%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 09 Rishikesh -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">09</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
@@ -314,12 +292,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Adventure &bull; Spiritual Trips &bull; Couples &bull; Friends</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Rishikesh%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Rishikesh%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 10 Haridwar -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">10</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
@@ -329,12 +307,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Pilgrimage &bull; Family Trips &bull; Spiritual Tours</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Haridwar%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Haridwar%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 11 Delhi -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">11</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-purple-950 text-purple-400 border border-purple-800/50">NCR</span>
@@ -344,12 +322,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Corporate Travel &bull; Airport Trips &bull; Business &bull; Family</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Delhi%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Delhi%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 12 Jammu & Katra -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">12</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-blue-950 text-blue-400 border border-blue-800/50">Jammu Region</span>
@@ -359,12 +337,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Religious Tours &bull; Family Trips &bull; Group Travel</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Katra%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Katra%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 13 Dehradun -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">13</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-teal-950 text-teal-400 border border-teal-800/50">Uttarakhand</span>
@@ -374,12 +352,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Business Travel &bull; Family Trips &bull; Weekend Getaways</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Dehradun%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Dehradun%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 14 Spiti Valley -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">14</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-rose-950 text-rose-400 border border-rose-800/50">Premium Road Trip</span>
@@ -389,12 +367,12 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Adventure &bull; Road Trips &bull; Photography &bull; Group Travel</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Spiti%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Spiti%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
 
                 <!-- 15 Chamba -->
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 animate-popup">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 card-hover space-y-4 reveal">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-bold text-gray-500 font-serif-heading">15</span>
                         <span class="px-3 py-1 rounded-md text-xs bg-sky-950 text-sky-400 border border-sky-800/50">Himachal</span>
@@ -404,78 +382,78 @@
                     <p class="text-xs text-gray-500"><strong class="text-gray-300">Ideal For:</strong> Nature Lovers &bull; Family Holidays &bull; Long Weekend Trips</p>
                     <div class="flex gap-3 pt-2">
                         <button class="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-700 text-white text-xs font-semibold transition">View Journey</button>
-                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Chamba%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition">Book Now</a>
+                        <a href="https://wa.me/919999999999?text=Booking%20Query%20for%20Chamba%20Round%20Trip" class="flex-1 py-3 rounded-xl gold-btn text-center text-xs font-bold transition flex items-center justify-center">Book Now</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Fleet Section -->
+        <!-- Redesigned Fleet Section (Full-Width Stacked Cards with Clean Padding) -->
         <section class="space-y-6">
-            <div>
+            <div class="reveal">
                 <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">CHOOSE YOUR RIDE</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">A fleet for every journey.</h2>
                 <p class="text-xs sm:text-sm text-gray-400 mt-1">Clean, insured, and luxury maintained vehicles for your road trips.</p>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-6">
                 <!-- Fleet 1: Hatchback -->
-                <div class="card-bg p-4.5 rounded-2xl border border-yellow-500/20 card-hover flex flex-col sm:flex-row items-center gap-5 shadow-lg animate-popup">
-                    <div class="w-full sm:w-48 h-36 rounded-xl overflow-hidden bg-gray-900 border border-gray-800 flex-shrink-0">
+                <div class="card-bg rounded-2xl border border-gray-800 card-hover overflow-hidden shadow-xl reveal">
+                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900">
                         <img src="IMG_4677.jpeg" alt="Toyota Glanza 4+1" class="w-full h-full object-cover">
                     </div>
-                    <div class="space-y-1.5 w-full">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-wider">Hatchback</span>
-                        <h3 class="text-xl font-bold text-white font-serif-heading">Toyota Glanza 4+1</h3>
-                        <p class="text-xs text-gray-400">4+1 Seating | Fuel Efficient & Super Comfortable</p>
+                    <div class="p-5 sm:p-6 space-y-2">
+                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">Hatchback</span>
+                        <h3 class="text-2xl font-bold text-white font-serif-heading">Toyota Glanza 4+1</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">4+1 Seating &bull; Fuel Efficient &amp; Super Comfortable for City &amp; Hills</p>
                     </div>
                 </div>
 
                 <!-- Fleet 2: Sedan -->
-                <div class="card-bg p-4.5 rounded-2xl border border-yellow-500/20 card-hover flex flex-col sm:flex-row items-center gap-5 shadow-lg animate-popup">
-                    <div class="w-full sm:w-48 h-36 rounded-xl overflow-hidden bg-gray-900 border border-gray-800 flex-shrink-0">
+                <div class="card-bg rounded-2xl border border-gray-800 card-hover overflow-hidden shadow-xl reveal">
+                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900">
                         <img src="IMG_4678.jpeg" alt="Swift Dzire 4+1" class="w-full h-full object-cover">
                     </div>
-                    <div class="space-y-1.5 w-full">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-wider">Sedan</span>
-                        <h3 class="text-xl font-bold text-white font-serif-heading">Swift Dzire 4+1</h3>
-                        <p class="text-xs text-gray-400">4+1 Seating | Extra Luggage Space</p>
+                    <div class="p-5 sm:p-6 space-y-2">
+                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">Sedan</span>
+                        <h3 class="text-2xl font-bold text-white font-serif-heading">Swift Dzire 4+1</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">4+1 Seating &bull; Extra Luggage Space &amp; Smooth Long Highway Drives</p>
                     </div>
                 </div>
 
                 <!-- Fleet 3: SUV -->
-                <div class="card-bg p-4.5 rounded-2xl border border-yellow-500/20 card-hover flex flex-col sm:flex-row items-center gap-5 shadow-lg animate-popup">
-                    <div class="w-full sm:w-48 h-36 rounded-xl overflow-hidden bg-gray-900 border border-gray-800 flex-shrink-0">
+                <div class="card-bg rounded-2xl border border-gray-800 card-hover overflow-hidden shadow-xl reveal">
+                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900">
                         <img src="IMG_4938.jpeg" alt="Maruti Ertiga 6+1" class="w-full h-full object-cover">
                     </div>
-                    <div class="space-y-1.5 w-full">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-wider">SUV</span>
-                        <h3 class="text-xl font-bold text-white font-serif-heading">Maruti Ertiga 6+1</h3>
-                        <p class="text-xs text-gray-400">6+1 Seating | Ideal Choice for Family Trips</p>
+                    <div class="p-5 sm:p-6 space-y-2">
+                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">SUV</span>
+                        <h3 class="text-2xl font-bold text-white font-serif-heading">Maruti Ertiga 6+1</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">6+1 Seating &bull; Spacious &amp; Ideal Choice for Family Trips &amp; Groups</p>
                     </div>
                 </div>
 
                 <!-- Fleet 4: MPV -->
-                <div class="card-bg p-4.5 rounded-2xl border border-yellow-500/20 card-hover flex flex-col sm:flex-row items-center gap-5 shadow-lg animate-popup">
-                    <div class="w-full sm:w-48 h-36 rounded-xl overflow-hidden bg-gray-900 border border-gray-800 flex-shrink-0">
+                <div class="card-bg rounded-2xl border border-gray-800 card-hover overflow-hidden shadow-xl reveal">
+                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900">
                         <img src="IMG_4936.jpeg" alt="Innova Crysta 7+1" class="w-full h-full object-cover">
                     </div>
-                    <div class="space-y-1.5 w-full">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-wider">MPV</span>
-                        <h3 class="text-xl font-bold text-white font-serif-heading">Innova Crysta 7+1</h3>
-                        <p class="text-xs text-gray-400">7+1 Seating | Luxury & Maximum Riding Comfort</p>
+                    <div class="p-5 sm:p-6 space-y-2">
+                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">MPV</span>
+                        <h3 class="text-2xl font-bold text-white font-serif-heading">Innova Crysta 7+1</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">7+1 Seating &bull; Ultra Luxury &amp; Maximum Riding Comfort for Mountain Routes</p>
                     </div>
                 </div>
 
                 <!-- Fleet 5: Tempo Traveller -->
-                <div class="card-bg p-4.5 rounded-2xl border border-yellow-500/20 card-hover flex flex-col sm:flex-row items-center gap-5 shadow-lg animate-popup">
-                    <div class="w-full sm:w-48 h-36 rounded-xl overflow-hidden bg-gray-900 border border-gray-800 flex-shrink-0">
+                <div class="card-bg rounded-2xl border border-gray-800 card-hover overflow-hidden shadow-xl reveal">
+                    <div class="w-full h-52 sm:h-64 overflow-hidden bg-gray-900">
                         <img src="IMG_4937.jpeg" alt="Force Urbania" class="w-full h-full object-cover">
                     </div>
-                    <div class="space-y-1.5 w-full">
-                        <span class="text-xs font-bold gold-accent-text uppercase tracking-wider">Tempo Traveller</span>
-                        <h3 class="text-xl font-bold text-white font-serif-heading">Force Urbania</h3>
-                        <p class="text-xs text-gray-400">Large Group Luxury Travel Experience</p>
+                    <div class="p-5 sm:p-6 space-y-2">
+                        <span class="text-xs font-bold gold-accent-text uppercase tracking-widest">Tempo Traveller</span>
+                        <h3 class="text-2xl font-bold text-white font-serif-heading">Force Urbania</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Large Group Luxury Travel Experience &bull; Reclining Seats &amp; AC</p>
                     </div>
                 </div>
             </div>
@@ -483,38 +461,38 @@
 
         <!-- How Your Round Trip Works -->
         <section class="space-y-6">
-            <div>
+            <div class="reveal">
                 <span class="text-xs font-bold gold-accent-text tracking-widest uppercase">SIMPLE BOOKING PROCESS</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-serif-heading">How Your Round Trip Works</h2>
                 <p class="text-xs sm:text-sm text-gray-400 mt-1">Designed for a seamless booking experience from pickup to destination return.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover reveal">
                     <span class="text-xs font-bold gold-accent-text font-serif-heading text-base">01</span>
                     <h4 class="text-white font-bold text-lg font-serif-heading">Select Destination</h4>
                     <p class="text-xs text-gray-400">Choose your round-trip route from the choices listed above.</p>
                 </div>
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover reveal">
                     <span class="text-xs font-bold gold-accent-text font-serif-heading text-base">02</span>
                     <h4 class="text-white font-bold text-lg font-serif-heading">Choose Vehicle</h4>
                     <p class="text-xs text-gray-400">Select the vehicle matching your group size and budget.</p>
                 </div>
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover reveal">
                     <span class="text-xs font-bold gold-accent-text font-serif-heading text-base">03</span>
                     <h4 class="text-white font-bold text-lg font-serif-heading">Plan Your Journey</h4>
                     <p class="text-xs text-gray-400">Share travel dates, pickup location, and itinerary requirements.</p>
                 </div>
-                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover">
+                <div class="card-bg p-6 rounded-2xl border border-gray-800 space-y-2 card-hover reveal">
                     <span class="text-xs font-bold gold-accent-text font-serif-heading text-base">04</span>
                     <h4 class="text-white font-bold text-lg font-serif-heading">Confirm Booking</h4>
-                    <p class="text-xs text-gray-400">Get instant cab quote & trip confirmation right on WhatsApp.</p>
+                    <p class="text-xs text-gray-400">Get instant cab quote &amp; trip confirmation right on WhatsApp.</p>
                 </div>
             </div>
         </section>
 
         <!-- CTA Box -->
-        <section class="rounded-3xl p-8 bg-gradient-to-b from-yellow-500 to-amber-600 text-slate-950 text-center space-y-4 shadow-2xl animate-popup">
+        <section class="rounded-3xl p-8 bg-gradient-to-b from-yellow-500 to-amber-600 text-slate-950 text-center space-y-4 shadow-2xl reveal">
             <h3 class="text-3xl sm:text-4xl font-black font-serif-heading">Ready for your next round trip?</h3>
             <p class="text-xs sm:text-sm font-medium text-slate-900 max-w-md mx-auto leading-relaxed">
                 Tell us your destination, travel dates, and passenger count. We will recommend the ideal cab and itinerary for your ride.
@@ -545,7 +523,7 @@
         <div>
             <h5 class="text-white font-bold mb-1 font-serif-heading">Book Your Ride</h5>
             <p>Call: +91 99999 99999</p>
-            <p>WhatsApp available for quick booking & fare details.</p>
+            <p>WhatsApp available for quick booking &amp; fare details.</p>
         </div>
 
         <div class="border-t border-gray-800/60 pt-5 text-[11px] text-gray-500">
@@ -568,6 +546,29 @@
             <i class="fa-solid fa-arrow-up text-base text-yellow-500"></i>
         </button>
     </div>
+
+    <!-- Intersection Observer Script for Smooth Scroll Reveal Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>
