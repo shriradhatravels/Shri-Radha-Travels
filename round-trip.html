@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium Round Trip Taxi Services | Shri Radha Travels</title>
-    <link rel="stylesheet" href="style.css?v=9008">
+    <link rel="stylesheet" href="style.css?v=9009">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* GLOBAL RESET & STYLES */
         *, *::before, *::after {
             box-sizing: border-box !important;
         }
@@ -20,7 +19,7 @@
             overflow-x: hidden;
         }
 
-        /* POPUP / REVEAL ANIMATIONS ON SCROLL */
+        /* POPUP & REVEAL ANIMATIONS */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px) scale(0.97);
@@ -31,7 +30,7 @@
             transform: translateY(0) scale(1);
         }
 
-        /* FORM INPUT BOX FIX */
+        /* FORM INPUT CONTAINMENT FIX */
         .form-input-box {
             width: 100% !important;
             max-width: 100% !important;
@@ -60,29 +59,29 @@
             box-shadow: 0 0 0 3px rgba(223, 186, 109, 0.3);
         }
 
-        /* LUXURY SHIMMER ANIMATED BORDER */
-        @keyframes borderGlow {
-            0% { border-color: rgba(223, 186, 109, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
-            50% { border-color: rgba(223, 186, 109, 0.75); box-shadow: 0 6px 22px rgba(223, 186, 109, 0.2); }
-            100% { border-color: rgba(223, 186, 109, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); }
+        /* GOLD SHIMMER BORDER ANIMATION FOR ALL CARDS */
+        @keyframes goldGlowAnimation {
+            0% { border-color: rgba(223, 186, 109, 0.3); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
+            50% { border-color: rgba(223, 186, 109, 0.85); box-shadow: 0 8px 25px rgba(223, 186, 109, 0.25); }
+            100% { border-color: rgba(223, 186, 109, 0.3); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
         }
 
-        /* DESTINATION CARD STYLING */
+        /* DESTINATION CARDS STYLING */
         .trip-card {
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(223, 186, 109, 0.3);
+            background: rgba(15, 23, 42, 0.85);
+            border: 1.5px solid rgba(223, 186, 109, 0.4);
             border-radius: 20px;
             padding: 24px;
             margin-bottom: 20px;
             position: relative;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            animation: borderGlow 4s infinite ease-in-out;
+            animation: goldGlowAnimation 4s infinite ease-in-out;
         }
 
         .trip-card:hover {
             transform: translateY(-5px) scale(1.01);
             border-color: #dfba6d !important;
-            box-shadow: 0 12px 30px rgba(223, 186, 109, 0.25) !important;
+            box-shadow: 0 12px 30px rgba(223, 186, 109, 0.3) !important;
             background: rgba(20, 30, 55, 0.95);
         }
 
@@ -141,7 +140,7 @@
 
         .card-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             border-radius: 10px;
             font-size: 13px;
             font-weight: 700;
@@ -172,10 +171,10 @@
             background: #f3d08c;
         }
 
-        /* FLEET CARDS */
+        /* FLEET CARDS STYLING */
         .fleet-card {
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(223, 186, 109, 0.3);
+            background: rgba(15, 23, 42, 0.85);
+            border: 1.5px solid rgba(223, 186, 109, 0.4);
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 16px;
@@ -183,7 +182,7 @@
             align-items: center;
             gap: 16px;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            animation: borderGlow 4s infinite ease-in-out;
+            animation: goldGlowAnimation 4s infinite ease-in-out;
         }
 
         .fleet-card:hover {
@@ -203,10 +202,9 @@
             flex-shrink: 0;
         }
 
-        /* HOW IT WORKS CARD */
         .step-card {
             background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(223, 186, 109, 0.25);
+            border: 1px solid rgba(223, 186, 109, 0.3);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 14px;
@@ -242,14 +240,12 @@
 </head>
 <body>
 
-    <!-- BACK NAVIGATION -->
     <div style="padding: 20px; max-width: 650px; margin: 0 auto;">
         <a href="index.html" style="color: #dfba6d; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
             &larr; Back to Main Website
         </a>
     </div>
 
-    <!-- HERO SECTION -->
     <section class="srt-hero-section" style="padding: 10px 20px 30px 20px;">
         <div class="srt-container reveal-on-scroll">
             <span class="srt-badge-tag">PREMIUM ROUND TRIP TAXI SERVICES</span>
@@ -263,7 +259,6 @@
                 <a href="#quick-booking" class="srt-btn srt-btn-outline">WhatsApp Booking</a>
             </div>
 
-            <!-- HIGHLIGHT BANNER FROM SCREENSHOT -->
             <div style="background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,225,235,0.85)); border-radius: 24px; padding: 24px; color: #0b1324; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
                 <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
                     <span style="background: #0f172a; color: #dfba6d; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;">Door-to-Door ✓</span>
@@ -277,7 +272,6 @@
         </div>
     </section>
 
-    <!-- FEATURES LIST FROM SCREENSHOT -->
     <section style="padding: 20px;" class="reveal-on-scroll">
         <div class="srt-container" style="display: flex; flex-direction: column; gap: 12px;">
             <div class="step-card">
@@ -299,9 +293,8 @@
         </div>
     </section>
 
-    <!-- QUICK BOOKING FORM -->
     <section id="quick-booking" style="padding: 20px;" class="reveal-on-scroll">
-        <div class="srt-container" style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(223, 186, 109, 0.4); border-radius: 20px; padding: 20px;">
+        <div class="srt-container" style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(223, 186, 109, 0.4); border-radius: 20px; padding: 20px; animation: goldGlowAnimation 4s infinite ease-in-out;">
             <span class="srt-badge-tag">ROUND TRIP ENQUIRY</span>
             <form style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
                 <div>
@@ -331,14 +324,12 @@
         </div>
     </section>
 
-    <!-- DESTINATIONS SECTION FROM SCREENSHOTS -->
     <section id="destinations" style="padding: 30px 20px 20px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">EXPLORE DESTINATIONS</span>
             <h2 class="srt-section-title" style="margin-top: 8px; margin-bottom: 8px;">Chandigarh Round Trips</h2>
             <p class="srt-section-desc" style="margin-bottom: 25px;">Select a destination and click <strong>Book Now</strong> to get instant personalized itinerary and price quote on WhatsApp.</p>
 
-            <!-- CARD 01 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">01</span>
@@ -353,7 +344,6 @@
                 </div>
             </div>
 
-            <!-- CARD 02 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">02</span>
@@ -368,7 +358,6 @@
                 </div>
             </div>
 
-            <!-- CARD 03 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">03</span>
@@ -383,7 +372,6 @@
                 </div>
             </div>
 
-            <!-- CARD 04 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">04</span>
@@ -398,7 +386,6 @@
                 </div>
             </div>
 
-            <!-- CARD 05 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">05</span>
@@ -413,7 +400,6 @@
                 </div>
             </div>
 
-            <!-- CARD 06 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">06</span>
@@ -428,7 +414,6 @@
                 </div>
             </div>
 
-            <!-- CARD 07 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">07</span>
@@ -443,7 +428,6 @@
                 </div>
             </div>
 
-            <!-- CARD 08 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">08</span>
@@ -458,7 +442,6 @@
                 </div>
             </div>
 
-            <!-- CARD 09 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">09</span>
@@ -473,7 +456,6 @@
                 </div>
             </div>
 
-            <!-- CARD 10 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">10</span>
@@ -488,7 +470,6 @@
                 </div>
             </div>
 
-            <!-- CARD 11 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">11</span>
@@ -503,7 +484,6 @@
                 </div>
             </div>
 
-            <!-- CARD 12 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">12</span>
@@ -518,7 +498,6 @@
                 </div>
             </div>
 
-            <!-- CARD 13 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">13</span>
@@ -533,7 +512,6 @@
                 </div>
             </div>
 
-            <!-- CARD 14 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">14</span>
@@ -548,7 +526,6 @@
                 </div>
             </div>
 
-            <!-- CARD 15 -->
             <div class="trip-card">
                 <div class="trip-card-header">
                     <span class="trip-number">15</span>
@@ -565,139 +542,7 @@
         </div>
     </section>
 
-    <!-- FLEET SHOWCASE SECTION WITH EXACT GITHUB IMAGES -->
     <section style="padding: 30px 20px 20px 20px;" class="reveal-on-scroll">
         <div class="srt-container">
             <span class="srt-badge-tag">CHOOSE YOUR RIDE</span>
-            <h2 class="srt-section-title">Fleet for <span class="srt-gold-shimmer">Round Trips.</span></h2>
-            <p class="srt-section-desc">Mountain-ready luxury cabs for smooth, safe long journeys.</p>
-
-            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 20px;">
-                <!-- Hatchback -->
-                <div class="fleet-card">
-                    <img src="IMG_4677.jpeg" alt="Toyota Glanza" class="fleet-img">
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Hatchback</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Toyota Glanza 4+1</div>
-                        <div style="font-size: 12px; color: #94a3b8;">4+1 Seating | Comfortable Hill Travel</div>
-                    </div>
-                </div>
-                <!-- Sedan -->
-                <div class="fleet-card">
-                    <img src="IMG_4678.jpeg" alt="Swift Dzire" class="fleet-img">
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Sedan</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Swift Dzire 4+1</div>
-                        <div style="font-size: 12px; color: #94a3b8;">4+1 Seating | Smooth Interstate Rides</div>
-                    </div>
-                </div>
-                <!-- SUV -->
-                <div class="fleet-card">
-                    <img src="IMG_4938.jpeg" alt="Maruti Ertiga" class="fleet-img">
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">SUV</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Maruti Ertiga 6+1</div>
-                        <div style="font-size: 12px; color: #94a3b8;">6+1 Seating | Spacious Family Outings</div>
-                    </div>
-                </div>
-                <!-- MPV -->
-                <div class="fleet-card">
-                    <img src="IMG_4936.jpeg" alt="Innova Crysta" class="fleet-img">
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">MPV</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Innova Crysta 7+1</div>
-                        <div style="font-size: 12px; color: #94a3b8;">7+1 Seating | King-Class Mountain Luxury</div>
-                    </div>
-                </div>
-                <!-- Tempo Traveller -->
-                <div class="fleet-card">
-                    <img src="IMG_4937.jpeg" alt="Force Urbania" class="fleet-img">
-                    <div>
-                        <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #dfba6d;">Tempo Traveller</div>
-                        <div style="font-size: 14px; color: #ffffff; font-weight: 600;">Force Urbania</div>
-                        <div style="font-size: 12px; color: #94a3b8;">Large Group Himalayan Expeditions</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW YOUR ROUND TRIP WORKS (FROM SCREENSHOT) -->
-    <section style="padding: 40px 20px 80px 20px;" class="reveal-on-scroll">
-        <div class="srt-container">
-            <span class="srt-badge-tag">SIMPLE BOOKING</span>
-            <h2 class="srt-section-title">How Your Round Trip <span class="srt-gold-shimmer">Works</span></h2>
-            <p class="srt-section-desc" style="margin-bottom: 25px;">Designed like a professional travel company website: clear destination selection, vehicle choice, itinerary planning and direct booking.</p>
-
-            <div style="display: flex; flex-direction: column; gap: 14px;">
-                <div class="step-card">
-                    <div class="step-num">01</div>
-                    <div class="step-title">Select Destination</div>
-                    <p class="step-desc">Choose any Round Trip destination from the list above.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">02</div>
-                    <div class="step-title">Choose Vehicle</div>
-                    <p class="step-desc">Select the car that matches your family size and comfort level.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">03</div>
-                    <div class="step-title">Plan Your Journey</div>
-                    <p class="step-desc">Share travel dates, pickup point, stay and sightseeing requirements.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">04</div>
-                    <div class="step-title">Confirm Booking</div>
-                    <p class="step-desc">Get your final quote and trip confirmation directly from our team.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        const WHATSAPP_NUMBER = "916280544730";
-
-        function sendRoundTripWhatsApp() {
-            const pickup = document.getElementById('rt_pickup').value.trim();
-            const destination = document.getElementById('rt_drop').value.trim();
-            const date = document.getElementById('rt_date').value;
-            const vehicle = document.getElementById('rt_vehicle').value;
-
-            if(!pickup || !destination || !date) {
-                alert("Please fill Pickup Point, Destination, and Start Date.");
-                return;
-            }
-
-            const message = `*ROUND TRIP CAB BOOKING REQUEST*%0A%0A` +
-                            `📍 *Pickup:* ${encodeURIComponent(pickup)}%0A` +
-                            `🏔️ *Destination:* ${encodeURIComponent(destination)}%0A` +
-                            `📅 *Travel Date:* ${encodeURIComponent(date)}%0A` +
-                            `🚘 *Vehicle:* ${encodeURIComponent(vehicle)}%0A%0A` +
-                            `Please share complete round-trip rate and itinerary details.`;
-
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-        }
-
-        function bookSpecificTrip(destination) {
-            const message = `*ROUND TRIP ENQUIRY FOR ${destination.toUpperCase()}*%0A%0A` +
-                            `Hi Shri Radha Travels, I want to book a Round Trip for:%0A` +
-                            `🚘 *Destination:* ${encodeURIComponent(destination)}%0A%0A` +
-                            `Please share rate details and itinerary plan.`;
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
-        });
-    </script>
-</body>
-</html>
+            <h2 class="srt-section-
