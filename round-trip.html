@@ -767,30 +767,59 @@
       background-color: #0b0f19;
       color: #ffffff;
       font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
     h1, h2, h3, h4, .serif-font {
       font-family: 'Playfair Display', serif;
     }
-    /* Smooth hover & popup animation classes */
-    .card-hover {
-      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    /* Golden border glow and smooth popup animation */
+    @keyframes borderGlow {
+      0% { border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+      50% { border-color: rgba(212, 175, 55, 0.7); box-shadow: 0 0 25px rgba(212, 175, 55, 0.3); }
+      100% { border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
     }
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
-      border-color: rgba(212, 175, 55, 0.6);
+
+    .animated-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      animation: borderGlow 4s infinite ease-in-out;
+    }
+
+    .animated-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #d4af37;
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Scroll reveal animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-section {
+      animation: fadeInUp 1s ease-out forwards;
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. FLEET SECTION (A fleet for every journey with 5 cars) -->
-  <section style="background-color: #0b0f19; padding: 60px 20px;">
+  <!-- 1. FLEET SECTION -->
+  <section class="reveal-section" style="background-color: #0b0f19; padding: 60px 20px;">
     <div style="max-width: 1200px; margin: 0 auto;">
       
-      <!-- Section Header -->
       <div style="text-align: center; margin-bottom: 50px;">
-        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 20px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.05); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);">
+        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.5); padding: 8px 22px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.08); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
           Choose Your Ride
         </div>
         <h2 style="font-size: 38px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">
@@ -801,13 +830,12 @@
         </p>
       </div>
 
-      <!-- Fleet Grid -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
 
-        <!-- 1. Toyota Glanza -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <!-- Toyota Glanza -->
+        <div class="animated-card" style="overflow: hidden;">
           <div style="width: 100%; height: 220px; overflow: hidden;">
-            <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
           </div>
           <div style="padding: 25px;">
             <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">Hatchback</span>
@@ -816,10 +844,10 @@
           </div>
         </div>
 
-        <!-- 2. Swift Dzire -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <!-- Swift Dzire -->
+        <div class="animated-card" style="overflow: hidden;">
           <div style="width: 100%; height: 220px; overflow: hidden;">
-            <img src="IMG_4678.jpeg" alt="Swift Dzire" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="IMG_4678.jpeg" alt="Swift Dzire" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
           </div>
           <div style="padding: 25px;">
             <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">Sedan</span>
@@ -828,10 +856,10 @@
           </div>
         </div>
 
-        <!-- 3. Maruti Ertiga -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <!-- Maruti Ertiga -->
+        <div class="animated-card" style="overflow: hidden;">
           <div style="width: 100%; height: 220px; overflow: hidden;">
-            <img src="IMG_4938.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="IMG_4938.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
           </div>
           <div style="padding: 25px;">
             <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">SUV</span>
@@ -840,10 +868,10 @@
           </div>
         </div>
 
-        <!-- 4. Toyota Innova Crysta -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <!-- Toyota Innova Crysta -->
+        <div class="animated-card" style="overflow: hidden;">
           <div style="width: 100%; height: 220px; overflow: hidden;">
-            <img src="IMG_4936.jpeg" alt="Innova Crysta" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="IMG_4936.jpeg" alt="Innova Crysta" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
           </div>
           <div style="padding: 25px;">
             <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">MPV</span>
@@ -852,10 +880,10 @@
           </div>
         </div>
 
-        <!-- 5. Tempo Traveller Urbania -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <!-- Tempo Traveller Urbania -->
+        <div class="animated-card" style="overflow: hidden;">
           <div style="width: 100%; height: 220px; overflow: hidden;">
-            <img src="IMG_4937.jpeg" alt="Tempo Traveller Urbania" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="IMG_4937.jpeg" alt="Tempo Traveller Urbania" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
           </div>
           <div style="padding: 25px;">
             <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">Tempo Traveller</span>
@@ -869,12 +897,11 @@
   </section>
 
   <!-- 2. HOW YOUR ROUND TRIP WORKS SECTION -->
-  <section style="background-color: #0b0f19; padding: 60px 20px;">
+  <section class="reveal-section" style="background-color: #0b0f19; padding: 60px 20px;">
     <div style="max-width: 1200px; margin: 0 auto;">
       
-      <!-- Section Header -->
       <div style="text-align: center; margin-bottom: 50px;">
-        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 20px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.05); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);">
+        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.5); padding: 8px 22px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.08); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
           Simple Booking
         </div>
         <h2 style="font-size: 38px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">
@@ -885,32 +912,27 @@
         </p>
       </div>
 
-      <!-- 4 Steps Grid -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px;">
 
-        <!-- Step 01 -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <div class="animated-card" style="padding: 30px;">
           <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">01</span>
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Select Destination</h3>
           <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Choose any Round Trip destination from the list above.</p>
         </div>
 
-        <!-- Step 02 -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <div class="animated-card" style="padding: 30px;">
           <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">02</span>
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Choose Vehicle</h3>
           <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Select the car that matches your family size and comfort level.</p>
         </div>
 
-        <!-- Step 03 -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <div class="animated-card" style="padding: 30px;">
           <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">03</span>
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Plan Your Journey</h3>
           <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Share travel dates, pickup point, stay and sightseeing requirements.</p>
         </div>
 
-        <!-- Step 04 -->
-        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <div class="animated-card" style="padding: 30px;">
           <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">04</span>
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Confirm Booking</h3>
           <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Get your final quote and trip confirmation directly from our team.</p>
@@ -918,15 +940,15 @@
 
       </div>
 
-      <!-- 3. READY FOR YOUR NEXT ROUND TRIP (Golden Popup Card with Number 6280544730) -->
-      <div style="margin-top: 50px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 24px; padding: 40px; text-align: center; color: #0b0f19; box-shadow: 0 10px 40px rgba(245, 158, 11, 0.3);">
-        <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #0b0f19;">Ready for your next round trip?</h3>
-        <p style="font-size: 16px; color: #1e293b; max-width: 600px; margin: 0 auto 25px auto;">
+      <!-- 3. READY FOR YOUR NEXT ROUND TRIP (Matched with logo golden tone and glowing border) -->
+      <div class="animated-card" style="margin-top: 50px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(15, 23, 42, 0.9)); border: 2px solid #d4af37; border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);">
+        <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">Ready for your next round trip?</h3>
+        <p style="font-size: 16px; color: #cbd5e1; max-width: 600px; margin: 0 auto 25px auto;">
           Tell us your destination, travel dates and passenger count. We will recommend the ideal cab and itinerary for your ride.
         </p>
         <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-          <a href="tel:6280544730" style="background: #0b0f19; color: #ffffff; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Call Now</a>
-          <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20round%20trip." target="_blank" style="background: #ffffff; color: #0b0f19; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">WhatsApp Us</a>
+          <a href="tel:6280544730" style="background: #d4af37; color: #0b0f19; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(212,175,55,0.4); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Call Now</a>
+          <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20round%20trip." target="_blank" style="background: transparent; border: 2px solid #d4af37; color: #ffffff; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">WhatsApp Us</a>
         </div>
       </div>
 
@@ -934,7 +956,7 @@
   </section>
 
   <!-- 4. PROFESSIONAL FOOTER SECTION -->
-  <footer style="background-color: #0b0f19; padding: 60px 20px 30px 20px; border-top: 1px solid rgba(212, 175, 55, 0.15);">
+  <footer style="background-color: #0b0f19; padding: 60px 20px 30px 20px; border-top: 1px solid rgba(212, 175, 55, 0.2);">
     <div style="max-width: 1200px; margin: 0 auto;">
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
