@@ -750,58 +750,235 @@
             reveals.forEach(reveal => observer.observe(reveal));
         });
     </script>
-    <!-- Add this complete footer section code right below your previous booking and CTA sections to match your exact reference design -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shri Radha Travels - Round Trips & Fleet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0b0f19;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Smooth hover & popup animation classes */
+    .card-hover {
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+  </style>
+</head>
+<body>
 
-<footer style="background-color: #0b0f19; padding: 60px 20px 30px 20px; font-family: 'Playfair Display', serif, sans-serif; color: #ffffff; border-top: 1px solid rgba(212, 175, 55, 0.15);">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    
-    <!-- Footer Grid Links / Columns -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+  <!-- 1. FLEET SECTION (A fleet for every journey with 5 cars) -->
+  <section style="background-color: #0b0f19; padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
       
-      <!-- Column 1: Brand Info -->
-      <div>
-        <h3 style="font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 15px; letter-spacing: 0.5px;">Shri Radha Travels</h3>
-        <p style="font-size: 14px; color: #94a3b8; font-family: sans-serif; line-height: 1.6; margin-bottom: 15px;">
-          Premium private cab services from Chandigarh for Himachal, Punjab, Uttarakhand, Delhi, and North India.
-        </p>
-        <p style="font-size: 14px; color: #d4af37; font-family: sans-serif; margin: 0;">
-          Website: <a href="https://shriradhatravels.com" target="_blank" style="color: #d4af37; text-decoration: none;">www.shriradhatravels.com</a>
-        </p>
-      </div>
-
-      <!-- Column 2: Round Trips -->
-      <div>
-        <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px; letter-spacing: 0.5px;">Round Trips</h3>
-        <p style="font-size: 14px; color: #94a3b8; font-family: sans-serif; line-height: 2; margin: 0;">
-          Shimla · Manali · Amritsar · Spiti<br>
-          Dalhousie · Mussoorie · Rishikesh
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 50px;">
+        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 20px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.05); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);">
+          Choose Your Ride
+        </div>
+        <h2 style="font-size: 38px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">
+          A fleet for every journey.
+        </h2>
+        <p style="color: #94a3b8; font-size: 16px; max-width: 600px; margin: 0 auto;">
+          Clean, insured, and luxury maintained vehicles for your road trips.
         </p>
       </div>
 
-      <!-- Column 3: Book Your Cab -->
-      <div>
-        <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px; letter-spacing: 0.5px;">Book Your Cab</h3>
-        <p style="font-size: 14px; color: #94a3b8; font-family: sans-serif; line-height: 1.8; margin-bottom: 10px;">
-          Call: <a href="tel:6280544730" style="color: #ffffff; text-decoration: none; font-weight: 600;">+91 62805 44730</a>
+      <!-- Fleet Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+
+        <!-- 1. Toyota Glanza -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <div style="width: 100%; height: 220px; overflow: hidden;">
+            <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 25px;">
+            <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">Hatchback</span>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Toyota Glanza 4+1</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin: 0;">4+1 Seating | Fuel Efficient & Super Comfortable</p>
+          </div>
+        </div>
+
+        <!-- 2. Swift Dzire -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <div style="width: 100%; height: 220px; overflow: hidden;">
+            <img src="IMG_4678.jpeg" alt="Swift Dzire" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 25px;">
+            <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">Sedan</span>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Swift Dzire 4+1</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin: 0;">4+1 Seating | Ample Luggage Space</p>
+          </div>
+        </div>
+
+        <!-- 3. Maruti Ertiga -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <div style="width: 100%; height: 220px; overflow: hidden;">
+            <img src="IMG_4938.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 25px;">
+            <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">SUV</span>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Maruti Ertiga 6+1</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin: 0;">6+1 Seating | Family Friendly & Spacious</p>
+          </div>
+        </div>
+
+        <!-- 4. Toyota Innova Crysta -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <div style="width: 100%; height: 220px; overflow: hidden;">
+            <img src="IMG_4936.jpeg" alt="Innova Crysta" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 25px;">
+            <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">MPV</span>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Innova Crysta 7+1</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin: 0;">7+1 Seating | Premium Luxury & Power</p>
+          </div>
+        </div>
+
+        <!-- 5. Tempo Traveller Urbania -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <div style="width: 100%; height: 220px; overflow: hidden;">
+            <img src="IMG_4937.jpeg" alt="Tempo Traveller Urbania" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 25px;">
+            <span style="font-size: 12px; letter-spacing: 1.5px; color: #d4af37; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;">Tempo Traveller</span>
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Urbania</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin: 0;">High Capacity | Ultimate Group Comfort</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. HOW YOUR ROUND TRIP WORKS SECTION -->
+  <section style="background-color: #0b0f19; padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 50px;">
+        <div style="display: inline-block; border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 20px; border-radius: 50px; font-size: 14px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 20px; background: rgba(212, 175, 55, 0.05); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);">
+          Simple Booking
+        </div>
+        <h2 style="font-size: 38px; font-weight: 700; margin-bottom: 15px; color: #ffffff;">
+          How Your Round Trip Works
+        </h2>
+        <p style="color: #94a3b8; font-size: 16px; max-width: 650px; margin: 0 auto;">
+          Designed like a professional travel company website: clear destination selection, vehicle choice, itinerary planning and direct booking.
         </p>
-        <p style="font-size: 14px; color: #94a3b8; font-family: sans-serif; margin: 0; line-height: 1.6;">
-          WhatsApp available for quick booking & quote.
+      </div>
+
+      <!-- 4 Steps Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px;">
+
+        <!-- Step 01 -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">01</span>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Select Destination</h3>
+          <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Choose any Round Trip destination from the list above.</p>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">02</span>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Choose Vehicle</h3>
+          <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Select the car that matches your family size and comfort level.</p>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">03</span>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Plan Your Journey</h3>
+          <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Share travel dates, pickup point, stay and sightseeing requirements.</p>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="card-hover" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+          <span style="font-size: 18px; font-weight: 700; color: #d4af37; display: block; margin-bottom: 15px; letter-spacing: 1px;">04</span>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">Confirm Booking</h3>
+          <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">Get your final quote and trip confirmation directly from our team.</p>
+        </div>
+
+      </div>
+
+      <!-- 3. READY FOR YOUR NEXT ROUND TRIP (Golden Popup Card with Number 6280544730) -->
+      <div style="margin-top: 50px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 24px; padding: 40px; text-align: center; color: #0b0f19; box-shadow: 0 10px 40px rgba(245, 158, 11, 0.3);">
+        <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: #0b0f19;">Ready for your next round trip?</h3>
+        <p style="font-size: 16px; color: #1e293b; max-width: 600px; margin: 0 auto 25px auto;">
+          Tell us your destination, travel dates and passenger count. We will recommend the ideal cab and itinerary for your ride.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+          <a href="tel:6280544730" style="background: #0b0f19; color: #ffffff; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Call Now</a>
+          <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20round%20trip." target="_blank" style="background: #ffffff; color: #0b0f19; padding: 12px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">WhatsApp Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. PROFESSIONAL FOOTER SECTION -->
+  <footer style="background-color: #0b0f19; padding: 60px 20px 30px 20px; border-top: 1px solid rgba(212, 175, 55, 0.15);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+        
+        <div>
+          <h3 style="font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">Shri Radha Travels</h3>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 1.6; margin-bottom: 15px;">
+            Premium private cab services from Chandigarh for Himachal, Punjab, Uttarakhand, Delhi, and North India.
+          </p>
+          <p style="font-size: 14px; color: #d4af37; margin: 0;">
+            Website: <a href="https://shriradhatravels.com" target="_blank" style="color: #d4af37; text-decoration: none;">www.shriradhatravels.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">Round Trips</h3>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 2; margin: 0;">
+            Shimla · Manali · Amritsar · Spiti<br>
+            Dalhousie · Mussoorie · Rishikesh
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px;">Book Your Cab</h3>
+          <p style="font-size: 14px; color: #94a3b8; line-height: 1.8; margin-bottom: 10px;">
+            Call: <a href="tel:6280544730" style="color: #ffffff; text-decoration: none; font-weight: 600;">+91 62805 44730</a>
+          </p>
+          <p style="font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6;">
+            WhatsApp available for quick booking & quote.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="width: 100%; height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 30px;"></div>
+
+      <div style="text-align: center;">
+        <p style="font-size: 13px; color: #64748b; margin: 0; line-height: 1.5;">
+          © 2026 Shri Radha Travels. All rights reserved. Premium Round Trip Cab Services
         </p>
       </div>
 
     </div>
+  </footer>
 
-    <!-- Divider Line -->
-    <div style="width: 100%; height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 30px;"></div>
-
-    <!-- Copyright Bottom Bar -->
-    <div style="text-align: center;">
-      <p style="font-size: 13px; color: #64748b; font-family: sans-serif; margin: 0; line-height: 1.5;">
-        © 2026 Shri Radha Travels. All rights reserved. Premium Round Trip Cab Services
-      </p>
-    </div>
-
-  </div>
-</footer>
 </body>
 </html>
