@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Details - Shri Radha Travels</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playball&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -38,7 +39,6 @@
         }
 
         /* --- Animations --- */
-        /* Watery / Shimmering Text Animation */
         .watery-text {
             background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37, #ffdf00, #d4af37);
             background-size: 300% 300%;
@@ -54,7 +54,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Scroll Reveal Animation */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -65,7 +64,6 @@
             transform: translateY(0);
         }
 
-        /* Golden Glowing Border Animation */
         .glowing-border {
             position: relative;
             background: var(--bg-card);
@@ -98,24 +96,41 @@
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            object-fit: cover;
+            background: #000;
+        }
+
         .brand-title {
             font-family: 'Playball', cursive;
             color: var(--gold);
-            font-size: 28px;
-            text-decoration: none;
+            font-size: 26px;
             font-weight: bold;
+            line-height: 1;
         }
 
         .home-btn {
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid var(--gold);
             color: var(--gold);
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 30px;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .home-btn:hover {
@@ -197,8 +212,6 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            position: relative;
-            z-index: 99;
             transition: all 0.2s ease;
         }
 
@@ -218,8 +231,7 @@
             color: #ffffff;
             font-size: 15px;
             outline: none;
-            position: relative;
-            z-index: 99;
+            box-sizing: border-box; /* Fix for overflow */
         }
 
         .input-field:focus {
@@ -237,8 +249,6 @@
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
-            position: relative;
-            z-index: 99;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             margin-top: 10px;
             transition: transform 0.2s, background 0.2s;
@@ -337,8 +347,12 @@
 <body>
 
     <div class="container">
+        <!-- Navigation Header with Logo & Brand Name -->
         <header class="nav-header scroll-reveal">
-            <a href="index.html" class="brand-title">Shri Radha Travels</a>
+            <a href="index.html" class="brand-container">
+                <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://via.placeholder.com/48?text=SR'">
+                <span class="brand-title">Shri Radha <span style="font-style: italic; font-weight: 400;">Travels</span></span>
+            </a>
             <a href="index.html" class="home-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
         </header>
 
@@ -377,11 +391,13 @@
             <p id="placeDescription">Discover breathtaking landscapes and rich culture with Shri Radha Travels.</p>
         </div>
 
+        <!-- Places to Visit Section -->
         <div id="placesToVisitContainer" class="scroll-reveal">
             <h3 class="places-section-title" id="placesHeaderTitle">Places to Visit</h3>
             <div id="placesListWrapper"></div>
         </div>
 
+        <!-- What's Included Section -->
         <div class="section-box scroll-reveal">
             <div class="card-title" style="font-size: 18px;">What's Included</div>
             <ul class="included-list">
@@ -601,7 +617,6 @@
         document.getElementById('placeLocation').innerText = "📍 " + currentData.location;
         document.getElementById('placeDescription').innerText = currentData.description;
 
-        // Render dynamic Places to Visit list
         if(currentData.places) {
             document.getElementById('placesHeaderTitle').innerText = `Places to Visit (${currentData.places.length})`;
             const wrapper = document.getElementById('placesListWrapper');
@@ -647,7 +662,6 @@
             phoneInput.value = "";
         };
 
-        // Scroll Reveal Animation Observer
         document.addEventListener("DOMContentLoaded", function() {
             const reveals = document.querySelectorAll(".scroll-reveal");
             const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -30px 0px" };
