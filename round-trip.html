@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Round Trip Taxi Service | Shri Radha Travels</title>
-    <meta name="description" content="Book Outstation Round Trip Cabs with Shri Radha Travels. Best rates, verified drivers & luxury cars.">
+    <title>Round Trips Made Premium | Shri Radha Travels</title>
+    <meta name="description" content="Private chauffeur-driven round trip cabs from Chandigarh for Himalayan getaways, family holidays & business travel.">
     
-    <!-- Google Fonts & Font Awesome -->
+    <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <style>
+        :root {
+            --bg-dark: #080b12;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(251, 191, 36, 0.2);
+            --gold: #fbbf24;
+            --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -21,20 +31,22 @@
         }
 
         body {
-            background-color: #0b0f19;
-            color: #ffffff;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             min-height: 100vh;
-            padding-bottom: 60px;
+            padding-bottom: 70px;
+            overflow-x: hidden;
         }
 
-        /* Top Navigation Header */
+        /* Top Header Navigation */
         .top-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            background: rgba(11, 15, 25, 0.95);
-            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            padding: 16px 20px;
+            background: rgba(8, 11, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -44,10 +56,15 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #fbbf24;
+            color: var(--gold);
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-3px);
         }
 
         .brand-logo {
@@ -56,139 +73,445 @@
             font-size: 16px;
             font-weight: 700;
         }
-        .brand-logo span { color: #fbbf24; }
+        .brand-logo span { color: var(--gold); }
 
-        /* Page Container */
+        /* Container */
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
-            padding: 24px 16px;
+            padding: 20px 16px;
         }
 
-        /* Hero Header Box */
-        .hero-card {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
-            border: 1.5px solid rgba(251, 191, 36, 0.4);
-            border-radius: 16px;
-            padding: 24px 20px;
-            text-align: center;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .hero-badge {
+        /* Hero Section */
+        .badge-pill {
             display: inline-block;
-            background: rgba(251, 191, 36, 0.15);
-            color: #fbbf24;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
+            background: rgba(251, 191, 36, 0.12);
             border: 1px solid rgba(251, 191, 36, 0.3);
-        }
-
-        .hero-title {
-            font-size: 24px;
+            color: var(--gold);
+            font-size: 10px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        .hero-title span { color: #fbbf24; }
-
-        .hero-desc {
-            font-size: 13px;
-            color: #94a3b8;
-            line-height: 1.6;
-        }
-
-        /* Features Bullet Points */
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .feature-box {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feature-box i {
-            color: #fbbf24;
-            font-size: 16px;
-        }
-
-        .feature-box span {
-            font-size: 12px;
-            color: #e2e8f0;
-            font-weight: 500;
-        }
-
-        /* Booking Form Card */
-        .form-card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(251, 191, 36, 0.5);
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
-
-        .form-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            text-align: center;
+            letter-spacing: 2px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            text-transform: uppercase;
             margin-bottom: 16px;
         }
 
-        .input-group {
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+        .hero-title span { color: var(--gold); }
+
+        .hero-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .btn-primary-gold {
+            flex: 1;
+            background: var(--gold-gradient);
+            color: #080b12;
+            padding: 14px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.25);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-secondary-dark {
+            flex: 1;
+            background: rgba(30, 41, 59, 0.8);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 14px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Banner Box */
+        .banner-card {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .tags-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tag-item {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .banner-inner {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .banner-inner h4 {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .banner-inner p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Features Section */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .feature-item h3 {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Section Title */
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .section-header p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Destination Cards Grid */
+        .dest-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .dest-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .dest-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 12px;
         }
 
-        .input-group input, .input-group select {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(251, 191, 36, 0.4);
-            background: rgba(15, 23, 42, 0.8);
-            color: #ffffff;
+        .dest-num {
             font-size: 14px;
-            outline: none;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            color: var(--gold);
         }
 
-        .input-group input:focus, .input-group select:focus {
-            border-color: #fbbf24;
-            background: #131b2e;
-            box-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+        .dest-region {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
         }
 
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-            color: #0b0f19;
-            border: none;
+        .dest-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .dest-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .dest-ideal {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 16px;
+        }
+
+        .dest-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view {
+            flex: 1;
+            background: rgba(30, 41, 59, 0.9);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-view:hover {
+            background: rgba(251, 191, 36, 0.15);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-book-card {
+            flex: 1;
+            background: var(--gold-gradient);
+            color: #080b12;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 13px;
             font-weight: 700;
             cursor: pointer;
-            margin-top: 6px;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+            text-align: center;
+            text-decoration: none;
         }
 
-        /* Floating Buttons Stack */
+        /* Choose Your Ride Section */
+        .cars-section {
+            margin-top: 40px;
+        }
+
+        .car-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .car-img-box {
+            width: 100%;
+            height: 140px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-info h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .car-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .seat-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 16px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            border: 1.5px solid var(--gold);
+            border-radius: 20px;
+            padding: 24px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.85);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .modal-body p {
+            font-size: 13px;
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .modal-highlights {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .modal-highlights li {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-highlights li i {
+            color: var(--gold);
+        }
+
+        /* Booking Form Inputs Inside Modal */
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 13px;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--gold);
+        }
+
+        /* Floating Action Buttons */
         .floating-stack {
             position: fixed;
             bottom: 20px;
@@ -200,113 +523,461 @@
         }
 
         .float-btn {
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            font-size: 22px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
         }
+        .float-btn:hover { transform: scale(1.08); }
         .btn-wa { background: #25D366; }
         .btn-call { background: #eab308; }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header class="top-header">
         <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> Back to Home
+            <i class="fas fa-arrow-left"></i> Back to Main Website
         </a>
         <div class="brand-logo">Shri Radha <span>Travels</span></div>
     </header>
 
     <div class="container">
-        <!-- Hero Header -->
-        <div class="hero-card">
-            <span class="hero-badge">OUTSTATION CAB SERVICE</span>
-            <h1 class="hero-title">Round Trip <span>Service</span></h1>
-            <p class="hero-desc">Enjoy multi-day outstation journeys with dedicated luxury vehicles & personal chauffeur service across India.</p>
+        
+        <!-- Hero Banner -->
+        <span class="badge-pill">PREMIUM ROUND TRIP TAXI SERVICES</span>
+        <h1 class="hero-title">Round Trips, <span>Made Premium.</span></h1>
+        <p class="hero-desc">Private chauffeur-driven cabs from Chandigarh for comfortable Himalayan getaways, family holidays, business travel and long-distance round trips.</p>
+
+        <div class="hero-buttons">
+            <button class="btn-primary-gold" onclick="openBookingModal('General Round Trip')">
+                <i class="fas fa-calendar-check"></i> Book Round Trip
+            </button>
+            <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20inquire%20about%20Round%20Trip%20cabs." target="_blank" class="btn-secondary-dark">
+                <i class="fab fa-whatsapp"></i> WhatsApp Booking
+            </a>
         </div>
 
-        <!-- Features Grid -->
-        <div class="features-grid">
-            <div class="feature-box">
-                <i class="fas fa-user-shield"></i>
-                <span>Verified Drivers</span>
+        <!-- Banner Feature Card -->
+        <div class="banner-card">
+            <div class="tags-row">
+                <span class="tag-item"><i class="fas fa-check-circle"></i> Door-to-Door</span>
+                <span class="tag-item"><i class="fas fa-shield-alt"></i> Private Cab</span>
             </div>
-            <div class="feature-box">
-                <i class="fas fa-car-side"></i>
-                <span>Clean & Sanitized</span>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-tags"></i>
-                <span>No Hidden Charges</span>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-clock"></i>
-                <span>24x7 Pickup Available</span>
+            <div class="banner-inner">
+                <h4>Chandigarh ⇄ Himachal & North India</h4>
+                <p>Comfort • Safety • Professional Driver</p>
             </div>
         </div>
 
-        <!-- Booking Form Container -->
-        <div class="form-card">
-            <h2 class="form-title">Book Your Round Trip Ride</h2>
+        <!-- Key Features List -->
+        <div class="features-list">
+            <div class="feature-item">
+                <h3>Private Vehicles</h3>
+                <p>Your family, your cab, your schedule. No sharing, no rush.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Experienced Drivers</h3>
+                <p>Mountain routes and highway travel handled professionally.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Flexible Travel</h3>
+                <p>Pickup, local sightseeing & return options as per your custom plan.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Premium Comfort</h3>
+                <p>Clean, well-maintained, sanitized luxury vehicles for long trips.</p>
+            </div>
+        </div>
+
+        <!-- Destinations Section -->
+        <div class="section-header">
+            <span class="badge-pill">EXPLORE DESTINATIONS</span>
+            <h2>Chandigarh Round Trips</h2>
+            <p>Select a destination and click <strong>View Journey</strong> to reveal trip details or book instantly.</p>
+        </div>
+
+        <!-- 15 DESTINATIONS GRID -->
+        
+        <!-- 01: Shimla -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">01</span>
+                <span class="dest-region">Himachal</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Shimla</h3>
+            <p class="dest-desc">Premium private cab service for a comfortable Himalayan getaway to Shimla, Kufri, Chail and surrounding attractions.</p>
+            <p class="dest-ideal">Ideal For: Weekend Trips • Family Holidays • Couples • Corporate Travel</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Shimla', 'Chandigarh ⇄ Shimla Round Trip', 'Explore Mall Road, Ridge, Kufri adventure park & Jakhoo Temple with a dedicated private cab.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Shimla Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 02: Manali -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">02</span>
+                <span class="dest-region">Himachal</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Manali</h3>
+            <p class="dest-desc">A comfortable private round-trip journey to Manali covering Kullu Valley, Solang Valley, Atal Tunnel and local sights.</p>
+            <p class="dest-ideal">Ideal For: Family Holidays • Honeymoon • Adventure Trips • Group Travel</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Manali', 'Chandigarh ⇄ Manali Round Trip', 'Covers Solang Valley, Rohtang Pass access, Atal Tunnel, Hadimba Temple and Kullu Rafting.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Manali Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 03: Amritsar -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">03</span>
+                <span class="dest-region">Punjab</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Amritsar</h3>
+            <p class="dest-desc">Travel comfortably to Amritsar and experience the Golden Temple, Jallianwala Bagh, local markets and Wagah Border.</p>
+            <p class="dest-ideal">Ideal For: Family Trips • Religious Tours • Weekend Getaways</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Amritsar', 'Chandigarh ⇄ Amritsar Round Trip', 'Visit Golden Temple, Wagah Border Ceremony, Gobindgarh Fort and enjoy authentic Punjabi cuisine.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Amritsar Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 04: Dharamshala -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">04</span>
+                <span class="dest-region">Himachal</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Dharamshala & McLeod Ganj</h3>
+            <p class="dest-desc">Experience the peaceful Kangra Valley, monasteries, Bhagsu Waterfall, Naddi and scenic Himalayan surroundings.</p>
+            <p class="dest-ideal">Ideal For: Family Holidays • Spiritual Trips • Couples • Weekend Getaways</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Dharamshala', 'Chandigarh ⇄ Dharamshala Round Trip', 'Visit Dalai Lama Temple, McLeod Ganj Square, HPCA Stadium and Naddi Sunset Point.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Dharamshala Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 05: Dalhousie -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">05</span>
+                <span class="dest-region">Himachal</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Dalhousie & Khajjiar</h3>
+            <p class="dest-desc">Discover colonial Dalhousie, pine forests, scenic mountain roads and the famous mini Switzerland green meadows of Khajjiar.</p>
+            <p class="dest-ideal">Ideal For: Family Holidays • Couples • Nature Trips</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Dalhousie', 'Chandigarh ⇄ Dalhousie Round Trip', 'Explore Khajjiar Lake, Dainkund Peak, Panchpula and Mall Road with full flexibility.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Dalhousie Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 06: Kasol -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">06</span>
+                <span class="dest-region">Parvati Valley</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Kasol & Manikaran</h3>
+            <p class="dest-desc">Explore the beautiful Parvati Valley with Kasol, Manikaran Sahib, riverside landscapes and peaceful Himalayan villages.</p>
+            <p class="dest-ideal">Ideal For: Young Travellers • Couples • Friends • Adventure Trips</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Kasol', 'Chandigarh ⇄ Kasol Round Trip', 'Relax by the Parvati River, visit holy Manikaran Sahib hot springs, Chalal and Tosh.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Kasol Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 07: Kasauli -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">07</span>
+                <span class="dest-region">Short Escape</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Kasauli</h3>
+            <p class="dest-desc">A premium short mountain escape featuring Kasauli's peaceful pine forests, Mall Road, viewpoints and colonial charm.</p>
+            <p class="dest-ideal">Ideal For: Weekend Getaways • Couples • Family Trips</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Kasauli', 'Chandigarh ⇄ Kasauli Round Trip', 'Visit Monkey Point, Gilbert Trail, Sunset Point and Christ Church.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Kasauli Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 08: Mussoorie -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">08</span>
+                <span class="dest-region">Uttarakhand</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Mussoorie</h3>
+            <p class="dest-desc">Enjoy a scenic journey to the Queen of Hills with Mall Road, Kempty Falls, Gun Hill and Landour.</p>
+            <p class="dest-ideal">Ideal For: Family Holidays • Couples • Weekend Trips</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Mussoorie', 'Chandigarh ⇄ Mussoorie Round Trip', 'Visit Kempty Falls, Lal Tibba in Landour, Cloud\'s End and Mall Road shopping.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Mussoorie Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 09: Rishikesh -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">09</span>
+                <span class="dest-region">Uttarakhand</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Rishikesh</h3>
+            <p class="dest-desc">A perfect combination of spirituality and adventure with Ganga Ghats, temples, cafés and riverside experiences.</p>
+            <p class="dest-ideal">Ideal For: Adventure • Spiritual Trips • Couples • Friends</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Rishikesh', 'Chandigarh ⇄ Rishikesh Round Trip', 'Experience Ram Jhula, Laxman Jhula, Ganga Aarti at Triveni Ghat and River Rafting.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Rishikesh Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 10: Haridwar -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">10</span>
+                <span class="dest-region">Uttarakhand</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Haridwar</h3>
+            <p class="dest-desc">Travel to the spiritual heart of Uttarakhand and experience Har Ki Pauri, temples and the sacred Ganga Aarti.</p>
+            <p class="dest-ideal">Ideal For: Pilgrimage • Family Trips • Spiritual Tours</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Haridwar', 'Chandigarh ⇄ Haridwar Round Trip', 'Attend Evening Ganga Aarti at Har Ki Pauri, visit Mansa Devi & Chandi Devi temples.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Haridwar Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 11: Delhi -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">11</span>
+                <span class="dest-region">NCR</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Delhi</h3>
+            <p class="dest-desc">Premium door-to-door round-trip cab service for business travel, shopping, airport transfers, events and family visits.</p>
+            <p class="dest-ideal">Ideal For: Corporate Travel • Airport Trips • Business • Family Travel</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Delhi', 'Chandigarh ⇄ Delhi NCR Round Trip', 'Hassle-free highway travel to IGI Airport, South Delhi, Gurugram or Noida.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Delhi Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 12: Jammu & Katra -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">12</span>
+                <span class="dest-region">Jammu Region</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Jammu & Katra</h3>
+            <p class="dest-desc">Comfortable private transportation for Jammu and Mata Vaishno Devi journeys with flexible pickup, stay and return options.</p>
+            <p class="dest-ideal">Ideal For: Religious Tours • Family Trips • Group Travel</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Katra', 'Chandigarh ⇄ Katra Round Trip', 'Direct cab service to Katra base camp for Mata Vaishno Devi Darshan with waiting option.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Katra Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 13: Dehradun -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">13</span>
+                <span class="dest-region">Uttarakhand</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Dehradun</h3>
+            <p class="dest-desc">A comfortable private round trip to Dehradun covering the city's major attractions and serving gateway to Uttarakhand.</p>
+            <p class="dest-ideal">Ideal For: Business Travel • Family Trips • Weekend Getaways</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Dehradun', 'Chandigarh ⇄ Dehradun Round Trip', 'Visit Robber\'s Cave, Sahastradhara, Mindrolling Monastery and FRI Campus.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Dehradun Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 14: Spiti Valley -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">14</span>
+                <span class="dest-region">Premium Road Trip</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Spiti Valley</h3>
+            <p class="dest-desc">The ultimate Himalayan road trip through Shimla, Kinnaur and Spiti featuring high-altitude villages, monasteries and landscapes.</p>
+            <p class="dest-ideal">Ideal For: Adventure • Road Trips • Photography • Premium Group Travel</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Spiti', 'Chandigarh ⇄ Spiti Valley Expedition', 'Multi-day expedition covering Kaza, Key Monastery, Chandratal Lake & Chitkul with mountain expert drivers.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Spiti Valley Round Trip')">Book</button>
+            </div>
+        </div>
+
+        <!-- 15: Chamba -->
+        <div class="dest-card">
+            <div class="dest-card-header">
+                <span class="dest-num">15</span>
+                <span class="dest-region">Himachal</span>
+            </div>
+            <h3 class="dest-title">Chandigarh ⇄ Chamba</h3>
+            <p class="dest-desc">Explore the untouched Himalayan beauty of Chamba with ancient temples, mountain valleys, scenic roads and nearby Khajjiar.</p>
+            <p class="dest-ideal">Ideal For: Nature Lovers • Family Holidays • Long Weekend Trips</p>
+            <div class="dest-actions">
+                <button class="btn-view" onclick="showJourneyModal('Chamba', 'Chandigarh ⇄ Chamba Round Trip', 'Visit Lakshmi Narayan Temple, Chamera Lake boating and historic Chowgan grounds.')">View Journey</button>
+                <button class="btn-book-card" onclick="openBookingModal('Chandigarh to Chamba Round Trip')">Book</button>
+            </div>
+        </div>
+
+
+        <!-- CHOOSE YOUR RIDE SECTION -->
+        <div class="cars-section">
+            <div class="section-header">
+                <h2>Choose Your Ride</h2>
+                <p>Use the same premium vehicle lineup across Round Trips—clean interiors, comfortable seating and professional chauffeur service.</p>
+            </div>
+
+            <!-- Car Option 1 -->
+            <div class="car-card">
+                <div class="car-img-box">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80" alt="Sedan Taxi">
+                </div>
+                <div class="car-info">
+                    <h3>Sedan / Hatchback</h3>
+                    <p>Smart, comfortable option for couples and small families. Dzire, Etios or Swift Glanza.</p>
+                    <span class="seat-badge">4+1 SEATING</span>
+                </div>
+                <button class="btn-primary-gold" onclick="openBookingModal('Sedan / Hatchback Round Trip')">Book Sedan</button>
+            </div>
+
+            <!-- Car Option 2 -->
+            <div class="car-card">
+                <div class="car-img-box">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="Ertiga Taxi">
+                </div>
+                <div class="car-info">
+                    <h3>Ertiga / Rumion</h3>
+                    <p>Extra space for families, luggage and longer mountain journeys across North India.</p>
+                    <span class="seat-badge">6+1 SEATING</span>
+                </div>
+                <button class="btn-primary-gold" onclick="openBookingModal('Ertiga / Rumion Round Trip')">Book Ertiga</button>
+            </div>
+
+            <!-- Car Option 3 -->
+            <div class="car-card">
+                <div class="car-img-box">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Innova Crysta Taxi">
+                </div>
+                <div class="car-info">
+                    <h3>Innova Crysta</h3>
+                    <p>Premium luxury comfort for family holidays, mountain trips and long-distance travel.</p>
+                    <span class="seat-badge">7+1 SEATING</span>
+                </div>
+                <button class="btn-primary-gold" onclick="openBookingModal('Innova Crysta Round Trip')">Book Innova Crysta</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JOURNEY DETAILS MODAL POPUP -->
+    <div class="modal-overlay" id="journeyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('journeyModal')">&times;</button>
+            <h3 class="modal-title" id="modalRouteTitle">Chandigarh ⇄ Route</h3>
+            <p class="modal-subtitle">Comprehensive Private Round Trip Package</p>
+            <div class="modal-body">
+                <p id="modalRouteDesc">Journey details go here...</p>
+                <ul class="modal-highlights">
+                    <li><i class="fas fa-star"></i> Private cab exclusively for your group</li>
+                    <li><i class="fas fa-shield-alt"></i> Experienced driver for mountain & highway routes</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Door-to-door pickup and drop included</li>
+                    <li><i class="fas fa-clock"></i> Flexible itinerary and stoppage time</li>
+                </ul>
+                <button class="btn-primary-gold" style="width: 100%;" id="modalBookBtn">Book This Trip Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING FORM MODAL POPUP -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('bookingModal')">&times;</button>
+            <h3 class="modal-title">Book Your Round Trip</h3>
+            <p class="modal-subtitle">Shri Radha Travels - Instant Confirmation Request</p>
             
-            <form id="roundTripForm" action="https://api.web3forms.com/submit" method="POST">
+            <form action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="e25951c5-279a-41b8-bc1a-94b7904ce297">
-                <input type="hidden" name="subject" value="New Round Trip Booking - Shri Radha Travels">
+                <input type="hidden" name="subject" value="New Round Trip Booking Request">
                 <input type="hidden" name="redirect" value="https://shriradhatravels.com/thank-you.html">
 
-                <div class="input-group">
-                    <input type="text" name="Pickup_Location" placeholder="Pickup City / Location" required>
+                <div class="form-group">
+                    <input type="text" id="selectedPackageInput" name="Selected_Package" readonly style="color: var(--gold); font-weight:700;">
                 </div>
-
-                <div class="input-group">
-                    <input type="text" name="Destination" placeholder="Destination City(s)" required>
+                <div class="form-group">
+                    <input type="text" name="Full_Name" placeholder="Your Name" required>
                 </div>
-
-                <div class="input-group">
-                    <input type="date" name="Pickup_Date" required style="color: #94a3b8;" onchange="this.style.color='#fff'">
+                <div class="form-group">
+                    <input type="tel" name="Phone_Number" placeholder="Mobile Number" required>
                 </div>
-
-                <div class="input-group">
-                    <input type="date" name="Return_Date" required style="color: #94a3b8;" onchange="this.style.color='#fff'">
+                <div class="form-group">
+                    <input type="text" name="Pickup_Location" placeholder="Pickup Address / City" required>
                 </div>
-
-                <div class="input-group">
-                    <select name="Vehicle_Type" required>
-                        <option value="" disabled selected>Select Vehicle Class</option>
-                        <option value="Hatchback - Glanza">Hatchback (Glanza / Swift)</option>
-                        <option value="Sedan - Dzire">Sedan (Swift Dzire / Etios)</option>
-                        <option value="SUV - Ertiga">SUV (Maruti Ertiga / XL6)</option>
-                        <option value="Luxury MPV - Innova Crysta">Luxury MPV (Innova Crysta)</option>
-                        <option value="Tempo Traveller">Tempo Traveller (12 - 26 Seater)</option>
+                <div class="form-group">
+                    <input type="date" name="Travel_Date" required style="color: var(--text-muted);" onchange="this.style.color='#fff'">
+                </div>
+                <div class="form-group">
+                    <select name="Car_Type" required>
+                        <option value="" disabled selected>Select Preferred Car</option>
+                        <option value="Sedan (Dzire / Etios)">Sedan (Dzire / Etios)</option>
+                        <option value="SUV (Ertiga / Rumion)">SUV (Ertiga / Rumion)</option>
+                        <option value="Luxury (Innova Crysta)">Luxury (Innova Crysta)</option>
+                        <option value="Tempo Traveller">Tempo Traveller</option>
                     </select>
                 </div>
-
-                <div class="input-group">
-                    <input type="tel" name="Phone_Number" placeholder="Enter Mobile Number" required>
-                </div>
-
-                <button type="submit" class="submit-btn">Reserve Round Trip Now</button>
+                <button type="submit" class="btn-primary-gold" style="width:100%; margin-top:10px;">Submit Booking Request</button>
             </form>
         </div>
     </div>
 
-    <!-- Floating Action Stack -->
+    <!-- Floating Buttons -->
     <div class="floating-stack">
-        <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20Round%20Trip%20Cab." target="_blank" class="float-btn btn-wa">
+        <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20Round%20Trip%20Cab." target="_blank" class="float-btn btn-wa" title="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:+916280544730" class="float-btn btn-call">
+        <a href="tel:+916280544730" class="float-btn btn-call" title="Call Now">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
+    <script>
+        function showJourneyModal(city, title, desc) {
+            document.getElementById('modalRouteTitle').innerText = title;
+            document.getElementById('modalRouteDesc').innerText = desc;
+            document.getElementById('modalBookBtn').onclick = function() {
+                closeModal('journeyModal');
+                openBookingModal(title);
+            };
+            document.getElementById('journeyModal').classList.add('active');
+        }
+
+        function openBookingModal(pkgName) {
+            document.getElementById('selectedPackageInput').value = pkgName || "General Round Trip";
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal on background click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>
