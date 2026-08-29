@@ -38,7 +38,7 @@
             margin: 0 auto;
         }
 
-        /* --- Animations & Effects --- */
+        /* --- Watery Animated Header Text --- */
         .watery-text {
             background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37, #ffdf00, #d4af37);
             background-size: 300% 300%;
@@ -64,28 +64,39 @@
             transform: translateY(0);
         }
 
-        /* Glowing Rotating Border Effect */
+        /* --- Smooth Rotating Golden Border Animation (Gol-Gol Ghumne Wala Border) --- */
         .glowing-border {
             position: relative;
             background: var(--bg-card);
             border-radius: 18px;
             z-index: 1;
-            overflow: hidden; /* Ensures glowing border stays contained */
+            overflow: hidden;
         }
+
         .glowing-border::before {
-            content: "";
+            content: '';
             position: absolute;
-            inset: -2px;
-            border-radius: 20px;
-            background: linear-gradient(45deg, transparent, var(--gold), transparent, var(--gold));
-            z-index: -1;
-            opacity: 0.6;
-            animation: borderGlow 4s linear infinite;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            z-index: -2;
+            background: conic-gradient(from 0deg at 50% 50%, rgba(212, 175, 55, 0) 0deg, rgba(212, 175, 55, 0) 260deg, #d4af37 310deg, #fff8dc 360deg);
+            animation: rotateBorder 4s linear infinite;
         }
-        @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); opacity: 0.4; }
-            50% { opacity: 0.9; }
-            100% { filter: hue-rotate(360deg); opacity: 0.4; }
+
+        .glowing-border::after {
+            content: '';
+            position: absolute;
+            inset: 1.5px;
+            background: var(--bg-card);
+            border-radius: 17px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Header Navigation */
@@ -172,14 +183,11 @@
         /* Cards Styling */
         .booking-card, .experience-card, .section-box {
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 18px;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             color: var(--text-main);
-            position: relative;
-            z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .card-title {
@@ -237,20 +245,26 @@
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* Completely Fixed Date Field for iPhone Safari & Android Overflow */
+        /* Strictly Fixed Date Input Field Overflow */
         .input-field {
             width: 100% !important;
             max-width: 100% !important;
             min-width: 0 !important;
             padding: 12px 14px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.04) !important;
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            color: #ffffff;
+            color: #ffffff !important;
             font-size: 15px;
             outline: none;
             box-sizing: border-box;
             display: block;
+            -webkit-appearance: none;
+        }
+
+        .input-field::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
         }
 
         .input-field:focus {
@@ -277,10 +291,6 @@
             background: var(--gold-light);
         }
 
-        .book-submit-btn:active {
-            transform: scale(0.98);
-        }
-
         .experience-card p {
             color: var(--text-muted);
             font-size: 13px;
@@ -288,7 +298,7 @@
             margin-top: 6px;
         }
 
-        /* Places to Visit Styling with Rotating Golden Border */
+        /* Places to Visit Section */
         .places-section-title {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
@@ -299,13 +309,12 @@
 
         .place-item-card {
             background: var(--bg-card);
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 16px;
             margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             color: var(--text-main);
         }
 
@@ -365,7 +374,7 @@
 <body>
 
     <div class="container">
-        <!-- Navigation Header with exact requested Logo filename -->
+        <!-- Navigation Header -->
         <header class="nav-header scroll-reveal">
             <a href="index.html" class="brand-container">
                 <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo" onerror="this.src='logo.png'">
@@ -404,7 +413,7 @@
             <button type="button" class="book-submit-btn" id="bookNowBtn">Book Now</button>
         </div>
 
-        <div class="experience-card scroll-reveal">
+        <div class="experience-card glowing-border scroll-reveal">
             <div class="card-title" style="font-size: 16px;">About This Experience</div>
             <p id="placeDescription">Discover breathtaking landscapes and rich culture with Shri Radha Travels.</p>
         </div>
@@ -416,7 +425,7 @@
         </div>
 
         <!-- What's Included Section -->
-        <div class="section-box scroll-reveal">
+        <div class="section-box glowing-border scroll-reveal">
             <div class="card-title" style="font-size: 16px;">What's Included</div>
             <ul class="included-list">
                 <li><span>›</span> Professional verified driver</li>
