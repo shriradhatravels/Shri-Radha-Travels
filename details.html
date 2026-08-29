@@ -64,6 +64,7 @@
             transform: translateY(0);
         }
 
+        /* Glowing Rotating Border Effect */
         .glowing-border {
             position: relative;
             background: var(--bg-card);
@@ -77,16 +78,16 @@
             border-radius: 20px;
             background: linear-gradient(45deg, transparent, var(--gold), transparent, var(--gold));
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.6;
             animation: borderGlow 4s linear infinite;
         }
         @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); opacity: 0.3; }
-            50% { opacity: 0.8; }
-            100% { filter: hue-rotate(360deg); opacity: 0.3; }
+            0% { filter: hue-rotate(0deg); opacity: 0.4; }
+            50% { opacity: 0.9; }
+            100% { filter: hue-rotate(360deg); opacity: 0.4; }
         }
 
-        /* Header Navigation matching reference image */
+        /* Header Navigation */
         .nav-header {
             display: flex;
             justify-content: space-between;
@@ -235,7 +236,7 @@
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* Strict Fix for Date box overflow */
+        /* Fixed Date Field for iPhone & Android overflow issues */
         .input-field {
             width: 100% !important;
             max-width: 100% !important;
@@ -285,7 +286,7 @@
             margin-top: 6px;
         }
 
-        /* Places to Visit Styling */
+        /* Places to Visit Styling with Glowing Rotating Border */
         .places-section-title {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
@@ -296,10 +297,9 @@
 
         .place-item-card {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 14px;
             padding: 14px 16px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -363,10 +363,10 @@
 <body>
 
     <div class="container">
-        <!-- Navigation Header with exact Logo image & Brand Name -->
+        <!-- Navigation Header with exact requested Logo filename -->
         <header class="nav-header scroll-reveal">
             <a href="index.html" class="brand-container">
-                <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://via.placeholder.com/44?text=SR'">
+                <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo" onerror="this.src='logo.png'">
                 <div class="brand-title">Shri Radha <span>Travels</span></div>
             </a>
             <a href="tel:+919876543210" class="call-now-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
@@ -639,7 +639,7 @@
             wrapper.innerHTML = "";
             currentData.places.forEach((p, index) => {
                 wrapper.innerHTML += `
-                    <div class="place-item-card">
+                    <div class="place-item-card glowing-border">
                         <div class="place-number">${index + 1}</div>
                         <div class="place-details">
                             <h4>${p.name}</h4>
