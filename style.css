@@ -132,12 +132,12 @@ text-align:center;
 }
 
 .loader-logo{
-    width: 90px;
-    height: 90px;            /* Yeh line add karni hai */
-    object-fit: cover;       /* Yeh line add karni hai taaki image stretch na ho */
-    border-radius: 50%;      /* Yeh line add karni hai taaki gol rahe */
-    margin-bottom:20px;
-    animation:logoFloat 2s infinite ease-in-out;
+    width: 80px !important;    /* Size aur chota karne ke liye 80px kar sakte hain */
+    height: 80px !important;   /* Height dena zaroori hai */
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    animation: logoFloat 2s infinite ease-in-out;
 }
 
 .loader-content h1{
