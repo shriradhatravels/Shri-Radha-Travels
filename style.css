@@ -131,10 +131,12 @@ text-align:center;
 
 }
 
-.loader-logo{
-    width: 80px !important;    /* Size aur chota karne ke liye 80px kar sakte hain */
-    height: 80px !important;   /* Height dena zaroori hai */
-    object-fit: cover;
+.loader-logo {
+    width: 70px !important;
+    height: 70px !important;
+    max-width: 70px !important;
+    max-height: 70px !important;
+    object-fit: cover !important;
     border-radius: 50%;
     margin-bottom: 20px;
     animation: logoFloat 2s infinite ease-in-out;
