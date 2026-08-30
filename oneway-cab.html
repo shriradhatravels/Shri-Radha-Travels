@@ -64,27 +64,36 @@
             transform: translateY(0);
         }
 
-        /* Glowing Border Animation */
+        /* Glowing Border Animation (Gol-Gol ghumne wala golden border) */
         .glowing-border {
             position: relative;
             background: var(--bg-card);
             border-radius: 16px;
             z-index: 1;
+            overflow: hidden;
         }
         .glowing-border::before {
             content: "";
             position: absolute;
-            inset: -2px;
+            inset: -3px;
             border-radius: 18px;
-            background: linear-gradient(45deg, transparent, var(--gold), transparent, var(--gold));
+            background: conic-gradient(from 0deg, transparent 0%, transparent 70%, var(--gold) 90%, #fff 95%, var(--gold) 100%);
             z-index: -1;
-            opacity: 0.5;
             animation: borderGlow 4s linear infinite;
         }
         @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); opacity: 0.3; }
-            50% { opacity: 0.8; }
-            100% { filter: hue-rotate(360deg); opacity: 0.3; }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Inner cover to hide background bleed inside card */
+        .glowing-border::after {
+            content: "";
+            position: absolute;
+            inset: 1.5px;
+            background: var(--bg-card);
+            border-radius: 15px;
+            z-index: -1;
         }
 
         /* --- Header --- */
@@ -140,9 +149,7 @@
         
         /* --- Features Cards --- */
         .feature-card {
-            background: var(--bg-card); border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 25px; border-radius: 16px; margin-bottom: 15px;
-            border-left: 3px solid var(--gold);
             transition: transform 0.3s ease;
         }
         .feature-card:hover { transform: translateY(-3px); }
@@ -151,11 +158,11 @@
 
         /* --- Routes (15 Items) --- */
         .route-card {
-            background: var(--bg-card); border-radius: 16px; padding: 25px;
-            margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            border-radius: 16px; padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .route-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .route-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(212,175,55,0.2); }
         .route-num { color: var(--gold); font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; display: block; }
         .route-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
         .route-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; line-height: 1.5; }
@@ -169,8 +176,8 @@
 
         /* --- How It Works --- */
         .step-card {
-            background: var(--bg-card); padding: 30px; border-radius: 16px;
-            margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 30px; border-radius: 16px;
+            margin-bottom: 20px;
             transition: transform 0.3s;
         }
         .step-card:hover { transform: translateY(-3px); }
@@ -180,21 +187,20 @@
 
         /* --- Fleet Cars --- */
         .fleet-card {
-            background: var(--bg-card); border-radius: 16px; overflow: hidden;
-            margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s, border-color 0.3s;
+            border-radius: 16px; overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
         }
-        .fleet-card:hover { transform: translateY(-5px); border-color: rgba(212,175,55,0.3); }
+        .fleet-card:hover { transform: translateY(-5px); }
         .fleet-card img { width: 100%; height: 250px; object-fit: cover; }
-        .fleet-info { padding: 25px; }
+        .fleet-info { padding: 25px; position: relative; z-index: 2; background: var(--bg-card); }
         .fleet-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
         .fleet-info p { color: var(--text-muted); font-size: 0.95rem; }
 
         /* --- CTA Card --- */
         .cta-section { padding: 50px 5%; text-align: center; }
         .cta-card {
-            background: linear-gradient(180deg, var(--bg-card), #000);
-            padding: 40px 20px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3);
+            padding: 40px 20px; border-radius: 20px;
             max-width: 600px; margin: 0 auto; backdrop-filter: blur(10px);
         }
         .cta-card h2 { font-size: 2rem; margin-bottom: 15px; }
@@ -259,6 +265,7 @@
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="logo-container">
             <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo">
@@ -267,6 +274,7 @@
         <a href="tel:6280544730" class="call-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero scroll-reveal">
         <div class="badge-pill"><i class="fa-solid fa-circle"></i> POINT-TO-POINT INTERCITY TRAVEL</div>
         <h1>Chandigarh One-Way Cabs. <br><span class="italic-gold watery-text">Safe, Private & Reliable.</span></h1>
@@ -277,31 +285,34 @@
         </div>
     </section>
 
+    <!-- Features Container -->
     <div class="container">
-        <div class="feature-card scroll-reveal">
+        <div class="feature-card glowing-border scroll-reveal">
             <h3>Chandigarh ⇄ Himachal & North India</h3>
             <p>Comfort • Safety • Professional Mountain Driver</p>
         </div>
-        <div class="feature-card scroll-reveal">
+        <div class="feature-card glowing-border scroll-reveal">
             <h3>Private Vehicles</h3>
             <p>Your family, your cab, your flexible schedule.</p>
         </div>
-        <div class="feature-card scroll-reveal">
+        <div class="feature-card glowing-border scroll-reveal">
             <h3>Experienced Drivers</h3>
             <p>Mountain routes handled with utmost safety.</p>
         </div>
-        <div class="feature-card scroll-reveal">
+        <div class="feature-card glowing-border scroll-reveal">
             <h3>Flexible Travel</h3>
             <p>Pickup, sight-seeing & customized return options.</p>
         </div>
     </div>
 
+    <!-- The 15 Routes Section -->
     <div class="container" id="routes">
         <div class="section-title scroll-reveal">
             <div class="badge-pill" style="margin-bottom: 10px;">TOP DESTINATIONS</div>
             <h2>Explore Our Routes</h2>
         </div>
         
+        <!-- Route 1 -->
         <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">01 — Delhi</span>
             <h3>Chandigarh → Delhi One-Way Cab</h3>
@@ -310,7 +321,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Delhi', 'Approx. 5 Hours', '250 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 2 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">02 — Delhi Airport</span>
             <h3>Chandigarh → Delhi Airport One-Way Cab</h3>
             <p>Stress-free airport transfers from Chandigarh to IGI Airport with punctual pickup and comfortable highway travel.</p>
@@ -318,7 +330,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Delhi Airport', 'Approx. 5.5 Hours', '265 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 3 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">03 — Shimla</span>
             <h3>Chandigarh → Shimla One-Way Cab</h3>
             <p>Your comfortable gateway to the hills. Travel from Chandigarh to Shimla with a dedicated private cab and professional driver.</p>
@@ -326,7 +339,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Shimla', 'Approx. 3.5 Hours', '115 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 4 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">04 — Manali</span>
             <h3>Chandigarh → Manali One-Way Cab</h3>
             <p>A comfortable long-distance Himalayan transfer from Chandigarh to Manali with a dedicated vehicle and experienced driver.</p>
@@ -334,7 +348,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Manali', 'Approx. 8 Hours', '290 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 5 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">05 — Amritsar</span>
             <h3>Chandigarh → Amritsar One-Way Cab</h3>
             <p>Travel effortlessly to the Golden City with a private point-to-point cab from Chandigarh.</p>
@@ -342,7 +357,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Amritsar', 'Approx. 4.5 Hours', '225 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 6 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">06 — Dharamshala</span>
             <h3>Chandigarh → Dharamshala One-Way Cab</h3>
             <p>A smooth private transfer from Chandigarh to the Kangra Valley, designed for comfortable family and leisure travel.</p>
@@ -350,7 +366,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Dharamshala', 'Approx. 6 Hours', '240 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 7 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">07 — Dalhousie</span>
             <h3>Chandigarh → Dalhousie One-Way Cab</h3>
             <p>Travel into the mountains with a comfortable one-way cab to Dalhousie, perfect for family holidays and hill getaways.</p>
@@ -358,7 +375,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Dalhousie', 'Approx. 7 Hours', '310 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 8 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">08 — Kasauli</span>
             <h3>Chandigarh → Kasauli One-Way Cab</h3>
             <p>A convenient private hill transfer from Chandigarh to peaceful Kasauli.</p>
@@ -366,7 +384,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Kasauli', 'Approx. 2 Hours', '60 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 9 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">09 — Kasol</span>
             <h3>Chandigarh → Kasol One-Way Cab</h3>
             <p>Head into the Parvati Valley with a dedicated one-way cab from Chandigarh to Kasol.</p>
@@ -374,7 +393,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Kasol', 'Approx. 8 Hours', '270 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 10 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">10 — Kullu</span>
             <h3>Chandigarh → Kullu One-Way Cab</h3>
             <p>Comfortable point-to-point transportation from Chandigarh to the scenic Kullu Valley.</p>
@@ -382,7 +402,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Kullu', 'Approx. 7.5 Hours', '250 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 11 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">11 — Rishikesh</span>
             <h3>Chandigarh → Rishikesh One-Way Cab</h3>
             <p>Travel comfortably to the adventure and spiritual capital of Uttarakhand with a private one-way cab.</p>
@@ -390,7 +411,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Rishikesh', 'Approx. 5.5 Hours', '210 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 12 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">12 — Haridwar</span>
             <h3>Chandigarh → Haridwar One-Way Cab</h3>
             <p>A comfortable private transfer from Chandigarh to Haridwar for pilgrimage, family travel and weekend journeys.</p>
@@ -398,7 +420,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Haridwar', 'Approx. 5 Hours', '200 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 13 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">13 — Dehradun</span>
             <h3>Chandigarh → Dehradun One-Way Cab</h3>
             <p>Professional point-to-point cab service for business, family and personal travel to Dehradun.</p>
@@ -406,7 +429,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Dehradun', 'Approx. 4.5 Hours', '170 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 14 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">14 — Jammu</span>
             <h3>Chandigarh → Jammu One-Way Cab</h3>
             <p>A dependable long-distance private cab service connecting Chandigarh with Jammu comfortably and conveniently.</p>
@@ -414,7 +438,8 @@
             <button class="view-btn" onclick="openModal('Chandigarh ⇄ Jammu', 'Approx. 7 Hours', '340 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="route-card scroll-reveal">
+        <!-- Route 15 -->
+        <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">15 — Katra</span>
             <h3>Chandigarh → Katra One-Way Cab</h3>
             <p>Comfortable and convenient private transportation from Chandigarh to Katra for your Vaishno Devi journey.</p>
@@ -423,6 +448,7 @@
         </div>
     </div>
 
+    <!-- How It Works Section -->
     <div class="container">
         <div class="section-title scroll-reveal">
             <div class="badge-pill">SIMPLE BOOKING</div>
@@ -430,34 +456,35 @@
             <p style="color:var(--text-muted); max-width:500px; margin: 15px auto 0;">Designed like a professional travel company website: clear destination selection, vehicle choice, and direct booking.</p>
         </div>
 
-        <div class="step-card scroll-reveal">
+        <div class="step-card glowing-border scroll-reveal">
             <span class="step-num">01</span>
             <h3>Select Destination</h3>
             <p>Choose any One-Way destination from the list above.</p>
         </div>
-        <div class="step-card scroll-reveal">
+        <div class="step-card glowing-border scroll-reveal">
             <span class="step-num">02</span>
             <h3>Choose Vehicle</h3>
             <p>Select the car that matches your family size and comfort level.</p>
         </div>
-        <div class="step-card scroll-reveal">
+        <div class="step-card glowing-border scroll-reveal">
             <span class="step-num">03</span>
             <h3>Plan Your Journey</h3>
             <p>Share travel dates, pickup point, drop location and requirements.</p>
         </div>
-        <div class="step-card scroll-reveal">
+        <div class="step-card glowing-border scroll-reveal">
             <span class="step-num">04</span>
             <h3>Confirm Booking</h3>
             <p>Get your final quote and trip confirmation directly from our team.</p>
         </div>
     </div>
 
+    <!-- Fleet / Cars Section -->
     <div class="container">
         <div class="section-title scroll-reveal">
             <h2>Our Fleet</h2>
         </div>
 
-        <div class="fleet-card scroll-reveal">
+        <div class="fleet-card glowing-border scroll-reveal">
             <img src="IMG_4678.jpeg" alt="Swift Dzire">
             <div class="fleet-info">
                 <span class="step-num" style="font-size:0.9rem;">SEDAN</span>
@@ -465,7 +492,7 @@
                 <p>Ideal for small families & business trips with comfortable seating and ample boot space.</p>
             </div>
         </div>
-        <div class="fleet-card scroll-reveal">
+        <div class="fleet-card glowing-border scroll-reveal">
             <img src="IMG_4938.jpeg" alt="Maruti Ertiga">
             <div class="fleet-info">
                 <span class="step-num" style="font-size:0.9rem;">SUV</span>
@@ -473,7 +500,7 @@
                 <p>Spacious 6+1 seating option, perfect for family group tours and highway drives.</p>
             </div>
         </div>
-        <div class="fleet-card scroll-reveal">
+        <div class="fleet-card glowing-border scroll-reveal">
             <img src="IMG_4677.jpeg" alt="Toyota Glanza">
             <div class="fleet-info">
                 <span class="step-num" style="font-size:0.9rem;">HATCHBACK</span>
@@ -481,7 +508,7 @@
                 <p>Compact and super comfortable for quick city transfers and shorter drops.</p>
             </div>
         </div>
-        <div class="fleet-card scroll-reveal">
+        <div class="fleet-card glowing-border scroll-reveal">
             <img src="IMG_4936.jpeg" alt="Innova Crysta">
             <div class="fleet-info">
                 <span class="step-num" style="font-size:0.9rem;">MPV</span>
@@ -489,7 +516,7 @@
                 <p>Ultimate luxury and long-distance comfort with plush seating and powerful road performance.</p>
             </div>
         </div>
-        <div class="fleet-card scroll-reveal">
+        <div class="fleet-card glowing-border scroll-reveal">
             <img src="IMG_4937.jpeg" alt="Tempo Traveller">
             <div class="fleet-info">
                 <span class="step-num" style="font-size:0.9rem;">TEMPO TRAVELLER</span>
@@ -499,6 +526,7 @@
         </div>
     </div>
 
+    <!-- CTA Section -->
     <div class="cta-section scroll-reveal">
         <div class="cta-card glowing-border">
             <h2 class="watery-text">Ready for your next trip?</h2>
@@ -510,6 +538,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">Shri Radha <span style="color:var(--gold); font-style:italic;">Travels</span></div>
         <p class="footer-desc">Premium private cab services from Chandigarh for Himachal, Punjab, Uttarakhand, Delhi, and North India.</p>
@@ -531,6 +560,7 @@
         </div>
     </footer>
 
+    <!-- Popup Modal Structure -->
     <div class="modal-overlay" id="routeModal">
         <div class="modal-card">
             <i class="fa-solid fa-xmark close-modal" onclick="closeModal()"></i>
@@ -559,6 +589,7 @@
         </div>
     </div>
 
+    <!-- JavaScript for Animations and Modal -->
     <script>
         // Scroll Reveal Animation Script using Intersection Observer
         document.addEventListener("DOMContentLoaded", function() {
