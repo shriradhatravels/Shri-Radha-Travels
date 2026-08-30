@@ -137,7 +137,7 @@
             z-index: 2;
         }
 
-        /* Main Service Card with Gol-Gol Ghumne Wala (Rotating) Glowing Golden Border Animation */
+        /* Main Service Card with Rotating Golden Conic Border */
         .service-card {
             background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
             border-radius: 16px;
@@ -151,7 +151,6 @@
             animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Rotating Conic Gradient Border Effect */
         .service-card::before {
             content: '';
             position: absolute;
@@ -171,7 +170,6 @@
             z-index: -2;
         }
 
-        /* Inner Mask to preserve background color inside the card */
         .service-card::after {
             content: '';
             position: absolute;
@@ -207,7 +205,7 @@
             margin-bottom: 20px;
         }
 
-        /* Heading with Text Inside Animation (Shimmer/Gradient Flow) */
+        /* Heading with Text Shimmer Animation */
         h1 {
             font-family: 'Georgia', serif;
             font-size: 28px;
@@ -291,7 +289,7 @@
             font-weight: 600;
         }
 
-        /* Gol-Gol Ghumne Wala Rotating Golden Animation Icon Container */
+        /* Rotating Golden Icon Ring Animation */
         .rotating-icon-box {
             width: 38px;
             height: 38px;
@@ -324,25 +322,97 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        /* Action Buttons */
+        /* --- NEW MODERN TEXTURED BOOKING SECTION --- */
+        .booking-section-box {
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 60%),
+                        linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(7, 11, 22, 0.98) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05), 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-section-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shineBanner 6s infinite;
+        }
+        @keyframes shineBanner {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .booking-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* Rotating Golden Glow Ring for Booking Header */
+        .booking-ring-icon {
+            width: 44px;
+            height: 44px;
+            border: 2px dashed #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            animation: rotateRing 6s linear infinite;
+            flex-shrink: 0;
+        }
+        .booking-ring-icon i {
+            color: #d4af37;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        .booking-title-wrap h3 {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .booking-title-wrap p {
+            color: #94a3b8;
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.4;
+        }
+
         .action-container {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         .book-btn {
             flex: 1;
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
             color: #0b1329;
             text-align: center;
-            padding: 16px;
+            padding: 15px;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         .book-btn:hover {
             opacity: 0.95;
@@ -352,12 +422,12 @@
         .whatsapp-btn {
             background: #25d366;
             color: #ffffff;
-            padding: 16px 22px;
+            padding: 15px 20px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
@@ -398,11 +468,11 @@
 
     <!-- Container -->
     <div class="container">
-        <!-- Main Card with Gol-Gol Ghumne Wala Rotating Golden Border Animation -->
+        <!-- Main Card with Rotating Golden Conic Border -->
         <div class="service-card">
             <div class="service-badge"><i class="fas fa-briefcase"></i> Corporate Travel Solutions</div>
             
-            <!-- Heading with Inner Text Animation Shimmer -->
+            <!-- Heading with Shimmer Animation -->
             <h1>Corporate Cab Service – <span>Business Fleet & Executive Mobility</span></h1>
             
             <p>Elevate your business operations with our tailored corporate travel solutions. We provide dependable, executive-class fleet rentals including Innova Crysta, Swift Dzire, Glanza, Ertiga, and Urbania tempo travellers for daily employee commutes, client meetings, business conferences, and outstation corporate tours.</p>
@@ -449,10 +519,21 @@
                 </div>
             </div>
 
-            <div class="action-container">
-                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"></i> Corporate Booking</a>
-                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Corporate%20Travel%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+            <!-- New Textured Booking Box Design with Rotating Golden Icon & Polish -->
+            <div class="booking-section-box">
+                <div class="booking-header">
+                    <div class="booking-ring-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="booking-title-wrap">
+                        <h3>Ready to Schedule Corporate Travel?</h3>
+                        <p>Get instant corporate quotes or direct booking assistance.</p>
+                    </div>
+                </div>
+                <div class="action-container">
+                    <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Corporate Booking</a>
+                    <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Corporate%20Travel%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
+
         </div>
     </div>
 
