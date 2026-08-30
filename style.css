@@ -131,14 +131,13 @@ text-align:center;
 
 }
 
-.loader-logo {
+.loader img {
     width: 70px !important;
     height: 70px !important;
     max-width: 70px !important;
     max-height: 70px !important;
     object-fit: cover !important;
-    border: 3px solid red !important; /* Yeh line bas check karne ke liye dali hai */
-    border-radius: 50%;
+    border-radius: 50% !important;
     margin-bottom: 20px;
     animation: logoFloat 2s infinite ease-in-out;
 }
