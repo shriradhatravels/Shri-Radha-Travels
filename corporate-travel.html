@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate Travels - Shri Radha Travels</title>
+    <title>Corporate Travel - Shri Radha Travels</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,7 +14,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
+            background-color: #0b1329;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
@@ -49,135 +49,328 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(11, 19, 41, 0.90);
             z-index: -1;
         }
 
-        /* Header Bar */
+        /* Navbar */
         .header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 15px 20px;
+            background: #0b1329;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 2px solid #d4af37;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
         }
         .back-btn {
             color: #d4af37;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: 0.3s;
         }
         .back-btn:hover {
             color: #ffffff;
+            transform: translateX(-3px);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+        .brand-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+        .brand-title span {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #d4af37;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .call-nav-btn {
+            background: linear-gradient(135deg, #e5c158 0%, #c49a2a 100%);
+            color: #0b1329;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+        }
+        .call-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
 
         /* Container */
         .container {
-            max-width: 700px;
+            max-width: 750px;
             margin: 30px auto;
-            padding: 0 20px 50px 20px;
+            padding: 0 20px 60px 20px;
             position: relative;
             z-index: 2;
         }
 
-        /* Transparent Blue Blur Glass Card with Animation */
+        /* Main Service Card with Gol-Gol Ghumne Wala (Rotating) Glowing Golden Border Animation */
         .service-card {
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-left: 5px solid #d4af37;
+            background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
             border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            opacity: 0;
+            transform: translateY(35px);
+            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Vibrant Blue Heading */
-        h1 {
-            color: #38bdf8;
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+        /* Rotating Conic Gradient Border Effect */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                transparent, 
+                transparent, 
+                #d4af37, 
+                #fff, 
+                #d4af37
+            );
+            animation: rotateBorder 5s linear infinite;
+            z-index: -2;
         }
+
+        /* Inner Mask to preserve background color inside the card */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #0b1329;
+            border-radius: 14px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes scrollPopup {
+            0% { opacity: 0; transform: translateY(40px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        /* Heading with Text Inside Animation (Shimmer/Gradient Flow) */
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.35;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37, #f3e5ab);
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textShimmer 6s linear infinite;
+        }
+        @keyframes textShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+        h1 span {
+            font-style: italic;
+        }
+
         p {
             color: #cbd5e1;
             font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
-        .features-title {
+
+        .section-title {
             color: #d4af37;
-            font-size: 17px;
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 30px 0;
-        }
-        ul li {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            margin-bottom: 12px;
-            padding: 14px 18px;
-            border-radius: 10px;
-            color: #f8fafc;
-            font-size: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-left: 3px solid #38bdf8;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Clean List Layout */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
             transition: all 0.3s ease;
+            position: relative;
         }
-        ul li:hover {
+        .feature-row:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: #d4af37;
             transform: translateX(6px);
-            border-color: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
-        ul li i {
+        
+        .feature-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* Gol-Gol Ghumne Wala Rotating Golden Animation Icon Container */
+        .rotating-icon-box {
+            width: 38px;
+            height: 38px;
+            border: 2px dashed #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            animation: rotateRing 8s linear infinite;
+            flex-shrink: 0;
+        }
+        .rotating-icon-box i {
             color: #d4af37;
-            font-size: 16px;
+            font-size: 15px;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .feature-tag {
+            font-size: 11px;
+            background: rgba(212, 175, 55, 0.12);
+            color: #d4af37;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Action Buttons */
+        .action-container {
+            display: flex;
+            gap: 15px;
         }
         .book-btn {
-            display: block;
-            width: 100%;
+            flex: 1;
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-            color: #0f172a;
+            color: #0b1329;
             text-align: center;
-            padding: 15px;
+            padding: 16px;
             border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 15px;
+            font-weight: 800;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
         }
         .book-btn:hover {
             opacity: 0.95;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+        }
+        .whatsapp-btn {
+            background: #25d366;
+            color: #ffffff;
+            padding: 16px 22px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+        }
+
+        @media (max-width: 576px) {
+            .service-card { padding: 25px 20px; }
+            h1 { font-size: 22px; }
+            .action-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -193,28 +386,73 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Header -->
+    <!-- Header Navbar -->
     <div class="header">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <span style="color: #d4af37; font-weight: bold; font-size: 16px;">Shri Radha Travels</span>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+        <a href="index.html" class="brand-box">
+            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo">
+            <div class="brand-title">Shri Radha <span>Travels</span></div>
+        </a>
+        <a href="tel:9876543210" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
 
     <!-- Container -->
     <div class="container">
+        <!-- Main Card with Gol-Gol Ghumne Wala Rotating Golden Border Animation -->
         <div class="service-card">
-            <h1>Corporate Travel Solutions & Business Cabs</h1>
-            <p>Streamline your corporate transportation with our reliable, executive-class fleet. Designed for business professionals, executives, and employee commutes with total punctuality and comfort.</p>
+            <div class="service-badge"><i class="fas fa-briefcase"></i> Corporate Travel Solutions</div>
             
-            <div class="features-title">What's Included:</div>
-            <ul>
-                <li><i class="fas fa-briefcase"></i> Dedicated Corporate Fleet & Chauffeurs</li>
-                <li><i class="fas fa-file-invoice-dollar"></i> GST Invoicing & Easy Billing Options</li>
-                <li><i class="fas fa-clock"></i> 24x7 Priority Booking & Support</li>
-                <li><i class="fas fa-handshake"></i> Monthly Packages & Employee Cab Services</li>
-                <li><i class="fas fa-wifi"></i> Wi-Fi & Clean Workspace Environment in Cabs</li>
-            </ul>
+            <!-- Heading with Inner Text Animation Shimmer -->
+            <h1>Corporate Cab Service – <span>Business Fleet & Executive Mobility</span></h1>
+            
+            <p>Elevate your business operations with our tailored corporate travel solutions. We provide dependable, executive-class fleet rentals including Innova Crysta, Swift Dzire, Glanza, Ertiga, and Urbania tempo travellers for daily employee commutes, client meetings, business conferences, and outstation corporate tours.</p>
+            
+            <div class="section-title">Corporate Highlights</div>
+            
+            <div class="feature-grid">
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <span>GST Billing & Flexible Monthly Invoicing</span>
+                    </div>
+                    <span class="feature-tag">Business Ready</span>
+                </div>
+                
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-user-tie"></i></div>
+                        <span>Verified, Uniformed Professional Chauffeurs</span>
+                    </div>
+                    <span class="feature-tag">Executive</span>
+                </div>
 
-            <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Instant Booking</a>
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-car-side"></i></div>
+                        <span>Dedicated Fleet (Innova, Dzire, Urbania)</span>
+                    </div>
+                    <span class="feature-tag">All Models</span>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-clock"></i></div>
+                        <span>24×7 Priority Booking & Dispatch</span>
+                    </div>
+                    <span class="feature-tag">On-Demand</span>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-handshake"></i></div>
+                        <span>Dedicated Account Manager Support</span>
+                    </div>
+                    <span class="feature-tag">VIP Support</span>
+                </div>
+            </div>
+
+            <div class="action-container">
+                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"></i> Corporate Booking</a>
+                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Corporate%20Travel%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
     </div>
 
