@@ -14,7 +14,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
+            background-color: #0b1329;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
@@ -49,135 +49,411 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(11, 19, 41, 0.90);
             z-index: -1;
         }
 
-        /* Header Bar */
+        /* Navbar */
         .header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 15px 20px;
+            background: #0b1329;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 2px solid #d4af37;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
         }
         .back-btn {
             color: #d4af37;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: 0.3s;
         }
         .back-btn:hover {
             color: #ffffff;
+            transform: translateX(-3px);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+        .brand-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+        .brand-title span {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #d4af37;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .call-nav-btn {
+            background: linear-gradient(135deg, #e5c158 0%, #c49a2a 100%);
+            color: #0b1329;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+        }
+        .call-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
 
         /* Container */
         .container {
-            max-width: 700px;
+            max-width: 750px;
             margin: 30px auto;
-            padding: 0 20px 50px 20px;
+            padding: 0 20px 60px 20px;
             position: relative;
             z-index: 2;
         }
 
-        /* Transparent Blue Blur Glass Card with Animation */
+        /* Main Service Card with Rotating Golden Conic Border */
         .service-card {
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-left: 5px solid #d4af37;
+            background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
             border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            opacity: 0;
+            transform: translateY(35px);
+            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Vibrant Blue Heading */
-        h1 {
-            color: #38bdf8;
-            font-size: 24px;
-            margin-top: 0;
-            margin-bottom: 15px;
-            line-height: 1.4;
-            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                transparent, 
+                transparent, 
+                #d4af37, 
+                #fff, 
+                #d4af37
+            );
+            animation: rotateBorder 5s linear infinite;
+            z-index: -2;
         }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #0b1329;
+            border-radius: 14px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes scrollPopup {
+            0% { opacity: 0; transform: translateY(40px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        /* Heading with Shimmer Animation - Bigger Font Size */
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 34px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.25;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37, #f3e5ab);
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textShimmer 6s linear infinite;
+        }
+        @keyframes textShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+        h1 span {
+            font-style: italic;
+        }
+
         p {
             color: #cbd5e1;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.85;
+            margin-bottom: 30px;
         }
-        .features-title {
+
+        .section-title {
             color: #d4af37;
             font-size: 17px;
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 30px 0;
-        }
-        ul li {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            margin-bottom: 12px;
-            padding: 14px 18px;
-            border-radius: 10px;
-            color: #f8fafc;
-            font-size: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-left: 3px solid #38bdf8;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Enhanced Bold Feature Layout */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 35px;
+        }
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 22px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
             transition: all 0.3s ease;
+            position: relative;
         }
-        ul li:hover {
+        .feature-row:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
             transform: translateX(6px);
-            border-color: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+            box-shadow: 0 0 22px rgba(212, 175, 55, 0.25);
         }
-        ul li i {
-            color: #d4af37;
+        
+        .feature-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #ffffff;
             font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Rotating Golden Icon Ring Animation */
+        .rotating-icon-box {
+            width: 44px;
+            height: 44px;
+            border: 2px dashed #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            animation: rotateRing 8s linear infinite;
+            flex-shrink: 0;
+        }
+        .rotating-icon-box i {
+            color: #d4af37;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .feature-tag {
+            font-size: 12px;
+            background: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Luxury Fleet Highlights Grid */
+        .fleet-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        .fleet-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 18px 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .fleet-box:hover {
+            border-color: #d4af37;
+            transform: translateY(-4px);
+            background: rgba(212, 175, 55, 0.08);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+        }
+        .fleet-box i {
+            color: #d4af37;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .fleet-box h4 {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+        .fleet-box p {
+            font-size: 12px;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Exclusive VIP Perks Grid */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+        .perk-box {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .perk-box:hover {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateY(-3px);
+        }
+        .perk-box i {
+            color: #d4af37;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .perk-box h4 {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .perk-box p {
+            font-size: 13px;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Action Buttons Layout */
+        .action-container {
+            display: flex;
+            gap: 15px;
         }
         .book-btn {
-            display: block;
-            width: 100%;
+            flex: 1;
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-            color: #0f172a;
+            color: #0b1329;
             text-align: center;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 18px;
+            border-radius: 12px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 800;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         .book-btn:hover {
             opacity: 0.95;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+        }
+        .whatsapp-btn {
+            background: #25d366;
+            color: #ffffff;
+            padding: 18px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+        }
+
+        @media (max-width: 576px) {
+            .service-card { padding: 25px 20px; }
+            h1 { font-size: 26px; }
+            .action-container { flex-direction: column; }
+            .fleet-highlight-grid { grid-template-columns: 1fr; }
+            .perks-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -193,28 +469,114 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Header -->
+    <!-- Header Navbar -->
     <div class="header">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <span style="color: #d4af37; font-weight: bold; font-size: 16px;">Shri Radha Travels</span>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+        <a href="index.html" class="brand-box">
+            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo">
+            <div class="brand-title">Shri Radha <span>Travels</span></div>
+        </a>
+        <a href="tel:9876543210" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
 
     <!-- Container -->
     <div class="container">
+        <!-- Main Card with Rotating Golden Conic Border -->
         <div class="service-card">
-            <h1>Luxury Car Rentals & VIP Rides</h1>
-            <p>Travel in supreme comfort and style with our premium luxury fleet. Perfect for VIP guests, weddings, high-end events, and special occasions where elegance matters most.</p>
+            <div class="service-badge"><i class="fas fa-crown"></i> Ultimate VIP Experience</div>
             
-            <div class="features-title">What's Included:</div>
-            <ul>
-                <li><i class="fas fa-gem"></i> Premium High-End Luxury Cars & SUVs</li>
-                <li><i class="fas fa-user-tie"></i> Professionally Dressed & Courteous Chauffeurs</li>
-                <li><i class="fas fa-glass-cheers"></i> Special Arrangement for Weddings & Events</li>
-                <li><i class="fas fa-star"></i> VIP Meet & Greet Assistance</li>
-                <li><i class="fas fa-shield-alt"></i> Utmost Privacy & Elite Comfort Standards</li>
-            </ul>
+            <!-- Heading with Shimmer Animation - Bigger Text -->
+            <h1>Luxury Rides – <span>First-Class Fleet & Elite Chauffeur Service</span></h1>
+            
+            <p>Experience the absolute pinnacle of comfort, style, and prestige with Shri Radha Travels' elite luxury fleet. Whether you are attending high-profile corporate events, elite weddings, VIP guest pickups, or grand celebrations, our premium vehicles deliver uncompromising elegance and world-class travel standards.</p>
+            
+            <div class="section-title">Luxury Fleet Highlights</div>
+            
+            <div class="feature-grid">
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-car-alt"></i></div>
+                        <span>Ultra-Comfortable Innova Crysta & Premium Sedans</span>
+                    </div>
+                    <span class="feature-tag">Elite</span>
+                </div>
+                
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-shuttle-van"></i></div>
+                        <span>Force Urbania Luxury Vans for Group VIP Travel</span>
+                    </div>
+                    <span class="feature-tag">Grand</span>
+                </div>
 
-            <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Instant Booking</a>
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-user-tie"></i></div>
+                        <span>Impeccably Uniformed & English-Fluent Chauffeurs</span>
+                    </div>
+                    <span class="feature-tag">VIP Service</span>
+                </div>
+                
+                <div class="feature-row">
+                    <div class="feature-left">
+                        <div class="rotating-icon-box"><i class="fas fa-glass-cheers"></i></div>
+                        <span>Red Carpet Welcomes & Special Event Styling</span>
+                    </div>
+                    <span class="feature-tag">Exclusive</span>
+                </div>
+            </div>
+
+            <!-- Fleet Category Highlights -->
+            <div class="section-title">Featured Luxury Vehicles</div>
+            <div class="fleet-highlight-grid">
+                <div class="fleet-box">
+                    <i class="fas fa-car-side"></i>
+                    <h4>Innova Crysta VIP</h4>
+                    <p>Spacious captain seats & plush leather interiors</p>
+                </div>
+                <div class="fleet-box">
+                    <i class="fas fa-bus"></i>
+                    <h4>Force Urbania</h4>
+                    <p>Ultra-luxury pushback seating & ambient lights</p>
+                </div>
+                <div class="fleet-box">
+                    <i class="fas fa-gem"></i>
+                    <h4>Executive Sedans</h4>
+                    <p>Pristine look for corporate & elite meetings</p>
+                </div>
+            </div>
+
+            <!-- Why Choose Our Luxury Rides -->
+            <div class="section-title">The Luxury Advantage</div>
+            <div class="perks-grid">
+                <div class="perk-box">
+                    <i class="fas fa-star"></i>
+                    <h4>Unmatched Elegance</h4>
+                    <p>Spotless, meticulously detailed cars that make a striking statement wherever you arrive.</p>
+                </div>
+                <div class="perk-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Absolute Discretion</h4>
+                    <p>Complete privacy, secure transit, and professional handling tailored for high-profile clients.</p>
+                </div>
+                <div class="perk-box">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h4>Punctual White-Glove Care</h4>
+                    <p>Dedicated assistance, timely arrival, and seamless end-to-end journey management.</p>
+                </div>
+                <div class="perk-box">
+                    <i class="fas fa-route"></i>
+                    <h4>Smooth Long-Distance Ride</h4>
+                    <p>Silky-smooth suspension and superior cabin insulation designed for effortless travel.</p>
+                </div>
+            </div>
+
+            <!-- Direct Action Buttons -->
+            <div class="action-container">
+                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Book Luxury Ride</a>
+                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Luxury%20Rides%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
         </div>
     </div>
 
