@@ -53,7 +53,7 @@
             z-index: -1;
         }
 
-        /* Navbar Matching Exact Reference Style */
+        /* Navbar */
         .header {
             background: #0b1329;
             padding: 12px 20px;
@@ -137,29 +137,22 @@
             z-index: 2;
         }
 
-        /* Modern Premium Clean Card Layout (No Heavy Inner Boxes) */
+        /* Premium Modern Layout Card (No Ugly Inner Boxes) */
         .service-card {
-            background: linear-gradient(145deg, rgba(11, 19, 41, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+            background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
             border: 2px solid #d4af37;
             border-radius: 16px;
             padding: 40px 30px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.25), 0 20px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.3), 0 20px 40px rgba(0,0,0,0.8);
             opacity: 0;
             transform: translateY(35px);
             animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes scrollPopup {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.97);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(40px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Top Badge */
         .service-badge {
             display: inline-flex;
             align-items: center;
@@ -176,33 +169,36 @@
             margin-bottom: 20px;
         }
 
-        /* Professional Typography matching website style */
+        /* Heading with Text Inside Animation (Shimmer/Gradient Flow) */
         h1 {
             font-family: 'Georgia', serif;
-            color: #ffffff;
             font-size: 28px;
             font-weight: 700;
             margin-top: 0;
             margin-bottom: 20px;
             line-height: 1.35;
             letter-spacing: 0.5px;
-            animation: fadeInText 0.8s ease-in-out;
+            background: linear-gradient(90deg, #d4af37, #fff, #d4af37, #f3e5ab);
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textShimmer 6s linear infinite;
+        }
+        @keyframes textShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
         }
         h1 span {
-            color: #d4af37;
             font-style: italic;
         }
+
         p {
             color: #cbd5e1;
             font-size: 15px;
             font-weight: 400;
             line-height: 1.8;
             margin-bottom: 30px;
-            animation: fadeInText 1s ease-in-out;
-        }
-        @keyframes fadeInText {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
@@ -223,47 +219,71 @@
             background: rgba(212, 175, 55, 0.3);
         }
 
-        /* Clean List Layout without Ugly Boxes */
+        /* Clean List Layout with Rotating Golden Border Elements */
         .feature-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
             margin-bottom: 35px;
         }
         .feature-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
+            padding: 15px 20px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
             transition: all 0.3s ease;
+            position: relative;
         }
         .feature-row:hover {
             background: rgba(212, 175, 55, 0.08);
             border-color: #d4af37;
-            transform: translateX(5px);
+            transform: translateX(6px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
+        
         .feature-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 15px;
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
         }
-        .feature-left i {
-            color: #d4af37;
-            font-size: 16px;
+
+        /* Gol-Gol Ghumne Wala Rotating Golden Animation Icon Container */
+        .rotating-icon-box {
+            width: 38px;
+            height: 38px;
+            border: 2px dashed #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            animation: rotateRing 8s linear infinite;
+            flex-shrink: 0;
         }
+        .rotating-icon-box i {
+            color: #d4af37;
+            font-size: 15px;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .feature-tag {
             font-size: 11px;
             background: rgba(212, 175, 55, 0.12);
             color: #d4af37;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-weight: 600;
+            font-weight: 700;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         /* Action Buttons */
@@ -328,7 +348,7 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Header Matching Your Website Reference Style -->
+    <!-- Header Navbar -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
         <a href="index.html" class="brand-box">
@@ -343,45 +363,48 @@
         <div class="service-card">
             <div class="service-badge"><i class="fas fa-plane-departure"></i> Airport Transfer Specialists</div>
             
-            <!-- Styled Heading with Cursive Font Touch -->
+            <!-- Heading with Inner Text Animation Shimmer -->
             <h1>Airport Taxi Service – <span>Chandigarh, Mohali & Zirakpur</span></h1>
             
-            <p>Begin or conclude your travels in absolute comfort and elite luxury. We deliver prompt, dependable airport transfer solutions featuring expert chauffeurs and meticulously maintained premium vehicles. Enjoy live flight tracking, complimentary waiting for delayed arrivals, and direct doorstep pickups across the Tricity region.</p>
+            <p>Begin or conclude your travels in absolute comfort and elite luxury. We deliver prompt, dependable airport transfer solutions featuring expert chauffeurs and meticulously maintained premium vehicles. Enjoy zero waiting fees for delayed arrivals, transparent rates, and direct doorstep pickups across the Tricity region.</p>
             
             <div class="section-title">Service Highlights</div>
             
             <div class="feature-grid">
                 <div class="feature-row">
                     <div class="feature-left">
-                        <i class="fas fa-check-circle"></i>
+                        <div class="rotating-icon-box"><i class="fas fa-clock"></i></div>
                         <span>24×7 Reliable Airport Pickup & Drop</span>
                     </div>
                     <span class="feature-tag">Always Active</span>
                 </div>
+                
+                <!-- Replaced Live Flight Status with Professional Doorstep Pickup feature -->
                 <div class="feature-row">
                     <div class="feature-left">
-                        <i class="fas fa-plane-arrival"></i>
-                        <span>Live Flight Status Tracking & Adjustments</span>
+                        <div class="rotating-icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                        <span>Doorstep Pickup Across Tricity Region</span>
                     </div>
-                    <span class="feature-tag">Real-Time</span>
+                    <span class="feature-tag">On-Time</span>
                 </div>
+
                 <div class="feature-row">
                     <div class="feature-left">
-                        <i class="fas fa-tag"></i>
+                        <div class="rotating-icon-box"><i class="fas fa-tag"></i></div>
                         <span>100% Transparent & Fixed Pricing</span>
                     </div>
                     <span class="feature-tag">No Hidden Fees</span>
                 </div>
                 <div class="feature-row">
                     <div class="feature-left">
-                        <i class="fas fa-user-tie"></i>
+                        <div class="rotating-icon-box"><i class="fas fa-user-tie"></i></div>
                         <span>Dedicated Meet & Greet at Terminal</span>
                     </div>
                     <span class="feature-tag">VIP Care</span>
                 </div>
                 <div class="feature-row">
                     <div class="feature-left">
-                        <i class="fas fa-shield-alt"></i>
+                        <div class="rotating-icon-box"><i class="fas fa-shield-alt"></i></div>
                         <span>Sanitized, Safe & Premium Fleet Vehicles</span>
                     </div>
                     <span class="feature-tag">Elite Cabs</span>
@@ -389,7 +412,7 @@
             </div>
 
             <div class="action-container">
-                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"></i> Instant Booking</a>
+                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"><span>Instant Booking</span></i></a>
                 <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20an%20Airport%20Taxi." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
