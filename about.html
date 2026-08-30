@@ -7,7 +7,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,19 +16,19 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: #0b132b; /* Deep Navy Blue Background */
+            background-color: #0b132b; /* Exact Deep Navy Blue */
             color: #ffffff;
             line-height: 1.6;
         }
 
-        /* Navbar Design matching image */
+        /* Exact Navbar matching IMG_7031 */
         header {
-            background: rgba(11, 19, 43, 0.95);
-            padding: 15px 40px;
+            background: rgba(11, 19, 43, 0.98);
+            padding: 12px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -38,37 +38,44 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
         }
         .logo-img {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #d4af37;
         }
-        .logo-text {
-            font-size: 26px;
-            color: #ffffff;
-            font-weight: 700;
+        /* Exact Typography matching IMG_7058 */
+        .brand-title {
             font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
         }
-        .logo-text span {
+        .brand-title .travels-text {
             color: #d4af37;
             font-style: italic;
+            font-weight: 700;
+            display: inline-block;
         }
+
+        /* Exact Call Now Button matching IMG_7031 */
         .call-now-btn {
             background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
             color: #0b132b;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: 0.3s ease;
+            gap: 8px;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: 0.3s ease;
         }
         .call-now-btn:hover {
             transform: translateY(-2px);
@@ -77,7 +84,7 @@
 
         /* Hero Section */
         .about-hero {
-            padding: 70px 20px 40px 20px;
+            padding: 60px 20px 40px 20px;
             text-align: center;
             max-width: 950px;
             margin: 0 auto;
@@ -87,13 +94,13 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 13px;
             display: block;
             margin-bottom: 15px;
         }
         .about-hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 40px;
+            font-size: 38px;
             font-weight: 700;
             margin-bottom: 25px;
             line-height: 1.3;
@@ -109,32 +116,31 @@
             opacity: 0.95;
         }
 
-        /* Rotating Golden Border Animation Effect */
-        @keyframes rotate-border {
+        /* CONTINUOUS ROTATING GOLDEN BORDER ANIMATION (Ruke na bilkul bhi) */
+        @keyframes continuous-rotate {
             0% {
-                border-image: linear-gradient(0deg, #d4af37, #0b132b, #d4af37) 1;
+                border-image: linear-gradient(0deg, #d4af37, #0b132b, #aa771c, #d4af37) 1;
             }
             50% {
-                border-image: linear-gradient(180deg, #d4af37, #f3e7c4, #d4af37) 1;
+                border-image: linear-gradient(180deg, #aa771c, #d4af37, #f3e7c4, #0b132b) 1;
             }
             100% {
-                border-image: linear-gradient(360deg, #d4af37, #0b132b, #d4af37) 1;
+                border-image: linear-gradient(360deg, #d4af37, #0b132b, #aa771c, #d4af37) 1;
             }
         }
 
         .animated-card {
             background: rgba(30, 41, 59, 0.6);
             border: 3px solid #d4af37;
-            border-image: linear-gradient(135deg, #d4af37, #aa771c, #0b132b) 1;
+            border-image: linear-gradient(135deg, #d4af37, #0b132b, #aa771c) 1;
             border-radius: 16px;
             backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
             position: relative;
+            /* Animation hamesha chalu rahegi, rukegi nahi */
+            animation: continuous-rotate 3s linear infinite;
+            transition: transform 0.3s ease;
         }
-
-        /* Gol-gol ghumta hua golden border animation on hover/active */
         .animated-card:hover {
-            animation: rotate-border 2s linear infinite;
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
@@ -284,33 +290,35 @@
             font-size: 14px;
         }
 
-        /* Responsive Navbar adjustments */
+        /* Mobile responsiveness */
         @media(max-width: 768px) {
             header {
-                padding: 15px 20px;
+                padding: 10px 15px;
             }
-            .logo-text {
-                font-size: 20px;
+            .brand-title {
+                font-size: 19px;
             }
             .logo-img {
-                width: 45px;
-                height: 45px;
+                width: 42px;
+                height: 42px;
             }
             .call-now-btn {
-                padding: 10px 18px;
-                font-size: 14px;
+                padding: 8px 16px;
+                font-size: 13px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar matching image -->
+    <!-- Exact Header / Navbar matching IMG_7031 -->
     <header>
-        <div class="logo-container">
-            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels Logo" class="logo-img">
-            <h1 class="logo-text">Shri Radha <span>Travels</span></h1>
-        </div>
+        <a href="index.html" class="logo-container">
+            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="logo-img">
+            <div class="brand-title">
+                Shri Radha <span class="travels-text">Travels</span>
+            </div>
+        </a>
         <a href="tel:+916280544730" class="call-now-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
     </header>
 
@@ -321,7 +329,7 @@
         <p>At <strong style="color: #d4af37;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Manali, Shimla, Leh Ladakh, Spiti Valley, and beyond, we cater to modern explorers seeking comfort, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified and courteous drivers, and hygienic, high-end vehicles designed for long-distance endurance. Join thousands of happy customers who trust us to deliver punctual, transparent, and luxurious travel solutions tailored precisely to your schedule and preferences.</p>
     </section>
 
-    <!-- Stats Section with Golden Animated Borders -->
+    <!-- Stats Section with Continuous Golden Rotating Animation -->
     <div class="stats-grid">
         <div class="stat-card animated-card">
             <h3>5000+</h3>
@@ -341,7 +349,7 @@
         </div>
     </div>
 
-    <!-- Mission, Vision, Values Section with Golden Animated Borders -->
+    <!-- Mission, Vision, Values Section with Continuous Golden Animation -->
     <section class="mvv-section">
         <div class="mvv-card animated-card">
             <i class="fas fa-bullseye"></i>
@@ -360,7 +368,7 @@
         </div>
     </section>
 
-    <!-- Contact Section with Golden Animated Border -->
+    <!-- Contact Section with Continuous Golden Animation -->
     <section class="contact-section animated-card">
         <h3>Get In Touch With Us</h3>
         <div class="contact-grid">
