@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airport Transfers - Shri Radha Travels</title>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -137,17 +136,55 @@
             z-index: 2;
         }
 
-        /* Premium Modern Layout Card (No Ugly Inner Boxes) */
+        /* Main Service Card with Gol-Gol Ghumne Wala (Rotating) Glowing Golden Border Animation */
         .service-card {
             background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
-            border: 2px solid #d4af37;
             border-radius: 16px;
             padding: 40px 30px;
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.3), 0 20px 40px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
             opacity: 0;
             transform: translateY(35px);
             animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        /* Rotating Conic Gradient Border Effect */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                transparent, 
+                transparent, 
+                #d4af37, 
+                #fff, 
+                #d4af37
+            );
+            animation: rotateBorder 5s linear infinite;
+            z-index: -2;
+        }
+
+        /* Inner Mask to preserve background color inside the card */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #0b1329;
+            border-radius: 14px;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         @keyframes scrollPopup {
             0% { opacity: 0; transform: translateY(40px) scale(0.97); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -219,7 +256,7 @@
             background: rgba(212, 175, 55, 0.3);
         }
 
-        /* Clean List Layout with Rotating Golden Border Elements */
+        /* Clean List Layout */
         .feature-grid {
             display: flex;
             flex-direction: column;
@@ -338,7 +375,6 @@
 </head>
 <body>
 
-    <!-- Background Photos Auto Slider -->
     <div class="bg-slider">
         <img src="IMG_4760.jpeg" class="slide active" alt="Cab 1">
         <img src="IMG_4765.jpeg" class="slide" alt="Cab 2">
@@ -348,7 +384,6 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Header Navbar -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
         <a href="index.html" class="brand-box">
@@ -358,12 +393,10 @@
         <a href="tel:9876543210" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
 
-    <!-- Container -->
     <div class="container">
         <div class="service-card">
             <div class="service-badge"><i class="fas fa-plane-departure"></i> Airport Transfer Specialists</div>
             
-            <!-- Heading with Inner Text Animation Shimmer -->
             <h1>Airport Taxi Service – <span>Chandigarh, Mohali & Zirakpur</span></h1>
             
             <p>Begin or conclude your travels in absolute comfort and elite luxury. We deliver prompt, dependable airport transfer solutions featuring expert chauffeurs and meticulously maintained premium vehicles. Enjoy zero waiting fees for delayed arrivals, transparent rates, and direct doorstep pickups across the Tricity region.</p>
@@ -379,7 +412,6 @@
                     <span class="feature-tag">Always Active</span>
                 </div>
                 
-                <!-- Replaced Live Flight Status with Professional Doorstep Pickup feature -->
                 <div class="feature-row">
                     <div class="feature-left">
                         <div class="rotating-icon-box"><i class="fas fa-map-marked-alt"></i></div>
@@ -412,13 +444,12 @@
             </div>
 
             <div class="action-container">
-                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"><span>Instant Booking</span></i></a>
+                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"></i> Instant Booking</a>
                 <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20an%20Airport%20Taxi." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript for Background Photo Slider -->
     <script>
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
