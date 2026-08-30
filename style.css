@@ -137,6 +137,7 @@ text-align:center;
     max-width: 70px !important;
     max-height: 70px !important;
     object-fit: cover !important;
+    border: 3px solid red !important; /* Yeh line bas check karne ke liye dali hai */
     border-radius: 50%;
     margin-bottom: 20px;
     animation: logoFloat 2s infinite ease-in-out;
