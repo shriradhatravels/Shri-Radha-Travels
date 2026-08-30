@@ -7,7 +7,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,17 +16,17 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: #0f172a;
+            background-color: #0b132b;
             color: #ffffff;
             line-height: 1.6;
         }
         header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(11, 19, 43, 0.95);
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -41,26 +41,29 @@
             font-size: 22px;
             color: #ffffff;
             font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
         .logo-container h1 span {
             color: #d4af37;
         }
         .back-home-btn {
-            background: #2563eb;
-            color: white;
+            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
+            color: #0b132b;
             padding: 10px 22px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
         .back-home-btn:hover {
-            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
         }
         .about-hero {
             padding: 80px 20px 40px 20px;
             text-align: center;
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
         }
         .about-hero span {
@@ -73,18 +76,21 @@
             margin-bottom: 15px;
         }
         .about-hero h2 {
-            font-size: 42px;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
             margin-bottom: 25px;
-            line-height: 1.2;
-            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            line-height: 1.3;
+            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .about-hero p {
-            color: #94a3b8;
-            font-size: 18px;
+            color: #cbd5e1;
+            font-size: 16px;
+            line-height: 1.8;
             margin-bottom: 40px;
+            opacity: 0.95;
         }
         
         /* Stats Section */
@@ -98,21 +104,24 @@
         }
         .stat-card {
             background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             padding: 30px;
             border-radius: 16px;
             text-align: center;
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         .stat-card:hover {
             transform: translateY(-5px);
             border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
         }
         .stat-card h3 {
             font-size: 36px;
             font-weight: 800;
-            color: #d4af37;
+            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
         }
         .stat-card p {
@@ -132,15 +141,16 @@
         }
         .mvv-card {
             background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 40px 30px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
         .mvv-card:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
         }
         .mvv-card i {
             font-size: 32px;
@@ -148,7 +158,8 @@
             margin-bottom: 20px;
         }
         .mvv-card h4 {
-            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
             font-weight: 700;
             margin-bottom: 15px;
             color: #ffffff;
@@ -166,12 +177,13 @@
             margin: 0 auto 80px auto;
             padding: 50px;
             border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         .contact-section h3 {
+            font-family: 'Playfair Display', serif;
             color: #d4af37;
-            font-size: 30px;
+            font-size: 32px;
             margin-bottom: 30px;
             text-align: center;
             font-weight: 800;
@@ -234,7 +246,7 @@
         }
         .social-icons a:hover {
             background: #d4af37;
-            color: #0f172a;
+            color: #0b132b;
             transform: scale(1.1);
         }
         
@@ -260,8 +272,8 @@
     <!-- Main Hero Section -->
     <section class="about-hero">
         <span>ABOUT OUR COMPANY</span>
-        <h2>Crafting Exceptional Journeys With Elegance & Trust</h2>
-        <p>Shri Radha Travels is your premier partner for outstation cabs, luxury tour packages, and comfortable rides. We redefine travel by combining safety, luxury, and professional service tailored exclusively for you.</p>
+        <h2>Crafting Unforgettable Journeys Across Majestic Destinations</h2>
+        <p>At <strong style="color: #d4af37;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Manali, Shimla, Leh Ladakh, Spiti Valley, and beyond, we cater to modern explorers seeking comfort, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified and courteous drivers, and hygienic, high-end vehicles designed for long-distance endurance. Join thousands of happy customers who trust us to deliver punctual, transparent, and luxurious travel solutions tailored precisely to your schedule and preferences.</p>
     </section>
 
     <!-- Stats Section -->
@@ -342,17 +354,6 @@
     <footer>
         <p>&copy; 2026 Shri Radha Travels. All rights reserved.</p>
     </footer>
-<!-- AAKHRI AUR PAKKA FIX -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const allLinks = document.querySelectorAll('a');
-        allLinks.forEach(link => {
-            if (link.textContent.trim() === 'Tours') {
-                link.href = 'all-destinations.html';
-            }
-        });
-    });
-</script>
+
 </body>
 </html>
- 
