@@ -14,7 +14,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
+            background-color: #0b1329;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
@@ -49,29 +49,28 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(11, 19, 41, 0.82);
             z-index: -1;
         }
 
-        /* Header Bar */
+        /* Header Bar matching main website */
         .header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: #0b1329;
             padding: 15px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 2px solid #d4af37;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         .back-btn {
             color: #d4af37;
             text-decoration: none;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -79,6 +78,33 @@
         }
         .back-btn:hover {
             color: #ffffff;
+            transform: translateX(-3px);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Rotating Golden Logo Animation */
+        .rotating-logo {
+            width: 35px;
+            height: 35px;
+            border: 2px dashed #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotateLogo 8s linear infinite;
+        }
+        .rotating-logo i {
+            color: #d4af37;
+            font-size: 16px;
+        }
+        @keyframes rotateLogo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Container */
@@ -90,93 +116,114 @@
             z-index: 2;
         }
 
-        /* Transparent Blue Blur Glass Card with Animation */
+        /* Scroll-down Popup & Entrance Animation */
         .service-card {
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: #0b1329;
+            border: 1px solid #d4af37;
             border-left: 5px solid #d4af37;
-            border-radius: 16px;
+            border-radius: 0px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes scrollPopup {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
-        /* Vibrant Blue Heading */
+        /* Headings & Text Styling */
         h1 {
-            color: #38bdf8;
+            color: #d4af37;
             font-size: 24px;
+            font-weight: 800;
             margin-top: 0;
             margin-bottom: 15px;
             line-height: 1.4;
-            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInText 1s ease-in-out;
         }
         p {
             color: #cbd5e1;
             font-size: 15px;
-            line-height: 1.6;
+            font-weight: 500;
+            line-height: 1.7;
             margin-bottom: 25px;
+            animation: fadeInText 1.2s ease-in-out;
         }
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .features-title {
             color: #d4af37;
             font-size: 17px;
             margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
+        
         ul {
             list-style: none;
             padding: 0;
             margin: 0 0 30px 0;
         }
         ul li {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            background: #0f172a;
             margin-bottom: 12px;
             padding: 14px 18px;
-            border-radius: 10px;
-            color: #f8fafc;
+            border-radius: 0px;
+            color: #ffffff;
             font-size: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-left: 3px solid #38bdf8;
+            font-weight: 700;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-left: 4px solid #d4af37;
             display: flex;
             align-items: center;
             gap: 12px;
             transition: all 0.3s ease;
         }
         ul li:hover {
-            transform: translateX(6px);
-            border-color: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+            transform: translateX(8px);
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
         }
         ul li i {
             color: #d4af37;
-            font-size: 16px;
+            font-size: 18px;
         }
+        
         .book-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-            color: #0f172a;
+            background: #d4af37;
+            color: #000000;
             text-align: center;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 16px;
+            border-radius: 0px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 800;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
         }
         .book-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
     </style>
@@ -193,28 +240,33 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Header -->
+    <!-- Header matching website style with rotating golden logo -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <span style="color: #d4af37; font-weight: bold; font-size: 16px;">Shri Radha Travels</span>
+        <div class="logo-container">
+            <div class="rotating-logo">
+                <i class="fas fa-taxi"></i>
+            </div>
+            <span style="color: #d4af37; font-weight: 800; font-size: 16px; letter-spacing: 0.5px;">Shri Radha Travels</span>
+        </div>
     </div>
 
     <!-- Container -->
     <div class="container">
         <div class="service-card">
             <h1>Airport Taxi Service – Chandigarh, Mohali & Zirakpur</h1>
-            <p>Experience hassle-free airport transfers with our punctual, professional chauffeurs and impeccably maintained premium cabs. We monitor your flight schedule to ensure seamless pickups without any waiting charges.</p>
+            <p>Begin or end your journey with absolute peace of mind. We provide elite, punctual airport transfers featuring professional chauffeurs and impeccably maintained luxury cabs. Enjoy real-time flight tracking, zero waiting fees for delayed flights, and executive doorstep pickups across Chandigarh, Mohali, and Zirakpur.</p>
             
             <div class="features-title">What's Included:</div>
             <ul>
-                <li><i class="fas fa-check-circle"></i> 24×7 Airport Pickup & Drop</li>
-                <li><i class="fas fa-plane-arrival"></i> Live Flight Status Tracking</li>
-                <li><i class="fas fa-tag"></i> Transparent & Fixed Pricing</li>
-                <li><i class="fas fa-user-tie"></i> Meet & Greet Service at Arrival</li>
-                <li><i class="fas fa-shield-alt"></i> Sanitized & Safe Vehicles</li>
+                <li><i class="fas fa-check-circle"></i> 24×7 Reliable Airport Pickup & Drop</li>
+                <li><i class="fas fa-plane-arrival"></i> Live Flight Status Tracking & Adjustments</li>
+                <li><i class="fas fa-tag"></i> 100% Transparent & Fixed Pricing</li>
+                <li><i class="fas fa-user-tie"></i> Dedicated Meet & Greet Service at Arrival Terminal</li>
+                <li><i class="fas fa-shield-alt"></i> Sanitized, Safe & Premium Fleet Vehicles</li>
             </ul>
 
-            <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Instant Booking</a>
+            <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"></i> Instant Booking</a>
         </div>
     </div>
 
