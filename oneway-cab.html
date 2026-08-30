@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Radha Travels - One-Way Intercity Cabs</title>
+    <title>Shri Radha Travels - One-Way Cabs</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-deep: #060911;
-            --bg-card: rgba(17, 21, 32, 0.85);
+            --bg-card: #111520;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
+            --gold-grad: linear-gradient(135deg, #d4af37, #ffd700, #d4af37);
             --text-main: #f9fafb;
             --text-muted: #9ca3af;
         }
@@ -25,9 +26,6 @@
 
         body {
             background-color: var(--bg-deep);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.07) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(13, 27, 62, 0.5) 0%, transparent 50%);
             color: var(--text-main);
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -37,7 +35,8 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* --- Animations & Watery Text --- */
+        /* --- Animations --- */
+        /* Watery / Shimmering Text Animation */
         .watery-text {
             background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37, #ffdf00, #d4af37);
             background-size: 300% 300%;
@@ -53,10 +52,10 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Scroll Reveal Base State */
+        /* Scroll Reveal Animation */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
             will-change: opacity, transform;
         }
@@ -71,7 +70,6 @@
             background: var(--bg-card);
             border-radius: 16px;
             z-index: 1;
-            backdrop-filter: blur(12px);
         }
         .glowing-border::before {
             content: "";
@@ -80,13 +78,13 @@
             border-radius: 18px;
             background: linear-gradient(45deg, transparent, var(--gold), transparent, var(--gold));
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.5;
             animation: borderGlow 4s linear infinite;
         }
         @keyframes borderGlow {
-            0% { filter: hue-rotate(0deg); opacity: 0.4; }
-            50% { opacity: 0.9; }
-            100% { filter: hue-rotate(360deg); opacity: 0.4; }
+            0% { filter: hue-rotate(0deg); opacity: 0.3; }
+            50% { opacity: 0.8; }
+            100% { filter: hue-rotate(360deg); opacity: 0.3; }
         }
 
         /* --- Header --- */
@@ -95,16 +93,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: rgba(6, 9, 17, 0.92);
+            background: rgba(6, 9, 17, 0.95);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
         }
-        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
         .logo-container img { width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--gold); object-fit: cover; }
-        .logo-text { font-size: 1.2rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .logo-text { font-size: 1.2rem; font-weight: 700; }
         .logo-text span { color: var(--gold); font-style: italic; }
         .call-btn {
             background-color: var(--gold); color: #000; padding: 10px 20px;
@@ -125,7 +123,7 @@
         .badge-pill i { font-size: 0.5rem; animation: pulseDot 1.5s infinite; }
         @keyframes pulseDot { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
         
-        .hero h1 { font-size: 3.2rem; line-height: 1.15; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
         .hero h1 .italic-gold { font-style: italic; color: var(--gold); display: block; margin-top: 10px; }
         .hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; line-height: 1.6; font-size: 1.1rem; }
         
@@ -136,20 +134,30 @@
         .btn-green:hover { transform: translateY(-2px); }
 
         /* --- Containers & Sections --- */
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 5%; }
-        .section-title { text-align: center; margin-bottom: 35px; }
-        .section-title h2 { font-size: 2.3rem; margin-top: 10px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.5rem; margin-top: 10px; }
         
-        /* --- Routes Cards --- */
+        /* --- Features Cards --- */
+        .feature-card {
+            background: var(--bg-card); border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 25px; border-radius: 16px; margin-bottom: 15px;
+            border-left: 3px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-3px); }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* --- Routes (15 Items) --- */
         .route-card {
             background: var(--bg-card); border-radius: 16px; padding: 25px;
-            margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.06);
-            backdrop-filter: blur(10px);
+            margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05);
             transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
         .route-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .route-num { color: var(--gold); font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; display: block; }
-        .route-card h3 { font-size: 1.5rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .route-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
         .route-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; line-height: 1.5; }
         .route-meta { font-size: 0.85rem; color: #aaa; margin-bottom: 20px; }
         .view-btn {
@@ -159,12 +167,35 @@
         .view-btn i { transition: transform 0.3s; }
         .view-btn:hover i { transform: translateX(5px); }
 
+        /* --- How It Works --- */
+        .step-card {
+            background: var(--bg-card); padding: 30px; border-radius: 16px;
+            margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: transform 0.3s;
+        }
+        .step-card:hover { transform: translateY(-3px); }
+        .step-num { color: var(--gold); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; display: block; }
+        .step-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 10px; }
+        .step-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* --- Fleet Cars --- */
+        .fleet-card {
+            background: var(--bg-card); border-radius: 16px; overflow: hidden;
+            margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .fleet-card:hover { transform: translateY(-5px); border-color: rgba(212,175,55,0.3); }
+        .fleet-card img { width: 100%; height: 250px; object-fit: cover; }
+        .fleet-info { padding: 25px; }
+        .fleet-info h3 { font-size: 1.5rem; margin-bottom: 5px; }
+        .fleet-info p { color: var(--text-muted); font-size: 0.95rem; }
+
         /* --- CTA Card --- */
-        .cta-section { padding: 40px 5%; text-align: center; }
+        .cta-section { padding: 50px 5%; text-align: center; }
         .cta-card {
-            background: linear-gradient(180deg, rgba(17,21,32,0.9), #060911);
+            background: linear-gradient(180deg, var(--bg-card), #000);
             padding: 40px 20px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3);
-            max-width: 600px; margin: 0 auto; backdrop-filter: blur(12px);
+            max-width: 600px; margin: 0 auto; backdrop-filter: blur(10px);
         }
         .cta-card h2 { font-size: 2rem; margin-bottom: 15px; }
         .cta-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1rem; }
@@ -178,37 +209,39 @@
         .btn-outline-gold { background: transparent; color: var(--gold); }
 
         /* --- Footer --- */
-        footer { padding: 50px 5% 30px; border-top: 1px solid rgba(212,175,55,0.15); background: rgba(6, 9, 17, 0.95); text-align: center; }
-        .footer-logo { font-size: 1.6rem; font-weight: 700; font-family: 'Playfair Display'; margin-bottom: 15px; }
-        .footer-desc { color: var(--text-muted); font-size: 0.95rem; margin: 0 auto 20px; max-width: 450px; line-height: 1.5; }
-        .footer-link { color: var(--gold); text-decoration: none; display: inline-block; margin-bottom: 30px; font-weight: 600; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; margin-top: 20px; font-size: 0.8rem; color: #666; }
+        footer { padding: 50px 5% 30px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(6, 9, 17, 0.95); }
+        .footer-logo { font-size: 1.5rem; font-weight: 700; font-family: 'Playfair Display'; margin-bottom: 15px; }
+        .footer-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; max-width: 400px; }
+        .footer-link { color: var(--gold); text-decoration: none; display: block; margin-bottom: 30px; }
+        .footer-section h4 { font-family: 'Playfair Display'; font-size: 1.3rem; margin-bottom: 15px; }
+        .footer-section p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; font-size: 0.8rem; color: #666; }
 
         /* --- Popup Modal --- */
         .modal-overlay {
-            position: fixed; inset: 0; background: rgba(6,9,17,0.85); backdrop-filter: blur(10px);
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
             z-index: 2000; display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px;
+            opacity: 0; pointer-events: none; transition: 0.3s ease; padding: 20px;
         }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-card {
-            background: #111520; width: 100%; max-width: 500px; border-radius: 20px;
-            padding: 30px; border: 1px solid rgba(212,175,55,0.4); position: relative;
-            transform: translateY(40px); transition: transform 0.4s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            background: var(--bg-card); width: 100%; max-width: 500px; border-radius: 20px;
+            padding: 30px; border: 1px solid rgba(212,175,55,0.3); position: relative;
+            transform: translateY(50px); transition: 0.4s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
         .modal-overlay.active .modal-card { transform: translateY(0); }
         
         .close-modal { position: absolute; top: 20px; right: 20px; color: #fff; cursor: pointer; font-size: 1.5rem; transition: color 0.3s; }
         .close-modal:hover { color: var(--gold); }
-        .modal-badge { background: rgba(212,175,55,0.1); color: var(--gold); padding: 5px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid rgba(212,175,55,0.2); }
-        .modal-card h2 { font-size: 1.8rem; margin-bottom: 25px; line-height: 1.2; font-family: 'Playfair Display', serif; }
+        .modal-badge { background: rgba(212,175,55,0.1); color: var(--gold); padding: 5px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; }
+        .modal-card h2 { font-size: 1.8rem; margin-bottom: 25px; line-height: 1.2; }
         
         .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        .modal-box { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); }
+        .modal-box { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
         .modal-box span { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; }
         .modal-box strong { font-size: 1rem; color: #fff; }
         
-        .modal-itinerary { border-left: 2px solid var(--gold); padding-left: 15px; margin-bottom: 25px; }
+        .modal-itinerary { border-left: 2px solid rgba(212,175,55,0.3); padding-left: 15px; margin-bottom: 25px; }
         .modal-itinerary p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
         .modal-itinerary span { color: var(--gold); font-weight: 600; }
         
@@ -227,95 +260,282 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo-container">
-            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels Logo">
+        <div class="logo-container">
+            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo">
             <div class="logo-text">Shri Radha <span>Travels</span></div>
-        </a>
+        </div>
         <a href="tel:6280544730" class="call-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
     </header>
 
     <section class="hero scroll-reveal">
-        <div class="badge-pill"><i class="fa-solid fa-circle"></i> ONE-WAY INTERCITY CAB SERVICE</div>
-        <h1>One-Way Cabs from Chandigarh. <br><span class="italic-gold watery-text">Pay Only for One Side.</span></h1>
-        <p>Save money on intercity travel with our drop-only private cab rentals from Chandigarh to destinations across North India.</p>
+        <div class="badge-pill"><i class="fa-solid fa-circle"></i> POINT-TO-POINT INTERCITY TRAVEL</div>
+        <h1>Chandigarh One-Way Cabs. <br><span class="italic-gold watery-text">Safe, Private & Reliable.</span></h1>
+        <p>Reliable, comfortable, and transparent one-way intercity cab rentals from Chandigarh to top destinations across North India.</p>
         <div class="btn-group">
-            <a href="#routes" class="btn-outline">View One-Way Routes <i class="fa-solid fa-arrow-down"></i></a>
-            <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20One-Way%20Cab." class="btn-green" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Booking</a>
+            <a href="#routes" class="btn-outline">View All Routes <i class="fa-solid fa-arrow-down"></i></a>
+            <a href="https://wa.me/916280544730" class="btn-green" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Booking</a>
         </div>
     </section>
 
+    <div class="container">
+        <div class="feature-card scroll-reveal">
+            <h3>Chandigarh ⇄ Himachal & North India</h3>
+            <p>Comfort • Safety • Professional Mountain Driver</p>
+        </div>
+        <div class="feature-card scroll-reveal">
+            <h3>Private Vehicles</h3>
+            <p>Your family, your cab, your flexible schedule.</p>
+        </div>
+        <div class="feature-card scroll-reveal">
+            <h3>Experienced Drivers</h3>
+            <p>Mountain routes handled with utmost safety.</p>
+        </div>
+        <div class="feature-card scroll-reveal">
+            <h3>Flexible Travel</h3>
+            <p>Pickup, sight-seeing & customized return options.</p>
+        </div>
+    </div>
+
     <div class="container" id="routes">
         <div class="section-title scroll-reveal">
-            <div class="badge-pill" style="margin-bottom: 10px;">POPULAR DROP ROUTES</div>
-            <h2>One-Way Drop Destinations</h2>
+            <div class="badge-pill" style="margin-bottom: 10px;">TOP DESTINATIONS</div>
+            <h2>Explore Our Routes</h2>
         </div>
-
+        
         <div class="route-card glowing-border scroll-reveal">
             <span class="route-num">01 — Delhi</span>
-            <h3>Chandigarh → Delhi One-Way Drop</h3>
-            <p>Direct door-to-door drop service from Chandigarh to Delhi or Delhi Airport (IGI) without return fare charges.</p>
-            <div class="route-meta">Airport Drop Available • Private Cab • No Hidden Charges</div>
-            <button class="view-btn" onclick="openModal('Chandigarh → Delhi (One-Way)', 'Approx. 5 Hours', '250 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+            <h3>Chandigarh → Delhi One-Way Cab</h3>
+            <p>Seamless intercity travel with private, comfortable and reliable cab service from Chandigarh to Delhi.</p>
+            <div class="route-meta">Door-to-Door • Private Cab • Flexible Pickup</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Delhi', 'Approx. 5 Hours', '250 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
         <div class="route-card scroll-reveal">
-            <span class="route-num">02 — Shimla</span>
-            <h3>Chandigarh → Shimla One-Way Drop</h3>
-            <p>Comfortable single-side mountain transfer from Chandigarh straight to your hotel or home in Shimla.</p>
-            <div class="route-meta">Hill Expert Drivers • Direct Drop • Clean Sedans & SUVs</div>
-            <button class="view-btn" onclick="openModal('Chandigarh → Shimla (One-Way)', 'Approx. 3.5 Hours', '115 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+            <span class="route-num">02 — Delhi Airport</span>
+            <h3>Chandigarh → Delhi Airport One-Way Cab</h3>
+            <p>Stress-free airport transfers from Chandigarh to IGI Airport with punctual pickup and comfortable highway travel.</p>
+            <div class="route-meta">Airport Transfer • 24×7 Pickup • Flight-Friendly Travel</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Delhi Airport', 'Approx. 5.5 Hours', '265 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
         <div class="route-card scroll-reveal">
-            <span class="route-num">03 — Manali</span>
-            <h3>Chandigarh → Manali One-Way Drop</h3>
-            <p>Enjoy a scenic Himalayan drive from Chandigarh to Manali with complete privacy and safe professional driving.</p>
-            <div class="route-meta">Long Distance Drop • Family Safe • Comfortable Ride</div>
-            <button class="view-btn" onclick="openModal('Chandigarh → Manali (One-Way)', 'Approx. 8 Hours', '290 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+            <span class="route-num">03 — Shimla</span>
+            <h3>Chandigarh → Shimla One-Way Cab</h3>
+            <p>Your comfortable gateway to the hills. Travel from Chandigarh to Shimla with a dedicated private cab and professional driver.</p>
+            <div class="route-meta">Private Cab • Direct Transfer • Hill Journey</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Shimla', 'Approx. 3.5 Hours', '115 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
         <div class="route-card scroll-reveal">
-            <span class="route-num">04 — Amritsar</span>
-            <h3>Chandigarh → Amritsar One-Way Drop</h3>
-            <p>Quick and seamless point-to-point drop cab service from Chandigarh to Amritsar city or Golden Temple.</p>
-            <div class="route-meta">Highway Special • Direct Transfer • On-Time Pickup</div>
-            <button class="view-btn" onclick="openModal('Chandigarh → Amritsar (One-Way)', 'Approx. 4.5 Hours', '225 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+            <span class="route-num">04 — Manali</span>
+            <h3>Chandigarh → Manali One-Way Cab</h3>
+            <p>A comfortable long-distance Himalayan transfer from Chandigarh to Manali with a dedicated vehicle and experienced driver.</p>
+            <div class="route-meta">Direct Transfer • Family Friendly • Premium Travel</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Manali', 'Approx. 8 Hours', '290 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
         <div class="route-card scroll-reveal">
-            <span class="route-num">05 — Dharamshala</span>
-            <h3>Chandigarh → Dharamshala One-Way Drop</h3>
-            <p>Travel hassle-free from Chandigarh to the peaceful valleys of Dharamshala and McLeod Ganj.</p>
-            <div class="route-meta">Scenic Drop • Private Vehicle • Experienced Mountain Driver</div>
-            <button class="view-btn" onclick="openModal('Chandigarh → Dharamshala (One-Way)', 'Approx. 6 Hours', '240 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+            <span class="route-num">05 — Amritsar</span>
+            <h3>Chandigarh → Amritsar One-Way Cab</h3>
+            <p>Travel effortlessly to the Golden City with a private point-to-point cab from Chandigarh.</p>
+            <div class="route-meta">Direct Cab • Door-to-Door • Comfortable Journey</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Amritsar', 'Approx. 4.5 Hours', '225 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">06 — Dharamshala</span>
+            <h3>Chandigarh → Dharamshala One-Way Cab</h3>
+            <p>A smooth private transfer from Chandigarh to the Kangra Valley, designed for comfortable family and leisure travel.</p>
+            <div class="route-meta">Private Transfer • Scenic Route • Professional Driver</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Dharamshala', 'Approx. 6 Hours', '240 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">07 — Dalhousie</span>
+            <h3>Chandigarh → Dalhousie One-Way Cab</h3>
+            <p>Travel into the mountains with a comfortable one-way cab to Dalhousie, perfect for family holidays and hill getaways.</p>
+            <div class="route-meta">Hill Transfer • Private Cab • Comfortable Ride</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Dalhousie', 'Approx. 7 Hours', '310 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">08 — Kasauli</span>
+            <h3>Chandigarh → Kasauli One-Way Cab</h3>
+            <p>A convenient private hill transfer from Chandigarh to peaceful Kasauli.</p>
+            <div class="route-meta">Quick Getaway • Private Cab • Door-to-Door</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Kasauli', 'Approx. 2 Hours', '60 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">09 — Kasol</span>
+            <h3>Chandigarh → Kasol One-Way Cab</h3>
+            <p>Head into the Parvati Valley with a dedicated one-way cab from Chandigarh to Kasol.</p>
+            <div class="route-meta">Adventure Travel • Private Cab • Direct Transfer</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Kasol', 'Approx. 8 Hours', '270 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">10 — Kullu</span>
+            <h3>Chandigarh → Kullu One-Way Cab</h3>
+            <p>Comfortable point-to-point transportation from Chandigarh to the scenic Kullu Valley.</p>
+            <div class="route-meta">Himachal Transfer • Private Vehicle • Reliable Service</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Kullu', 'Approx. 7.5 Hours', '250 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">11 — Rishikesh</span>
+            <h3>Chandigarh → Rishikesh One-Way Cab</h3>
+            <p>Travel comfortably to the adventure and spiritual capital of Uttarakhand with a private one-way cab.</p>
+            <div class="route-meta">Outstation Cab • Door-to-Door • Flexible Pickup</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Rishikesh', 'Approx. 5.5 Hours', '210 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">12 — Haridwar</span>
+            <h3>Chandigarh → Haridwar One-Way Cab</h3>
+            <p>A comfortable private transfer from Chandigarh to Haridwar for pilgrimage, family travel and weekend journeys.</p>
+            <div class="route-meta">Pilgrimage Travel • Private Cab • Direct Transfer</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Haridwar', 'Approx. 5 Hours', '200 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">13 — Dehradun</span>
+            <h3>Chandigarh → Dehradun One-Way Cab</h3>
+            <p>Professional point-to-point cab service for business, family and personal travel to Dehradun.</p>
+            <div class="route-meta">Corporate Friendly • Private Cab • Door-to-Door</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Dehradun', 'Approx. 4.5 Hours', '170 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">14 — Jammu</span>
+            <h3>Chandigarh → Jammu One-Way Cab</h3>
+            <p>A dependable long-distance private cab service connecting Chandigarh with Jammu comfortably and conveniently.</p>
+            <div class="route-meta">Long Distance • Private Cab • Experienced Driver</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Jammu', 'Approx. 7 Hours', '340 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <div class="route-card scroll-reveal">
+            <span class="route-num">15 — Katra</span>
+            <h3>Chandigarh → Katra One-Way Cab</h3>
+            <p>Comfortable and convenient private transportation from Chandigarh to Katra for your Vaishno Devi journey.</p>
+            <div class="route-meta">Pilgrimage Transfer • Family Friendly • Direct Cab</div>
+            <button class="view-btn" onclick="openModal('Chandigarh ⇄ Katra', 'Approx. 8.5 Hours', '380 km')">View Route <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-title scroll-reveal">
+            <div class="badge-pill">SIMPLE BOOKING</div>
+            <h2>How Your One-Way Trip Works</h2>
+            <p style="color:var(--text-muted); max-width:500px; margin: 15px auto 0;">Designed like a professional travel company website: clear destination selection, vehicle choice, and direct booking.</p>
+        </div>
+
+        <div class="step-card scroll-reveal">
+            <span class="step-num">01</span>
+            <h3>Select Destination</h3>
+            <p>Choose any One-Way destination from the list above.</p>
+        </div>
+        <div class="step-card scroll-reveal">
+            <span class="step-num">02</span>
+            <h3>Choose Vehicle</h3>
+            <p>Select the car that matches your family size and comfort level.</p>
+        </div>
+        <div class="step-card scroll-reveal">
+            <span class="step-num">03</span>
+            <h3>Plan Your Journey</h3>
+            <p>Share travel dates, pickup point, drop location and requirements.</p>
+        </div>
+        <div class="step-card scroll-reveal">
+            <span class="step-num">04</span>
+            <h3>Confirm Booking</h3>
+            <p>Get your final quote and trip confirmation directly from our team.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-title scroll-reveal">
+            <h2>Our Fleet</h2>
+        </div>
+
+        <div class="fleet-card scroll-reveal">
+            <img src="IMG_4678.jpeg" alt="Swift Dzire">
+            <div class="fleet-info">
+                <span class="step-num" style="font-size:0.9rem;">SEDAN</span>
+                <h3>Swift Dzire 4+1</h3>
+                <p>Ideal for small families & business trips with comfortable seating and ample boot space.</p>
+            </div>
+        </div>
+        <div class="fleet-card scroll-reveal">
+            <img src="IMG_4938.jpeg" alt="Maruti Ertiga">
+            <div class="fleet-info">
+                <span class="step-num" style="font-size:0.9rem;">SUV</span>
+                <h3>Maruti Ertiga 6+1</h3>
+                <p>Spacious 6+1 seating option, perfect for family group tours and highway drives.</p>
+            </div>
+        </div>
+        <div class="fleet-card scroll-reveal">
+            <img src="IMG_4677.jpeg" alt="Toyota Glanza">
+            <div class="fleet-info">
+                <span class="step-num" style="font-size:0.9rem;">HATCHBACK</span>
+                <h3>Toyota Glanza 4+1</h3>
+                <p>Compact and super comfortable for quick city transfers and shorter drops.</p>
+            </div>
+        </div>
+        <div class="fleet-card scroll-reveal">
+            <img src="IMG_4936.jpeg" alt="Innova Crysta">
+            <div class="fleet-info">
+                <span class="step-num" style="font-size:0.9rem;">MPV</span>
+                <h3>Innova Crysta 7+1</h3>
+                <p>Ultimate luxury and long-distance comfort with plush seating and powerful road performance.</p>
+            </div>
+        </div>
+        <div class="fleet-card scroll-reveal">
+            <img src="IMG_4937.jpeg" alt="Tempo Traveller">
+            <div class="fleet-info">
+                <span class="step-num" style="font-size:0.9rem;">TEMPO TRAVELLER</span>
+                <h3>Urbania Luxury Van</h3>
+                <p>High capacity luxury group travel with push-back seats, ideal for mountain trips.</p>
+            </div>
         </div>
     </div>
 
     <div class="cta-section scroll-reveal">
         <div class="cta-card glowing-border">
-            <h2 class="watery-text">Need a One-Way Drop?</h2>
-            <p>Save on return fares. Share your pickup location and destination to get instant pricing.</p>
+            <h2 class="watery-text">Ready for your next trip?</h2>
+            <p>Tell us your destination, travel dates and passenger count. We will recommend the ideal cab for your ride.</p>
             <div class="cta-buttons">
                 <a href="tel:6280544730" class="cta-btn btn-fill">Call Now</a>
-                <a href="https://wa.me/916280544730?text=Hello,%20I%20need%20a%20one-way%20cab%20quote." class="cta-btn btn-outline-gold" target="_blank">WhatsApp Us</a>
+                <a href="https://wa.me/916280544730" class="cta-btn btn-outline-gold" target="_blank">WhatsApp Us</a>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="footer-logo">Shri Radha <span style="color:var(--gold); font-style:italic;">Travels</span></div>
-        <p class="footer-desc">Reliable one-way intercity drop cab services from Chandigarh to Himachal, Punjab, and North India.</p>
+        <p class="footer-desc">Premium private cab services from Chandigarh for Himachal, Punjab, Uttarakhand, Delhi, and North India.</p>
         <a href="https://www.shriradhatravels.com" class="footer-link">Website: www.shriradhatravels.com</a>
+        
+        <div class="footer-section">
+            <h4>One-Way & Round Trips</h4>
+            <p>Shimla • Manali • Amritsar • Spiti<br>Dalhousie • Mussoorie • Rishikesh</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Book Your Cab</h4>
+            <p style="color:#fff;">Call: <strong>+91 62805 44730</strong></p>
+            <p>WhatsApp available for quick booking & quote.</p>
+        </div>
+
         <div class="footer-bottom">
-            © 2026 Shri Radha Travels. All rights reserved.
+            © 2026 Shri Radha Travels. All rights reserved. Premium Cab Services
         </div>
     </footer>
 
     <div class="modal-overlay" id="routeModal">
         <div class="modal-card">
             <i class="fa-solid fa-xmark close-modal" onclick="closeModal()"></i>
-            <span class="modal-badge">ONE-WAY DROP DETAILS</span>
-            <h2 id="modalTitle">Chandigarh → Destination</h2>
+            <span class="modal-badge">ROUTE DETAILS</span>
+            <h2 id="modalTitle">Chandigarh ⇄ Destination</h2>
             
             <div class="modal-grid">
                 <div class="modal-box">
@@ -324,41 +544,41 @@
                 </div>
                 <div class="modal-box">
                     <span><i class="fa-solid fa-route"></i> Approx. Distance</span>
-                    <strong id="modalDist">--</strong>
+                    <strong id="modalDist">-- (One Way)</strong>
                 </div>
             </div>
 
             <div class="modal-itinerary">
-                <p><span>One-Way Benefit:</span> You only pay for a single side drop. No extra return charges or hidden toll fees included in the standard quote.</p>
+                <p><span>Journey Info:</span> Enjoy a private, comfortable, and safe drive from Chandigarh directly to your destination with our experienced professional driver.</p>
             </div>
 
             <div class="modal-actions">
                 <button class="modal-btn-close" onclick="closeModal()">Close</button>
-                <button class="modal-btn-book" onclick="window.open('https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20one-way%20cab%20for%20this%20route', '_blank')"><i class="fa-brands fa-whatsapp"></i> Book One-Way</button>
+                <button class="modal-btn-book" onclick="window.open('https://wa.me/916280544730', '_blank')"><i class="fa-brands fa-whatsapp"></i> Book Now</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Scroll Reveal Animation Script using Intersection Observer
         document.addEventListener("DOMContentLoaded", function() {
             const reveals = document.querySelectorAll(".scroll-reveal");
-            
-            const revealOnScroll = function() {
-                reveals.forEach(element => {
-                    const windowHeight = window.innerHeight;
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 100;
-                    
-                    if (elementTop < windowHeight - elementVisible) {
-                        element.classList.add("active");
-                    }
-                });
-            };
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
-            window.addEventListener("scroll", revealOnScroll);
-            revealOnScroll();
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
         });
 
+        // Popup Modal Script
         const modal = document.getElementById('routeModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalTime = document.getElementById('modalTime');
@@ -367,7 +587,7 @@
         function openModal(title, time, distance) {
             modalTitle.innerText = title;
             modalTime.innerText = time;
-            modalDist.innerText = distance;
+            modalDist.innerText = distance + " (One Way)";
             modal.classList.add('active');
         }
 
@@ -375,6 +595,7 @@
             modal.classList.remove('active');
         }
 
+        // Close modal when clicking outside the card
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal();
