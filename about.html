@@ -21,7 +21,7 @@
             line-height: 1.6;
         }
 
-        /* Exact Navbar matching IMG_7031 */
+        /* Exact Navbar */
         header {
             background: rgba(11, 19, 43, 0.98);
             padding: 12px 30px;
@@ -37,17 +37,17 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
         }
         .logo-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #d4af37;
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border: none; /* Yellow border removed completely */
+            background: transparent;
+            border-radius: 0;
         }
-        /* Exact Typography matching IMG_7058 */
         .brand-title {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
@@ -62,7 +62,7 @@
             display: inline-block;
         }
 
-        /* Exact Call Now Button matching IMG_7031 */
+        /* Call Now Button */
         .call-now-btn {
             background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
             color: #0b132b;
@@ -116,33 +116,59 @@
             opacity: 0.95;
         }
 
-        /* CONTINUOUS ROTATING GOLDEN BORDER ANIMATION (Ruke na bilkul bhi) */
-        @keyframes continuous-rotate {
+        /* TRUE CONTINUOUS ROTATING GOL-GOL GOLDEN BORDER ANIMATION */
+        @keyframes rotate-border {
             0% {
-                border-image: linear-gradient(0deg, #d4af37, #0b132b, #aa771c, #d4af37) 1;
-            }
-            50% {
-                border-image: linear-gradient(180deg, #aa771c, #d4af37, #f3e7c4, #0b132b) 1;
+                transform: rotate(0deg);
             }
             100% {
-                border-image: linear-gradient(360deg, #d4af37, #0b132b, #aa771c, #d4af37) 1;
+                transform: rotate(360deg);
             }
         }
 
         .animated-card {
-            background: rgba(30, 41, 59, 0.6);
-            border: 3px solid #d4af37;
-            border-image: linear-gradient(135deg, #d4af37, #0b132b, #aa771c) 1;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
             position: relative;
-            /* Animation hamesha chalu rahegi, rukegi nahi */
-            animation: continuous-rotate 3s linear infinite;
-            transition: transform 0.3s ease;
+            background: rgba(30, 41, 59, 0.85);
+            border-radius: 16px;
+            overflow: hidden;
+            z-index: 1;
         }
-        .animated-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+
+        /* Spinning conic gradient border wrapper */
+        .animated-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                transparent, 
+                transparent, 
+                #d4af37, 
+                #f3e7c4, 
+                #aa771c, 
+                transparent
+            );
+            animation: rotate-border 4s linear infinite;
+            z-index: -2;
+        }
+
+        /* Inner background mask to keep card content clean and dark */
+        .animated-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px; /* Border thickness */
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 14px;
+            z-index: -1;
+        }
+
+        .animated-card-content {
+            position: relative;
+            z-index: 1;
+            padding: 35px 25px;
         }
 
         /* Stats Section */
@@ -155,7 +181,6 @@
             padding: 0 20px;
         }
         .stat-card {
-            padding: 35px 20px;
             text-align: center;
         }
         .stat-card h3 {
@@ -181,9 +206,6 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        .mvv-card {
-            padding: 40px 30px;
-        }
         .mvv-card i {
             font-size: 34px;
             color: #d4af37;
@@ -206,8 +228,6 @@
         .contact-section {
             max-width: 1100px;
             margin: 0 auto 80px auto;
-            padding: 50px;
-            background: rgba(30, 41, 59, 0.8);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         .contact-section h3 {
@@ -299,8 +319,8 @@
                 font-size: 19px;
             }
             .logo-img {
-                width: 42px;
-                height: 42px;
+                width: 44px;
+                height: 44px;
             }
             .call-now-btn {
                 padding: 8px 16px;
@@ -311,7 +331,7 @@
 </head>
 <body>
 
-    <!-- Exact Header / Navbar matching IMG_7031 -->
+    <!-- Header / Navbar with Full Clean Logo -->
     <header>
         <a href="index.html" class="logo-container">
             <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="logo-img">
@@ -329,76 +349,92 @@
         <p>At <strong style="color: #d4af37;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Manali, Shimla, Leh Ladakh, Spiti Valley, and beyond, we cater to modern explorers seeking comfort, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified and courteous drivers, and hygienic, high-end vehicles designed for long-distance endurance. Join thousands of happy customers who trust us to deliver punctual, transparent, and luxurious travel solutions tailored precisely to your schedule and preferences.</p>
     </section>
 
-    <!-- Stats Section with Continuous Golden Rotating Animation -->
+    <!-- Stats Section with Continuous Gol-Gol Rotating Animation -->
     <div class="stats-grid">
         <div class="stat-card animated-card">
-            <h3>5000+</h3>
-            <p>Happy Customers</p>
+            <div class="animated-card-content">
+                <h3>5000+</h3>
+                <p>Happy Customers</p>
+            </div>
         </div>
         <div class="stat-card animated-card">
-            <h3>1500+</h3>
-            <p>Trips Completed</p>
+            <div class="animated-card-content">
+                <h3>1500+</h3>
+                <p>Trips Completed</p>
+            </div>
         </div>
         <div class="stat-card animated-card">
-            <h3>50+</h3>
-            <p>Cities Covered</p>
+            <div class="animated-card-content">
+                <h3>50+</h3>
+                <p>Cities Covered</p>
+            </div>
         </div>
         <div class="stat-card animated-card">
-            <h3>5+</h3>
-            <p>Years Experience</p>
+            <div class="animated-card-content">
+                <h3>5+</h3>
+                <p>Years Experience</p>
+            </div>
         </div>
     </div>
 
-    <!-- Mission, Vision, Values Section with Continuous Golden Animation -->
+    <!-- Mission, Vision, Values Section with Continuous Gol-Gol Rotating Animation -->
     <section class="mvv-section">
         <div class="mvv-card animated-card">
-            <i class="fas fa-bullseye"></i>
-            <h4>Our Mission</h4>
-            <p>To provide safe, reliable, and luxurious travel experiences that exceed our customers' expectations while maintaining the highest standards of hospitality.</p>
+            <div class="animated-card-content">
+                <i class="fas fa-bullseye"></i>
+                <h4>Our Mission</h4>
+                <p>To provide safe, reliable, and luxurious travel experiences that exceed our customers' expectations while maintaining the highest standards of hospitality.</p>
+            </div>
         </div>
         <div class="mvv-card animated-card">
-            <i class="fas fa-eye"></i>
-            <h4>Our Vision</h4>
-            <p>To become the most trusted and preferred travel partner nationwide known for our premium fleet, courteous drivers, and unmatched customer care.</p>
+            <div class="animated-card-content">
+                <i class="fas fa-eye"></i>
+                <h4>Our Vision</h4>
+                <p>To become the most trusted and preferred travel partner nationwide known for our premium fleet, courteous drivers, and unmatched customer care.</p>
+            </div>
         </div>
         <div class="mvv-card animated-card">
-            <i class="fas fa-gem"></i>
-            <h4>Core Values</h4>
-            <p>Customer satisfaction, absolute safety, absolute transparency, luxury comfort, and punctuality form the foundational pillars of Shri Radha Travels.</p>
+            <div class="animated-card-content">
+                <i class="fas fa-gem"></i>
+                <h4>Core Values</h4>
+                <p>Customer satisfaction, absolute safety, absolute transparency, luxury comfort, and punctuality form the foundational pillars of Shri Radha Travels.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section with Continuous Golden Animation -->
-    <section class="contact-section animated-card">
-        <h3>Get In Touch With Us</h3>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603, India</span>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <div>
-                    <strong>Phone / WhatsApp:</strong><br>
-                    <a href="tel:+916280544730">+91 6280544730</a>
+    <!-- Contact Section with Continuous Gol-Gol Rotating Animation -->
+    <section class="contact-section animated-card" style="max-width: 1100px; margin: 0 auto 80px auto;">
+        <div class="animated-card-content" style="padding: 45px;">
+            <h3>Get In Touch With Us</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603, India</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Phone / WhatsApp:</strong><br>
+                        <a href="tel:+916280544730">+91 6280544730</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email Address:</strong><br>
+                        <a href="mailto:shriradhatravels001@gmail.com">shriradhatravels001@gmail.com</a>
+                    </div>
                 </div>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <strong>Email Address:</strong><br>
-                    <a href="mailto:shriradhatravels001@gmail.com">shriradhatravels001@gmail.com</a>
-                </div>
-            </div>
-        </div>
 
-        <!-- Social Links Container -->
-        <div class="social-container">
-            <p>Connect With Us On Social Media & Maps</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/shri_radha_travels" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://maps.app.goo.gl/9xBhSGUY5TPRUCxLA" target="_blank" title="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+            <!-- Social Links Container -->
+            <div class="social-container">
+                <p>Connect With Us On Social Media & Maps</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/shri_radha_travels" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://maps.app.goo.gl/9xBhSGUY5TPRUCxLA" target="_blank" title="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+                </div>
             </div>
         </div>
     </section>
