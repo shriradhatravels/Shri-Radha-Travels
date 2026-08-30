@@ -53,10 +53,10 @@
             z-index: -1;
         }
 
-        /* Header Bar matching main website */
+        /* Navbar / Header matching main website */
         .header {
             background: #0b1329;
-            padding: 15px 20px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -64,33 +64,33 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
         .back-btn {
             color: #d4af37;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: 0.3s;
         }
         .back-btn:hover {
             color: #ffffff;
             transform: translateX(-3px);
         }
-        
-        .logo-container {
+
+        /* Brand Logo & Name Area */
+        .brand-box {
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
-
-        /* Rotating Golden Logo Animation */
         .rotating-logo {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             border: 2px dashed #d4af37;
             border-radius: 50%;
             display: flex;
@@ -106,6 +106,13 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+        .brand-title {
+            color: #d4af37;
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
 
         /* Container */
         .container {
@@ -116,16 +123,16 @@
             z-index: 2;
         }
 
-        /* Scroll-down Popup & Entrance Animation */
+        /* Scroll-down Popup Card Animation */
         .service-card {
             background: #0b1329;
             border: 1px solid #d4af37;
             border-left: 5px solid #d4af37;
             border-radius: 0px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(35px);
             animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes scrollPopup {
@@ -139,7 +146,7 @@
             }
         }
 
-        /* Headings & Text Styling */
+        /* Headings & Text with Animation */
         h1 {
             color: #d4af37;
             font-size: 24px;
@@ -149,7 +156,7 @@
             line-height: 1.4;
             text-transform: uppercase;
             letter-spacing: 1px;
-            animation: fadeInText 1s ease-in-out;
+            animation: fadeInText 0.9s ease-in-out;
         }
         p {
             color: #cbd5e1;
@@ -157,10 +164,10 @@
             font-weight: 500;
             line-height: 1.7;
             margin-bottom: 25px;
-            animation: fadeInText 1.2s ease-in-out;
+            animation: fadeInText 1.1s ease-in-out;
         }
         @keyframes fadeInText {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -208,7 +215,7 @@
             display: block;
             width: 100%;
             background: #d4af37;
-            color: #000000;
+            color: #0b1329;
             text-align: center;
             padding: 16px;
             border-radius: 0px;
@@ -222,7 +229,7 @@
         }
         .book-btn:hover {
             background: #ffffff;
-            color: #000000;
+            color: #0b1329;
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
@@ -240,22 +247,22 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Header matching website style with rotating golden logo -->
+    <!-- Complete Top Navbar with Rotating Golden Logo & Shri Radha Travels Name -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <div class="logo-container">
+        <a href="index.html" class="brand-box">
             <div class="rotating-logo">
                 <i class="fas fa-taxi"></i>
             </div>
-            <span style="color: #d4af37; font-weight: 800; font-size: 16px; letter-spacing: 0.5px;">Shri Radha Travels</span>
-        </div>
+            <span class="brand-title">Shri Radha Travels</span>
+        </a>
     </div>
 
     <!-- Container -->
     <div class="container">
         <div class="service-card">
             <h1>Airport Taxi Service – Chandigarh, Mohali & Zirakpur</h1>
-            <p>Begin or end your journey with absolute peace of mind. We provide elite, punctual airport transfers featuring professional chauffeurs and impeccably maintained luxury cabs. Enjoy real-time flight tracking, zero waiting fees for delayed flights, and executive doorstep pickups across Chandigarh, Mohali, and Zirakpur.</p>
+            <p>Start or finish your journey with absolute comfort and elite luxury. We deliver prompt, dependable airport transfer solutions featuring expert chauffeurs and meticulously maintained premium vehicles. Enjoy live flight tracking, zero waiting fees for delayed flights, and executive doorstep pickups across Chandigarh, Mohali, and Zirakpur.</p>
             
             <div class="features-title">What's Included:</div>
             <ul>
@@ -263,7 +270,7 @@
                 <li><i class="fas fa-plane-arrival"></i> Live Flight Status Tracking & Adjustments</li>
                 <li><i class="fas fa-tag"></i> 100% Transparent & Fixed Pricing</li>
                 <li><i class="fas fa-user-tie"></i> Dedicated Meet & Greet Service at Arrival Terminal</li>
-                <li><i class="fas fa-shield-alt"></i> Sanitized, Safe & Premium Fleet Vehicles</li>
+                <li><i class="fas fa-shield-alt"></i> Fully Sanitized, Safe & Premium Fleet Vehicles</li>
             </ul>
 
             <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark" style="margin-right: 8px;"></i> Instant Booking</a>
