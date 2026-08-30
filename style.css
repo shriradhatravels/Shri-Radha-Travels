@@ -142,6 +142,15 @@ text-align:center;
     animation: logoFloat 2s infinite ease-in-out;
 }
 
+.brand-logo {
+    width: 35px !important;
+    height: 35px !important;
+    max-width: 35px !important;
+    max-height: 35px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
 .loader-content h1{
 
 font-size:38px;
