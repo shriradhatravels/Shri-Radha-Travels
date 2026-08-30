@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outstation Trips - Shri Radha Travels</title>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -321,6 +322,78 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
+        /* --- NEW PROFESSIONAL POPULAR ROUTES CHIPS SECTION --- */
+        .routes-section {
+            margin-bottom: 35px;
+        }
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .route-chip {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: all 0.3s ease;
+        }
+        .route-chip i {
+            color: #d4af37;
+            font-size: 14px;
+        }
+        .route-chip:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+        }
+
+        /* --- NEW WHY CHOOSE US PERKS CARDS --- */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        .perk-box {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .perk-box:hover {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.05);
+        }
+        .perk-box i {
+            color: #d4af37;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .perk-box h4 {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+        .perk-box p {
+            font-size: 12px;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.4;
+        }
+
         /* Action Buttons Layout (Standard Clean Buttons without outer box container) */
         .action-container {
             display: flex;
@@ -372,11 +445,13 @@
             .service-card { padding: 25px 20px; }
             h1 { font-size: 22px; }
             .action-container { flex-direction: column; }
+            .perks-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Background Photos Auto Slider -->
     <div class="bg-slider">
         <img src="IMG_4760.jpeg" class="slide active" alt="Cab 1">
         <img src="IMG_4765.jpeg" class="slide" alt="Cab 2">
@@ -386,6 +461,7 @@
     </div>
     <div class="bg-overlay"></div>
 
+    <!-- Header Navbar -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
         <a href="index.html" class="brand-box">
@@ -395,10 +471,13 @@
         <a href="tel:9876543210" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
 
+    <!-- Container -->
     <div class="container">
+        <!-- Main Card with Rotating Golden Conic Border -->
         <div class="service-card">
             <div class="service-badge"><i class="fas fa-route"></i> Outstation Travel Specialists</div>
             
+            <!-- Heading with Shimmer Animation -->
             <h1>Outstation Cab Service – <span>Intercity & Long Distance Trips</span></h1>
             
             <p>Plan your outstation getaways and long-distance business tours with absolute peace of mind. We offer comfortable round-trip and multi-city cab rentals from Chandigarh, Mohali, and Zirakpur to popular hill stations, religious destinations, and neighboring states with courteous drivers and transparent per-kilometer pricing.</p>
@@ -445,6 +524,71 @@
                 </div>
             </div>
 
+            <!-- Professional Popular Routes Section Added -->
+            <div class="routes-section">
+                <div class="section-title">Popular Outstation Routes</div>
+                <div class="routes-grid">
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Manali / Shimla</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Leh Ladakh</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Dharamshala</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Dalhousie</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Spiti Valley</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Mussoorie</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Jaipur</span>
+                    </div>
+                    <div class="route-chip">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Amritsar / Delhi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Why Choose Us Perks Cards Added -->
+            <div class="section-title">Why Travel With Us</div>
+            <div class="perks-grid">
+                <div class="perk-box">
+                    <i class="fas fa-gas-pump"></i>
+                    <h4>No Hidden Charges</h4>
+                    <p>Transparent toll, state tax, and driver allowance terms upfront.</p>
+                </div>
+                <div class="perk-box">
+                    <i class="fas fa-user-check"></i>
+                    <h4>Expert Hill Drivers</h4>
+                    <p>Drivers well-versed with tough mountain terrain and safe driving.</p>
+                </div>
+                <div class="perk-box">
+                    <i class="fas fa-car"></i>
+                    <h4>Clean & Sanitized</h4>
+                    <p>Immaculate fleet conditions checked prior to every journey.</p>
+                </div>
+                <div class="perk-box">
+                    <i class="fas fa-clock"></i>
+                    <h4>On-Time Pickup</h4>
+                    <p>Punctual doorstep pickup right at your scheduled hour.</p>
+                </div>
+            </div>
+
+            <!-- Direct Action Buttons -->
             <div class="action-container">
                 <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Outstation Booking</a>
                 <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Outstation%20Trip%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
@@ -453,6 +597,7 @@
         </div>
     </div>
 
+    <!-- JavaScript for Background Photo Slider -->
     <script>
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
