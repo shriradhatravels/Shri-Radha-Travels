@@ -49,11 +49,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(11, 19, 41, 0.82);
+            background: rgba(11, 19, 41, 0.85);
             z-index: -1;
         }
 
-        /* Navbar / Header matching main website */
+        /* Exact Website Navbar Styling */
         .header {
             background: #0b1329;
             padding: 12px 20px;
@@ -81,26 +81,28 @@
             transform: translateX(-3px);
         }
 
-        /* Brand Logo & Name Area */
+        /* Brand Section with Exact Glowing Rotating Golden Ring Logo */
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
         }
         .rotating-logo {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border: 2px dashed #d4af37;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
             animation: rotateLogo 8s linear infinite;
         }
         .rotating-logo i {
             color: #d4af37;
-            font-size: 16px;
+            font-size: 18px;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
         @keyframes rotateLogo {
             from { transform: rotate(0deg); }
@@ -110,7 +112,7 @@
             color: #d4af37;
             font-weight: 800;
             font-size: 16px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
         }
 
@@ -123,17 +125,17 @@
             z-index: 2;
         }
 
-        /* Scroll-down Popup Card Animation */
+        /* Exact Scroll-down Popup Card with Glowing Golden Border Animation */
         .service-card {
             background: #0b1329;
-            border: 1px solid #d4af37;
-            border-left: 5px solid #d4af37;
+            border: 2px solid #d4af37;
+            border-left: 6px solid #d4af37;
             border-radius: 0px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35), 0 15px 35px rgba(0,0,0,0.7);
             opacity: 0;
             transform: translateY(35px);
-            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, glowPulse 3s infinite alternate;
         }
         @keyframes scrollPopup {
             0% {
@@ -143,6 +145,14 @@
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+            }
+        }
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.25), 0 15px 35px rgba(0,0,0,0.7);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 15px 35px rgba(0,0,0,0.7);
             }
         }
 
@@ -156,6 +166,7 @@
             line-height: 1.4;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
             animation: fadeInText 0.9s ease-in-out;
         }
         p {
@@ -193,7 +204,7 @@
             color: #ffffff;
             font-size: 15px;
             font-weight: 700;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.35);
             border-left: 4px solid #d4af37;
             display: flex;
             align-items: center;
@@ -202,13 +213,14 @@
         }
         ul li:hover {
             transform: translateX(8px);
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.12);
             border-color: #d4af37;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
         ul li i {
             color: #d4af37;
             font-size: 18px;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
         }
         
         .book-btn {
@@ -231,7 +243,7 @@
             background: #ffffff;
             color: #0b1329;
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
         }
     </style>
 </head>
@@ -247,7 +259,7 @@
     </div>
     <div class="bg-overlay"></div>
 
-    <!-- Complete Top Navbar with Rotating Golden Logo & Shri Radha Travels Name -->
+    <!-- Exact Header with Rotating Golden Glowing Logo & Shri Radha Travels Name -->
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
         <a href="index.html" class="brand-box">
