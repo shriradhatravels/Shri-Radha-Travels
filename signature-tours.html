@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Tour Packages | Shri Radha Travels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #070a0f;
+            --bg-card: #0d121c;
+            --bg-card-hover: #131a29;
+            --gold-primary: #ffd700;
+            --gold-light: #ffea75;
+            --gold-dark: #d4af37;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 215, 0, 0.15);
+            --border-hover: rgba(255, 215, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animated Golden Border Effect */
+        @keyframes borderGlow {
+            0% { border-color: rgba(255, 215, 0, 0.2); box-shadow: 0 0 10px rgba(255, 215, 0, 0.05); }
+            50% { border-color: rgba(255, 215, 0, 0.6); box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+            100% { border-color: rgba(255, 215, 0, 0.2); box-shadow: 0 0 10px rgba(255, 215, 0, 0.05); }
+        }
+
+        /* Colour Text Shimmer Animation */
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gold-text {
+            background: linear-gradient(135deg, #ffd700, #fff2b2, #d4af37, #ffea75);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 6s ease infinite;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(7, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        .brand-text h1 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .call-btn {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #070a0f;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .call-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 5% 40px;
+            text-align: left;
+            max-width: 900px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Filter Tabs */
+        .filters-container {
+            display: flex;
+            gap: 10px;
+            padding: 0 5% 30px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .filters-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-tab {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab.active, .filter-tab:hover {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(212,175,55,0.05));
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        /* Cards Grid */
+        .container {
+            padding: 0 5% 60px;
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .tour-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            animation: borderGlow 4s infinite alternate;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-6px);
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .card-meta {
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .tour-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .tour-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .days-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .day-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .card-footer-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 18px;
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .card-footer-link span {
+            transition: transform 0.3s ease;
+        }
+
+        .tour-card:hover .card-footer-link span {
+            transform: translateX(5px);
+        }
+
+        /* Bottom Floating CTA Bar */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background: rgba(13, 18, 28, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-hover);
+            border-radius: 40px;
+            padding: 12px 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .cta-btn-call {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #070a0f;
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-btn-wa {
+            flex: 1;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .cta-btn-wa:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--gold-primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 5% 100px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="brand">
+            <div class="brand-logo">SR</div>
+            <div class="brand-text">
+                <h1>Shri Radha</h1>
+                <span>Travels</span>
+            </div>
+        </a>
+        <a href="tel:+916280544730" class="call-btn">📞 Call Now</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge-pill">✦ Curated Journeys · Chandigarh</div>
+        <h2 class="animated-gold-text">Travel beyond the ordinary.</h2>
+        <p>Premium mountain escapes, spiritual journeys and thoughtfully planned tours by Shri Radha Travels. Choose your journey, choose your days — we handle the rest.</p>
+    </section>
+
+    <!-- Filter Tabs -->
+    <div class="filters-container">
+        <div class="filter-tab active">All Journeys</div>
+        <div class="filter-tab">Himachal</div>
+        <div class="filter-tab">Spiritual</div>
+        <div class="filter-tab">Heritage</div>
+        <div class="filter-tab">Uttarakhand</div>
+    </div>
+
+    <!-- Tour Cards Grid -->
+    <div class="container">
+        <div class="tour-grid">
+            
+            <!-- Card 1 -->
+            <div class="tour-card">
+                <div class="card-meta">Himachal · Mountain Retreat</div>
+                <h3>Dharamshala</h3>
+                <p>Slow mountain days, monasteries, cafés and the best of Kangra. Extend the journey into Dalhousie, Chamba & Khajjiar.</p>
+                <div class="days-pills">
+                    <span class="day-pill">3-4 Days</span>
+                    <span class="day-pill">6-7 Days</span>
+                    <span class="day-pill">8-9 Days</span>
+                </div>
+                <a href="tel:+916280544730" class="card-footer-link">View Journey <span>→</span></a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="tour-card">
+                <div class="card-meta">Himachal · Expedition</div>
+                <h3>Spiti Valley</h3>
+                <p>High-altitude landscapes, ancient monasteries, remote villages and unforgettable Himalayan roads.</p>
+                <div class="days-pills">
+                    <span class="day-pill">6-7 Days</span>
+                    <span class="day-pill">8-9 Days</span>
+                    <span class="day-pill">10-11 Days</span>
+                </div>
+                <a href="tel:+916280544730" class="card-footer-link">View Journey <span>→</span></a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="tour-card">
+                <div class="card-meta">Himachal · Classic Escape</div>
+                <h3>Shimla & Manali</h3>
+                <p>The classic Himalayan pairing — colonial charm, valleys, cafés, scenic drives and mountain air.</p>
+                <div class="days-pills">
+                    <span class="day-pill">5-6 Days</span>
+                    <span class="day-pill">7-8 Days</span>
+                </div>
+                <a href="tel:+916280544730" class="card-footer-link">View Journey <span>→</span></a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="tour-card">
+                <div class="card-meta">Spiritual · Uttarakhand</div>
+                <h3>Do Dham Yatra</h3>
+                <p>A focused Himalayan pilgrimage designed for travellers seeking a meaningful, well-paced spiritual journey.</p>
+                <div class="days-pills">
+                    <span class="day-pill">6-7 Days</span>
+                </div>
+                <a href="tel:+916280544730" class="card-footer-link">View Journey <span>→</span></a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="tour-card">
+                <div class="card-meta">Heritage · Spiritual India</div>
+                <h3>Mathura & Vrindavan</h3>
+                <p>Temples, culture and timeless stories — planned as a relaxed family and devotional escape.</p>
+                <div class="days-pills">
+                    <span class="day-pill">3-4 Days</span>
+                    <span class="day-pill">5-6 Days</span>
+                </div>
+                <a href="tel:+916280544730" class="card-footer-link">View Journey <span>→</span></a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating CTA Bar -->
+    <div class="floating-cta">
+        <a href="tel:+916280544730" class="cta-btn-call">📞 Call Shri Radha</a>
+        <a href="https://wa.me/916280544730" target="_blank" class="cta-btn-wa">WhatsApp</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Shri Radha Travels</strong></p>
+        <p style="margin-top: 5px;">SCO-38, Chaura Bazaar 1, Green Park Colony, Zirakpur, Punjab 140603</p>
+    </footer>
+
+</body>
+</html>
