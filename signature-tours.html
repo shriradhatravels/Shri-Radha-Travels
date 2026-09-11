@@ -79,18 +79,16 @@
             text-decoration: none;
         }
 
-        .brand-logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 2px solid var(--gold-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-card);
-            color: var(--gold-primary);
-            font-weight: bold;
-            font-family: 'Playfair Display', serif;
+        /* EXACT FIXED LOGO STYLING */
+        .brand-logo-img {
+            width: 45px !important;
+            height: 45px !important;
+            min-width: 45px !important;
+            min-height: 45px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            border: 2px solid var(--gold-dark) !important;
+            display: block !important;
         }
 
         .brand-text h1 {
@@ -212,12 +210,11 @@
             position: relative;
             border-radius: 22px;
             overflow: hidden;
-            padding: 2px; /* Border ki motai */
+            padding: 2px;
             background: rgba(255, 215, 0, 0.1);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        /* Ye pseudo-element round-round (360 degree) ghumega */
         .tour-card-glow-wrapper::before {
             content: '';
             position: absolute;
