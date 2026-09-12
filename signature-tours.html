@@ -357,7 +357,6 @@
             transform: translateX(5px);
         }
 
-        /* NEW PROFESSIONAL ADDITIONS: WHY CHOOSE US & FLEET SHOWCASE */
         .section-title-box {
             text-align: center;
             margin: 60px 0 35px;
@@ -482,6 +481,61 @@
         .fleet-inquiry-btn:hover {
             background: var(--gold-primary);
             color: var(--bg-deep);
+        }
+
+        /* NEW BOTTOM PROFESSIONAL ADDITIONS */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .process-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(230, 197, 103, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .process-number {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(230, 197, 103, 0.2);
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-weight: 700;
+        }
+
+        .process-card h4 {
+            font-size: 1.15rem;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .routes-badge-wrap {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .route-pill {
+            background: var(--bg-card);
+            border: 1px solid rgba(230, 197, 103, 0.25);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--text-main);
         }
 
         /* PROMISE STRIP */
@@ -757,7 +811,7 @@
         </div>
     </div>
 
-    <!-- WHY CHOOSE US (NEW PROFESSIONAL SECTION) -->
+    <!-- WHY CHOOSE US -->
     <div class="container" style="padding-bottom: 20px;">
         <div class="section-title-box">
             <h3 class="animated-gold-text">The Signature Experience</h3>
@@ -955,7 +1009,7 @@
 
         </div>
 
-        <!-- OUR ELITE FLEET SHOWCASE (NEW PROFESSIONAL SECTION) -->
+        <!-- OUR ELITE FLEET SHOWCASE -->
         <div class="section-title-box" style="margin-top: 40px;">
             <h3 class="animated-gold-text">Our Elite Fleet Available</h3>
             <p>Choose from our meticulously maintained vehicle lineup for your next family holiday or corporate group outing.</p>
@@ -997,6 +1051,45 @@
                 </div>
                 <a href="tel:+916280544730" class="fleet-inquiry-btn">Book Sedan / Ertiga</a>
             </div>
+        </div>
+
+        <!-- NEW BOTTOM ADDITION 1: TRANSPARENT BOOKING PROCESS -->
+        <div class="section-title-box" style="margin-top: 50px;">
+            <h3 class="animated-gold-text">How Your Journey Begins</h3>
+            <p>A seamless, hassle-free booking experience crafted for your convenience.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">01</div>
+                <h4>Select & Connect</h4>
+                <p>Choose your preferred destination package and contact us directly via Call or WhatsApp.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">02</div>
+                <h4>Customized Itinerary</h4>
+                <p>We tailor the dates, vehicle choice (Innova, Urbania, Dzire), and stops according to your plan.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">03</div>
+                <h4>Relaxed Departure</h4>
+                <p>Your verified chauffeur arrives right on time at your pickup point in Chandigarh or Zirakpur.</p>
+            </div>
+        </div>
+
+        <!-- NEW BOTTOM ADDITION 2: POPULAR ROUTES MATRIX -->
+        <div class="section-title-box" style="margin-top: 40px;">
+            <h3 class="animated-gold-text">Popular Routes & Gateways</h3>
+            <p>Frequent destinations serviced daily by Shri Radha Travels.</p>
+        </div>
+        <div class="routes-badge-wrap">
+            <span class="route-pill">Chandigarh to Manali</span>
+            <span class="route-pill">Chandigarh to Shimla</span>
+            <span class="route-pill">Delhi to Katra (Vaishno Devi)</span>
+            <span class="route-pill">Chandigarh to Spiti Valley</span>
+            <span class="route-pill">Chandigarh to Dharamshala</span>
+            <span class="route-pill">Chandigarh to Leh Ladakh</span>
+            <span class="route-pill">Chandigarh to Jaipur</span>
+            <span class="route-pill">Amritsar & Wagah Border</span>
         </div>
 
         <!-- PROMISE STRIP -->
