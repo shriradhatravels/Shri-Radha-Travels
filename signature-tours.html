@@ -10,9 +10,9 @@
             --bg-deep: #070a0f;
             --bg-card: #0d121c;
             --bg-card-hover: #131a29;
-            --gold-primary: #ffd700;
-            --gold-light: #ffea75;
-            --gold-dark: #d4af37;
+            --gold-primary: #ffc107;
+            --gold-light: #ffdb4d;
+            --gold-dark: #d39e00;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -42,7 +42,7 @@
         }
 
         .animated-gold-text {
-            background: linear-gradient(135deg, #ffd700, #fff2b2, #d4af37, #ffea75, #ffd700);
+            background: linear-gradient(135deg, #ffc107, #ffecb3, #d39e00, #ffdb4d, #ffc107);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -56,9 +56,9 @@
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
         }
 
         header {
@@ -71,7 +71,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 193, 7, 0.2);
         }
 
         .brand {
@@ -112,7 +112,7 @@
             font-weight: 700;
             text-decoration: none;
             font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.25);
             transition: transform 0.3s ease;
         }
 
@@ -131,7 +131,7 @@
             gap: 8px;
             padding: 6px 16px;
             background: var(--bg-card);
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 193, 7, 0.3);
             border-radius: 20px;
             font-size: 0.8rem;
             color: var(--gold-light);
@@ -163,6 +163,42 @@
             margin-bottom: 30px;
         }
 
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0 50px;
+            padding: 0 5%;
+        }
+
+        .perk-card {
+            background: linear-gradient(135deg, rgba(13, 18, 28, 0.9), rgba(19, 26, 41, 0.6));
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            border-radius: 18px;
+            padding: 28px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perk-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .perk-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .perk-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
         .filters-container {
             display: flex;
             gap: 12px;
@@ -177,7 +213,7 @@
 
         .filter-tab {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.2);
             color: var(--text-muted);
             padding: 10px 24px;
             border-radius: 25px;
@@ -188,10 +224,10 @@
         }
 
         .filter-tab.active, .filter-tab:hover {
-            background: linear-gradient(135deg, rgba(255,215,0,0.18), rgba(212,175,55,0.06));
+            background: linear-gradient(135deg, rgba(255,193,7,0.15), rgba(211,158,0,0.05));
             border-color: var(--gold-primary);
             color: var(--gold-primary);
-            box-shadow: 0 0 20px rgba(255,215,0,0.3);
+            box-shadow: 0 0 20px rgba(255,193,7,0.25);
         }
 
         .container {
@@ -217,7 +253,7 @@
             border-radius: 22px;
             overflow: hidden;
             padding: 2px;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 193, 7, 0.1);
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
         }
 
@@ -239,7 +275,7 @@
 
         .tour-card-glow-wrapper:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 215, 0, 0.45);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 193, 7, 0.4);
         }
 
         .tour-card-inner {
@@ -292,7 +328,7 @@
         }
 
         .tour-card-inner h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 10px;
             color: var(--text-main);
         }
@@ -314,7 +350,7 @@
 
         .day-pill {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 193, 7, 0.15);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.78rem;
@@ -342,54 +378,7 @@
             transform: translateX(6px);
         }
 
-        /* NEW LUXURY PERKS / TRUST SECTION */
-        .perks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 40px 0 60px;
-        }
-
-        .perk-card {
-            background: linear-gradient(135deg, rgba(13, 18, 28, 0.9), rgba(19, 26, 41, 0.6));
-            border: 1px solid rgba(255, 215, 0, 0.25);
-            border-radius: 18px;
-            padding: 28px;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .perk-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .perk-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .perk-card h4 {
-            font-size: 1.2rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .perk-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* NEW TESTIMONIALS SECTION */
+        /* Testimonials Section */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -399,7 +388,7 @@
 
         .testimonial-card {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 193, 7, 0.15);
             border-radius: 18px;
             padding: 24px;
         }
@@ -462,7 +451,7 @@
             overflow-y: auto;
             padding: 30px;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 40px rgba(255,193,7,0.25);
             transform: translateY(20px);
             transition: transform 0.3s ease;
         }
@@ -476,7 +465,7 @@
             top: 20px;
             right: 20px;
             background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,215,0,0.2);
+            border: 1px solid rgba(255,193,7,0.2);
             color: var(--gold-primary);
             width: 35px;
             height: 35px;
@@ -500,7 +489,7 @@
             border-radius: 14px;
             object-fit: cover;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.2);
         }
 
         .modal-title {
@@ -527,7 +516,7 @@
 
         .itinerary-box {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.2);
             border-radius: 14px;
             padding: 20px;
             margin-bottom: 25px;
@@ -554,7 +543,7 @@
             text-align: center;
             text-decoration: none;
             display: block;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
         }
 
         .modal-btn-wa {
@@ -572,43 +561,10 @@
         }
 
         .modal-btn-wa:hover {
-            background: rgba(255,215,0,0.1);
+            background: rgba(255,193,7,0.1);
         }
 
-        /* Inside & Steps */
-        .inside-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .inside-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 20px 24px;
-            border-radius: 14px;
-        }
-
-        .inside-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .inside-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .badge-type {
-            color: var(--gold-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
+        /* Steps & Lists */
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -618,7 +574,7 @@
 
         .step-card {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.2);
             border-radius: 16px;
             padding: 30px;
             text-align: center;
@@ -651,13 +607,13 @@
             max-width: 600px;
             background: rgba(13, 18, 28, 0.95);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 215, 0, 0.6);
+            border: 1px solid rgba(255, 193, 7, 0.5);
             border-radius: 40px;
             padding: 12px 20px;
             display: flex;
             gap: 15px;
             z-index: 999;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 20px rgba(255,193,7,0.25);
             animation: pulseGlow 3s infinite;
         }
 
@@ -672,13 +628,13 @@
             text-align: center;
             text-decoration: none;
             font-size: 0.95rem;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
         }
 
         .cta-btn-wa {
             flex: 1;
             background: transparent;
-            border: 1px solid rgba(255, 215, 0, 0.4);
+            border: 1px solid rgba(255, 193, 7, 0.4);
             color: var(--text-main);
             padding: 12px;
             border-radius: 30px;
@@ -690,7 +646,7 @@
         }
 
         .cta-btn-wa:hover {
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 193, 7, 0.1);
             border-color: var(--gold-primary);
         }
 
@@ -699,7 +655,7 @@
             padding: 40px 5% 120px;
             color: var(--text-muted);
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-top: 1px solid rgba(255, 193, 7, 0.2);
             margin-top: 60px;
         }
     </style>
@@ -722,28 +678,26 @@
         <h2 class="animated-gold-text">Travel beyond the ordinary.</h2>
         <p>Premium mountain escapes, spiritual journeys and thoughtfully planned luxury tours by Shri Radha Travels. Choose your journey, choose your days — we handle the rest.</p>
         <div class="collection-desc">
-            Designed for travellers seeking comfort: clear destinations, verified elite fleet vehicles and one simple direct booking step.
+            Designed for travellers seeking comfort: clear destinations, verified elite fleet vehicles (Innova Crysta, Urbania, Dzire) and one simple direct booking step.
         </div>
     </section>
 
-    <!-- NEW TRUST PERKS SECTION -->
-    <div class="container" style="padding-bottom: 10px;">
-        <div class="perks-grid">
-            <div class="perk-card">
-                <div class="perk-icon">🚗</div>
-                <h4>Elite Fleet Vehicles</h4>
-                <p>Clean & sanitized Innova Crysta, Tempo Traveller Urbania, and Ertiga driven by seasoned mountain experts.</p>
-            </div>
-            <div class="perk-card">
-                <div class="perk-icon">🛡️</div>
-                <h4>24/7 Concierge Assist</h4>
-                <p>On-trip coordination and live routing support starting right from Chandigarh & Zirakpur.</p>
-            </div>
-            <div class="perk-card">
-                <div class="perk-icon">✨</div>
-                <h4>Tailored Itineraries</h4>
-                <p>Customized day-wise pacing designed specifically for families, couples, and photography explorers.</p>
-            </div>
+    <!-- Trust Perks Section -->
+    <div class="perks-grid">
+        <div class="perk-card">
+            <div class="perk-icon">🚗</div>
+            <h4>Elite Fleet Vehicles</h4>
+            <p>Clean & sanitized Innova Crysta, Tempo Traveller Urbania, Ertiga & Dzire driven by seasoned mountain experts.</p>
+        </div>
+        <div class="perk-card">
+            <div class="perk-icon">🛡️</div>
+            <h4>24/7 Concierge Assist</h4>
+            <p>On-trip coordination and live routing support starting right from Chandigarh & Zirakpur.</p>
+        </div>
+        <div class="perk-card">
+            <div class="perk-icon">✨</div>
+            <h4>Tailored Itineraries</h4>
+            <p>Customized day-wise pacing designed specifically for families, couples, and photography explorers.</p>
         </div>
     </div>
 
@@ -751,8 +705,8 @@
         <div class="filter-tab active" onclick="filterCategory('all', this)">All Journeys</div>
         <div class="filter-tab" onclick="filterCategory('himachal', this)">Himachal</div>
         <div class="filter-tab" onclick="filterCategory('spiritual', this)">Spiritual</div>
+        <div class="filter-tab" onclick="filterCategory('kashmir', this)">Kashmir</div>
         <div class="filter-tab" onclick="filterCategory('heritage', this)">Heritage</div>
-        <div class="filter-tab" onclick="filterCategory('uttarakhand', this)">Uttarakhand</div>
     </div>
 
     <div class="container">
@@ -762,18 +716,17 @@
             <div class="tour-card-glow-wrapper" data-category="himachal">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7537.jpeg" alt="Dharamshala Tour">
+                        <img src="IMG_7539.jpeg" alt="Shimla & Manali">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Himachal · Mountain Retreat</div>
-                        <h3>Dharamshala</h3>
-                        <p>Slow mountain days, monasteries, cafés and the best of Kangra. Extend the journey into Dalhousie, Chamba & Khajjiar.</p>
+                        <div class="card-meta">Himachal · Classic Escape</div>
+                        <h3>Shimla & Manali</h3>
+                        <p>The classic Himalayan pairing — colonial charm, valleys, cafés, scenic drives and mountain air.</p>
                         <div class="days-pills">
-                            <span class="day-pill">3-4 Days</span>
-                            <span class="day-pill">6-7 Days</span>
-                            <span class="day-pill">8-9 Days</span>
+                            <span class="day-pill">5-6 Days</span>
+                            <span class="day-pill">7-8 Days</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Dharamshala', 'Himachal · Mountain Retreat', 'IMG_7537.jpeg', 'Slow mountain days, monasteries, cafés and the best of Kangra. Extend the journey into Dalhousie, Chamba & Khajjiar with our premium fleet vehicles like Innova Crysta & Tempo Traveller.', 'Day 1: Arrival from Chandigarh & Local Sightseeing. \nDay 2: McLeod Ganj Monasteries & Waterfall Trek. \nDay 3: Kangra Fort & Return Journey.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Shimla & Manali', 'Himachal · Classic Family Escape', 'IMG_7539.jpeg', 'The classic Himalayan pairing — colonial charm, valleys, cafés, scenic drives and fresh mountain air.', 'Day 1: Chandigarh to Shimla (Mall Road & Ridge). \nDay 2: Shimla to Manali via Kullu Valley. \nDay 3: Solang Valley & Atal Tunnel. \nDay 4: Return back to Chandigarh.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -784,7 +737,7 @@
             <div class="tour-card-glow-wrapper" data-category="himachal">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7538.jpeg" alt="Spiti Valley Tour">
+                        <img src="IMG_7538.jpeg" alt="Spiti Valley">
                     </div>
                     <div class="card-content">
                         <div class="card-meta">Himachal · Expedition</div>
@@ -806,17 +759,17 @@
             <div class="tour-card-glow-wrapper" data-category="himachal">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7539.jpeg" alt="Shimla and Manali Tour">
+                        <img src="IMG_7537.jpeg" alt="Dharamshala & McLeodganj">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Himachal · Classic Escape</div>
-                        <h3>Shimla & Manali</h3>
-                        <p>The classic Himalayan pairing — colonial charm, valleys, cafés, scenic drives and mountain air.</p>
+                        <div class="card-meta">Himachal · Mountain Retreat</div>
+                        <h3>Dharamshala & McLeodganj</h3>
+                        <p>Slow mountain days, monasteries, cafés and the best of Kangra valley views.</p>
                         <div class="days-pills">
+                            <span class="day-pill">3-4 Days</span>
                             <span class="day-pill">5-6 Days</span>
-                            <span class="day-pill">7-8 Days</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Shimla & Manali', 'Himachal · Classic Family Escape', 'IMG_7539.jpeg', 'The classic Himalayan pairing — colonial charm, valleys, cafés, scenic drives and fresh mountain air.', 'Day 1: Chandigarh to Shimla (Mall Road & Ridge). \nDay 2: Shimla to Manali via Kullu Valley. \nDay 3: Solang Valley & Atal Tunnel. \nDay 4: Return back to Chandigarh.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Dharamshala & McLeodganj', 'Himachal · Mountain Retreat', 'IMG_7537.jpeg', 'Slow mountain days, monasteries, cafés and the best of Kangra with our premium fleet vehicles like Innova Crysta & Tempo Traveller.', 'Day 1: Arrival from Chandigarh & Local Sightseeing. \nDay 2: McLeod Ganj Monasteries & Waterfall Trek. \nDay 3: Kangra Fort & Return Journey.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -827,17 +780,17 @@
             <div class="tour-card-glow-wrapper" data-category="himachal">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7540.jpeg" alt="Shimla Tour">
+                        <img src="IMG_7540.jpeg" alt="Dalhousie, Chamba & Khajjiar">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Himachal · Short Escape</div>
-                        <h3>Shimla</h3>
-                        <p>A refined short mountain break for families, couples and weekend travellers from Chandigarh.</p>
+                        <div class="card-meta">Himachal · Scenic Valleys</div>
+                        <h3>Dalhousie, Chamba & Khajjiar</h3>
+                        <p>Known as Mini Switzerland of India — lush green meadows, dense forests and colonial architecture.</p>
                         <div class="days-pills">
-                            <span class="day-pill">2-3 Days</span>
-                            <span class="day-pill">3-4 Days</span>
+                            <span class="day-pill">4-5 Days</span>
+                            <span class="day-pill">6-7 Days</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Shimla Short Escape', 'Himachal · Weekend Getaway', 'IMG_7540.jpeg', 'A refined short mountain break for families, couples and weekend travellers starting directly from Chandigarh or Zirakpur.', 'Day 1: Chandigarh to Shimla scenic drive. \nDay 2: Kufri excursion & Jakhoo Temple. \nDay 3: Return trip to Chandigarh.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Dalhousie, Chamba & Khajjiar', 'Himachal · Scenic Valleys', 'IMG_7540.jpeg', 'Explore the lush meadows of Khajjiar, ancient temples of Chamba, and peaceful pine trees of Dalhousie.', 'Day 1: Arrival in Dalhousie. \nDay 2: Khajjiar meadow excursion & Zorbing. \nDay 3: Chamba Temples & River side visit. \nDay 4: Departure.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -848,17 +801,17 @@
             <div class="tour-card-glow-wrapper" data-category="himachal">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7541.jpeg" alt="Manali Tour">
+                        <img src="IMG_7541.jpeg" alt="Tirthan Valley, Jibhi, Jalori Pass">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Himachal · Valley Escape</div>
-                        <h3>Manali</h3>
-                        <p>River valleys, mountain viewpoints and relaxed Himalayan days — with flexible short and extended options.</p>
+                        <div class="card-meta">Himachal · Offbeat Escape</div>
+                        <h3>Tirthan Valley, Jibhi, Jalori Pass</h3>
+                        <p>Crystal clear rivers, hidden waterfalls, wooden machan cottages and serene mountain passes.</p>
                         <div class="days-pills">
                             <span class="day-pill">3-4 Days</span>
                             <span class="day-pill">5-6 Days</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Manali Valley Escape', 'Himachal · Mountain Holiday', 'IMG_7541.jpeg', 'River valleys, mountain viewpoints and relaxed Himalayan days with flexible options.', 'Day 1: Chandigarh to Manali scenic route. \nDay 2: Local Manali (Hadimba Temple & Vashisht). \nDay 3: Solang Valley & Snow Point. \nDay 4: Departure.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Tirthan Valley, Jibhi, Jalori Pass', 'Himachal · Offbeat Nature', 'IMG_7541.jpeg', 'Crystal clear rivers, hidden waterfalls, wooden cottages and serene mountain passes for nature lovers.', 'Day 1: Chandigarh to Jibhi riverside stay. \nDay 2: Jalori Pass & Serolsar Lake trek. \nDay 3: Tirthan Valley trout fishing & waterfall. \nDay 4: Return trip.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -866,19 +819,19 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="tour-card-glow-wrapper" data-category="uttarakhand spiritual">
+            <div class="tour-card-glow-wrapper" data-category="heritage">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7542.jpeg" alt="Do Dham Yatra">
+                        <img src="IMG_7544.jpeg" alt="Amritsar & Wagah Border">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Spiritual · Uttarakhand</div>
-                        <h3>Do Dham Yatra</h3>
-                        <p>A focused Himalayan pilgrimage designed for travellers seeking a meaningful, well-paced spiritual journey.</p>
+                        <div class="card-meta">Heritage · Punjab</div>
+                        <h3>Amritsar & Wagah Border</h3>
+                        <p>Divine Golden Temple serenity, historic Jallianwala Bagh and patriotic evening ceremonies at Wagah Border.</p>
                         <div class="days-pills">
-                            <span class="day-pill">6-7 Days</span>
+                            <span class="day-pill">2-3 Days</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Do Dham Yatra', 'Spiritual · Uttarakhand Pilgrimage', 'IMG_7542.jpeg', 'A focused Himalayan pilgrimage to Kedarnath and Badrinath designed for a well-paced spiritual journey.', 'Day 1: Haridwar to Guptkashi. \nDay 2: Kedarnath Darshan. \nDay 3: Guptkashi to Badrinath. \nDay 4: Badrinath Darshan & Return to Haridwar.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Amritsar & Wagah Border', 'Heritage · Punjab Tour', 'IMG_7544.jpeg', 'Experience the spiritual aura of Golden Temple, community langar, and energy of Wagah Border parade.', 'Day 1: Arrival in Amritsar, Evening Golden Temple visit. \nDay 2: Wagah Border ceremony & Partition Museum. \nDay 3: Local food tour & departure.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -886,19 +839,20 @@
             </div>
 
             <!-- Card 7 -->
-            <div class="tour-card-glow-wrapper" data-category="uttarakhand spiritual">
+            <div class="tour-card-glow-wrapper" data-category="spiritual">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7543.jpeg" alt="Char Dham Yatra">
+                        <img src="IMG_7543.jpeg" alt="Chaar Dham Yatra & Do Dham Yatra">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Spiritual · Grand Pilgrimage</div>
-                        <h3>Char Dham Yatra</h3>
-                        <p>A complete pilgrimage experience with a thoughtfully paced itinerary across the sacred Himalayan circuit.</p>
+                        <div class="card-meta">Spiritual · Uttarakhand</div>
+                        <h3>Chaar Dham & Do Dham Yatra</h3>
+                        <p>Sacred Himalayan pilgrimage circuits covering Kedarnath, Badrinath, Gangotri and Yamunotri.</p>
                         <div class="days-pills">
-                            <span class="day-pill">10-12 Days</span>
+                            <span class="day-pill">6-7 Days (Do Dham)</span>
+                            <span class="day-pill">10-12 Days (Chaar Dham)</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Char Dham Yatra', 'Spiritual · Complete Circuit', 'IMG_7543.jpeg', 'A complete pilgrimage experience covering Yamunotri, Gangotri, Kedarnath and Badrinath.', 'Day 1-3: Yamunotri Circuit. \nDay 4-6: Gangotri Circuit. \nDay 7-9: Kedarnath Circuit. \nDay 10-12: Badrinath & Return.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Chaar Dham & Do Dham Yatra', 'Spiritual · Sacred Pilgrimage', 'IMG_7543.jpeg', 'A complete pilgrimage experience with a thoughtfully paced itinerary across the sacred Himalayan shrines.', 'Day 1-4: Haridwar to Guptkashi & Kedarnath Darshan. \nDay 5-8: Badrinath & sacred geothermal springs. \nDay 9-12: Return circuit via Rishikesh.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -906,20 +860,60 @@
             </div>
 
             <!-- Card 8 -->
-            <div class="tour-card-glow-wrapper" data-category="heritage spiritual">
+            <div class="tour-card-glow-wrapper" data-category="spiritual heritage">
                 <div class="tour-card-inner">
                     <div class="card-image-wrapper">
-                        <img src="IMG_7544.jpeg" alt="Mathura and Vrindavan Tour">
+                        <img src="IMG_7542.jpeg" alt="Mathura & Vrindavan">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">Heritage · Spiritual India</div>
+                        <div class="card-meta">Heritage · Devotional</div>
                         <h3>Mathura & Vrindavan</h3>
                         <p>Temples, culture and timeless stories — planned as a relaxed family and devotional escape.</p>
                         <div class="days-pills">
                             <span class="day-pill">3-4 Days</span>
-                            <span class="day-pill">5-6 Days</span>
                         </div>
-                        <div class="card-footer-link" onclick="openJourneyDetails('Mathura & Vrindavan', 'Heritage · Devotional Escape', 'IMG_7544.jpeg', 'Temples, culture and timeless stories planned as a relaxed family and devotional tour.', 'Day 1: Arrival in Mathura & Banke Bihari Darshan. \nDay 2: Vrindavan temples & Prem Mandir lighting. \nDay 3: Govardhan Parikrama & Departure.')">
+                        <div class="card-footer-link" onclick="openJourneyDetails('Mathura & Vrindavan', 'Heritage · Devotional Escape', 'IMG_7542.jpeg', 'Temples, culture and timeless stories planned as a relaxed family and devotional tour.', 'Day 1: Arrival in Mathura & Banke Bihari Darshan. \nDay 2: Vrindavan temples & Prem Mandir lighting. \nDay 3: Govardhan Parikrama & Departure.')">
+                            View Journey <span>→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="tour-card-glow-wrapper" data-category="spiritual">
+                <div class="tour-card-inner">
+                    <div class="card-image-wrapper">
+                        <img src="IMG_7537.jpeg" alt="Jammu, Katra Vaishno Devi Mata Temple">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">Spiritual · Jammu & Kashmir</div>
+                        <h3>Jammu, Katra & Vaishno Devi</h3>
+                        <p>Blessed spiritual journey to Mata Vaishno Devi shrine with comfortable cab bookings and hotel stays.</p>
+                        <div class="days-pills">
+                            <span class="day-pill">3-4 Days</span>
+                        </div>
+                        <div class="card-footer-link" onclick="openJourneyDetails('Jammu, Katra & Vaishno Devi', 'Spiritual · Blessed Journey', 'IMG_7537.jpeg', 'Comfortable travel from Chandigarh to Katra for Mata Vaishno Devi darshan with well-managed logistics.', 'Day 1: Chandigarh / Delhi to Katra overnight journey. \nDay 2: Vaishno Devi Trek & Bhawan Darshan. \nDay 3: Return relaxation & departure.')">
+                            View Journey <span>→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="tour-card-glow-wrapper" data-category="kashmir">
+                <div class="tour-card-inner">
+                    <div class="card-image-wrapper">
+                        <img src="IMG_7538.jpeg" alt="Srinagar, Pahalgam, Sonamarg & Gulmarg">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">Kashmir · Luxury Paradise</div>
+                        <h3>Srinagar, Pahalgam, Sonamarg & Gulmarg</h3>
+                        <p>Heaven on earth — Dal lake houseboats, snow meadows of Gulmarg, and scenic valleys of Pahalgam.</p>
+                        <div class="days-pills">
+                            <span class="day-pill">6-7 Days</span>
+                            <span class="day-pill">8-9 Days</span>
+                        </div>
+                        <div class="card-footer-link" onclick="openJourneyDetails('Kashmir Paradise Tour', 'Kashmir · Luxury Holiday', 'IMG_7538.jpeg', 'Experience Srinagar Dal Lake Shikara ride, Gulmarg Gondola cable car, and Pahalgam river valleys.', 'Day 1: Srinagar arrival & Houseboat stay. \nDay 2: Gulmarg snow peaks & Gondola ride. \nDay 3: Pahalgam Betaab Valley & Lidder river. \nDay 4: Sonamarg Glacier & Return.')">
                             View Journey <span>→</span>
                         </div>
                     </div>
@@ -928,59 +922,7 @@
 
         </div>
 
-        <!-- What's Inside -->
-        <h3 class="section-title animated-gold-text" style="margin-top: 40px;">What's inside the journey</h3>
-        <div class="inside-list" style="margin-bottom: 50px;">
-            <div class="inside-item">
-                <div>
-                    <h4>Dharamshala</h4>
-                    <p>3-4 Days · Monasteries, Cafés & Kangra Valley</p>
-                </div>
-                <div class="badge-type">Classic</div>
-            </div>
-            <div class="inside-item">
-                <div>
-                    <h4>Dharamshala</h4>
-                    <p>6-7 Days · Extended Monastic Exploration</p>
-                </div>
-                <div class="badge-type">Extended</div>
-            </div>
-            <div class="inside-item">
-                <div>
-                    <h4>Dharamshala + Dalhousie</h4>
-                    <p>8-9 Days · Chamba & Khajjiar Circuit</p>
-                </div>
-                <div class="badge-type">Signature</div>
-            </div>
-        </div>
-
-        <!-- Spiti Section -->
-        <h3 class="section-title animated-gold-text">Spiti, your way</h3>
-        <div class="inside-list" style="margin-bottom: 50px;">
-            <div class="inside-item">
-                <div>
-                    <h4>Spiti Valley</h4>
-                    <p>6-7 Days · Core circuit & monasteries</p>
-                </div>
-                <div class="badge-type">Essentials</div>
-            </div>
-            <div class="inside-item">
-                <div>
-                    <h4>Spiti Valley</h4>
-                    <p>8-9 Days · Deep village immersion</p>
-                </div>
-                <div class="badge-type">Explorer</div>
-            </div>
-            <div class="inside-item">
-                <div>
-                    <h4>Spiti Valley</h4>
-                    <p>10-11 Days · Complete high-altitude loop</p>
-                </div>
-                <div class="badge-type">Grand Expedition</div>
-            </div>
-        </div>
-
-        <!-- NEW TESTIMONIALS SECTION -->
+        <!-- Testimonials Section -->
         <h3 class="section-title animated-gold-text" style="margin-top: 50px;">Loved by our travellers</h3>
         <div class="testimonial-grid">
             <div class="testimonial-card">
@@ -997,7 +939,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Smooth bookings for our Mathura & Vrindavan family tour. Clean vehicles and very responsive customer service."</p>
+                <p>"Smooth bookings for our Kashmir and Vaishno Devi family tour. Clean vehicles and very responsive customer service."</p>
                 <div class="client-name">Pooja Aggarwal</div>
                 <div class="client-location">Delhi</div>
             </div>
