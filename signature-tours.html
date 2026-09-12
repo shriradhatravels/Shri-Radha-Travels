@@ -483,7 +483,101 @@
             color: var(--bg-deep);
         }
 
-        /* NEW BOTTOM PROFESSIONAL ADDITIONS */
+        /* NEW SECTION 1: DETAILED DURATION MATRIX TABLE/GRID */
+        .duration-table-wrapper {
+            background: var(--bg-card);
+            border: 1px solid rgba(230, 197, 103, 0.2);
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .duration-row {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr;
+            padding: 16px 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .duration-row.header-row {
+            background: rgba(230, 197, 103, 0.08);
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .duration-row:last-child {
+            border-bottom: none;
+        }
+
+        .duration-row:hover:not(.header-row) {
+            background: var(--bg-card-hover);
+        }
+
+        .dest-col {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .days-col {
+            color: var(--gold-light);
+        }
+
+        .vehicle-col {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* NEW SECTION 2: TESTIMONIALS & REVIEWS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(230, 197, 103, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-stars {
+            color: var(--gold-primary);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+
+        .review-author h5 {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .review-author span {
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* PROCESS GRID */
         .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -771,6 +865,14 @@
             border-top: 1px solid rgba(230, 197, 103, 0.15);
             margin-top: 50px;
         }
+
+        @media(max-width: 768px) {
+            .duration-row {
+                grid-template-columns: 1.5fr 1fr 1fr;
+                font-size: 0.8rem;
+                padding: 12px 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1009,6 +1111,107 @@
 
         </div>
 
+        <!-- NEW SECTION: COMPREHENSIVE TOUR DURATION MATRIX -->
+        <div class="section-title-box">
+            <h3 class="animated-gold-text">Master Tour Duration Guide</h3>
+            <p>Quick reference matrix showcasing ideal trip durations for each destination from Chandigarh & Zirakpur.</p>
+        </div>
+        <div class="duration-table-wrapper">
+            <div class="duration-row header-row">
+                <div class="dest-col">Destination</div>
+                <div class="days-col">Recommended Duration</div>
+                <div class="vehicle-col">Best Suited Fleet</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Shimla & Manali</div>
+                <div class="days-col">5 to 8 Days</div>
+                <div class="vehicle-col">Innova Crysta / Ertiga</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Spiti Valley Expedition</div>
+                <div class="days-col">6 to 9 Days</div>
+                <div class="vehicle-col">Innova Crysta (4x4 recommended)</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Dharamshala & McLeodganj</div>
+                <div class="days-col">3 to 6 Days</div>
+                <div class="vehicle-col">Swift Dzire / Ertiga</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Dalhousie, Chamba & Khajjiar</div>
+                <div class="days-col">4 to 7 Days</div>
+                <div class="vehicle-col">Innova Crysta / Ertiga</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Tirthan Valley & Jibhi</div>
+                <div class="days-col">3 to 5 Days</div>
+                <div class="vehicle-col">Swift Dzire / Innova</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Kashmir (Srinagar, Gulmarg, Pahalgam)</div>
+                <div class="days-col">6 to 9 Days</div>
+                <div class="vehicle-col">Innova Crysta / Urbania</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Vaishno Devi (Katra & Jammu)</div>
+                <div class="days-col">3 to 4 Days</div>
+                <div class="vehicle-col">Dzire / Ertiga / Innova</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Amritsar & Wagah Border</div>
+                <div class="days-col">2 to 3 Days</div>
+                <div class="vehicle-col">Swift Dzire / Ertiga</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Chaar Dham / Do Dham Yatra</div>
+                <div class="days-col">6 to 12 Days</div>
+                <div class="vehicle-col">Innova Crysta / Urbania</div>
+            </div>
+            <div class="duration-row">
+                <div class="dest-col">Mathura & Vrindavan</div>
+                <div class="days-col">3 to 4 Days</div>
+                <div class="vehicle-col">Innova Crysta / Ertiga</div>
+            </div>
+        </div>
+
+        <!-- NEW SECTION: TRAVELER TESTIMONIALS & REVIEWS -->
+        <div class="section-title-box">
+            <h3 class="animated-gold-text">Traveler Experiences</h3>
+            <p>Read what our valued customers say about their journeys with Shri Radha Travels.</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"We booked an Innova Crysta for our Shimla-Manali family trip from Chandigarh. The driver was extremely polite, expert in mountain driving, and the cab was impeccably clean. Highly recommended!"</p>
+                </div>
+                <div class="review-author">
+                    <h5>Rajesh Sharma</h5>
+                    <span>Family Trip · Shimla & Manali</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Our Spiti Valley expedition was a dream come true. Shri Radha Travels arranged everything seamlessly. The vehicle handled tough terrains effortlessly. Outstanding service!"</p>
+                </div>
+                <div class="review-author">
+                    <h5>Vikram Malhotra</h5>
+                    <span>Adventure Group · Spiti Valley</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Reliable, transparent pricing, and punctual pickup right from Zirakpur. We did the Vaishno Devi Yatra with complete peace of mind. Will booking again soon."</p>
+                </div>
+                <div class="review-author">
+                    <h5>Sunita Aggarwal</h5>
+                    <span>Spiritual Tour · Katra</span>
+                </div>
+            </div>
+        </div>
+
         <!-- OUR ELITE FLEET SHOWCASE -->
         <div class="section-title-box" style="margin-top: 40px;">
             <h3 class="animated-gold-text">Our Elite Fleet Available</h3>
@@ -1053,7 +1256,7 @@
             </div>
         </div>
 
-        <!-- NEW BOTTOM ADDITION 1: TRANSPARENT BOOKING PROCESS -->
+        <!-- TRANSPARENT BOOKING PROCESS -->
         <div class="section-title-box" style="margin-top: 50px;">
             <h3 class="animated-gold-text">How Your Journey Begins</h3>
             <p>A seamless, hassle-free booking experience crafted for your convenience.</p>
@@ -1076,7 +1279,7 @@
             </div>
         </div>
 
-        <!-- NEW BOTTOM ADDITION 2: POPULAR ROUTES MATRIX -->
+        <!-- POPULAR ROUTES MATRIX -->
         <div class="section-title-box" style="margin-top: 40px;">
             <h3 class="animated-gold-text">Popular Routes & Gateways</h3>
             <p>Frequent destinations serviced daily by Shri Radha Travels.</p>
