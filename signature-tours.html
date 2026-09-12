@@ -483,53 +483,61 @@
  color: var(--bg-deep);
  }
 
- /* DURATION MATRIX TABLE */
+ /* DURATION MATRIX TABLE (Fixed Headings & Widths) */
  .duration-table-wrapper {
  background: var(--bg-card);
  border: 1px solid rgba(230, 197, 103, 0.2);
  border-radius: 18px;
- overflow: hidden;
+ overflow-x: auto;
  margin-bottom: 50px;
  }
 
- .duration-row {
- display: grid;
- grid-template-columns: 2fr 1.5fr 1.5fr;
- padding: 16px 22px;
- border-bottom: 1px solid rgba(255, 255, 255, 0.05);
- align-items: center;
- font-size: 0.9rem;
+ .duration-table {
+ width: 100%;
+ border-collapse: collapse;
+ min-width: 600px;
  }
 
- .duration-row.header-row {
+ .duration-table th, .duration-table td {
+ padding: 16px 20px;
+ text-align: left;
+ font-size: 0.9rem;
+ border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+ }
+
+ .duration-table th {
  background: rgba(230, 197, 103, 0.08);
  color: var(--gold-primary);
  font-weight: 700;
  font-family: 'Playfair Display', serif;
- font-size: 1rem;
+ font-size: 1.05rem;
  letter-spacing: 0.5px;
  }
 
- .duration-row:last-child {
+ .duration-table tr:last-child td {
  border-bottom: none;
  }
 
- .duration-row:hover:not(.header-row) {
+ .duration-table tr:hover td {
  background: var(--bg-card-hover);
  }
 
  .dest-col {
  color: var(--text-main);
  font-weight: 600;
+ width: 35%;
  }
 
  .days-col {
  color: var(--gold-light);
+ width: 30%;
  }
 
  .vehicle-col {
  color: var(--text-muted);
  font-size: 0.85rem;
+ width: 35%;
+ line-height: 1.4;
  }
 
  /* TESTIMONIALS & REVIEWS */
@@ -857,21 +865,56 @@
  font-size: 0.9rem;
  }
 
+ /* FOOTER STYLING WITH OFFICE & CONTACT INFO */
  footer {
- text-align: center;
- padding: 40px 5% 120px;
- color: var(--text-muted);
- font-size: 0.82rem;
- border-top: 1px solid rgba(230, 197, 103, 0.15);
+ background: rgba(11, 16, 24, 0.98);
+ border-top: 1px solid rgba(230, 197, 103, 0.2);
+ padding: 50px 5% 130px;
  margin-top: 50px;
+ color: var(--text-muted);
+ text-align: left;
  }
 
- @media(max-width: 768px) {
- .duration-row {
- grid-template-columns: 1.5fr 1fr 1fr;
- font-size: 0.8rem;
- padding: 12px 14px;
+ .footer-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 30px;
+ max-width: 1200px;
+ margin: 0 auto 30px;
  }
+
+ .footer-col h4 {
+ color: var(--gold-primary);
+ font-family: 'Playfair Display', serif;
+ font-size: 1.2rem;
+ margin-bottom: 14px;
+ }
+
+ .footer-col p {
+ font-size: 0.88rem;
+ line-height: 1.6;
+ margin-bottom: 8px;
+ color: var(--text-muted);
+ }
+
+ .footer-col a {
+ color: var(--text-muted);
+ text-decoration: none;
+ transition: color 0.3s ease;
+ }
+
+ .footer-col a:hover {
+ color: var(--gold-primary);
+ }
+
+ .footer-bottom {
+ text-align: center;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
+ padding-top: 25px;
+ font-size: 0.82rem;
+ color: var(--text-muted);
+ max-width: 1200px;
+ margin: 0 auto;
  }
  </style>
 </head>
@@ -949,7 +992,7 @@
  <div class="container">
  <div class="tour-grid" id="tourGrid">
  
-<!-- 1. Shimla & Manali -->
+ <!-- 1. Shimla & Manali -->
  <div class="tour-card-glow-wrapper" data-category="himachal">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7576.jpeg" alt="Shimla & Manali"></div>
@@ -1127,72 +1170,78 @@
 
  </div>
 
- <!-- MASTER TOUR DURATION MATRIX -->
+ <!-- MASTER TOUR DURATION MATRIX WITH COMPREHENSIVE FLEET OPTIONS -->
  <div class="section-title-box">
  <h3 class="animated-gold-text">Master Tour Duration Guide</h3>
- <p>Quick reference matrix showcasing ideal trip durations for each destination from Chandigarh & Zirakpur.</p>
+ <p>Quick reference matrix showcasing ideal trip durations and complete available fleet options for each destination.</p>
  </div>
  <div class="duration-table-wrapper">
- <div class="duration-row header-row">
- <div class="dest-col">Destination</div>
- <div class="days-col">Recommended Duration</div>
- <div class="vehicle-col">Best Suited Fleet</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Shimla & Manali</div>
- <div class="days-col">5 to 8 Days</div>
- <div class="vehicle-col">Innova Crysta / Ertiga</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Spiti Valley Expedition</div>
- <div class="days-col">6 to 9 Days</div>
- <div class="vehicle-col">Innova Crysta (4x4 recommended)</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Dharamshala & McLeodganj</div>
- <div class="days-col">3 to 6 Days</div>
- <div class="vehicle-col">Swift Dzire / Ertiga</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Dalhousie, Chamba & Khajjiar</div>
- <div class="days-col">4 to 7 Days</div>
- <div class="vehicle-col">Innova Crysta / Ertiga</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Tirthan Valley & Jibhi</div>
- <div class="days-col">3 to 5 Days</div>
- <div class="vehicle-col">Swift Dzire / Innova</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Kashmir (Srinagar, Gulmarg, Pahalgam)</div>
- <div class="days-col">6 to 9 Days</div>
- <div class="vehicle-col">Innova Crysta / Urbania</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Jaipur, Udaipur & Jaisalmer (Rajasthan)</div>
- <div class="days-col">6 to 9 Days</div>
- <div class="vehicle-col">Innova Crysta / Ertiga</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Vaishno Devi (Katra & Jammu)</div>
- <div class="days-col">3 to 4 Days</div>
- <div class="vehicle-col">Dzire / Ertiga / Innova</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Amritsar & Wagah Border</div>
- <div class="days-col">2 to 3 Days</div>
- <div class="vehicle-col">Swift Dzire / Ertiga</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Chaar Dham / Do Dham Yatra</div>
- <div class="days-col">6 to 12 Days</div>
- <div class="vehicle-col">Innova Crysta / Urbania</div>
- </div>
- <div class="duration-row">
- <div class="dest-col">Mathura & Vrindavan</div>
- <div class="days-col">3 to 4 Days</div>
- <div class="vehicle-col">Innova Crysta / Ertiga</div>
- </div>
+ <table class="duration-table">
+ <thead>
+ <tr>
+ <th class="dest-col">Destination</th>
+ <th class="days-col">Recommended Duration</th>
+ <th class="vehicle-col">Available Fleet Options</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="dest-col">Shimla & Manali</td>
+ <td class="days-col">5 to 8 Days</td>
+ <td class="vehicle-col">Swift Dzire, Maruti Ertiga, Toyota Glanza, Innova Crysta, Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Spiti Valley Expedition</td>
+ <td class="days-col">6 to 9 Days</td>
+ <td class="vehicle-col">Toyota Innova Crysta (4x4 recommended), Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Dharamshala & McLeodganj</td>
+ <td class="days-col">3 to 6 Days</td>
+ <td class="vehicle-col">Swift Dzire, Toyota Glanza, Maruti Ertiga, Innova Crysta</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Dalhousie, Chamba & Khajjiar</td>
+ <td class="days-col">4 to 7 Days</td>
+ <td class="vehicle-col">Swift Dzire, Maruti Ertiga, Innova Crysta, Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Tirthan Valley & Jibhi</td>
+ <td class="days-col">3 to 5 Days</td>
+ <td class="vehicle-col">Swift Dzire, Toyota Glanza, Maruti Ertiga, Innova Crysta</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Kashmir (Srinagar, Gulmarg, Pahalgam)</td>
+ <td class="days-col">6 to 9 Days</td>
+ <td class="vehicle-col">Maruti Ertiga, Toyota Innova Crysta, Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Jaipur, Udaipur & Jaisalmer (Rajasthan)</td>
+ <td class="days-col">6 to 9 Days</td>
+ <td class="vehicle-col">Swift Dzire, Maruti Ertiga, Innova Crysta, Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Vaishno Devi (Katra & Jammu)</td>
+ <td class="days-col">3 to 4 Days</td>
+ <td class="vehicle-col">Swift Dzire, Toyota Glanza, Maruti Ertiga, Innova Crysta, Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Amritsar & Wagah Border</td>
+ <td class="days-col">2 to 3 Days</td>
+ <td class="vehicle-col">Swift Dzire, Toyota Glanza, Maruti Ertiga, Innova Crysta</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Chaar Dham / Do Dham Yatra</td>
+ <td class="days-col">6 to 12 Days</td>
+ <td class="vehicle-col">Toyota Innova Crysta, Force Urbania</td>
+ </tr>
+ <tr>
+ <td class="dest-col">Mathura & Vrindavan</td>
+ <td class="days-col">3 to 4 Days</td>
+ <td class="vehicle-col">Swift Dzire, Maruti Ertiga, Innova Crysta, Force Urbania</td>
+ </tr>
+ </tbody>
+ </table>
  </div>
 
  <!-- TRAVELER TESTIMONIALS & REVIEWS -->
@@ -1265,8 +1314,8 @@
  </div>
  <div class="fleet-card">
  <div>
- <h4>Swift Dzire & Ertiga</h4>
- <span class="category-tag">Sedan & SUV · Compact Family</span>
+ <h4>Swift Dzire, Ertiga & Glanza</h4>
+ <span class="category-tag">Sedan, SUV & Hatchback</span>
  <ul>
  <li>Capacity: <span>4 to 6 Seater</span></li>
  <li>Fuel: <span>High Efficiency</span></li>
@@ -1291,7 +1340,7 @@
  <div class="process-card">
  <div class="process-number">02</div>
  <h4>Customized Itinerary</h4>
- <p>We tailor the dates, vehicle choice (Innova, Urbania, Dzire), and stops according to your plan.</p>
+ <p>We tailor the dates, vehicle choice (Innova, Urbania, Dzire, Ertiga), and stops according to your plan.</p>
  </div>
  <div class="process-card">
  <div class="process-number">03</div>
@@ -1355,10 +1404,29 @@
  <a href="https://wa.me/916280544730" target="_blank" class="cta-btn-wa">WhatsApp Chat</a>
  </div>
 
+ <!-- COMPLETE FOOTER WITH OFFICE ADDRESS, EMAIL & GOOGLE ADDRESS -->
  <footer>
- <p><strong>Shri Radha Travels</strong></p>
- <p style="margin-top: 5px;">Premium journeys from Chandigarh & Zirakpur</p>
- <p style="margin-top: 5px; color: var(--text-muted);">SCO-38, Chaura Bazaar 1, Green Park Colony, Zirakpur, Punjab 140603</p>
+ <div class="footer-grid">
+ <div class="footer-col">
+ <h4>Shri Radha Travels</h4>
+ <p>Your trusted travel partner for premium mountain tours, royal heritage circuits, and sacred pilgrimages starting directly from Chandigarh and Zirakpur.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Head Office Address</h4>
+ <p>SCO-38, Chaura Bazaar 1, Green Park Colony</p>
+ <p>Zirakpur, Punjab 140603</p>
+ <p style="margin-top: 8px;"><a href="https://maps.google.com/?q=SCO-38+Chaura+Bazaar+1+Green+Park+Colony+Zirakpur+Punjab+140603" target="_blank" style="color: var(--gold-primary); text-decoration: underline;">📍 View on Google Maps</a></p>
+ </div>
+ <div class="footer-col">
+ <h4>Direct Contact</h4>
+ <p>Phone / WhatsApp: <a href="tel:+916280544730">+91 62805 44730</a></p>
+ <p>Email: <a href="mailto:info@shriradhatravels.com">info@shriradhatravels.com</a></p>
+ <p>Website: <a href="https://shriradhatravels.com" target="_blank">shriradhatravels.com</a></p>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 Shri Radha Travels. All rights reserved.</p>
+ </div>
  </footer>
 
  <script>
