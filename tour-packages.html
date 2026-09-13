@@ -1,620 +1,934 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Packages - Shri Radha Travels</title>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b1329;
-            color: #ffffff;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Elite Tour Packages & Pricing | Shri Radha Travels</title>
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <style>
+ :root {
+ --bg-deep: #06090f;
+ --bg-card: #0b1018;
+ --bg-card-hover: #101724;
+ --gold-primary: #e6c567;
+ --gold-light: #f3df9b;
+ --gold-dark: #b8973e;
+ --text-main: #f1f5f9;
+ --text-muted: #9aa4b2;
+ }
 
-        /* Background Photos Auto Slider */
-        .bg-slider {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        .slide.active {
-            opacity: 1;
-        }
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(11, 19, 41, 0.90);
-            z-index: -1;
-        }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
 
-        /* Navbar */
-        .header {
-            background: #0b1329;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 2px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-        }
-        .back-btn {
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.3s;
-        }
-        .back-btn:hover {
-            color: #ffffff;
-            transform: translateX(-3px);
-        }
+ body {
+ background-color: var(--bg-deep);
+ color: var(--text-main);
+ font-family: 'Plus Jakarta Sans', sans-serif;
+ overflow-x: hidden;
+ -webkit-font-smoothing: antialiased;
+ }
 
-        .brand-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .brand-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
-        }
-        .brand-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.1;
-        }
-        .brand-title span {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            color: #d4af37;
-            font-weight: 400;
-            font-size: 16px;
-        }
+ h1, h2, h3, .serif-font {
+ font-family: 'Playfair Display', serif;
+ }
 
-        .call-nav-btn {
-            background: linear-gradient(135deg, #e5c158 0%, #c49a2a 100%);
-            color: #0b1329;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 13px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: 0.3s;
-        }
-        .call-nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-        }
+ @keyframes textShimmer {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+ }
 
-        /* Container */
-        .container {
-            max-width: 750px;
-            margin: 30px auto;
-            padding: 0 20px 60px 20px;
-            position: relative;
-            z-index: 2;
-        }
+ .animated-gold-text {
+ background: linear-gradient(135deg, #f3df9b, #e6c567, #b8973e, #f3df9b);
+ background-size: 300% 300%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: textShimmer 6s ease infinite;
+ }
 
-        /* Main Service Card with Rotating Golden Conic Border */
-        .service-card {
-            background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
-            border-radius: 16px;
-            padding: 40px 30px;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            opacity: 0;
-            transform: translateY(35px);
-            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+ @keyframes rotateBorderGlow {
+ 0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
+ }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                transparent, 
-                transparent, 
-                transparent, 
-                #d4af37, 
-                #fff, 
-                #d4af37
-            );
-            animation: rotateBorder 5s linear infinite;
-            z-index: -2;
-        }
+ @keyframes pulseGlow {
+ 0% { box-shadow: 0 0 0 0 rgba(230, 197, 103, 0.3); }
+ 70% { box-shadow: 0 0 0 14px rgba(230, 197, 103, 0); }
+ 100% { box-shadow: 0 0 0 0 rgba(230, 197, 103, 0); }
+ }
 
-        .service-card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: #0b1329;
-            border-radius: 14px;
-            z-index: -1;
-        }
+ header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 16px 5%;
+ background: rgba(6, 9, 15, 0.92);
+ backdrop-filter: blur(20px);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ border-bottom: 1px solid rgba(230, 197, 103, 0.15);
+ }
 
-        @keyframes rotateBorder {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+ .brand {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ text-decoration: none;
+ }
 
-        @keyframes scrollPopup {
-            0% { opacity: 0; transform: translateY(40px) scale(0.97); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
+ .brand-logo-img {
+ width: 44px !important;
+ height: 44px !important;
+ border-radius: 50% !important;
+ object-fit: cover !important;
+ border: 2px solid var(--gold-dark) !important;
+ }
 
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #d4af37;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
+ .brand-text h1 {
+ font-size: 1.1rem;
+ color: var(--text-main);
+ line-height: 1.2;
+ }
 
-        /* Heading with Shimmer Animation - Big & Bold */
-        h1 {
-            font-family: 'Georgia', serif;
-            font-size: 34px;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 20px;
-            line-height: 1.25;
-            letter-spacing: 0.5px;
-            background: linear-gradient(90deg, #d4af37, #fff, #d4af37, #f3e5ab);
-            background-size: 300% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: textShimmer 6s linear infinite;
-        }
-        @keyframes textShimmer {
-            0% { background-position: 0% center; }
-            100% { background-position: 300% center; }
-        }
-        h1 span {
-            font-style: italic;
-        }
+ .brand-text span {
+ font-size: 0.8rem;
+ color: var(--gold-primary);
+ letter-spacing: 1.5px;
+ }
 
-        p {
-            color: #cbd5e1;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.85;
-            margin-bottom: 30px;
-        }
+ .call-btn {
+ background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+ color: #06090f;
+ padding: 9px 20px;
+ border-radius: 30px;
+ font-weight: 700;
+ text-decoration: none;
+ font-size: 0.88rem;
+ box-shadow: 0 4px 15px rgba(230, 197, 103, 0.2);
+ transition: transform 0.3s ease;
+ }
 
-        .section-title {
-            color: #d4af37;
-            font-size: 17px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(212, 175, 55, 0.3);
-        }
+ .call-btn:hover {
+ transform: scale(1.05);
+ }
 
-        /* Enhanced Bold Feature Layout */
-        .feature-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 35px;
-        }
-        .feature-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 22px;
-            background: rgba(15, 23, 42, 0.8);
-            border-radius: 14px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .feature-row:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
-            transform: translateX(6px);
-            box-shadow: 0 0 22px rgba(212, 175, 55, 0.25);
-        }
-        
-        .feature-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-        }
+ .hero {
+ padding: 55px 5% 25px;
+ max-width: 980px;
+ }
 
-        /* Rotating Golden Icon Ring Animation */
-        .rotating-icon-box {
-            width: 44px;
-            height: 44px;
-            border: 2px dashed #d4af37;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
-            animation: rotateRing 8s linear infinite;
-            flex-shrink: 0;
-        }
-        .rotating-icon-box i {
-            color: #d4af37;
-            font-size: 18px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-        }
-        @keyframes rotateRing {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+ .badge-pill {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 6px 16px;
+ background: var(--bg-card);
+ border: 1px solid rgba(230, 197, 103, 0.25);
+ border-radius: 20px;
+ font-size: 0.78rem;
+ color: var(--gold-light);
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ margin-bottom: 18px;
+ }
 
-        .feature-tag {
-            font-size: 12px;
-            background: rgba(212, 175, 55, 0.15);
-            color: #d4af37;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 800;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+ .hero h2 {
+ font-size: 2.9rem;
+ line-height: 1.15;
+ margin-bottom: 18px;
+ font-weight: 700;
+ }
 
-        /* Big Immersive Tour Package Cards */
-        .packages-showcase {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 35px;
-        }
-        .pkg-card {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 14px;
-            padding: 22px 18px;
-            text-align: left;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .pkg-card:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px);
-            background: rgba(212, 175, 55, 0.08);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
-        }
-        .pkg-card i {
-            color: #d4af37;
-            font-size: 26px;
-            margin-bottom: 14px;
-        }
-        .pkg-card h4 {
-            font-size: 17px;
-            color: #ffffff;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        .pkg-card p {
-            font-size: 13px;
-            color: #94a3b8;
-            margin: 0 0 14px 0;
-            line-height: 1.5;
-        }
-        .pkg-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: #d4af37;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
+ .hero p {
+ color: var(--text-muted);
+ font-size: 1.05rem;
+ line-height: 1.6;
+ margin-bottom: 15px;
+ }
 
-        /* Professional Why Choose Our Tours Perks Grid */
-        .perks-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 35px;
-        }
-        .perk-box {
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 14px;
-            padding: 20px;
-            text-align: left;
-            transition: 0.3s;
-        }
-        .perk-box:hover {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.08);
-            transform: translateY(-3px);
-        }
-        .perk-box i {
-            color: #d4af37;
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .perk-box h4 {
-            font-size: 16px;
-            color: #ffffff;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-        .perk-box p {
-            font-size: 13px;
-            color: #94a3b8;
-            margin: 0;
-            line-height: 1.5;
-        }
+ .collection-desc {
+ font-size: 0.9rem;
+ color: var(--text-muted);
+ border-left: 3px solid var(--gold-dark);
+ padding-left: 14px;
+ margin-top: 10px;
+ margin-bottom: 30px;
+ }
 
-        /* Action Buttons Layout */
-        .action-container {
-            display: flex;
-            gap: 15px;
-        }
-        .book-btn {
-            flex: 1;
-            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-            color: #0b1329;
-            text-align: center;
-            padding: 18px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 800;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .book-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
-        }
-        .whatsapp-btn {
-            background: #25d366;
-            color: #ffffff;
-            padding: 18px 24px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-        }
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
-        }
+ .filters-container {
+ display: flex;
+ gap: 12px;
+ padding: 0 5% 30px;
+ overflow-x: auto;
+ scrollbar-width: none;
+ }
 
-        @media (max-width: 576px) {
-            .service-card { padding: 25px 20px; }
-            h1 { font-size: 26px; }
-            .action-container { flex-direction: column; }
-            .packages-showcase { grid-template-columns: 1fr; }
-            .perks-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+ .filters-container::-webkit-scrollbar {
+ display: none;
+ }
+
+ .filter-tab {
+ background: var(--bg-card);
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ color: var(--text-muted);
+ padding: 9px 22px;
+ border-radius: 25px;
+ font-size: 0.88rem;
+ cursor: pointer;
+ white-space: nowrap;
+ transition: all 0.3s ease;
+ }
+
+ .filter-tab.active, .filter-tab:hover {
+ background: linear-gradient(135deg, rgba(230,197,103,0.12), rgba(184,151,62,0.04));
+ border-color: var(--gold-primary);
+ color: var(--gold-primary);
+ box-shadow: 0 0 18px rgba(230,197,103,0.2);
+ }
+
+ .container {
+ padding: 0 5% 40px;
+ }
+
+ .tour-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+ gap: 32px;
+ margin-bottom: 50px;
+ }
+
+ .tour-card-glow-wrapper {
+ position: relative;
+ border-radius: 20px;
+ overflow: hidden;
+ padding: 2px;
+ background: rgba(230, 197, 103, 0.08);
+ transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+ }
+
+ .tour-card-glow-wrapper::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: conic-gradient(transparent, transparent, transparent, var(--gold-primary));
+ animation: rotateBorderGlow 5s linear infinite;
+ }
+
+ .tour-card-glow-wrapper:hover {
+ transform: translateY(-6px);
+ box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(230, 197, 103, 0.25);
+ }
+
+ .tour-card-inner {
+ background: var(--bg-card);
+ border-radius: 18px;
+ overflow: hidden;
+ position: relative;
+ z-index: 1;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ }
+
+ .tour-card-glow-wrapper:hover .tour-card-inner {
+ background: var(--bg-card-hover);
+ }
+
+ .card-image-wrapper {
+ width: 100%;
+ height: 210px;
+ overflow: hidden;
+ position: relative;
+ }
+
+ .card-image-wrapper img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.6s ease;
+ }
+
+ .tour-card-glow-wrapper:hover .card-image-wrapper img {
+ transform: scale(1.06);
+ }
+
+ .card-content {
+ padding: 22px;
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
+ }
+
+ .card-meta {
+ font-size: 0.72rem;
+ color: var(--gold-light);
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ margin-bottom: 8px;
+ font-weight: 600;
+ }
+
+ .tour-card-inner h3 {
+ font-size: 1.45rem;
+ margin-bottom: 8px;
+ color: var(--text-main);
+ }
+
+ .tour-card-inner p {
+ color: var(--text-muted);
+ font-size: 0.9rem;
+ line-height: 1.5;
+ margin-bottom: 16px;
+ flex-grow: 1;
+ }
+
+ .price-tag-box {
+ background: rgba(230, 197, 103, 0.08);
+ border: 1px dashed rgba(230, 197, 103, 0.3);
+ padding: 10px 14px;
+ border-radius: 10px;
+ margin-bottom: 16px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .price-tag-box span {
+ font-size: 0.78rem;
+ color: var(--text-muted);
+ text-transform: uppercase;
+ }
+
+ .price-tag-box strong {
+ font-size: 1.05rem;
+ color: var(--gold-primary);
+ font-family: 'Playfair Display', serif;
+ }
+
+ .days-pills {
+ display: flex;
+ gap: 6px;
+ flex-wrap: wrap;
+ margin-bottom: 18px;
+ }
+
+ .day-pill {
+ background: rgba(255, 255, 255, 0.03);
+ border: 1px solid rgba(230, 197, 103, 0.15);
+ padding: 4px 10px;
+ border-radius: 20px;
+ font-size: 0.75rem;
+ color: var(--text-main);
+ }
+
+ .card-footer-link {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-top: 1px solid rgba(255, 255, 255, 0.06);
+ padding-top: 14px;
+ color: var(--gold-primary);
+ font-weight: 600;
+ text-decoration: none;
+ font-size: 0.9rem;
+ cursor: pointer;
+ }
+
+ .card-footer-link span {
+ transition: transform 0.3s ease;
+ }
+
+ .tour-card-glow-wrapper:hover .card-footer-link span {
+ transform: translateX(5px);
+ }
+
+ /* Modal Popup */
+ .modal-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(6, 9, 15, 0.88);
+ backdrop-filter: blur(12px);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ z-index: 2000;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ }
+
+ .modal-overlay.active {
+ opacity: 1;
+ visibility: visible;
+ }
+
+ .modal-container {
+ background: var(--bg-card);
+ border: 2px solid var(--gold-primary);
+ border-radius: 22px;
+ width: 90%;
+ max-width: 620px;
+ max-height: 85vh;
+ overflow-y: auto;
+ padding: 28px;
+ position: relative;
+ box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 35px rgba(230,197,103,0.2);
+ transform: translateY(20px);
+ transition: transform 0.3s ease;
+ }
+
+ .modal-overlay.active .modal-container {
+ transform: translateY(0);
+ }
+
+ .modal-close {
+ position: absolute;
+ top: 18px;
+ right: 18px;
+ background: rgba(255,255,255,0.05);
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ color: var(--gold-primary);
+ width: 32px;
+ height: 32px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ font-size: 1.1rem;
+ transition: background 0.3s ease;
+ }
+
+ .modal-close:hover {
+ background: var(--gold-primary);
+ color: var(--bg-deep);
+ }
+
+ .modal-img {
+ width: 100%;
+ height: 220px;
+ border-radius: 12px;
+ object-fit: cover;
+ margin-bottom: 18px;
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ }
+
+ .modal-title {
+ font-size: 1.8rem;
+ margin-bottom: 8px;
+ font-family: 'Playfair Display', serif;
+ }
+
+ .modal-subtitle {
+ color: var(--gold-light);
+ font-size: 0.8rem;
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ margin-bottom: 14px;
+ font-weight: 600;
+ }
+
+ .modal-desc {
+ color: var(--text-muted);
+ font-size: 0.92rem;
+ line-height: 1.6;
+ margin-bottom: 18px;
+ }
+
+ .itinerary-box {
+ background: rgba(255, 255, 255, 0.02);
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ border-radius: 12px;
+ padding: 18px;
+ margin-bottom: 22px;
+ }
+
+ .itinerary-box h4 {
+ color: var(--gold-primary);
+ margin-bottom: 10px;
+ font-size: 1rem;
+ }
+
+ .modal-actions {
+ display: flex;
+ gap: 12px;
+ }
+
+ .modal-btn-call {
+ flex: 1;
+ background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+ color: #06090f;
+ padding: 11px;
+ border-radius: 30px;
+ font-weight: 700;
+ text-align: center;
+ text-decoration: none;
+ display: block;
+ }
+
+ .modal-btn-wa {
+ flex: 1;
+ background: transparent;
+ border: 2px solid var(--gold-primary);
+ color: var(--text-main);
+ padding: 11px;
+ border-radius: 30px;
+ font-weight: 600;
+ text-align: center;
+ text-decoration: none;
+ display: block;
+ }
+
+ .floating-cta {
+ position: fixed;
+ bottom: 20px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 90%;
+ max-width: 580px;
+ background: rgba(11, 16, 24, 0.95);
+ backdrop-filter: blur(20px);
+ border: 1px solid rgba(230, 197, 103, 0.4);
+ border-radius: 40px;
+ padding: 11px 18px;
+ display: flex;
+ gap: 12px;
+ z-index: 999;
+ box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 20px rgba(230,197,103,0.2);
+ animation: pulseGlow 3s infinite;
+ }
+
+ .cta-btn-call {
+ flex: 1;
+ background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+ color: #06090f;
+ border: none;
+ padding: 11px;
+ border-radius: 30px;
+ font-weight: 700;
+ text-align: center;
+ text-decoration: none;
+ font-size: 0.9rem;
+ }
+
+ .cta-btn-wa {
+ flex: 1;
+ background: transparent;
+ border: 1px solid rgba(230, 197, 103, 0.4);
+ color: var(--text-main);
+ padding: 11px;
+ border-radius: 30px;
+ font-weight: 600;
+ text-align: center;
+ text-decoration: none;
+ font-size: 0.9rem;
+ }
+
+ /* FOOTER STYLING */
+ footer {
+ background: rgba(11, 16, 24, 0.98);
+ border-top: 1px solid rgba(230, 197, 103, 0.2);
+ padding: 50px 5% 130px;
+ margin-top: 50px;
+ color: var(--text-muted);
+ text-align: left;
+ }
+
+ .footer-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 30px;
+ max-width: 1200px;
+ margin: 0 auto 30px;
+ }
+
+ .footer-col h4 {
+ color: var(--gold-primary);
+ font-family: 'Playfair Display', serif;
+ font-size: 1.2rem;
+ margin-bottom: 14px;
+ }
+
+ .footer-col p {
+ font-size: 0.88rem;
+ line-height: 1.6;
+ margin-bottom: 8px;
+ color: var(--text-muted);
+ }
+
+ .footer-col a {
+ color: var(--text-muted);
+ text-decoration: none;
+ transition: color 0.3s ease;
+ }
+
+ .footer-col a:hover {
+ color: var(--gold-primary);
+ }
+
+ .footer-bottom {
+ text-align: center;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
+ padding-top: 25px;
+ font-size: 0.82rem;
+ color: var(--text-muted);
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+ </style>
 </head>
 <body>
 
-    <!-- Background Photos Auto Slider -->
-    <div class="bg-slider">
-        <img src="IMG_4760.jpeg" class="slide active" alt="Cab 1">
-        <img src="IMG_4765.jpeg" class="slide" alt="Cab 2">
-        <img src="IMG_4503.jpeg" class="slide" alt="Cab 3">
-        <img src="IMG_4504.jpeg" class="slide" alt="Cab 4">
-        <img src="IMG_4505.jpeg" class="slide" alt="Cab 5">
-    </div>
-    <div class="bg-overlay"></div>
+ <header>
+ <a href="tours.html" class="brand">
+ <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels" class="brand-logo-img">
+ <div class="brand-text">
+ <h1>Shri Radha</h1>
+ <span>Travels</span>
+ </div>
+ </a>
+ <a href="tel:+916280544730" class="call-btn">📞 Call Now</a>
+ </header>
 
-    <!-- Header Navbar -->
-    <div class="header">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
-        <a href="index.html" class="brand-box">
-            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo">
-            <div class="brand-title">Shri Radha <span>Travels</span></div>
-        </a>
-        <a href="tel:9876543210" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
-    </div>
+ <section class="hero">
+ <div class="badge-pill">✦ Elite Destination Packages & Pricing · Chandigarh</div>
+ <h2 class="animated-gold-text">Curated Holiday Packages with Pricing</h2>
+ <p>Explore all top tourist destinations with verified elite cabs, transparent pricing, customized itineraries, and 24/7 concierge support.</p>
+ <div class="collection-desc">
+ Choose your dream destination below to view detailed day-by-day itineraries and vehicle pricing options (Innova Crysta, Urbania, Dzire & Ertiga).
+ </div>
+ </section>
 
-    <!-- Container -->
-    <div class="container">
-        <!-- Main Card with Rotating Golden Conic Border -->
-        <div class="service-card">
-            <div class="service-badge"><i class="fas fa-globe-americas"></i> Curated Holiday Experiences</div>
-            
-            <!-- Heading with Shimmer Animation - Big & Bold -->
-            <h1>Tour Packages – <span>All-Inclusive Scenic & Spiritual Itineraries</span></h1>
-            
-            <p>Embark on unforgettable journeys with Shri Radha Travels' meticulously crafted holiday and pilgrimage tour packages. From majestic snow-clad Himalayan peaks to serene spiritual retreats, we offer fully customizable itineraries featuring comfortable fleet rentals, expert mountain drivers, and complete end-to-end travel coordination.</p>
-            
-            <div class="section-title">Package Inclusions</div>
-            
-            <div class="feature-grid">
-                <div class="feature-row">
-                    <div class="feature-left">
-                        <div class="rotating-icon-box"><i class="fas fa-route"></i></div>
-                        <span>Customized Daily Sightseeing & Itinerary Planning</span>
-                    </div>
-                    <span class="feature-tag">Tailored</span>
-                </div>
-                
-                <div class="feature-row">
-                    <div class="feature-left">
-                        <div class="rotating-icon-box"><i class="fas fa-mountain"></i></div>
-                        <span>Specialized Hill Station & High-Altitude Experts</span>
-                    </div>
-                    <span class="feature-tag">Expert</span>
-                </div>
+ <div class="filters-container">
+ <div class="filter-tab active" onclick="filterCategory('all', this)">All Packages</div>
+ <div class="filter-tab" onclick="filterCategory('himachal', this)">Himachal Tours</div>
+ <div class="filter-tab" onclick="filterCategory('spiritual', this)">Spiritual & Yatras</div>
+ <div class="filter-tab" onclick="filterCategory('kashmir', this)">Kashmir</div>
+ <div class="filter-tab" onclick="filterCategory('heritage', this)">Heritage & Rajasthan</div>
+ </div>
 
-                <div class="feature-row">
-                    <div class="feature-left">
-                        <div class="rotating-icon-box"><i class="fas fa-hotel"></i></div>
-                        <span>Seamless Hotel & Stay Coordination Assistance</span>
-                    </div>
-                    <span class="feature-tag">Complete</span>
-                </div>
-                
-                <div class="feature-row">
-                    <div class="feature-left">
-                        <div class="rotating-icon-box"><i class="fas fa-tags"></i></div>
-                        <span>Transparent All-Inclusive Pricing with No Hidden Costs</span>
-                    </div>
-                    <span class="feature-tag">Best Value</span>
-                </div>
-            </div>
+ <div class="container">
+ <div class="tour-grid" id="tourGrid">
+ 
+ <!-- 1. Shimla & Manali -->
+ <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7576.jpeg" alt="Shimla & Manali"></div>
+ <div class="card-content">
+ <div class="card-meta">Himachal · Classic Mountain Escape</div>
+ <h3>Shimla & Manali Tour</h3>
+ <p>The timeless Himalayan pairing featuring colonial heritage walks, pine valleys, and snow adventure points.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹14,990 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">5 Days / 4 Nights</span><span class="day-pill">Innova / Dzire / Ertiga</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Shimla & Manali Tour', 'Himachal · Classic Mountain Escape', 'IMG_7576.jpeg', 'The timeless Himalayan pairing featuring colonial heritage walks, pine-scented valleys, and scenic mountain cafes.', 'Day 1: Chandigarh pickup to Shimla via Mall Road & Ridge.\nDay 2: Kufri excursion & scenic drive to Manali via Kullu Valley.\nDay 3: Solang Valley & Atal Tunnel snow point adventure.\nDay 4: Manali local sightseeing (Hadimba Temple, Vashisht hot springs).\nDay 5: Return journey back to Chandigarh.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-            <!-- Big Immersive Tour Packages Showcase -->
-            <div class="section-title">Popular Tour Destinations</div>
-            <div class="packages-showcase">
-                <div class="pkg-card">
-                    <i class="fas fa-snowflake"></i>
-                    <h4>Himachal Wonderland</h4>
-                    <p>Explore Manali, Shimla, Dharamshala & Dalhousie with scenic mountain routes.</p>
-                    <span class="pkg-badge">Most Popular</span>
-                </div>
-                <div class="pkg-card">
-                    <i class="fas fa-om"></i>
-                    <h4>Spiritual Yatra</h4>
-                    <p>Divine excursions to sacred shrines and holy pilgrimage circuits with total comfort.</p>
-                    <span class="pkg-badge">Peaceful</span>
-                </div>
-                <div class="pkg-card">
-                    <i class="fas fa-wind"></i>
-                    <h4>Leh Ladakh Expedition</h4>
-                    <p>Breathtaking high-altitude road trips across rugged passes in robust fleet vehicles.</p>
-                    <span class="pkg-badge">Adventure</span>
-                </div>
-                <div class="pkg-card">
-                    <i class="fas fa-landmark"></i>
-                    <h4>Royal Rajasthan Tour</h4>
-                    <p>Experience the majestic heritage, palaces, and vibrant culture of Jaipur and beyond.</p>
-                    <span class="pkg-badge">Cultural</span>
-                </div>
-            </div>
+ <!-- 2. Spiti Valley -->
+ <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7577.jpeg" alt="Spiti Valley"></div>
+ <div class="card-content">
+ <div class="card-meta">Himachal · High-Altitude Expedition</div>
+ <h3>Spiti Valley Expedition</h3>
+ <p>Majestic high-altitude cold deserts, ancient cliffside monasteries, and raw untouched Himalayan landscapes.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹24,500 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">7 Days / 6 Nights</span><span class="day-pill">Innova Crysta 4x4</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Spiti Valley Expedition', 'Himachal · High-Altitude Expedition', 'IMG_7577.jpeg', 'Majestic high-altitude cold deserts, ancient cliffside monasteries, and raw untouched Himalayan landscapes with expert mountain drivers.', 'Day 1: Chandigarh to Narkanda pine forests.\nDay 2: Narkanda to Sangla / Chitkul border village.\nDay 3: Tabo monastery & Kaza exploration.\nDay 4: Key Monastery & Kibber high altitude village.\nDay 5: Pin Valley National Park & Dhankar Lake trek.\nDay 6-7: Return journey to Chandigarh.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-            <!-- Professional Why Book Our Packages Perks Grid -->
-            <div class="section-title">Why Choose Our Tours</div>
-            <div class="perks-grid">
-                <div class="perk-box">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4>Family Safe & Secure</h4>
-                    <p>Meticulously planned routes with verified drivers to ensure total safety for families and elders.</p>
-                </div>
-                <div class="perk-box">
-                    <i class="fas fa-clock"></i>
-                    <h4>Hassle-Free Timings</h4>
-                    <p>Zero stress over bookings or schedules; enjoy flexible pacing tailored to your comfort.</p>
-                </div>
-                <div class="perk-box">
-                    <i class="fas fa-headset"></i>
-                    <h4>24x7 Trip Concierge</h4>
-                    <p>Continuous support and route assistance throughout your entire holiday journey.</p>
-                </div>
-                <div class="perk-box">
-                    <i class="fas fa-car-side"></i>
-                    <h4>Dedicated Fleet Comfort</h4>
-                    <p>Travel in pristine Innova Crysta, Ertiga, or Force Urbania vehicles built for long-haul relaxation.</p>
-                </div>
-            </div>
+ <!-- 3. Dharamshala & McLeodganj -->
+ <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7578.jpeg" alt="Dharamshala & McLeodganj"></div>
+ <div class="card-content">
+ <div class="card-meta">Himachal · Serene Mountain Retreat</div>
+ <h3>Dharamshala & McLeodganj</h3>
+ <p>Spiritual Tibetan culture, peaceful hillside monasteries, cascading waterfalls, and Kangra Valley vistas.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹11,990 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">4 Days / 3 Nights</span><span class="day-pill">Sedan & SUV</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Dharamshala & McLeodganj', 'Himachal · Serene Mountain Retreat', 'IMG_7578.jpeg', 'Spiritual Tibetan culture, peaceful hillside monasteries, cascading waterfalls, and panoramic Kangra Valley vistas.', 'Day 1: Chandigarh arrival to Dharamshala local cafes & Namgyal Monastery.\nDay 2: McLeod Ganj Dalai Lama temple, Bhagsu Waterfall & Shiva Cafe trek.\nDay 3: Historic Kangra Fort & peaceful tea gardens.\nDay 4: Return transit to Chandigarh.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-            <!-- Direct Action Buttons -->
-            <div class="action-container">
-                <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Book Tour Package</a>
-                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Tour%20Packages." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
-            </div>
+ <!-- 4. Dalhousie & Khajjiar -->
+ <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7579.jpeg" alt="Dalhousie & Khajjiar"></div>
+ <div class="card-content">
+ <div class="card-meta">Himachal · Alpine Meadows</div>
+ <h3>Dalhousie & Khajjiar</h3>
+ <p>Known as the Mini Switzerland of India — velvety green meadows, dense cedar forests, and vintage architecture.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹12,500 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">4 Days / 3 Nights</span><span class="day-pill">Ertiga / Innova</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Dalhousie & Khajjiar', 'Himachal · Alpine Meadows', 'IMG_7579.jpeg', 'Known as the Mini Switzerland of India — velvety green meadows, dense cedar forests, and vintage colonial architecture.', 'Day 1: Arrival and scenic stay in Dalhousie colonial town.\nDay 2: Khajjiar meadow excursion, zorbing and horse riding.\nDay 3: Kalatop Wildlife Sanctuary walk & Chamba riverside temples.\nDay 4: Dainkund peak sunset view & return trip.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        </div>
-    </div>
+ <!-- 5. Tirthan Valley & Jibhi -->
+ <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7580.jpeg" alt="Tirthan Valley & Jibhi"></div>
+ <div class="card-content">
+ <div class="card-meta">Himachal · Offbeat Nature Escape</div>
+ <h3>Tirthan Valley & Jibhi</h3>
+ <p>Crystal-clear glacial streams, hidden waterfall trails, cozy wooden machan cottages, and Jalori Pass.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹10,990 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">3 Days / 2 Nights</span><span class="day-pill">Dzire / Ertiga</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Tirthan Valley & Jibhi', 'Himachal · Offbeat Nature Escape', 'IMG_7580.jpeg', 'Crystal-clear glacial streams, hidden waterfall trails, cozy wooden machan cottages, and breathtaking mountain passes.', 'Day 1: Chandigarh to Jibhi riverside wooden cottage.\nDay 2: Jalori Pass summit & Serolsar Lake high-altitude trek.\nDay 3: Tirthan Valley river trout fishing & secret waterfall trail, return.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- JavaScript for Background Photo Slider -->
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
+ <!-- 6. Amritsar & Wagah Border -->
+ <div class="tour-card-glow-wrapper" data-category="heritage">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7581.jpeg" alt="Amritsar"></div>
+ <div class="card-content">
+ <div class="card-meta">Heritage · Punjab Culture</div>
+ <h3>Amritsar & Wagah Border</h3>
+ <p>Divine spiritual serenity at the Golden Temple combined with the high-energy patriotic parade at Wagah Border.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹7,990 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">2 Days / 1 Night</span><span class="day-pill">Sedan / Innova</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Amritsar & Wagah Border', 'Heritage · Punjab Culture', 'IMG_7581.jpeg', 'Divine spiritual serenity at the Golden Temple combined with the high-energy patriotic parade at the Wagah Border.', 'Day 1: Arrival in Amritsar, evening Golden Temple illumination & community langar.\nDay 2: Wagah Border evening parade, Jallianwala Bagh & food tour before departure.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+ <!-- 7. Chaar Dham / Do Dham Yatra -->
+ <div class="tour-card-glow-wrapper" data-category="spiritual">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7582.jpeg" alt="Chaar Dham Yatra"></div>
+ <div class="card-content">
+ <div class="card-meta">Spiritual · Sacred Himalayan Yatra</div>
+ <h3>Chaar Dham & Do Dham Yatra</h3>
+ <p>Sacred pilgrimage circuits covering Kedarnath, Badrinath, Gangotri, and Yamunotri with seamless cab management.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹28,000 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">6 to 12 Days</span><span class="day-pill">Innova / Urbania</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Chaar Dham & Do Dham Yatra', 'Spiritual · Sacred Himalayan Yatra', 'IMG_7582.jpeg', 'Sacred pilgrimage circuits covering Kedarnath, Badrinath, Gangotri, and Yamunotri with seamless travel management.', 'Day 1-2: Haridwar/Dehradun pickup to Guptkashi / Sonprayag.\nDay 3: Kedarnath holy trek & temple darshan.\nDay 4-5: Drive to Badrinath shrine via Joshimath, Mana village visit.\nDay 6-7: Return journey back via Rishikesh.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        // Change background image smoothly every 4 seconds
-        setInterval(nextSlide, 4000);
-    </script>
+ <!-- 8. Mathura & Vrindavan -->
+ <div class="tour-card-glow-wrapper" data-category="spiritual heritage">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7583.jpeg" alt="Mathura Vrindavan"></div>
+ <div class="card-content">
+ <div class="card-meta">Heritage · Devotional Journey</div>
+ <h3>Mathura & Vrindavan</h3>
+ <p>Immerse in timeless devotion, historic temples, vibrant evening aartis, and the divine culture of Braj Bhoomi.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹9,500 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">3 Days / 2 Nights</span><span class="day-pill">Dzire / Ertiga</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Mathura & Vrindavan', 'Heritage · Devotional Journey', 'IMG_7583.jpeg', 'Immerse in timeless devotion, historic temples, vibrant evening aartis, and the divine culture of Braj Bhoomi.', 'Day 1: Arrival in Mathura & evening Yamuna Aarti at Vishram Ghat.\nDay 2: Vrindavan temple darshan (Banke Bihari, ISKCON, Prem Mandir lighting show).\nDay 3: Govardhan Parikrama & return transit.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
 
+ <!-- 9. Vaishno Devi Katra -->
+ <div class="tour-card-glow-wrapper" data-category="spiritual">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7584.jpeg" alt="Vaishno Devi Katra"></div>
+ <div class="card-content">
+ <div class="card-meta">Spiritual · Blessed Pilgrimage</div>
+ <h3>Vaishno Devi Katra Yatra</h3>
+ <p>Blessed pilgrimage journey to the holy shrine of Mata Vaishno Devi with comfortable direct cab arrangements.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹8,900 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">3 Days / 2 Nights</span><span class="day-pill">Dzire / Innova</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Jammu, Katra & Vaishno Devi', 'Spiritual · Blessed Pilgrimage', 'IMG_7584.jpeg', 'Blessed pilgrimage journey to the holy shrine of Mata Vaishno Devi with comfortable direct cab arrangements.', 'Day 1: Direct comfortable transit from Chandigarh to Katra base camp.\nDay 2: Mata Vaishno Devi holy trek (12 km) & Bhawan darshan / Bhairon Nath temple.\nDay 3: Rest, shopping & return transit.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 10. Kashmir Paradise -->
+ <div class="tour-card-glow-wrapper" data-category="kashmir">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7585.jpeg" alt="Kashmir Paradise"></div>
+ <div class="card-content">
+ <div class="card-meta">Kashmir · Luxury Paradise</div>
+ <h3>Kashmir Paradise (Srinagar, Gulmarg)</h3>
+ <p>Experience heaven on earth — iconic Dal Lake houseboats, snow meadows of Gulmarg, and lush valleys of Pahalgam.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹22,990 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">6 Days / 5 Nights</span><span class="day-pill">Innova / Urbania</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Kashmir Paradise Tour', 'Kashmir · Luxury Holiday', 'IMG_7585.jpeg', 'Experience heaven on earth — iconic Dal Lake houseboats, snow meadows of Gulmarg, and lush valleys of Pahalgam.', 'Day 1: Srinagar airport pickup & luxury Dal Lake Shikara ride / Houseboat stay.\nDay 2: Gulmarg day trip, snow peaks & Gondola cable car ride.\nDay 3: Pahalgam scenic drive via Lidder river, Betaab Valley.\nDay 4: Sonamarg glacier excursion.\nDay 5-6: Mughal Gardens & departure.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 11. Rajasthan Royal Tour -->
+ <div class="tour-card-glow-wrapper" data-category="heritage">
+ <div class="tour-card-inner">
+ <div class="card-image-wrapper"><img src="IMG_7589.png" alt="Rajasthan Royal Tour"></div>
+ <div class="card-content">
+ <div class="card-meta">Heritage · Royal Rajasthan Tour</div>
+ <h3>Jaipur, Udaipur & Jaisalmer</h3>
+ <p>Explore the Pink City majestic forts, City of Lakes romantic palaces, and golden sand dunes of Jaisalmer.</p>
+ <div class="price-tag-box">
+ <span>Starting From / Package</span>
+ <strong>₹25,990 Onwards</strong>
+ </div>
+ <div class="days-pills"><span class="day-pill">7 Days / 6 Nights</span><span class="day-pill">Ertiga / Innova</span></div>
+ <div class="card-footer-link" onclick="openJourneyDetails('Jaipur, Udaipur & Jaisalmer', 'Heritage · Royal Rajasthan Tour', 'IMG_7589.png', 'Explore the Pink City majestic forts, the City of Lakes romantic palaces, and the golden sand dunes of Jaisalmer.', 'Day 1-2: Jaipur fort & palace sightseeing, Hawa Mahal.\nDay 3-4: Udaipur Lake Pichola boat ride & City Palace.\nDay 5-6: Jaisalmer Golden Fort & Sam Sand Dunes desert camp stay.\nDay 7: Return journey.')">
+ View Itinerary & Price <span>→</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ </div>
+
+ <!-- Modal Popup -->
+ <div class="modal-overlay" id="journeyModal">
+ <div class="modal-container">
+ <div class="modal-close" onclick="closeJourneyDetails()">✕</div>
+ <img id="modalImg" src="" alt="Journey Image" class="modal-img">
+ <div id="modalSubtitle" class="modal-subtitle"></div>
+ <h3 id="modalTitle" class="modal-title animated-gold-text"></h3>
+ <p id="modalDesc" class="modal-desc"></p>
+ <div class="itinerary-box">
+ <h4>Complete Day-by-Day Itinerary</h4>
+ <p id="modalItinerary" style="color: var(--text-main); font-size: 0.9rem; white-space: pre-line; line-height: 1.6;"></p>
+ </div>
+ <div class="modal-actions">
+ <a href="tel:+916280544730" class="modal-btn-call">📞 Call to Book</a>
+ <a href="https://wa.me/916280544730" target="_blank" class="modal-btn-wa">WhatsApp Inquiry</a>
+ </div>
+ </div>
+ </div>
+
+ <!-- Floating CTA Bar -->
+ <div class="floating-cta">
+ <a href="tel:+916280544730" class="cta-btn-call">📞 Call Shri Radha</a>
+ <a href="https://wa.me/916280544730" target="_blank" class="cta-btn-wa">WhatsApp Chat</a>
+ </div>
+
+ <!-- FOOTER WITH COMPLETE COMPANY DETAILS -->
+ <footer>
+ <div class="footer-grid">
+ <div class="footer-col">
+ <h4>Shri Radha Travels</h4>
+ <p>Your trusted travel partner for premium mountain tours, royal heritage circuits, and sacred pilgrimages starting directly from Chandigarh and Zirakpur.</p>
+ <p style="margin-top: 10px; color: var(--gold-light);">Website: <a href="https://shriradhatravels.com" target="_blank">shriradhatravels.com</a></p>
+ </div>
+ <div class="footer-col">
+ <h4>Head Office Address</h4>
+ <p>SCO-38, Chaura Bazaar 1, Green Park Colony</p>
+ <p>Zirakpur, Punjab 140603</p>
+ <p style="margin-top: 8px;"><a href="https://maps.app.goo.gl/P3TyzrjqSWCjYZeb9" target="_blank" style="color: var(--gold-primary); text-decoration: underline;">📍 View Location on Google Maps</a></p>
+ </div>
+ <div class="footer-col">
+ <h4>Direct Contact & Booking</h4>
+ <p>Phone / WhatsApp: <a href="tel:+916280544730">+91 62805 44730</a></p>
+ <p>Email: <a href="mailto:shriradhatravels001@gmail.com">shriradhatravels001@gmail.com</a></p>
+ <p>Available 24/7 for VIP Concierge & Chauffeur Cabs.</p>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 Shri Radha Travels. All rights reserved.</p>
+ </div>
+ </footer>
+
+ <script>
+ function filterCategory(category, element) {
+ document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+ element.classList.add('active');
+
+ const cards = document.querySelectorAll('.tour-card-glow-wrapper');
+ cards.forEach(card => {
+ const cardCats = card.getAttribute('data-category');
+ if (category === 'all' || cardCats.includes(category)) {
+ card.style.display = 'block';
+ } else {
+ card.style.display = 'none';
+ }
+ });
+ }
+
+ function openJourneyDetails(title, subtitle, imgSrc, desc, itinerary) {
+ document.getElementById('modalTitle').innerText = title;
+ document.getElementById('modalSubtitle').innerText = subtitle;
+ document.getElementById('modalImg').src = imgSrc;
+ document.getElementById('modalDesc').innerText = desc;
+ document.getElementById('modalItinerary').innerText = itinerary;
+ document.getElementById('journeyModal').classList.add('active');
+ }
+
+ function closeJourneyDetails() {
+ document.getElementById('journeyModal').classList.remove('active');
+ }
+
+ window.onclick = function(event) {
+ const modal = document.getElementById('journeyModal');
+ if (event.target === modal) {
+ closeJourneyDetails();
+ }
+ }
+ </script>
 </body>
 </html>
