@@ -65,6 +65,18 @@
  100% { box-shadow: 0 0 0 0 rgba(230, 197, 103, 0); }
  }
 
+ /* SCROLL ANIMATION CLASSES */
+ .scroll-fade-up {
+ opacity: 0;
+ transform: translateY(30px);
+ transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+ }
+
+ .scroll-fade-up.active {
+ opacity: 1;
+ transform: translateY(0);
+ }
+
  /* CLEAN PREMIUM NAVBAR */
  header {
  display: flex;
@@ -476,7 +488,7 @@
  line-height: 1.6;
  }
 
- /* 3. TESTIMONIALS */
+ /* 3. TESTIMONIALS WITH QUICK BOOKING ACTION */
  .testimonials-grid {
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -489,6 +501,16 @@
  border-radius: 18px;
  padding: 28px;
  position: relative;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ transition: transform 0.3s ease, border-color 0.3s ease;
+ }
+
+ .testimonial-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--gold-primary);
+ box-shadow: 0 15px 30px rgba(0,0,0,0.5);
  }
 
  .testimonial-stars {
@@ -506,6 +528,15 @@
  font-style: italic;
  }
 
+ .client-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
+ padding-top: 14px;
+ margin-top: auto;
+ }
+
  .client-info strong {
  display: block;
  color: var(--text-main);
@@ -518,6 +549,22 @@
  font-size: 0.78rem;
  text-transform: uppercase;
  letter-spacing: 1px;
+ }
+
+ .quick-book-pill {
+ background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+ color: #06090f;
+ padding: 6px 14px;
+ border-radius: 20px;
+ font-size: 0.78rem;
+ font-weight: 700;
+ text-decoration: none;
+ transition: transform 0.2s ease;
+ white-space: nowrap;
+ }
+
+ .quick-book-pill:hover {
+ transform: scale(1.05);
  }
 
  /* 4. ROUTE DISTANCE MATRIX */
@@ -582,6 +629,12 @@
  border: 1px dashed rgba(230, 197, 103, 0.3);
  border-radius: 16px;
  padding: 30px 20px;
+ transition: transform 0.3s ease;
+ }
+
+ .guarantee-box:hover {
+ transform: translateY(-5px);
+ border-color: var(--gold-primary);
  }
 
  .guarantee-box h4 {
@@ -609,6 +662,12 @@
  border: 1px solid rgba(230, 197, 103, 0.2);
  border-radius: 18px;
  padding: 26px;
+ transition: transform 0.3s ease;
+ }
+
+ .insight-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--gold-primary);
  }
 
  .insight-date {
@@ -890,7 +949,7 @@
  <a href="tel:+916280544730" class="call-btn">📞 Call Now</a>
  </header>
 
- <section class="hero">
+ <section class="hero scroll-fade-up">
  <div class="badge-pill">✦ Elite Destination Packages & Pricing · Chandigarh</div>
  <h2 class="animated-gold-text">Curated Holiday Packages with Pricing</h2>
  <p>Explore all top tourist destinations with verified elite cabs, transparent pricing, customized itineraries, and 24/7 concierge support.</p>
@@ -899,7 +958,7 @@
  </div>
  </section>
 
- <div class="filters-container">
+ <div class="filters-container scroll-fade-up">
  <div class="filter-tab active" onclick="filterCategory('all', this)">All Packages</div>
  <div class="filter-tab" onclick="filterCategory('himachal', this)">Himachal Tours</div>
  <div class="filter-tab" onclick="filterCategory('spiritual', this)">Spiritual & Yatras</div>
@@ -911,7 +970,7 @@
  <div class="tour-grid" id="tourGrid">
  
  <!-- 1. Shimla & Manali -->
- <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="himachal">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7576.jpeg" alt="Shimla & Manali"></div>
  <div class="card-content">
@@ -931,7 +990,7 @@
  </div>
 
  <!-- 2. Spiti Valley -->
- <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="himachal">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7577.jpeg" alt="Spiti Valley"></div>
  <div class="card-content">
@@ -951,7 +1010,7 @@
  </div>
 
  <!-- 3. Dharamshala & McLeodganj -->
- <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="himachal">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7578.jpeg" alt="Dharamshala & McLeodganj"></div>
  <div class="card-content">
@@ -971,7 +1030,7 @@
  </div>
 
  <!-- 4. Dalhousie & Khajjiar -->
- <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="himachal">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7579.jpeg" alt="Dalhousie & Khajjiar"></div>
  <div class="card-content">
@@ -991,7 +1050,7 @@
  </div>
 
  <!-- 5. Tirthan Valley & Jibhi -->
- <div class="tour-card-glow-wrapper" data-category="himachal">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="himachal">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7580.jpeg" alt="Tirthan Valley & Jibhi"></div>
  <div class="card-content">
@@ -1011,7 +1070,7 @@
  </div>
 
  <!-- 6. Amritsar & Wagah Border -->
- <div class="tour-card-glow-wrapper" data-category="heritage">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="heritage">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7581.jpeg" alt="Amritsar"></div>
  <div class="card-content">
@@ -1031,7 +1090,7 @@
  </div>
 
  <!-- 7. Chaar Dham / Do Dham Yatra -->
- <div class="tour-card-glow-wrapper" data-category="spiritual">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="spiritual">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7582.jpeg" alt="Chaar Dham Yatra"></div>
  <div class="card-content">
@@ -1051,7 +1110,7 @@
  </div>
 
  <!-- 8. Mathura & Vrindavan -->
- <div class="tour-card-glow-wrapper" data-category="spiritual heritage">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="spiritual heritage">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7583.jpeg" alt="Mathura Vrindavan"></div>
  <div class="card-content">
@@ -1071,7 +1130,7 @@
  </div>
 
  <!-- 9. Vaishno Devi Katra -->
- <div class="tour-card-glow-wrapper" data-category="spiritual">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="spiritual">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7584.jpeg" alt="Vaishno Devi Katra"></div>
  <div class="card-content">
@@ -1091,7 +1150,7 @@
  </div>
 
  <!-- 10. Kashmir Paradise -->
- <div class="tour-card-glow-wrapper" data-category="kashmir">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="kashmir">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7585.jpeg" alt="Kashmir Paradise"></div>
  <div class="card-content">
@@ -1111,7 +1170,7 @@
  </div>
 
  <!-- 11. Rajasthan Royal Tour -->
- <div class="tour-card-glow-wrapper" data-category="heritage">
+ <div class="tour-card-glow-wrapper scroll-fade-up" data-category="heritage">
  <div class="tour-card-inner">
  <div class="card-image-wrapper"><img src="IMG_7589.png" alt="Rajasthan Royal Tour"></div>
  <div class="card-content">
@@ -1134,7 +1193,7 @@
  </div>
 
  <!-- 1. FLEET & ECOSYSTEM SECTION -->
- <section class="section-block">
+ <section class="section-block scroll-fade-up">
  <div class="section-header">
  <h2 class="animated-gold-text">Our Elite Travel Ecosystem & Fleet Experience</h2>
  <p>Engineered for ultimate comfort, seamless mountainous expeditions, and uncompromising safety standards across northern India.</p>
@@ -1175,7 +1234,7 @@
  </section>
 
  <!-- 2. CHAUFFEUR & SAFETY PROTOCOL SECTION -->
- <section class="section-block" style="background: rgba(11, 16, 24, 0.4);">
+ <section class="section-block scroll-fade-up" style="background: rgba(11, 16, 24, 0.4);">
  <div class="section-header">
  <h2 class="animated-gold-text">Elite Chauffeur & Safety Protocols</h2>
  <p>Your safety and peace of mind are our absolute top priority during every mountainous or cross-state journey.</p>
@@ -1201,7 +1260,7 @@
  </section>
 
  <!-- 3. ROUTE DISTANCE MATRIX SECTION -->
- <section class="section-block">
+ <section class="section-block scroll-fade-up">
  <div class="section-header">
  <h2 class="animated-gold-text">Popular Routes & Travel Matrix</h2>
  <p>Estimated transit times and recommended vehicles from our primary hub in Chandigarh & Zirakpur.</p>
@@ -1250,42 +1309,59 @@
  </div>
  </section>
 
- <!-- 4. CUSTOMER TESTIMONIALS SECTION -->
- <section class="section-block" style="background: rgba(11, 16, 24, 0.4);">
+ <!-- 4. CUSTOMER TESTIMONIALS SECTION (WITH QUICK BOOKING BUTTONS) -->
+ <section class="section-block scroll-fade-up" style="background: rgba(11, 16, 24, 0.4);">
  <div class="section-header">
  <h2 class="animated-gold-text">Royal Experiences & Client Reviews</h2>
- <p>Read what our valued travelers from across India say about their journeys with Shri Radha Travels.</p>
+ <p>Read what our valued travelers say and book your ride instantly with our 1-click booking assistance.</p>
  </div>
  <div class="testimonials-grid">
  <div class="testimonial-card">
+ <div>
  <div class="testimonial-stars">★★★★★</div>
  <p>"We booked an Innova Crysta for our Shimla-Manali family trip from Chandigarh. The driver Rahul ji was extremely professional, polite, and knew every shortcut. Truly a VIP experience!"</p>
+ </div>
+ <div class="client-row">
  <div class="client-info">
  <strong>Vikram Malhotra</strong>
  <span>New Delhi · Family Tour</span>
  </div>
+ <a href="https://wa.me/916280544730?text=Hi%20Shri%20Radha%20Travels,%20I%20read%20Vikram's%20review%20and%20want%20to%20book%20a%20cab!" target="_blank" class="quick-book-pill">Book Cab →</a>
  </div>
+ </div>
+
  <div class="testimonial-card">
+ <div>
  <div class="testimonial-stars">★★★★★</div>
  <p>"Our Spiti Valley expedition required an expert driver and sturdy vehicle. Shri Radha Travels provided a flawless 4x4 Innova with zero hassle. Highly recommended for high-altitude trips."</p>
+ </div>
+ <div class="client-row">
  <div class="client-info">
  <strong>Dr. Ananya Sen</strong>
  <span>Chandigarh · Spiti Expedition</span>
  </div>
+ <a href="https://wa.me/916280544730?text=Hi%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20an%20Expedition%20cab!" target="_blank" class="quick-book-pill">Book Cab →</a>
  </div>
+ </div>
+
  <div class="testimonial-card">
+ <div>
  <div class="testimonial-stars">★★★★★</div>
  <p>"Transparent pricing with no hidden toll charges at the end of the trip. The booking process on WhatsApp was instant and very comforting. Will book again for our next Yatra."</p>
+ </div>
+ <div class="client-row">
  <div class="client-info">
  <strong>Rajesh Sharma</strong>
  <span>Ludhiana · Do Dham Yatra</span>
+ </div>
+ <a href="https://wa.me/916280544730?text=Hi%20Shri%20Radha%20Travels,%20I%20want%20to%20inquire%20about%20Yatra%20packages!" target="_blank" class="quick-book-pill">Book Cab →</a>
  </div>
  </div>
  </div>
  </section>
 
  <!-- 5. ROYAL GUARANTEES SECTION -->
- <section class="section-block">
+ <section class="section-block scroll-fade-up">
  <div class="section-header">
  <h2 class="animated-gold-text">The Shri Radha Royal Guarantee</h2>
  <p>Why discerning travelers choose us for their most important holidays and family vacations.</p>
@@ -1307,7 +1383,7 @@
  </section>
 
  <!-- 6. SEASONAL TRAVEL INSIGHTS SECTION -->
- <section class="section-block" style="background: rgba(11, 16, 24, 0.4);">
+ <section class="section-block scroll-fade-up" style="background: rgba(11, 16, 24, 0.4);">
  <div class="section-header">
  <h2 class="animated-gold-text">Seasonal Travel Insights & Guides</h2>
  <p>Expert advice to help you pick the best month, packing checklist, and route updates for northern getaways.</p>
@@ -1420,6 +1496,25 @@
  closeJourneyDetails();
  }
  }
+
+ // Scroll Fade-In Observer Animation
+ document.addEventListener("DOMContentLoaded", function() {
+ const observerOptions = {
+ threshold: 0.15
+ };
+
+ const observer = new IntersectionObserver((entries, observer) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add('active');
+ }
+ });
+ }, observerOptions);
+
+ document.querySelectorAll('.scroll-fade-up').forEach(el => {
+ observer.observe(el);
+ });
+ });
  </script>
 </body>
 </html>
