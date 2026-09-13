@@ -355,25 +355,24 @@
  transform: translateX(5px);
  }
 
- /* BRAND NEW ANIMATED PROFESSIONAL BOTTOM SECTION */
- .ecosystem-section {
+ /* SECTION STYLING HELPERS */
+ .section-block {
  padding: 60px 5%;
  max-width: 1200px;
- margin: 0 auto 50px;
- position: relative;
+ margin: 0 auto;
  }
 
- .ecosystem-header {
+ .section-header {
  text-align: center;
  margin-bottom: 45px;
  }
 
- .ecosystem-header h2 {
+ .section-header h2 {
  font-size: 2.3rem;
  margin-bottom: 12px;
  }
 
- .ecosystem-header p {
+ .section-header p {
  color: var(--text-muted);
  font-size: 1rem;
  max-width: 650px;
@@ -381,6 +380,7 @@
  line-height: 1.6;
  }
 
+ /* 1. ECOSYSTEM & FLEET */
  .ecosystem-grid {
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -441,6 +441,203 @@
  font-size: 0.78rem;
  color: var(--gold-light);
  font-weight: 500;
+ }
+
+ /* 2. SAFETY & CHAUFFEUR PROTOCOL */
+ .safety-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 24px;
+ }
+
+ .safety-card {
+ background: var(--bg-card);
+ border: 1px solid rgba(230, 197, 103, 0.15);
+ border-radius: 16px;
+ padding: 26px;
+ transition: transform 0.3s ease, border-color 0.3s ease;
+ }
+
+ .safety-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--gold-primary);
+ }
+
+ .safety-card h4 {
+ color: var(--gold-primary);
+ font-size: 1.15rem;
+ margin-bottom: 10px;
+ font-family: 'Playfair Display', serif;
+ }
+
+ .safety-card p {
+ color: var(--text-muted);
+ font-size: 0.88rem;
+ line-height: 1.6;
+ }
+
+ /* 3. TESTIMONIALS */
+ .testimonials-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+ gap: 28px;
+ }
+
+ .testimonial-card {
+ background: linear-gradient(135deg, rgba(11, 16, 24, 0.9), rgba(16, 23, 36, 0.6));
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ border-radius: 18px;
+ padding: 28px;
+ position: relative;
+ }
+
+ .testimonial-stars {
+ color: var(--gold-primary);
+ font-size: 1.1rem;
+ margin-bottom: 14px;
+ letter-spacing: 2px;
+ }
+
+ .testimonial-card p {
+ color: var(--text-muted);
+ font-size: 0.92rem;
+ line-height: 1.6;
+ margin-bottom: 18px;
+ font-style: italic;
+ }
+
+ .client-info strong {
+ display: block;
+ color: var(--text-main);
+ font-size: 0.95rem;
+ font-weight: 600;
+ }
+
+ .client-info span {
+ color: var(--gold-light);
+ font-size: 0.78rem;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ }
+
+ /* 4. ROUTE DISTANCE MATRIX */
+ .matrix-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 20px;
+ }
+
+ .matrix-card {
+ background: var(--bg-card);
+ border: 1px solid rgba(230, 197, 103, 0.18);
+ border-radius: 14px;
+ padding: 20px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ transition: background 0.3s ease;
+ }
+
+ .matrix-card:hover {
+ background: var(--bg-card-hover);
+ border-color: var(--gold-primary);
+ }
+
+ .matrix-route h5 {
+ color: var(--text-main);
+ font-size: 1rem;
+ margin-bottom: 4px;
+ }
+
+ .matrix-route span {
+ color: var(--text-muted);
+ font-size: 0.78rem;
+ }
+
+ .matrix-time {
+ text-align: right;
+ }
+
+ .matrix-time strong {
+ display: block;
+ color: var(--gold-primary);
+ font-size: 0.95rem;
+ }
+
+ .matrix-time span {
+ color: var(--text-muted);
+ font-size: 0.75rem;
+ }
+
+ /* 5. ROYAL GUARANTEES */
+ .guarantee-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 24px;
+ text-align: center;
+ }
+
+ .guarantee-box {
+ background: rgba(230, 197, 103, 0.03);
+ border: 1px dashed rgba(230, 197, 103, 0.3);
+ border-radius: 16px;
+ padding: 30px 20px;
+ }
+
+ .guarantee-box h4 {
+ color: var(--gold-primary);
+ font-size: 1.1rem;
+ margin-bottom: 10px;
+ font-family: 'Playfair Display', serif;
+ }
+
+ .guarantee-box p {
+ color: var(--text-muted);
+ font-size: 0.85rem;
+ line-height: 1.5;
+ }
+
+ /* 6. SEASONAL INSIGHTS & BLOGS */
+ .insights-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+ gap: 28px;
+ }
+
+ .insight-card {
+ background: var(--bg-card);
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ border-radius: 18px;
+ padding: 26px;
+ }
+
+ .insight-date {
+ font-size: 0.75rem;
+ color: var(--gold-light);
+ text-transform: uppercase;
+ letter-spacing: 1.5px;
+ margin-bottom: 8px;
+ font-weight: 600;
+ }
+
+ .insight-card h3 {
+ font-size: 1.25rem;
+ margin-bottom: 10px;
+ color: var(--text-main);
+ }
+
+ .insight-card p {
+ color: var(--text-muted);
+ font-size: 0.88rem;
+ line-height: 1.6;
+ margin-bottom: 16px;
+ }
+
+ .insight-link {
+ color: var(--gold-primary);
+ text-decoration: none;
+ font-weight: 600;
+ font-size: 0.85rem;
  }
 
  /* Modal Popup */
@@ -936,9 +1133,9 @@
  </div>
  </div>
 
- <!-- NEW ANIMATED PROFESSIONAL TRAVEL ECOSYSTEM SECTION -->
- <section class="ecosystem-section">
- <div class="ecosystem-header">
+ <!-- 1. FLEET & ECOSYSTEM SECTION -->
+ <section class="section-block">
+ <div class="section-header">
  <h2 class="animated-gold-text">Our Elite Travel Ecosystem & Fleet Experience</h2>
  <p>Engineered for ultimate comfort, seamless mountainous expeditions, and uncompromising safety standards across northern India.</p>
  </div>
@@ -973,6 +1170,166 @@
  <span class="eco-tag">Fixed Tariffs</span>
  <span class="eco-tag">Custom Itineraries</span>
  </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 2. CHAUFFEUR & SAFETY PROTOCOL SECTION -->
+ <section class="section-block" style="background: rgba(11, 16, 24, 0.4);">
+ <div class="section-header">
+ <h2 class="animated-gold-text">Elite Chauffeur & Safety Protocols</h2>
+ <p>Your safety and peace of mind are our absolute top priority during every mountainous or cross-state journey.</p>
+ </div>
+ <div class="safety-grid">
+ <div class="safety-card">
+ <h4>Verified Mountain Experts</h4>
+ <p>Drivers undergo rigorous background checks and possess certified expertise in handling hairpin bends and black ice safely.</p>
+ </div>
+ <div class="safety-card">
+ <h4>Sanitized Luxury Interiors</h4>
+ <p>Every cab is deep-cleaned and sanitized before dispatch, equipped with phone chargers, tissues, and fresh bottled water.</p>
+ </div>
+ <div class="safety-card">
+ <h4>Live GPS & Fleet Tracking</h4>
+ <p>Our Zirakpur control room monitors active vehicle locations 24/7 to ensure timely updates and emergency responsiveness.</p>
+ </div>
+ <div class="safety-card">
+ <h4>On-Spot Vehicle Backup</h4>
+ <p>In the rare event of mechanical trouble, our backup fleet stationed across Himachal and Punjab ensures prompt replacement.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- 3. ROUTE DISTANCE MATRIX SECTION -->
+ <section class="section-block">
+ <div class="section-header">
+ <h2 class="animated-gold-text">Popular Routes & Travel Matrix</h2>
+ <p>Estimated transit times and recommended vehicles from our primary hub in Chandigarh & Zirakpur.</p>
+ </div>
+ <div class="matrix-grid">
+ <div class="matrix-card">
+ <div class="matrix-route">
+ <h5>Chandigarh to Manali</h5>
+ <span class="eco-tag" style="font-size: 0.7rem;">250 KM · Scenic Highway</span>
+ </div>
+ <div class="matrix-time">
+ <strong>7 - 8 Hours</strong>
+ <span>Innova / Ertiga</span>
+ </div>
+ </div>
+ <div class="matrix-card">
+ <div class="matrix-route">
+ <h5>Chandigarh to Shimla</h5>
+ <span class="eco-tag" style="font-size: 0.7rem;">120 KM · Mountain Road</span>
+ </div>
+ <div class="matrix-time">
+ <strong>3.5 - 4 Hours</strong>
+ <span>Dzire / Innova</span>
+ </div>
+ </div>
+ <div class="matrix-card">
+ <div class="matrix-route">
+ <h5>Chandigarh to Dharamshala</h5>
+ <span class="eco-tag" style="font-size: 0.7rem;">245 KM · Valley Route</span>
+ </div>
+ <div class="matrix-time">
+ <strong>6 - 7 Hours</strong>
+ <span>Ertiga / Innova</span>
+ </div>
+ </div>
+ <div class="matrix-card">
+ <div class="matrix-route">
+ <h5>Chandigarh to Srinagar</h5>
+ <span class="eco-tag" style="font-size: 0.7rem;">560 KM · Expressway & Valley</span>
+ </div>
+ <div class="matrix-time">
+ <strong>12 - 13 Hours</strong>
+ <span>Innova / Urbania</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 4. CUSTOMER TESTIMONIALS SECTION -->
+ <section class="section-block" style="background: rgba(11, 16, 24, 0.4);">
+ <div class="section-header">
+ <h2 class="animated-gold-text">Royal Experiences & Client Reviews</h2>
+ <p>Read what our valued travelers from across India say about their journeys with Shri Radha Travels.</p>
+ </div>
+ <div class="testimonials-grid">
+ <div class="testimonial-card">
+ <div class="testimonial-stars">★★★★★</div>
+ <p>"We booked an Innova Crysta for our Shimla-Manali family trip from Chandigarh. The driver Rahul ji was extremely professional, polite, and knew every shortcut. Truly a VIP experience!"</p>
+ <div class="client-info">
+ <strong>Vikram Malhotra</strong>
+ <span>New Delhi · Family Tour</span>
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-stars">★★★★★</div>
+ <p>"Our Spiti Valley expedition required an expert driver and sturdy vehicle. Shri Radha Travels provided a flawless 4x4 Innova with zero hassle. Highly recommended for high-altitude trips."</p>
+ <div class="client-info">
+ <strong>Dr. Ananya Sen</strong>
+ <span>Chandigarh · Spiti Expedition</span>
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-stars">★★★★★</div>
+ <p>"Transparent pricing with no hidden toll charges at the end of the trip. The booking process on WhatsApp was instant and very comforting. Will book again for our next Yatra."</p>
+ <div class="client-info">
+ <strong>Rajesh Sharma</strong>
+ <span>Ludhiana · Do Dham Yatra</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 5. ROYAL GUARANTEES SECTION -->
+ <section class="section-block">
+ <div class="section-header">
+ <h2 class="animated-gold-text">The Shri Radha Royal Guarantee</h2>
+ <p>Why discerning travelers choose us for their most important holidays and family vacations.</p>
+ </div>
+ <div class="guarantee-grid">
+ <div class="guarantee-box">
+ <h4>0% Hidden Charges</h4>
+ <p>All fuel, driver allowances, state taxes, and toll conditions are clarified upfront before your journey begins.</p>
+ </div>
+ <div class="guarantee-box">
+ <h4>On-Time Pickup Pledge</h4>
+ <p>Your cab arrives at your doorstep or hotel lobby 15 minutes before scheduled departure time, guaranteed.</p>
+ </div>
+ <div class="guarantee-box">
+ <h4>Flexible Itinerary Customization</h4>
+ <p>Want to halt longer at a scenic waterfall or modify your cafe stop? Your chauffeur is entirely at your service.</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- 6. SEASONAL TRAVEL INSIGHTS SECTION -->
+ <section class="section-block" style="background: rgba(11, 16, 24, 0.4);">
+ <div class="section-header">
+ <h2 class="animated-gold-text">Seasonal Travel Insights & Guides</h2>
+ <p>Expert advice to help you pick the best month, packing checklist, and route updates for northern getaways.</p>
+ </div>
+ <div class="insights-grid">
+ <div class="insight-card">
+ <div class="insight-date">🏔️ Himachal Advisory</div>
+ <h3>Best Time to Visit Spiti Valley</h3>
+ <p>June to September offers clear mountain passes and accessible roads. Learn about permit requirements and altitude acclimatization tips.</p>
+ <a href="tel:+916280544730" class="insight-link">Consult Our Expert →</a>
+ </div>
+ <div class="insight-card">
+ <div class="insight-date">❄️ Snow Updates</div>
+ <h3>Atal Tunnel & Solang Valley Travel</h3>
+ <p>Experience live snow play year-round. Discover how our cabs secure hassle-free passage through Rohtang and Atal Tunnel permits.</p>
+ <a href="https://wa.me/916280544730" target="_blank" class="insight-link">Ask on WhatsApp →</a>
+ </div>
+ <div class="insight-card">
+ <div class="insight-date">🛕 Pilgrimage Guide</div>
+ <h3>Chaar Dham Yatra Preparation</h3>
+ <p>Essential registration guidelines, weather protocols, and physical fitness tips for a safe and blessed mountain pilgrimage.</p>
+ <a href="tel:+916280544730" class="insight-link">Plan Yatra Cab →</a>
  </div>
  </div>
  </section>
