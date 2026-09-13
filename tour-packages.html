@@ -64,8 +64,8 @@
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 16px 5%;
- background: rgba(6, 9, 15, 0.92);
+ padding: 14px 4%;
+ background: rgba(6, 9, 15, 0.94);
  backdrop-filter: blur(20px);
  position: sticky;
  top: 0;
@@ -76,40 +76,48 @@
  .brand {
  display: flex;
  align-items: center;
- gap: 12px;
+ gap: 10px;
  text-decoration: none;
  }
 
  .brand-logo-img {
- width: 44px !important;
- height: 44px !important;
+ width: 42px !important;
+ height: 42px !important;
  border-radius: 50% !important;
  object-fit: cover !important;
  border: 2px solid var(--gold-dark) !important;
+ flex-shrink: 0;
  }
 
  .brand-text h1 {
- font-size: 1.1rem;
+ font-size: 1.05rem;
  color: var(--text-main);
- line-height: 1.2;
+ line-height: 1.1;
+ white-space: nowrap;
+ font-weight: 700;
  }
 
  .brand-text span {
- font-size: 0.8rem;
+ font-size: 0.78rem;
  color: var(--gold-primary);
- letter-spacing: 1.5px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ white-space: nowrap;
+ font-weight: 600;
+ display: block;
  }
 
  .call-btn {
  background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
  color: #06090f;
- padding: 9px 20px;
+ padding: 8px 18px;
  border-radius: 30px;
  font-weight: 700;
  text-decoration: none;
- font-size: 0.88rem;
+ font-size: 0.85rem;
  box-shadow: 0 4px 15px rgba(230, 197, 103, 0.2);
  transition: transform 0.3s ease;
+ white-space: nowrap;
  }
 
  .call-btn:hover {
@@ -117,7 +125,7 @@
  }
 
  .hero {
- padding: 55px 5% 25px;
+ padding: 45px 5% 20px;
  max-width: 980px;
  }
 
@@ -129,40 +137,91 @@
  background: var(--bg-card);
  border: 1px solid rgba(230, 197, 103, 0.25);
  border-radius: 20px;
- font-size: 0.78rem;
+ font-size: 0.76rem;
  color: var(--gold-light);
  text-transform: uppercase;
  letter-spacing: 1.5px;
- margin-bottom: 18px;
+ margin-bottom: 16px;
  }
 
  .hero h2 {
- font-size: 2.9rem;
+ font-size: 2.7rem;
  line-height: 1.15;
- margin-bottom: 18px;
+ margin-bottom: 16px;
  font-weight: 700;
  }
 
  .hero p {
  color: var(--text-muted);
- font-size: 1.05rem;
+ font-size: 1.02rem;
  line-height: 1.6;
- margin-bottom: 15px;
+ margin-bottom: 14px;
  }
 
  .collection-desc {
- font-size: 0.9rem;
+ font-size: 0.88rem;
  color: var(--text-muted);
  border-left: 3px solid var(--gold-dark);
  padding-left: 14px;
- margin-top: 10px;
- margin-bottom: 30px;
+ margin-top: 8px;
+ margin-bottom: 24px;
+ }
+
+ /* NEW PROFESSIONAL HIGHLIGHTS STRIP */
+ .elite-features-strip {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 14px;
+ padding: 0 5% 30px;
+ max-width: 1200px;
+ }
+
+ .elite-feature-card {
+ background: linear-gradient(135deg, rgba(11, 16, 24, 0.9), rgba(16, 23, 36, 0.6));
+ border: 1px solid rgba(230, 197, 103, 0.18);
+ border-radius: 14px;
+ padding: 14px 18px;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ transition: border-color 0.3s ease;
+ }
+
+ .elite-feature-card:hover {
+ border-color: var(--gold-primary);
+ }
+
+ .elite-feature-icon {
+ font-size: 1.4rem;
+ background: rgba(230, 197, 103, 0.1);
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-shrink: 0;
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ }
+
+ .elite-feature-text h4 {
+ font-size: 0.88rem;
+ color: var(--text-main);
+ font-family: 'Plus Jakarta Sans', sans-serif;
+ font-weight: 700;
+ margin-bottom: 2px;
+ }
+
+ .elite-feature-text p {
+ font-size: 0.75rem;
+ color: var(--text-muted);
+ margin: 0;
  }
 
  .filters-container {
  display: flex;
  gap: 12px;
- padding: 0 5% 30px;
+ padding: 0 5% 28px;
  overflow-x: auto;
  scrollbar-width: none;
  }
@@ -593,8 +652,8 @@
  <a href="tours.html" class="brand">
  <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels" class="brand-logo-img">
  <div class="brand-text">
- <h1>Shri Radha</h1>
- <span>Travels</span>
+ <h1>Shri Radha Travels</h1>
+ <span>Elite Fleet & Tours</span>
  </div>
  </a>
  <a href="tel:+916280544730" class="call-btn">📞 Call Now</a>
@@ -608,6 +667,31 @@
  Choose your dream destination below to view detailed day-by-day itineraries and vehicle pricing options (Innova Crysta, Urbania, Dzire & Ertiga).
  </div>
  </section>
+
+ <!-- ELITE PROFESSIONAL HIGHLIGHTS STRIP -->
+ <div class="elite-features-strip">
+ <div class="elite-feature-card">
+ <div class="elite-feature-icon">🛡️</div>
+ <div class="elite-feature-text">
+ <h4>Verified Cabs</h4>
+ <p>Innova Crysta, Urbania & Sedans</p>
+ </div>
+ </div>
+ <div class="elite-feature-card">
+ <div class="elite-feature-icon">💎</div>
+ <div class="elite-feature-text">
+ <h4>24/7 VIP Support</h4>
+ <p>Dedicated trip assistance</p>
+ </div>
+ </div>
+ <div class="elite-feature-card">
+ <div class="elite-feature-icon">✨</div>
+ <div class="elite-feature-text">
+ <h4>Custom Itineraries</h4>
+ <p>Tailored for family & groups</p>
+ </div>
+ </div>
+ </div>
 
  <div class="filters-container">
  <div class="filter-tab active" onclick="filterCategory('all', this)">All Packages</div>
