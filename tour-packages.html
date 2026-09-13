@@ -90,7 +90,7 @@
  }
 
  .brand-text h1 {
- font-size: 1rem;
+ font-size: 1.05rem;
  color: var(--text-main);
  line-height: 1.1;
  white-space: nowrap;
@@ -125,8 +125,8 @@
  }
 
  .hero {
- padding: 45px 5% 20px;
- max-width: 980px;
+ padding: 50px 5% 25px;
+ max-width: 1000px;
  }
 
  .badge-pill {
@@ -145,7 +145,7 @@
  }
 
  .hero h2 {
- font-size: 2.7rem;
+ font-size: 2.8rem;
  line-height: 1.15;
  margin-bottom: 16px;
  font-weight: 700;
@@ -153,69 +153,18 @@
 
  .hero p {
  color: var(--text-muted);
- font-size: 1.02rem;
+ font-size: 1.05rem;
  line-height: 1.6;
  margin-bottom: 14px;
  }
 
  .collection-desc {
- font-size: 0.88rem;
+ font-size: 0.9rem;
  color: var(--text-muted);
  border-left: 3px solid var(--gold-dark);
  padding-left: 14px;
  margin-top: 8px;
  margin-bottom: 24px;
- }
-
- /* ELITE PROFESSIONAL HIGHLIGHTS STRIP */
- .elite-features-strip {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
- gap: 14px;
- padding: 0 5% 30px;
- max-width: 1200px;
- }
-
- .elite-feature-card {
- background: linear-gradient(135deg, rgba(11, 16, 24, 0.9), rgba(16, 23, 36, 0.6));
- border: 1px solid rgba(230, 197, 103, 0.18);
- border-radius: 14px;
- padding: 14px 18px;
- display: flex;
- align-items: center;
- gap: 12px;
- transition: border-color 0.3s ease;
- }
-
- .elite-feature-card:hover {
- border-color: var(--gold-primary);
- }
-
- .elite-feature-icon {
- font-size: 1.4rem;
- background: rgba(230, 197, 103, 0.1);
- width: 40px;
- height: 40px;
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-shrink: 0;
- border: 1px solid rgba(230, 197, 103, 0.2);
- }
-
- .elite-feature-text h4 {
- font-size: 0.88rem;
- color: var(--text-main);
- font-family: 'Plus Jakarta Sans', sans-serif;
- font-weight: 700;
- margin-bottom: 2px;
- }
-
- .elite-feature-text p {
- font-size: 0.75rem;
- color: var(--text-muted);
- margin: 0;
  }
 
  .filters-container {
@@ -234,7 +183,7 @@
  background: var(--bg-card);
  border: 1px solid rgba(230, 197, 103, 0.2);
  color: var(--text-muted);
- padding: 9px 22px;
+ padding: 10px 24px;
  border-radius: 25px;
  font-size: 0.88rem;
  cursor: pointer;
@@ -406,6 +355,50 @@
 
  .tour-card-glow-wrapper:hover .card-footer-link span {
  transform: translateX(5px);
+ }
+
+ /* NEW PROFESSIONAL EXTENDED SECTIONS FOR A GRAND PAGE */
+ .extended-info-section {
+ padding: 40px 5%;
+ max-width: 1200px;
+ margin: 0 auto 50px;
+ }
+
+ .extended-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 24px;
+ }
+
+ .info-feature-box {
+ background: linear-gradient(135deg, rgba(11, 16, 24, 0.95), rgba(16, 23, 36, 0.7));
+ border: 1px solid rgba(230, 197, 103, 0.2);
+ border-radius: 16px;
+ padding: 24px;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s ease;
+ }
+
+ .info-feature-box:hover {
+ border-color: var(--gold-primary);
+ transform: translateY(-4px);
+ box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+ }
+
+ .info-feature-box h4 {
+ font-size: 1.2rem;
+ color: var(--gold-primary);
+ margin-bottom: 10px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ }
+
+ .info-feature-box p {
+ color: var(--text-muted);
+ font-size: 0.88rem;
+ line-height: 1.6;
  }
 
  /* Modal Popup */
@@ -668,31 +661,6 @@
  </div>
  </section>
 
- <!-- ELITE PROFESSIONAL HIGHLIGHTS STRIP -->
- <div class="elite-features-strip">
- <div class="elite-feature-card">
- <div class="elite-feature-icon">🛡️</div>
- <div class="elite-feature-text">
- <h4>Verified Cabs</h4>
- <p>Innova Crysta, Urbania & Sedans</p>
- </div>
- </div>
- <div class="elite-feature-card">
- <div class="elite-feature-icon">💎</div>
- <div class="elite-feature-text">
- <h4>24/7 VIP Support</h4>
- <p>Dedicated trip assistance</p>
- </div>
- </div>
- <div class="elite-feature-card">
- <div class="elite-feature-icon">✨</div>
- <div class="elite-feature-text">
- <h4>Custom Itineraries</h4>
- <p>Tailored for family & groups</p>
- </div>
- </div>
- </div>
-
  <div class="filters-container">
  <div class="filter-tab active" onclick="filterCategory('all', this)">All Packages</div>
  <div class="filter-tab" onclick="filterCategory('himachal', this)">Himachal Tours</div>
@@ -926,6 +894,28 @@
 
  </div>
  </div>
+
+ <!-- EXTENDED PROFESSIONAL HIGHLIGHTS SECTION FOR EXTRA PAGE DEPTH -->
+ <section class="extended-info-section">
+ <div style="text-align: center; margin-bottom: 35px;">
+ <h2 class="animated-gold-text" style="font-size: 2.2rem; margin-bottom: 10px;">Why Travel With Shri Radha Travels</h2>
+ <p style="color: var(--text-muted); font-size: 0.95rem;">Excellence in Chauffeur-Driven Holidays & Outstation Cabs</p>
+ </div>
+ <div class="extended-grid">
+ <div class="info-feature-box">
+ <h4>🛡️ Verified Elite Fleet</h4>
+ <p>Maintain a pristine fleet of well-serviced Toyota Innova Crysta, Maruti Ertiga, Swift Dzire, Toyota Glanza, and Force Urbania vehicles suited for both family leisure and rugged mountain terrains.</p>
+ </div>
+ <div class="info-feature-box">
+ <h4>🧭 Experienced Local Drivers</h4>
+ <p>Our chauffeurs are seasoned mountain experts with deep route knowledge across Himachal, Kashmir, Uttarakhand, and Rajasthan, guaranteeing absolute safety and comfort.</p>
+ </div>
+ <div class="info-feature-box">
+ <h4>💎 Transparent Pricing</h4>
+ <p>No hidden toll charges or last-minute surge fees. We offer crystal clear upfront pricing with 24/7 on-trip assistance from our Zirakpur headquarters.</p>
+ </div>
+ </div>
+ </section>
 
  <!-- Modal Popup -->
  <div class="modal-overlay" id="journeyModal">
