@@ -8,1319 +8,1197 @@
     <meta name="description" content="Premium Taxi & Tour Services">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpeg" href="/IMG_5108.jpeg">
-        <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5RTDKHHG');</script>
-<!-- End Google Tag Manager -->
-</head>
-<!-- Background Slideshow Styles -->
-<style>
-    body {
-        position: relative;
-        background-color: #0f172a;
-    }
-    .bg-slideshow {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-    }
-    .bg-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-    }
-    .bg-slide.active {
-        opacity: 1;
-    }
-    /* Background ke upar halka dark overlay taaki form clear dikhe */
-    .bg-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-    }
-</style>
-
-<!-- Background Slideshow HTML Container -->
-<div class="bg-slideshow">
-    <div class="bg-overlay"></div>
-    <div class="bg-slide active" style="background-image: url('IMG_4500.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4502.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4503.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4504.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4505.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4506.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4507.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4758.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4759.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4760.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4761.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4762.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4763.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4764.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4765.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4766.jpeg');"></div>
-    <div class="bg-slide" style="background-image: url('IMG_4767.jpeg');"></div>
-</div>
-
-<script>
-    const bgSlides = document.querySelectorAll('.bg-slide');
-    let currentBgIndex = 0;
-    
-    function changeBackground() {
-        bgSlides[currentBgIndex].classList.remove('active');
-        currentBgIndex = (currentBgIndex + 1) % bgSlides.length;
-        bgSlides[currentBgIndex].classList.add('active');
-    }
-    
-    setInterval(changeBackground, 4000);
-</script>
-
-<body style="padding-bottom: 120px; background-color: #0b0f19;">
-
-<!-- Sticky Luxury Navbar -->
-    <nav style="position: sticky; top: 0; z-index: 1000; background-color: #0b0f19; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(251, 191, 36, 0.2);">
-        <a href="#home" style="display: flex; align-items: center; text-decoration: none; gap: 10px;">
-            <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1.5px solid #fbbf24;">
-                <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 35px; height: 35px; object-fit: cover; border-radius: 50%;">
-            </div>
-            <span style="color: white; font-weight: 700; font-size: 15px; font-family: 'Cinzel', serif;">Shri Radha <span style="color: #fbbf24;">Travels</span></span>
-        </a>
-        <div onclick="openMenu()" style="width: 38px; height: 38px; background: rgba(251, 191, 36, 0.1); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fbbf24; cursor: pointer;">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
-<!-- Side Navigation Menu Drawer -->
-<div id="sideMenu" style="position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background-color: #0b0f19 !important; z-index: 2000; box-shadow: -5px 0 15px rgba(0,0,0,0.5); transition: right 0.3s ease; padding: 30px 20px; box-sizing: border-box; border-left: 1px solid rgba(251, 191, 36, 0.2);">
-    <div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
-        <div onclick="closeMenu()" style="color: #fbbf24; font-size: 24px; cursor: pointer;"><i class="fas fa-times"></i></div>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-        <a href="#home" onclick="closeMenu()" style="color: white; text-decoration: none; font-size: 18px; font-weight: 600;">Home</a>
-        <a href="all-destinations.html" onclick="closeMenu()" style="color: #fbbf24; text-decoration: none; font-size: 18px; font-weight: 600;">Tours</a>
-        <a href="about.html" onclick="closeMenu()" style="color: white; text-decoration: none; font-size: 18px; font-weight: 600;">About Us</a>
-        <a href="#book" onclick="closeMenu()" style="color: white; text-decoration: none; font-size: 18px; font-weight: 600;">Book Cab</a>
-    </div>
-</div>
-
-<script>
-    function openMenu() {
-        document.getElementById('sideMenu').style.right = '0';
-    }
-    function closeMenu() {
-        document.getElementById('sideMenu').style.right = '-250px';
-    }
-</script>
-
-    <!-- Modern Animated Loading Screen -->
-    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0b0f19; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
-        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; animation: containerEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
-            <div style="position: relative; margin-bottom: 25px;">
-                <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
-            </div>
-            <div style="font-family: 'Cinzel', 'Georgia', serif; font-size: 22px; font-weight: 700; letter-spacing: 3px; background: linear-gradient(135deg, #fff 20%, #fbbf24 60%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; opacity: 0; animation: textFadeUp 0.8s ease 0.4s forwards;">SHRI RADHA TRAVELS</div>
-            <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 4px; font-weight: 500; opacity: 0; animation: textFadeUp 0.8s ease 0.7s forwards;">Premium Ride Experience</div>
-        </div>
-    </div>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5RTDKHHG');</script>
+    <!-- End Google Tag Manager -->
 
     <style>
+        body {
+            position: relative;
+            background-color: #060b14;
+            padding-top: 90px !important;
+            padding-bottom: 120px;
+        }
+        .bg-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .bg-slide.active {
+            opacity: 1;
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 11, 20, 0.55);
+            z-index: 1;
+        }
         @keyframes containerEntrance {
             0% { opacity: 0; transform: scale(0.8) translateY(20px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); transform: scale(1); }
-            50% { box-shadow: 0 0 35px rgba(251, 191, 36, 0.7); transform: scale(1.04); }
         }
         @keyframes textFadeUp {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
-    </style>
-
-    <script>
-        window.addEventListener("load", function() {
-            setTimeout(function() {
-                const loader = document.getElementById("loading-screen");
-                if(loader) {
-                    loader.style.opacity = "0";
-                    loader.style.visibility = "hidden";
-                }
-            }, 1400);
-        });
-    </script>
-<!-- Booking Form Section -->
- <section class="booking-section" id="book" style="margin-top: 10px; padding-top: 10px;">
-    
-    <style>
         .gold-input:focus, .gold-select:focus {
-            background-color: #1e3a8a !important;
-            color: white !important;
+            background-color: #0f172a !important;
+            color: #ffffff !important;
+            border-color: #dfba6d !important;
             outline: none;
         }
         .gold-input:focus::placeholder {
             color: #cbd5e1 !important;
         }
     </style>
+</head>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const tripButtons = document.querySelectorAll('.trip-btn');
-        tripButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                tripButtons.forEach(btn => {
-                    btn.style.background = 'transparent';
-                    btn.style.color = '#d4af37';
-                });
-                this.style.background = '#d4af37';
-                this.style.color = 'white';
-            });
-        });
-    });
-    </script>
+<body id="home">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RTDKHHG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 20px; padding: 18px; width: 100%; max-width: 400px; border: 2px solid #d4af37; box-sizing: border-box; position: relative;">
-        
-        <!-- Blue Heading Box Inside Form (Top) -->
-        <div style="background: #0b132b; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; padding: 15px;">
-            <h1 style="font-size: 20px; font-weight: 800; color: white; margin: 0; line-height: 1.2;">
-                Shri Radha <span style="color: #d4af37;">Travels</span>
-            </h1>
-            <div style="width: 35px; height: 3px; background: #d4af37; margin: 6px 0; border-radius: 2px;"></div>
-            <p style="font-size: 12px; color: #e2e8f0; margin: 0; font-weight: 500; line-height: 1.3;">
-                ✨ Experience Ultimate Luxury • Verified Chauffeurs • 24/7 Outstation & Tours
-            </p>
-        </div>
+    <!-- Background Slideshow HTML Container (All 17 Original Slides) -->
+    <div class="bg-slideshow">
+        <div class="bg-overlay"></div>
+        <div class="bg-slide active" style="background-image: url('IMG_4500.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4502.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4503.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4504.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4505.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4506.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4507.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4758.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4759.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4760.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4761.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4762.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4763.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4764.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4765.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4766.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('IMG_4767.jpeg');"></div>
+    </div>
 
-        <h3 style="color: white; font-size: 18px; margin-top: 0; margin-bottom: 12px; text-align: center;">Book Your Experience</h3>
-        
-        <!-- One Way / Round Trip Interactive Buttons -->
-        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-            <button type="button" class="trip-btn" style="flex: 1; padding: 8px; border: 1px solid #d4af37; background: #d4af37; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">One Way</button>
-            <button type="button" class="trip-btn" style="flex: 1; padding: 8px; border: 1px solid #d4af37; background: transparent; color: #d4af37; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">Round Trip</button>
-        </div>
-
-        <!-- Form Fields -->
-        <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST">
-
-<input type="hidden" name="access_key" value="e25951c5-279a-41b8-bc1a-94b7904ce297">
-
-<input type="hidden" name="subject" value="New Booking - Shri Radha Travels">
-        
-<input type="hidden" name="redirect" value="https://shriradhatravels.com/thank-you.html">
-            <!-- Pickup Location -->
-            <div style="margin-bottom: 8px;">
-                <input type="text" name="Pickup" placeholder="Pickup Location" class="gold-input" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+    <!-- Sticky Luxury Navbar -->
+    <nav style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(6, 11, 20, 0.95); backdrop-filter: blur(12px); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(223, 186, 109, 0.3);">
+        <a href="#home" style="display: flex; align-items: center; text-decoration: none; gap: 10px;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1.5px solid #dfba6d;">
+                <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 35px; height: 35px; object-fit: cover; border-radius: 50%;">
             </div>
+            <span style="color: white; font-weight: 700; font-size: 16px; font-family: 'Playfair Display', serif;">Shri Radha <span class="srt-gold-shimmer">Travels</span></span>
+        </a>
+        <div onclick="openMenu()" style="width: 38px; height: 38px; background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.35); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #dfba6d; cursor: pointer;">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Modern Animated Loading Screen -->
+    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #060b14; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; animation: containerEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
+            <div style="position: relative; margin-bottom: 25px;">
+                <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 2px solid #dfba6d;">
+            </div>
+            <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; letter-spacing: 3px; background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; opacity: 0; animation: textFadeUp 0.8s ease 0.4s forwards;">SHRI RADHA TRAVELS</div>
+            <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 4px; font-weight: 500; opacity: 0; animation: textFadeUp 0.8s ease 0.7s forwards;">Premium Ride Experience</div>
+        </div>
+    </div>
+
+    <!-- Booking Form Section -->
+    <section class="booking-section anim-fade-up" id="book" style="margin-top: 10px; padding: 10px 20px 30px; display: flex; justify-content: center;">
+        <div style="background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 22px; padding: 20px; width: 100%; max-width: 400px; border: 1.5px solid rgba(223, 186, 109, 0.45); box-shadow: 0 20px 45px rgba(0,0,0,0.55); box-sizing: border-box; position: relative;">
             
-            <!-- Drop Location -->
-            <div style="margin-bottom: 8px;">
-                <input type="text" name="Drop" placeholder="Drop Location" class="gold-input" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
+            <!-- Blue Heading Box Inside Form (Top) -->
+            <div style="background: #060b14; border: 1px solid rgba(223, 186, 109, 0.35); border-radius: 14px; padding: 15px; margin-bottom: 14px;">
+                <h1 style="font-size: 20px; font-weight: 800; color: white; margin: 0; line-height: 1.2; font-family: 'Playfair Display', serif;">
+                    Shri Radha <span class="srt-gold-shimmer">Travels</span>
+                </h1>
+                <div style="width: 35px; height: 3px; background: linear-gradient(135deg, #eed08d, #c89736); margin: 6px 0; border-radius: 2px;"></div>
+                <p style="font-size: 12px; color: #cbd5e1; margin: 0; font-weight: 500; line-height: 1.3;">
+                    ✨ Experience Ultimate Luxury • Verified Chauffeurs • 24/7 Outstation & Tours
+                </p>
             </div>
 
-            <!-- Passengers Dropdown -->
-            <div style="margin-bottom: 8px;">
-                <select name="Passengers" class="gold-select" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
-                    <option value="" disabled selected>Select Passengers</option>
-                    <option value="1">1 Passenger</option>
-                    <option value="2">2 Passengers</option>
-                    <option value="3">3 Passengers</option>
-                    <option value="4">4 Passengers</option>
-                    <option value="5">5 Passengers</option>
-                    <option value="6">6 Passengers</option>
-                    <option value="7">7 Passengers</option>
-                    <option value="8">8 Passengers</option>
-                    <option value="9">9 Passengers</option>
-                    <option value="10">10 Passengers</option>
-                    <option value="11">11 Passengers</option>
-                    <option value="12">12 Passengers</option>
-                </select>
-            </div>
-
-            <!-- Vehicle Type Dropdown -->
-            <div style="margin-bottom: 8px;">
-                <select name="Vehicle_Type" class="gold-select" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; color: #333; transition: all 0.3s ease;">
-                    <option value="" disabled selected>Select Vehicle Type</option>
-                    <option value="Hatchback - Toyota Glanza">Hatchback - Toyota Glanza</option>
-                    <option value="Sedan - Swift Dzire">Sedan - Swift Dzire</option>
-                    <option value="SUV - Maruti Ertiga">SUV - Maruti Ertiga</option>
-                    <option value="MPV - Innova Crysta 7+1">MPV - Innova Crysta 7+1</option>
-                    <option value="Tempo Traveller - Urbania">Tempo Traveller - Urbania</option>
-                </select>
-            </div>
-
-            <!-- Phone Number -->
-            <div style="margin-bottom: 10px;">
-                <input type="tel" name="Phone" placeholder="Enter your phone number" class="gold-input" style="width: 100%; padding: 9px; border-radius: 8px; border: 1px solid #d4af37; background: rgba(255,255,255,0.85); box-sizing: border-box; font-size: 14px; transition: all 0.3s ease;">
-            </div>
-
-            <!-- Book Now Button -->
-            <button type="submit" style="width: 100%; padding: 10px; background: #d4af37; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer;">
-                Book Now
-            </button>
-        </form>
-    </div>
-</section>
-
-<!-- Modern Floating Action Buttons (WhatsApp, Call, Scroll-to-Top Stacked) -->
-<div style="position: fixed; bottom: 25px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; align-items: flex-end;">
-    
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20taxi." target="_blank" style="width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.068 7.925c0 1.399.366 2.76 1.057 3.965L0 16l4.22-1.107a7.85 7.85 0 0 0 3.772.96h.004c4.363 0 7.926-3.558 7.926-7.93 0-2.11-.822-4.102-2.321-5.627zM7.994 14.521h-.003a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.556 6.556 0 0 1 4.663 1.931 6.558 6.558 0 0 1 1.928 4.65c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.087-.401.089-.088.198-.232.298-.347.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.342l-.381-.007c-.133 0-.348.05-.53.248-.183.199-.7.685-.7 1.665 0 .98 1.07 1.93 1.22 2.13.15.198 2.106 3.214 5.102 4.505.714.308 1.27.493 1.704.634.714.228 1.362.195 1.875.118.571-.085 1.17-.478 1.335-.943.165-.465.165-.864.115-.943-.05-.079-.182-.128-.38-.228z"/>
-        </svg>
-    </a>
-
-    <!-- Call Button -->
-    <a href="tel:+916280544730" style="width: 54px; height: 54px; background: #eab308; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(234,179,8,0.4); text-decoration: none; transition: transform 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 16 16">
-            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.748 1.748 0 0 1-1.657-.459L5.482 8.062a1.748 1.748 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .643.178l2.19-.547c.52-.13 1.072.014 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.363-1.03-.038-2.137.702-2.877L1.884.511z"/>
-        </svg>
-    </a>
-
-    <!-- Scroll to Top Button -->
-    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="width: 48px; height: 48px; background: #f97316; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(249,115,22,0.4); text-decoration: none; transition: transform 0.3s ease;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-        </svg>
-    </a>
-
-</div>
-
-<!-- Trending Travel Locations -->
-<section class="trending-section">
-    <h2>Trending Locations</h2> 
-    <div class="destinations-container" id="scrollContainer">
-        <a href="details.html?place=Shimla" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="3F718C1D-11EE-4842-AD29-6EA4CF1A3087.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Shimla</div></a>
-<a href="details.html?place=Manali" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3722.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Manali</div></a>
-<a href="details.html?place=Spiti-Valley" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3891.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Spiti Valley</div></a>
-<a href="details.html?place=Dalhousie" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3731.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Dalhousie</div></a>
-<a href="details.html?place=Dehradun" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="BD266B34-FEC8-43E3-B520-A0025A333629.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Dehradun</div></a>
-<a href="details.html?place=Delhi" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3894.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Delhi</div></a>
-<a href="details.html?place=Amritsar" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3895.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Amritsar</div></a>
-<a href="details.html?place=Mussoorie" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3896.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Mussoorie</div></a>
-<a href="details.html?place=Jaipur" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 12px;"><img src="IMG_3889.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 6px; font-weight: 600; color: #fff; font-size: 14px;">Jaipur</div></a>
-    </div>
-    <div class="carousel-nav">
-        <button onclick="scrollLeftBtn()">&#8592;</button>
-        <button onclick="scrollRightBtn()">&#8594;</button>
-    </div>
-</section>
-<!-- HERO & SERVICES SECTION (SHRI RADHA TRAVELS) -->
-<section class="srt-hero-section">
-    <div class="srt-container">
-        
-        <!-- TOP HERO CONTENT -->
-        <div class="srt-hero-content srt-fade-in">
-            <span class="srt-badge-tag">PREMIUM CHAUFFEUR & CAB SERVICES</span>
-            <h1 class="srt-hero-title">Experience Travel, <span class="srt-gold-shimmer">Redefined.</span></h1>
-            <p class="srt-hero-desc">
-                Seamless one-way cabs, luxury outstation journeys, and timely airport transfers from Chandigarh, Zirakpur & across North India.
-            </p>
+            <h3 style="color: white; font-size: 18px; margin-top: 0; margin-bottom: 12px; text-align: center; font-family: 'Playfair Display', serif;">Book Your Experience</h3>
             
-            <div class="srt-btn-group">
-                <!-- Golden Button: Future One-Way Page Link -->
-                <a href="oneway-cab.html" class="srt-btn srt-btn-gold">
-                    Explore One Way Cab Service <span class="srt-arrow">&rarr;</span>
-                </a>
-                
-                <!-- Outline Button: Smooth Scroll -->
-                <a href="#our-services" class="srt-btn srt-btn-outline">
-                    View Services
-                </a>
-            </div>
-        </div>
-
-        <!-- SERVICES CARDS SECTION -->
-        <div class="srt-services-wrapper" id="our-services">
-            <div class="srt-services-header srt-fade-in">
-                <span class="srt-badge-tag">OUR EXCLUSIVE SERVICES</span>
-                <h2 class="srt-section-title">Select Your Ride.<br><span class="srt-gold-shimmer">Travel Without Limits.</span></h2>
-                <p class="srt-section-desc">Designed for comfort and reliability. Choose a service below to explore dedicated options.</p>
+            <!-- One Way / Round Trip Interactive Buttons -->
+            <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                <button type="button" class="trip-btn" style="flex: 1; padding: 9px; border: 1px solid #dfba6d; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14; border-radius: 10px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;">One Way</button>
+                <button type="button" class="trip-btn" style="flex: 1; padding: 9px; border: 1px solid #dfba6d; background: transparent; color: #dfba6d; border-radius: 10px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;">Round Trip</button>
             </div>
 
-            <!-- CARDS GRID -->
-            <div class="srt-cards-grid">
+            <!-- Form Fields -->
+            <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="e25951c5-279a-41b8-bc1a-94b7904ce297">
+                <input type="hidden" name="subject" value="New Booking - Shri Radha Travels">
+                <input type="hidden" name="redirect" value="https://shriradhatravels.com/thank-you.html">
                 
-                <!-- CARD 1: ONE WAY CAB SERVICE -->
-                <a href="oneway-cab.html" class="srt-card-link srt-fade-in">
-                    <div class="srt-service-card">
-                        <div class="srt-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </div>
-                        <h3 class="srt-card-title">One Way Cab Service</h3>
-                        <p class="srt-card-text">Point-to-point rides • Intercity travel • Transparent fares • Professional drivers</p>
-                    </div>
-                </a>
-
-                <!-- CARD 2: ROUND TRIP SERVICE -->
-                <a href="round-trip.html" class="srt-card-link srt-fade-in">
-                    <div class="srt-service-card">
-                        <div class="srt-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="17 1 21 5 17 9"></polyline>
-                                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-                                <polyline points="7 23 3 19 7 15"></polyline>
-                                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-                            </svg>
-                        </div>
-                        <h3 class="srt-card-title">Round Trip Service</h3>
-                        <p class="srt-card-text">Dedicated vehicle & personal chauffeur for your entire multi-day journey.</p>
-                    </div>
-                </a>
+                <div style="margin-bottom: 9px;">
+                    <input type="text" name="Pickup" placeholder="Pickup Location" class="gold-input" required style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(223, 186, 109, 0.5); background: rgba(255,255,255,0.92); box-sizing: border-box; font-size: 14px; color: #060b14; transition: all 0.3s ease;">
+                </div>
                 
-                <!-- CARD 3: SIGNATURE TOUR COLLECTIONS -->
-                <a href=signature-tours.html class="srt-card-link srt-fade-in">
-                    <div class="srt-service-card">
-                        <div class="srt-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                        </div>
-                        <h3 class="srt-card-title">Signature Tour Collections</h3>
-                        <p class="srt-card-text">Explore Dharamshala, Spiti, Manali & spiritual yatras with flexible multi-day itineraries.</p>
-                    </div>
-                </a>
+                <div style="margin-bottom: 9px;">
+                    <input type="text" name="Drop" placeholder="Drop Location" class="gold-input" required style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(223, 186, 109, 0.5); background: rgba(255,255,255,0.92); box-sizing: border-box; font-size: 14px; color: #060b14; transition: all 0.3s ease;">
+                </div>
 
-            </div>
+                <div style="margin-bottom: 9px;">
+                    <select name="Passengers" class="gold-select" required style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(223, 186, 109, 0.5); background: rgba(255,255,255,0.92); box-sizing: border-box; font-size: 14px; color: #060b14; transition: all 0.3s ease;">
+                        <option value="" disabled selected>Select Passengers</option>
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5 Passengers</option>
+                        <option value="6">6 Passengers</option>
+                        <option value="7">7 Passengers</option>
+                        <option value="8">8 Passengers</option>
+                        <option value="9">9 Passengers</option>
+                        <option value="10">10 Passengers</option>
+                        <option value="11">11 Passengers</option>
+                        <option value="12">12 Passengers</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 9px;">
+                    <select name="Vehicle_Type" class="gold-select" required style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(223, 186, 109, 0.5); background: rgba(255,255,255,0.92); box-sizing: border-box; font-size: 14px; color: #060b14; transition: all 0.3s ease;">
+                        <option value="" disabled selected>Select Vehicle Type</option>
+                        <option value="Hatchback - Toyota Glanza">Hatchback - Toyota Glanza</option>
+                        <option value="Sedan - Swift Dzire">Sedan - Swift Dzire</option>
+                        <option value="SUV - Maruti Ertiga">SUV - Maruti Ertiga</option>
+                        <option value="MPV - Innova Crysta 7+1">MPV - Innova Crysta 7+1</option>
+                        <option value="Tempo Traveller - Urbania">Tempo Traveller - Urbania</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <input type="tel" name="Phone" placeholder="Enter your phone number" class="gold-input" required style="width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(223, 186, 109, 0.5); background: rgba(255,255,255,0.92); box-sizing: border-box; font-size: 14px; color: #060b14; transition: all 0.3s ease;">
+                </div>
+
+                <button type="submit" class="srt-btn srt-btn-gold" style="width: 100%; padding: 12px; border: none; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer;">
+                    Book Now
+                </button>
+            </form>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<!-- YAHAN APNA JAVASCRIPT PASTE KAREIN -->
-<script>
-    const scrollContainer = document.getElementById("scrollContainer");
-
-    function scrollLeftBtn() {
-        if (scrollContainer) {
-            scrollContainer.scrollBy({ left: -250, behavior: 'smooth' });
-        }
-    }
-
-    function scrollRightBtn() {
-        if (scrollContainer) {
-            scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
-        }
-    }
-
-    let autoScroll = setInterval(() => {
-        if (scrollContainer) {
-            if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
-                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
-            }
-        }
-    }, 3000);
-
-    if (scrollContainer) {
-        scrollContainer.addEventListener('mouseenter', () => clearInterval(autoScroll));
-    }
-</script>
-
-<!-- Amazing Tour Places Section -->
-<section class="destinations-section" id="tours" style="padding: 40px 20px; text-align: center;">
-    <div style="margin-bottom: 30px;">
-        <span style="color: #d4af37; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">From Scenic Hills to Heritage Cities</span>
-        <h2 style="color: #f8fafc; font-size: 28px; font-weight: 700; margin: 8px 0;">Amazing Tour Places</h2>
-        <p style="color: #cbd5e1; font-size: 14px;">Explore premium destinations with <span style="color: #d4af37; font-weight: 600;">Shri Radha Travels</span></p>
-    </div>
-
-    <!-- Grid with Only 6 Main Places -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-
-    <!-- 1 -->
-    <a href="details.html?place=Jaipur" style="text-decoration: none;">
-        <img src="IMG_4536.jpeg" alt="Jaipur" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-        <div style="padding: 15px 0;">
-            <h3 style="color: #f8fafc; font-size: 18px; margin: 0 0 5px 0;">Jaipur</h3>
-            <span style="color: #d4af37; font-size: 14px;">Explore Package &rarr;</span>
-        </div>
-    </a>
-
-    <!-- 2 -->
-    <a href="details.html?place=Mathura-Vrindavan" style="text-decoration: none;">
-        <img src="IMG_4537.jpeg" alt="Mathura Vrindavan" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-        <div style="padding: 15px 0;">
-            <h3 style="color: #f8fafc; font-size: 18px; margin: 0 0 5px 0;">Mathura Vrindavan</h3>
-            <span style="color: #d4af37; font-size: 14px;">Explore Package &rarr;</span>
-        </div>
-    </a>
-
-    <!-- 3 -->
-    <a href="details.html?place=Mussoorie" style="text-decoration: none;">
-        <img src="IMG_4538.jpeg" alt="Mussoorie" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-        <div style="padding: 15px 0;">
-            <h3 style="color: #f8fafc; font-size: 18px; margin: 0 0 5px 0;">Mussoorie</h3>
-            <span style="color: #d4af37; font-size: 14px;">Explore Package &rarr;</span>
-        </div>
-    </a>
-
-    <!-- 4 -->
-    <a href="details.html?place=Amritsar" style="text-decoration: none;">
-        <img src="IMG_4539.jpeg" alt="Amritsar Wagah Border" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-        <div style="padding: 15px 0;">
-            <h3 style="color: #f8fafc; font-size: 18px; margin: 0 0 5px 0;">Amritsar Wagah Border</h3>
-            <span style="color: #d4af37; font-size: 14px;">Explore Package &rarr;</span>
-        </div>
-    </a>
-
-    <!-- 5 -->
-    <a href="details.html?place=Shimla" style="text-decoration: none;">
-        <img src="IMG_4541.jpeg" alt="Shimla" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-        <div style="padding: 15px 0;">
-            <h3 style="color: #f8fafc; font-size: 18px; margin: 0 0 5px 0;">Shimla</h3>
-            <span style="color: #d4af37; font-size: 14px;">Explore Package &rarr;</span>
-        </div>
-    </a>
-
-    <!-- 6 -->
-    <a href="details.html?place=Manali" style="text-decoration: none;">
-        <img src="IMG_4748.jpeg" alt="Manali" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-        <div style="padding: 15px 0;">
-            <h3 style="color: #f8fafc; font-size: 18px; margin: 0 0 5px 0;">Manali</h3>
-            <span style="color: #d4af37; font-size: 14px;">Explore Package &rarr;</span>
-        </div>
-    </a>
-
-</div>
-
-    <!-- Explore More Button linking to new page -->
-    <div style="margin-top: 35px;">
-        <a href="all-destinations.html" style="background: #25d366; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-size: 16px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s;">
-            Explore more <span style="font-size: 18px;">➔</span>
+    <!-- Modern Floating Action Buttons (WhatsApp, Call, Scroll-to-Top Stacked) -->
+    <div style="position: fixed; bottom: 25px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; align-items: flex-end;">
+        <a href="https://wa.me/916280544730?text=Hello,%20I%20want%20to%20book%20a%20taxi." target="_blank" style="width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s ease;">
+            <i class="fab fa-whatsapp" style="color: white; font-size: 28px;"></i>
+        </a>
+        <a href="tel:+916280544730" style="width: 54px; height: 54px; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(200,151,54,0.45); text-decoration: none; transition: transform 0.3s ease;">
+            <i class="fas fa-phone-alt" style="color: #060b14; font-size: 22px;"></i>
+        </a>
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="width: 48px; height: 48px; background: #0f172a; border: 1.5px solid #dfba6d; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 6px 20px rgba(0,0,0,0.5); text-decoration: none; transition: transform 0.3s ease;">
+            <i class="fas fa-arrow-up" style="color: #dfba6d; font-size: 18px;"></i>
         </a>
     </div>
-</section>
-<!-- About Our Company Section -->
-<section class="about-section" style="padding: 60px 20px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px); margin-top: 30px; border-radius: 20px;">
-    <div class="about-container" style="max-width: 1100px; margin: 0 auto; color: white;">
-        <span class="about-subtitle" style="color: #d4af37; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 10px;">ABOUT SHRI RADHA TRAVELS</span>
-        <h2 class="about-title" style="font-size: 32px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 20px;">Crafting Unforgettable Journeys Across Majestic Destinations</h2>
-        <p class="about-desc" style="font-size: 16px; line-height: 1.8; color: #e2e8f0; max-width: 900px; margin: 0 auto 25px auto; opacity: 0.95;">
-    At <strong style="color: #d4af37;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Manali, Shimla, Leh Ladakh, Spiti Valley, and beyond, we cater to modern explorers seeking comfort, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified and courteous drivers, and hygienic, high-end vehicles designed for long-distance endurance. Join thousands of happy customers who trust us to deliver punctual, transparent, and luxurious travel solutions tailored precisely to your schedule and preferences.
-</p>
-        
-        <div class="about-action" style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
-            <a href="about.html" class="explore-btn" style="display: inline-flex; align-items: center; gap: 10px; background: #22c55e; color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);">
-                Explore <span class="arrow-icon" style="background: white; color: #22c55e; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">→</span>
-            </a>
-            <div class="contact-info" style="display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 600; color: white;">
-                <i class="fas fa-phone-alt" style="color: #22c55e;"></i>
-                <a href="tel:+916280544730" style="text-decoration: none; color: inherit;">+91 6280544730</a>
-            </div>
+
+    <!-- Trending Travel Locations (All 9 Original Places) -->
+    <section class="trending-section anim-fade-up" style="background: #060b14; padding: 45px 20px; text-align: center; border-top: 1px solid rgba(223, 186, 109, 0.2); border-bottom: 1px solid rgba(223, 186, 109, 0.2);">
+        <span class="srt-badge-tag">MOST BOOKED DESTINATIONS</span>
+        <h2 class="srt-section-title" style="color: #ffffff; margin-bottom: 20px;">Trending <span class="srt-gold-shimmer">Locations</span></h2>
+        <div class="destinations-container" id="scrollContainer">
+            <a href="details.html?place=Shimla" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="3F718C1D-11EE-4842-AD29-6EA4CF1A3087.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Shimla</div></a>
+            <a href="details.html?place=Manali" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3722.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Manali</div></a>
+            <a href="details.html?place=Spiti-Valley" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3891.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Spiti Valley</div></a>
+            <a href="details.html?place=Dalhousie" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3731.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Dalhousie</div></a>
+            <a href="details.html?place=Dehradun" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="BD266B34-FEC8-43E3-B520-A0025A333629.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Dehradun</div></a>
+            <a href="details.html?place=Delhi" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3894.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Delhi</div></a>
+            <a href="details.html?place=Amritsar" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3895.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Amritsar</div></a>
+            <a href="details.html?place=Mussoorie" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3896.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Mussoorie</div></a>
+            <a href="details.html?place=Jaipur" style="text-decoration: none; color: inherit; display: inline-block; text-align: center; margin-right: 15px; width: 150px;"><div class="dest-card" style="width: 150px; height: 160px; position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid #dfba6d;"><img src="IMG_3889.jpeg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"></div><div style="margin-top: 8px; font-weight: 600; color: #fff; font-size: 14px;">Jaipur</div></a>
         </div>
-    </div>
-</section>
-<!-- Our Tour Features Section (Dark & Luxury Gold Theme) -->
-<section class="features-section" style="padding: 70px 20px; background: #0f172a; font-family: 'Poppins', sans-serif;">
-    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-        <span style="color: #d4af37; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">SPECIAL FEATURES</span>
-        <h2 style="font-size: 38px; font-weight: 800; color: #ffffff; margin-bottom: 45px;">Our Tour Features</h2>
-
-        <!-- Features Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; text-align: left;">
-            
-            <!-- Feature 1 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-car"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Instant Cab Booking</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Quick and hassle-free booking experience for your outstation and local rides.</p>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-route"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">One-Way Trip</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Pay only for the distance traveled with our economical one-way drop services.</p>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-shuttle-van"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Multiple Vehicle Options</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Choose from sedans, SUVs, luxury cars, and tempo travellers as per your group size.</p>
-            </div>
-
-            <!-- Feature 4 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-plane-departure"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Airport Transfers</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">On-time pickup and drop services to and from the airport with zero waiting worries.</p>
-            </div>
-
-            <!-- Feature 5 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Verified Drivers & Safety</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Experienced, polite, and background-verified drivers ensuring a safe family ride.</p>
-            </div>
-
-            <!-- Feature 6 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Local & Outstation Rides</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Explore local sightseeing or plan long-distance outstation tours comfortably.</p>
-            </div>
-
-            <!-- Feature 7 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-mountain"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Tour Packages</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Customized holiday tour packages for Shimla, Manali, Jaipur, and more.</p>
-            </div>
-
-            <!-- Feature 8 -->
-            <div class="feature-card" style="background: rgba(30, 41, 59, 0.7); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(10px);">
-                <div style="width: 60px; height: 60px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: #d4af37; font-size: 24px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <i class="fas fa-wallet"></i>
-                </div>
-                <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Online & Offline Payments</h3>
-                <p style="font-size: 14px; color: #94a3b8; line-height: 1.5;">Flexible payment options including UPI, cards, and cash transactions.</p>
-            </div>
-
+        <div class="carousel-nav">
+            <button onclick="scrollLeftBtn()" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #dfba6d; color: #dfba6d;">&#8592;</button>
+            <button onclick="scrollRightBtn()" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #dfba6d; color: #dfba6d;">&#8594;</button>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Hover Animation Style -->
-<style>
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        border-color: rgba(212, 175, 55, 0.6) !important;
-    }
-</style>
-<!-- Shri Radha Stats Section (navy blue Base Theme) -->
-<section class="stats-section" style="padding: 70px 20px; background: #0b132b;">
-    <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-        
-        <!-- Section Heading -->
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin-bottom: 10px;">
-  SHRI RADHA TRAVELS <span style="background: #d4af37; color: #111; padding: 2px 12px; border-radius: 8px; -webkit-text-fill-color: #111; font-size: 32px; display: inline-block; margin-left: 5px;">STATS</span>
-</h2> 
-        <p style="color: #d4af37; font-size: 16px; text-align: center; margin-top: 5px; opacity: 0.9;">Trusted by thousands across India</p>
-
-        <!-- Stats Grid (2x2) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; text-align: center;">
-            
-            <!-- Stat Card 1 -->
-            <div class="stat-card" style="background: #0f172a; padding: 35px 20px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-                <div style="font-size: 28px; color: #d4af37; margin-bottom: 15px;">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3 style="font-size: 38px; font-weight: 800; color: #d4af37; margin-bottom: 5px;">10000+</h3>
-                <p style="font-size: 14px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Happy Customers</p>
-            </div>
-
-            <!-- Stat Card 2 -->
-            <div class="stat-card" style="background: #0f172a; padding: 35px 20px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-                <div style="font-size: 28px; color: #d4af37; margin-bottom: 15px;">
-                    <i class="fas fa-car-side"></i>
-                </div>
-                <h3 style="font-size: 38px; font-weight: 800; color: #d4af37; margin-bottom: 5px;">500+</h3>
-                <p style="font-size: 14px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Daily Rides</p>
-            </div>
-
-            <!-- Stat Card 3 -->
-            <div class="stat-card" style="background: #0f172a; padding: 35px 20px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-                <div style="font-size: 28px; color: #d4af37; margin-bottom: 15px;">
-                    <i class="fas fa-city"></i>
-                </div>
-                <h3 style="font-size: 38px; font-weight: 800; color: #d4af37; margin-bottom: 5px;">50+</h3>
-                <p style="font-size: 14px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Cities</p>
-            </div>
-
-            <!-- Stat Card 4 -->
-            <div class="stat-card" style="background: #0f172a; padding: 35px 20px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.2); transition: all 0.3s ease;">
-                <div style="font-size: 28px; color: #d4af37; margin-bottom: 15px;">
-                    <i class="fas fa-star"></i>
-                </div>
-                <h3 style="font-size: 38px; font-weight: 800; color: #d4af37; margin-bottom: 5px;">4.9★</h3>
-                <p style="font-size: 14px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Star Rating</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Hover Animation Style -->
-<style>
-    .stat-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(15,23,42,0.4);
-        border-color: #ffffff !important;
-    }
-</style>
-<!-- Clean Fixed Vehicle Slider Section -->
-<div style="width: 100%; max-width: 400px; margin: 0 auto; text-align: center; padding: 20px 0;">
-    <h2 style="color: #d4af37; font-size: 32px; font-weight: 800; margin: 10px 0;">Travel in</h2>
-    <h1 style="color: #d4af37; font-size: 38px; font-weight: 800; margin: 0 0 10px 0;">Cinematic Luxury</h1>
-    <p style="color: #a3bffa; font-size: 15px; margin-bottom: 20px;">Choose from our premium range of well-maintained vehicles</p>
-
-    <!-- Main Slider Box -->
-    <div style="position: relative; width: 100%; height: 460px; overflow: hidden; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #334155; background-color: #0f172a;">
-        
-        <!-- Track for Slides -->
-        <div id="sliderTrack" style="display: flex; transition: transform 0.5s ease-in-out; height: 100%; width: 100%;">
-            
-            <!-- Slide 1: Hatchback - Toyota Glanza -->
-            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
-                    <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-                <div style="text-align: left; padding: 5px 0;">
-                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">Hatchback</h3>
-                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Toyota Glanza</p>
-                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">4+1 Seats</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Comfort</span>
-                    </div>
-                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Hatchback%20Toyota%20Glanza" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
-                </div>
-            </div>
-
-            <!-- Slide 2: Sedan - Swift Dzire -->
-            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
-                    <img src="IMG_4678.jpeg" alt="Swift Dzire" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-                <div style="text-align: left; padding: 5px 0;">
-                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">Sedan</h3>
-                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Swift Dzire</p>
-                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">4+1 Seats</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Spacious Boot</span>
-                    </div>
-                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Sedan%20Swift%20Dzire" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
-                </div>
-            </div>
-
-            <!-- Slide 3: SUV - Maruti Ertiga -->
-            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
-                    <img src="IMG_4938.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-                <div style="text-align: left; padding: 5px 0;">
-                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">SUV</h3>
-                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Maruti Ertiga</p>
-                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">6+1 Seats</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Family Trip</span>
-                    </div>
-                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20SUV%20Maruti%20Ertiga" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
-                </div>
-            </div>
-
-            <!-- Slide 4: MPV - Innova Crysta -->
-            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
-                    <img src="IMG_4936.jpeg" alt="Innova Crysta" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-                <div style="text-align: left; padding: 5px 0;">
-                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">MPV</h3>
-                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Innova Crysta 7+1</p>
-                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">7+1 Seats</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Ultimate Comfort</span>
-                    </div>
-                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20MPV%20Innova%20Crysta" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
-                </div>
-            </div>
-
-            <!-- Slide 5: Tempo Traveller - Force Urbania -->
-            <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="width: 100%; height: 180px; border-radius: 14px; overflow: hidden;">
-                    <img src="IMG_4937.jpeg" alt="Force Urbania" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                </div>
-                <div style="text-align: left; padding: 5px 0;">
-                    <h3 style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 3px 0;">Tempo Traveller</h3>
-                    <p style="color: #d4af37; font-size: 15px; font-weight: 600; margin: 0 0 10px 0;">Force Urbania</p>
-                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Pushback Seats</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
-                        <span style="background: rgba(255,255,255,0.1); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Group Tour</span>
-                    </div>
-                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Tempo%20Traveller%20Force%20Urbania" style="display: block; width: 100%; background: #d4af37; color: #0f172a; text-align: center; padding: 10px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">Select Vehicle</a>
-                </div>
-            </div>
-
-        
-</div> 
-    </div> 
-
-    <!-- Arrows Below The Box -->
-    <div style="display: flex; justify-content: center; gap: 30px; margin-top: 15px;">
-        <button onclick="moveVehicleSlide(-1)" style="background: #0f172a; border: 2px solid #d4af37; border-radius: 50%; width: 44px; height: 44px; color: #d4af37; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&#10094;</button>
-        <button onclick="moveVehicleSlide(1)" style="background: #0f172a; border: 2px solid #d4af37; border-radius: 50%; width: 44px; height: 44px; color: #d4af37; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">&#10095;</button>
-    </div>
-</div>
-<!-- Script for Slider Movement -->
-<script>
-    let vehicleIndex = 0;
-    const totalVehicleSlides = 5;
-
-    function moveVehicleSlide(direction) {
-        const track = document.getElementById('sliderTrack');
-        if (!track) return;
-        vehicleIndex = (vehicleIndex + direction + totalVehicleSlides) % totalVehicleSlides;
-        track.style.transform = `translateX(-${vehicleIndex * 100}%)`;
-    }
-
-    // Auto slide every 4 seconds
-    setInterval(() => {
-        moveVehicleSlide(1);
-    }, 4000);
-</script>
-</section>
-
-<!-- JavaScript for Automatic and Manual Sliding -->
-<script>
-    let currentIndex = 0;
-    const slidesTrack = document.getElementById('slidesTrack');
-    const totalSlides = document.querySelectorAll('.vehicle-slide').length;
-
-    function updateSlidePosition() {
-        slidesTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlidePosition();
-    }
-
-    // Auto Slide every 4 seconds
-    let autoSlide = setInterval(nextSlide, 4000);
-
-    // Pause auto slide on hover
-    const container = document.querySelector('.vehicle-slider-container');
-    container.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    container.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 4000));
-</script>
-<!-- Client Reviews / Testimonials Section (Real Google Reviews) -->
-<section class="testimonials-section" style="padding: 70px 20px; background: #0f172a; font-family: 'Poppins', sans-serif; text-align: center;">
-    <div style="max-width: 600px; margin: 0 auto;">
-        
-        <!-- Heading -->
-        <span style="color: #d4af37; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">TESTIMONIALS</span>
-        <h2 style="font-size: 36px; font-weight: 800; color: #ffffff; margin-bottom: 5px;">What Our Clients Say</h2>
-        <p style="color: #94a3b8; font-size: 15px; margin-bottom: 35px;">Real experiences from our valued customers</p>
-
-        <!-- Testimonial Slider Container -->
-        <div class="review-slider-container" style="position: relative; overflow: hidden; border-radius: 24px; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-            
-            <!-- Slides Track -->
-            <div class="review-track" id="reviewTrack" style="display: flex; transition: transform 0.5s ease-in-out; width: 100%;">
+    <!-- HERO & SERVICES SECTION (Select Your Ride. Travel Without Limits) -->
+    <section class="srt-hero-section">
+        <div class="srt-container">
+            <div class="srt-hero-content anim-fade-up">
+                <span class="srt-badge-tag">PREMIUM CHAUFFEUR & CAB SERVICES</span>
+                <h1 class="srt-hero-title">Experience Travel, <span class="srt-gold-shimmer">Redefined.</span></h1>
+                <p class="srt-hero-desc">
+                    Seamless one-way cabs, luxury outstation journeys, and timely airport transfers from Chandigarh, Zirakpur & across North India.
+                </p>
                 
-                <!-- Review 1: Ritu Rajput -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">RR</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">Ritu Rajput</h3>
-                    </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"This car gave a very comfortable journey.❤️"</p>
-                    </div>
+                <div class="srt-btn-group">
+                    <a href="oneway-cab.html" class="srt-btn srt-btn-gold">
+                        Explore One Way Cab Service <span class="srt-arrow">&rarr;</span>
+                    </a>
+                    <a href="#our-services" class="srt-btn srt-btn-outline">
+                        View Services
+                    </a>
+                </div>
+            </div>
+
+            <div class="srt-services-wrapper" id="our-services">
+                <div class="srt-services-header anim-fade-up">
+                    <span class="srt-badge-tag">OUR EXCLUSIVE SERVICES</span>
+                    <h2 class="srt-section-title">Select Your Ride.<br><span class="srt-gold-shimmer">Travel Without Limits.</span></h2>
+                    <p class="srt-section-desc">Designed for comfort and reliability. Choose a service below to explore dedicated options.</p>
                 </div>
 
-                <!-- Review 2: Neetu Bhatia -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">NB</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">Neetu Bhatia</h3>
-                    </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <div class="srt-cards-grid">
+                    <!-- CARD 1: ONE WAY CAB SERVICE -->
+                    <a href="oneway-cab.html" class="srt-card-link anim-fade-left">
+                        <div class="srt-service-card">
+                            <div class="srt-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </div>
+                            <h3 class="srt-card-title">One Way Cab Service</h3>
+                            <p class="srt-card-text">Point-to-point rides • Intercity travel • Transparent fares • Professional drivers</p>
                         </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Excellent service from shree radha travels! The cab was neat nd clean.the driver was very polite and experienced.our himachal trip was smooth and memorable .highly recommended.👌👌"</p>
+                    </a>
+
+                    <!-- CARD 2: ROUND TRIP SERVICE -->
+                    <a href="round-trip.html" class="srt-card-link anim-fade-right">
+                        <div class="srt-service-card">
+                            <div class="srt-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="17 1 21 5 17 9"></polyline>
+                                    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                    <polyline points="7 23 3 19 7 15"></polyline>
+                                    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                </svg>
+                            </div>
+                            <h3 class="srt-card-title">Round Trip Service</h3>
+                            <p class="srt-card-text">Dedicated vehicle & personal chauffeur for your entire multi-day journey.</p>
+                        </div>
+                    </a>
+                    
+                    <!-- CARD 3: SIGNATURE TOUR COLLECTIONS -->
+                    <a href="signature-tours.html" class="srt-card-link anim-fade-left">
+                        <div class="srt-service-card">
+                            <div class="srt-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </div>
+                            <h3 class="srt-card-title">Signature Tour Collections</h3>
+                            <p class="srt-card-text">Explore Dharamshala, Spiti, Manali & spiritual yatras with flexible multi-day itineraries.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: POPULAR EXPRESS ROUTES (Exact Screenshot Layout + Luxury Theme) -->
+    <section class="express-routes-section" id="express-routes" style="background: #060b14; padding: 65px 20px; border-top: 1px solid rgba(223, 186, 109, 0.2); border-bottom: 1px solid rgba(223, 186, 109, 0.2);">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <div class="anim-fade-up" style="text-align: center; margin-bottom: 35px;">
+                <span style="display: inline-block; background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.35); color: #dfba6d; padding: 7px 18px; border-radius: 30px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">TRANSPARENT PRICING</span>
+                <h2 class="srt-section-title" style="color: #ffffff; margin-bottom: 12px;">POPULAR EXPRESS<br><span class="srt-gold-shimmer">ROUTES</span></h2>
+                <p class="srt-section-desc" style="margin-bottom: 0;">All-inclusive one-way and airport transfer packages from Zirakpur & Chandigarh.</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Express Route 1: Chandigarh to Delhi IGI -->
+                <div class="srt-service-card anim-fade-left" style="border-radius: 26px; padding: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Chandigarh</h3>
+                        <i class="fas fa-plane-departure" style="color: #38bdf8; font-size: 20px;"></i>
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Delhi IGI</h3>
                     </div>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0 0 18px 0;">One-Way Highway Express • Sedan / SUV Available</p>
+                    <div style="margin-bottom: 22px; display: flex; align-items: baseline; gap: 6px;">
+                        <span class="srt-gold-shimmer" style="font-size: 32px; font-weight: 800;">₹2,999*</span>
+                        <span style="color: #94a3b8; font-size: 13px; font-weight: 500;">Onwards</span>
+                    </div>
+                    <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20Chandigarh%20to%20Delhi%20IGI%20Express%20Route%20(₹2,999*%20Onwards)." target="_blank" class="srt-btn srt-btn-gold" style="border-radius: 50px; padding: 14px; font-size: 14px; letter-spacing: 0.5px;">BOOK ROUTE</a>
                 </div>
 
-                <!-- Review 3: Vishnu Mulik -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">VM</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">Vishnu Mulik</h3>
+                <!-- Express Route 2: Zirakpur to Shimla -->
+                <div class="srt-service-card anim-fade-right" style="border-radius: 26px; padding: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Zirakpur</h3>
+                        <i class="fas fa-mountain" style="color: #38bdf8; font-size: 20px;"></i>
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Shimla</h3>
                     </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Our trip to Manali was truly a memorable journey. Vijay Bhaiii guided us exceptionally well, arranged a comfortable 7-seater car, and took care of everything perfectly!"</p>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0 0 18px 0;">Scenic Himalayan Drive • Experienced Hill Driver</p>
+                    <div style="margin-bottom: 22px; display: flex; align-items: baseline; gap: 6px;">
+                        <span class="srt-gold-shimmer" style="font-size: 32px; font-weight: 800;">₹2,499*</span>
+                        <span style="color: #94a3b8; font-size: 13px; font-weight: 500;">Onwards</span>
                     </div>
+                    <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20Zirakpur%20to%20Shimla%20Express%20Route%20(₹2,499*%20Onwards)." target="_blank" class="srt-btn srt-btn-gold" style="border-radius: 50px; padding: 14px; font-size: 14px; letter-spacing: 0.5px;">BOOK ROUTE</a>
                 </div>
 
-                <!-- Review 4: VEDant vande -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">VV</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">VEDant vande</h3>
+                <!-- Express Route 3: Chandigarh to Manali -->
+                <div class="srt-service-card anim-fade-left" style="border-radius: 26px; padding: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Chandigarh</h3>
+                        <i class="fas fa-snowflake" style="color: #38bdf8; font-size: 20px;"></i>
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Manali</h3>
                     </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Lucky was my driver from Manali to Chandigarh. Extremely polite, professional, and helpful. Showed us all must-visit places in Chandigarh. True gentleman!"</p>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0 0 18px 0;">Direct Four-Lane Tunnel Route • Zero Hidden Cost</p>
+                    <div style="margin-bottom: 22px; display: flex; align-items: baseline; gap: 6px;">
+                        <span class="srt-gold-shimmer" style="font-size: 32px; font-weight: 800;">₹4,499*</span>
+                        <span style="color: #94a3b8; font-size: 13px; font-weight: 500;">Onwards</span>
                     </div>
+                    <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20Chandigarh%20to%20Manali%20Express%20Route%20(₹4,499*%20Onwards)." target="_blank" class="srt-btn srt-btn-gold" style="border-radius: 50px; padding: 14px; font-size: 14px; letter-spacing: 0.5px;">BOOK ROUTE</a>
                 </div>
 
-                <!-- Review 5: Lalit Kumar -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">LK</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">Lalit Kumar</h3>
+                <!-- Express Route 4: Zirakpur to Amritsar -->
+                <div class="srt-service-card anim-fade-right" style="border-radius: 26px; padding: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Zirakpur</h3>
+                        <i class="fas fa-gopuram" style="color: #38bdf8; font-size: 20px;"></i>
+                        <h3 style="color: #ffffff; font-size: 19px; font-weight: 700; margin: 0;">Amritsar</h3>
                     </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Reliable, punctual, and very comfortable travel experience. Will book again."</p>
+                    <p style="color: #94a3b8; font-size: 13px; margin: 0 0 18px 0;">Golden Temple & Wagah Same-Day / One-Way</p>
+                    <div style="margin-bottom: 22px; display: flex; align-items: baseline; gap: 6px;">
+                        <span class="srt-gold-shimmer" style="font-size: 32px; font-weight: 800;">₹3,299*</span>
+                        <span style="color: #94a3b8; font-size: 13px; font-weight: 500;">Onwards</span>
+                    </div>
+                    <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20Zirakpur%20to%20Amritsar%20Express%20Route%20(₹3,299*%20Onwards)." target="_blank" class="srt-btn srt-btn-gold" style="border-radius: 50px; padding: 14px; font-size: 14px; letter-spacing: 0.5px;">BOOK ROUTE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Amazing Tour Places Section (All 6 Original Places) -->
+    <section class="destinations-section anim-fade-up" id="tours" style="padding: 60px 20px; text-align: center; background: #060b14;">
+        <div class="anim-fade-up" style="margin-bottom: 35px;">
+            <span class="srt-badge-tag">From Scenic Hills to Heritage Cities</span>
+            <h2 class="srt-section-title" style="color: #ffffff; margin: 8px 0;">Amazing <span class="srt-gold-shimmer">Tour Places</span></h2>
+            <p class="srt-section-desc" style="margin-bottom: 0;">Explore premium destinations with <span style="color: #dfba6d; font-weight: 600;">Shri Radha Travels</span></p>
+        </div>
+
+        <!-- Grid with All 6 Main Places -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; max-width: 1100px; margin: 0 auto;">
+
+            <!-- 1. Jaipur -->
+            <a href="details.html?place=Jaipur" class="srt-card-link anim-fade-left">
+                <div class="srt-service-card" style="padding: 16px;">
+                    <img src="IMG_4536.jpeg" alt="Jaipur" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; border: 1.5px solid #dfba6d;">
+                    <div style="padding: 15px 5px 5px;">
+                        <h3 class="srt-card-title" style="font-size: 20px; margin: 0 0 6px 0;">Jaipur</h3>
+                        <span class="srt-gold-shimmer" style="font-size: 14px; font-weight: 700;">Explore Package &rarr;</span>
                     </div>
                 </div>
+            </a>
 
-                <!-- Review 6: Rahul Verma -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">RV</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">Rahul Verma</h3>
-                    </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"The Force Urbania tempo traveller made our group trip so luxurious and memorable. Spotless interior and great service."</p>
+            <!-- 2. Mathura Vrindavan -->
+            <a href="details.html?place=Mathura-Vrindavan" class="srt-card-link anim-fade-right">
+                <div class="srt-service-card" style="padding: 16px;">
+                    <img src="IMG_4537.jpeg" alt="Mathura Vrindavan" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; border: 1.5px solid #dfba6d;">
+                    <div style="padding: 15px 5px 5px;">
+                        <h3 class="srt-card-title" style="font-size: 20px; margin: 0 0 6px 0;">Mathura Vrindavan</h3>
+                        <span class="srt-gold-shimmer" style="font-size: 14px; font-weight: 700;">Explore Package &rarr;</span>
                     </div>
                 </div>
+            </a>
 
-                <!-- Review 7: Amit Kumar -->
-                <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
-                    <div style="background: linear-gradient(135deg, #d4af37, #aa820a); padding: 25px 20px; text-align: center;">
-                        <div style="width: 55px; height: 55px; background: #0f172a; color: #d4af37; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">AK</div>
-                        <h3 style="color: #0f172a; font-size: 18px; font-weight: 800; margin: 0;">Amit Kumar</h3>
+            <!-- 3. Mussoorie -->
+            <a href="details.html?place=Mussoorie" class="srt-card-link anim-fade-left">
+                <div class="srt-service-card" style="padding: 16px;">
+                    <img src="IMG_4538.jpeg" alt="Mussoorie" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; border: 1.5px solid #dfba6d;">
+                    <div style="padding: 15px 5px 5px;">
+                        <h3 class="srt-card-title" style="font-size: 20px; margin: 0 0 6px 0;">Mussoorie</h3>
+                        <span class="srt-gold-shimmer" style="font-size: 14px; font-weight: 700;">Explore Package &rarr;</span>
                     </div>
-                    <div style="padding: 25px 25px; text-align: center; background: #1e293b;">
-                        <div style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </a>
+
+            <!-- 4. Amritsar Wagah Border -->
+            <a href="details.html?place=Amritsar" class="srt-card-link anim-fade-right">
+                <div class="srt-service-card" style="padding: 16px;">
+                    <img src="IMG_4539.jpeg" alt="Amritsar Wagah Border" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; border: 1.5px solid #dfba6d;">
+                    <div style="padding: 15px 5px 5px;">
+                        <h3 class="srt-card-title" style="font-size: 20px; margin: 0 0 6px 0;">Amritsar Wagah Border</h3>
+                        <span class="srt-gold-shimmer" style="font-size: 14px; font-weight: 700;">Explore Package &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 5. Shimla -->
+            <a href="details.html?place=Shimla" class="srt-card-link anim-fade-left">
+                <div class="srt-service-card" style="padding: 16px;">
+                    <img src="IMG_4541.jpeg" alt="Shimla" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; border: 1.5px solid #dfba6d;">
+                    <div style="padding: 15px 5px 5px;">
+                        <h3 class="srt-card-title" style="font-size: 20px; margin: 0 0 6px 0;">Shimla</h3>
+                        <span class="srt-gold-shimmer" style="font-size: 14px; font-weight: 700;">Explore Package &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 6. Manali -->
+            <a href="details.html?place=Manali" class="srt-card-link anim-fade-right">
+                <div class="srt-service-card" style="padding: 16px;">
+                    <img src="IMG_4748.jpeg" alt="Manali" style="width: 100%; height: 200px; object-fit: cover; border-radius: 14px; border: 1.5px solid #dfba6d;">
+                    <div style="padding: 15px 5px 5px;">
+                        <h3 class="srt-card-title" style="font-size: 20px; margin: 0 0 6px 0;">Manali</h3>
+                        <span class="srt-gold-shimmer" style="font-size: 14px; font-weight: 700;">Explore Package &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Explore More Button linking to new page -->
+        <div class="anim-fade-up" style="margin-top: 38px;">
+            <a href="all-destinations.html" class="srt-btn srt-btn-gold" style="max-width: 260px; margin: 0 auto; border-radius: 50px;">
+                Explore more <span class="srt-arrow">➔</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Our Company Section -->
+    <section class="about-section anim-fade-up" style="padding: 60px 20px; background: #060b14; border-top: 1px solid rgba(223, 186, 109, 0.2);">
+        <div class="srt-service-card" style="max-width: 1100px; margin: 0 auto; color: white; padding: 35px 25px;">
+            <span class="srt-badge-tag">ABOUT SHRI RADHA TRAVELS</span>
+            <h2 class="srt-section-title" style="color: #ffffff; margin-bottom: 18px;">Crafting Unforgettable Journeys Across <span class="srt-gold-shimmer">Majestic Destinations</span></h2>
+            <p style="font-size: 15px; line-height: 1.8; color: #cbd5e1; max-width: 900px; margin: 0 0 28px 0;">
+                At <strong style="color: #dfba6d;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Manali, Shimla, Leh Ladakh, Spiti Valley, and beyond, we cater to modern explorers seeking comfort, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified and courteous drivers, and hygienic, high-end vehicles designed for long-distance endurance. Join thousands of happy customers who trust us to deliver punctual, transparent, and luxurious travel solutions tailored precisely to your schedule and preferences.
+            </p>
+            
+            <div style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
+                <a href="about.html" class="srt-btn srt-btn-gold" style="width: auto; padding: 14px 30px; border-radius: 50px;">
+                    Explore <span class="srt-arrow">→</span>
+                </a>
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: white;">
+                    <i class="fas fa-phone-alt" style="color: #dfba6d;"></i>
+                    <a href="tel:+916280544730" style="text-decoration: none; color: inherit;">+91 6280544730</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Tour Features Section (Luxury Theme, One-Way Removed, All 7 Cards Touchable & Clickable) -->
+    <section class="features-section" id="tour-features" style="padding: 70px 20px; background: #060b14; border-top: 1px solid rgba(223, 186, 109, 0.2);">
+        <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+            <div class="anim-fade-up">
+                <span class="srt-badge-tag">SPECIAL FEATURES</span>
+                <h2 class="srt-section-title" style="color: #ffffff; margin-bottom: 12px;">Our <span class="srt-gold-shimmer">Tour Features</span></h2>
+                <p class="srt-section-desc">Tap on any luxury feature below to explore dedicated details.</p>
+            </div>
+
+            <!-- Clickable Luxury Features Grid (7 Cards - One-Way Removed) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; text-align: left;">
+                
+                <!-- Feature 1: Instant Cab Booking -->
+                <a href="#book" class="srt-card-link anim-fade-left">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
                         </div>
-                        <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Our family trip to Jaipur was wonderful. The Innova Crysta was spacious and comfortable for all of us."</p>
+                        <h3 class="srt-card-title">Instant Cab Booking</h3>
+                        <p class="srt-card-text">Quick and hassle-free booking experience for your outstation and local rides.</p>
                     </div>
+                </a>
+
+                <!-- Feature 2: Multiple Vehicle Options -->
+                <a href="#fleet-slider" class="srt-card-link anim-fade-right">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-shuttle-van"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
+                        </div>
+                        <h3 class="srt-card-title">Multiple Vehicle Options</h3>
+                        <p class="srt-card-text">Choose from sedans, SUVs, luxury cars, and tempo travellers as per your group size.</p>
+                    </div>
+                </a>
+
+                <!-- Feature 3: Airport Transfers -->
+                <a href="airport-transfers.html" class="srt-card-link anim-fade-left">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-plane-departure"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
+                        </div>
+                        <h3 class="srt-card-title">Airport Transfers</h3>
+                        <p class="srt-card-text">On-time pickup and drop services to and from the airport with zero waiting worries.</p>
+                    </div>
+                </a>
+
+                <!-- Feature 4: Verified Drivers & Safety -->
+                <a href="about.html" class="srt-card-link anim-fade-right">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
+                        </div>
+                        <h3 class="srt-card-title">Verified Drivers & Safety</h3>
+                        <p class="srt-card-text">Experienced, polite, and background-verified drivers ensuring a safe family ride.</p>
+                    </div>
+                </a>
+
+                <!-- Feature 5: Local & Outstation Rides -->
+                <a href="outstation-trips.html" class="srt-card-link anim-fade-left">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
+                        </div>
+                        <h3 class="srt-card-title">Local & Outstation Rides</h3>
+                        <p class="srt-card-text">Explore local sightseeing or plan long-distance outstation tours comfortably.</p>
+                    </div>
+                </a>
+
+                <!-- Feature 6: Tour Packages -->
+                <a href="tour-packages.html" class="srt-card-link anim-fade-right">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
+                        </div>
+                        <h3 class="srt-card-title">Tour Packages</h3>
+                        <p class="srt-card-text">Customized holiday tour packages for Shimla, Manali, Jaipur, and more.</p>
+                    </div>
+                </a>
+
+                <!-- Feature 7: Online & Offline Payments -->
+                <a href="contact.html" class="srt-card-link anim-fade-up">
+                    <div class="srt-service-card feature-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                            <div style="width: 56px; height: 56px; background: rgba(223, 186, 109, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 22px; border: 1px solid rgba(223, 186, 109, 0.35);">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <span style="color: #dfba6d; font-size: 18px;">&nearr;</span>
+                        </div>
+                        <h3 class="srt-card-title">Online & Offline Payments</h3>
+                        <p class="srt-card-text">Flexible payment options including UPI, cards, and cash transactions.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Shri Radha Stats Section (Auto Counting 0 to 10000+) -->
+    <section class="stats-section" style="padding: 70px 20px; background: #060b14; border-top: 1px solid rgba(223, 186, 109, 0.2);">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            
+            <div class="anim-fade-up">
+                <h2 class="srt-section-title" style="margin-bottom: 10px;">
+                    <span class="srt-gold-shimmer">SHRI RADHA TRAVELS</span>
+                    <span style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14; padding: 3px 14px; border-radius: 10px; font-size: 28px; display: inline-block; margin-left: 6px;">STATS</span>
+                </h2>
+                <p class="srt-section-desc">Trusted by thousands across India</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; text-align: center;">
+                
+                <!-- Stat Card 1 -->
+                <div class="srt-service-card stat-card anim-zoom-in">
+                    <div style="font-size: 28px; color: #dfba6d; margin-bottom: 12px;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="srt-gold-shimmer" style="font-size: 38px; font-weight: 800; margin-bottom: 5px;">
+                        <span class="stat-counter" data-target="10000" data-suffix="+">0+</span>
+                    </h3>
+                    <p style="font-size: 13px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Happy Customers</p>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="srt-service-card stat-card anim-zoom-in">
+                    <div style="font-size: 28px; color: #dfba6d; margin-bottom: 12px;">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="srt-gold-shimmer" style="font-size: 38px; font-weight: 800; margin-bottom: 5px;">
+                        <span class="stat-counter" data-target="500" data-suffix="+">0+</span>
+                    </h3>
+                    <p style="font-size: 13px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Daily Rides</p>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="srt-service-card stat-card anim-zoom-in">
+                    <div style="font-size: 28px; color: #dfba6d; margin-bottom: 12px;">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="srt-gold-shimmer" style="font-size: 38px; font-weight: 800; margin-bottom: 5px;">
+                        <span class="stat-counter" data-target="50" data-suffix="+">0+</span>
+                    </h3>
+                    <p style="font-size: 13px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Cities</p>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="srt-service-card stat-card anim-zoom-in">
+                    <div style="font-size: 28px; color: #dfba6d; margin-bottom: 12px;">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="srt-gold-shimmer" style="font-size: 38px; font-weight: 800; margin-bottom: 5px;">
+                        <span class="stat-counter" data-target="4.9" data-decimals="1" data-suffix="★">0.0★</span>
+                    </h3>
+                    <p style="font-size: 13px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Star Rating</p>
                 </div>
 
             </div>
         </div>
+    </section>
 
-        <!-- Navigation Controls (Arrows & Dots) -->
-        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 25px;">
-            <button onclick="prevReview()" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(212, 175, 55, 0.4); color: #ffffff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;"><i class="fas fa-chevron-left"></i></button>
-            
-            <!-- Dots Indicator -->
-            <div id="reviewDots" style="display: flex; gap: 8px;"></div>
+    <!-- Clean Fixed Vehicle Slider Section (All 5 Original Vehicles) -->
+    <section id="fleet-slider" class="anim-fade-up" style="padding: 60px 20px; background: #060b14; border-top: 1px solid rgba(223, 186, 109, 0.2);">
+        <div style="width: 100%; max-width: 400px; margin: 0 auto; text-align: center;">
+            <span class="srt-badge-tag">OUR LUXURY FLEET</span>
+            <h2 class="srt-section-title" style="color: #ffffff; margin: 6px 0;">Travel in <span class="srt-gold-shimmer">Cinematic Luxury</span></h2>
+            <p class="srt-section-desc" style="margin-bottom: 24px;">Choose from our premium range of well-maintained vehicles</p>
 
-            <button onclick="nextReview()" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(212, 175, 55, 0.4); color: #ffffff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;"><i class="fas fa-chevron-right"></i></button>
+            <!-- Main Slider Box -->
+            <div style="position: relative; width: 100%; height: 460px; overflow: hidden; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); border: 1.5px solid rgba(223, 186, 109, 0.45); background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(12px);">
+                
+                <!-- Track for Slides -->
+                <div id="sliderTrack" style="display: flex; transition: transform 0.5s ease-in-out; height: 100%; width: 100%;">
+                    
+                    <!-- Slide 1: Hatchback - Toyota Glanza -->
+                    <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="width: 100%; height: 185px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(223, 186, 109, 0.35);">
+                            <img src="IMG_4677.jpeg" alt="Toyota Glanza" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <div style="text-align: left; padding: 5px 0;">
+                            <h3 class="srt-card-title" style="margin: 0 0 3px 0;">Hatchback</h3>
+                            <p style="color: #dfba6d; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">Toyota Glanza</p>
+                            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">4+1 Seats</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Comfort</span>
+                            </div>
+                            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Hatchback%20Toyota%20Glanza" class="srt-btn srt-btn-gold" style="padding: 12px; border-radius: 12px; font-size: 14px;">Select Vehicle</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Sedan - Swift Dzire -->
+                    <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="width: 100%; height: 185px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(223, 186, 109, 0.35);">
+                            <img src="IMG_4678.jpeg" alt="Swift Dzire" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <div style="text-align: left; padding: 5px 0;">
+                            <h3 class="srt-card-title" style="margin: 0 0 3px 0;">Sedan</h3>
+                            <p style="color: #dfba6d; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">Swift Dzire</p>
+                            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">4+1 Seats</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Spacious Boot</span>
+                            </div>
+                            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Sedan%20Swift%20Dzire" class="srt-btn srt-btn-gold" style="padding: 12px; border-radius: 12px; font-size: 14px;">Select Vehicle</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: SUV - Maruti Ertiga -->
+                    <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="width: 100%; height: 185px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(223, 186, 109, 0.35);">
+                            <img src="IMG_4938.jpeg" alt="Maruti Ertiga" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <div style="text-align: left; padding: 5px 0;">
+                            <h3 class="srt-card-title" style="margin: 0 0 3px 0;">SUV</h3>
+                            <p style="color: #dfba6d; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">Maruti Ertiga</p>
+                            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">6+1 Seats</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Family Trip</span>
+                            </div>
+                            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20SUV%20Maruti%20Ertiga" class="srt-btn srt-btn-gold" style="padding: 12px; border-radius: 12px; font-size: 14px;">Select Vehicle</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: MPV - Innova Crysta -->
+                    <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="width: 100%; height: 185px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(223, 186, 109, 0.35);">
+                            <img src="IMG_4936.jpeg" alt="Innova Crysta" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <div style="text-align: left; padding: 5px 0;">
+                            <h3 class="srt-card-title" style="margin: 0 0 3px 0;">MPV</h3>
+                            <p style="color: #dfba6d; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">Innova Crysta 7+1</p>
+                            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">7+1 Seats</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Ultimate Comfort</span>
+                            </div>
+                            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20MPV%20Innova%20Crysta" class="srt-btn srt-btn-gold" style="padding: 12px; border-radius: 12px; font-size: 14px;">Select Vehicle</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Tempo Traveller - Force Urbania -->
+                    <div style="min-width: 100%; height: 100%; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="width: 100%; height: 185px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(223, 186, 109, 0.35);">
+                            <img src="IMG_4937.jpeg" alt="Force Urbania" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                        <div style="text-align: left; padding: 5px 0;">
+                            <h3 class="srt-card-title" style="margin: 0 0 3px 0;">Tempo Traveller</h3>
+                            <p style="color: #dfba6d; font-size: 15px; font-weight: 700; margin: 0 0 10px 0;">Force Urbania</p>
+                            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Pushback Seats</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">AC</span>
+                                <span style="background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.3); color: white; padding: 4px 10px; border-radius: 15px; font-size: 12px;">Group Tour</span>
+                            </div>
+                            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Tempo%20Traveller%20Force%20Urbania" class="srt-btn srt-btn-gold" style="padding: 12px; border-radius: 12px; font-size: 14px;">Select Vehicle</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Arrows Below The Box -->
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 18px;">
+                <button onclick="moveVehicleSlide(-1)" style="background: rgba(15, 23, 42, 0.9); border: 1.5px solid #dfba6d; border-radius: 50%; width: 46px; height: 46px; color: #dfba6d; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">&#10094;</button>
+                <button onclick="moveVehicleSlide(1)" style="background: rgba(15, 23, 42, 0.9); border: 1.5px solid #dfba6d; border-radius: 50%; width: 46px; height: 46px; color: #dfba6d; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">&#10095;</button>
+            </div>
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- Client Reviews / Testimonials Section (All 7 Real Google Reviews) -->
+    <section class="testimonials-section anim-fade-up" style="padding: 70px 20px; background: #060b14; border-top: 1px solid rgba(223, 186, 109, 0.2); text-align: center;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            
+            <span class="srt-badge-tag">TESTIMONIALS</span>
+            <h2 class="srt-section-title" style="color: #ffffff; margin-bottom: 8px;">What Our <span class="srt-gold-shimmer">Clients Say</span></h2>
+            <p class="srt-section-desc" style="margin-bottom: 35px;">Real experiences from our valued customers</p>
 
-<!-- JavaScript for Reviews Slider & Dots -->
-<script>
-    let currentReviewIndex = 0;
-    const reviewTrack = document.getElementById('reviewTrack');
-    const reviewSlides = document.querySelectorAll('.review-slide');
-    const totalReviews = reviewSlides.length;
-    const dotsContainer = document.getElementById('reviewDots');
+            <!-- Testimonial Slider Container -->
+            <div class="review-slider-container" style="position: relative; overflow: hidden; border-radius: 24px; border: 1.5px solid rgba(223, 186, 109, 0.4); background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                
+                <!-- Slides Track -->
+                <div class="review-track" id="reviewTrack" style="display: flex; transition: transform 0.5s ease-in-out; width: 100%;">
+                    
+                    <!-- Review 1: Ritu Rajput -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">RR</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">Ritu Rajput</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"This car gave a very comfortable journey.❤️"</p>
+                        </div>
+                    </div>
 
-    // Create Dots dynamically for 7 reviews
-    for (let i = 0; i < totalReviews; i++) {
-        const dot = document.createElement('div');
-        dot.style.width = i === currentReviewIndex ? '20px' : '8px';
-        dot.style.height = '8px';
-        dot.style.borderRadius = '4px';
-        dot.style.background = i === currentReviewIndex ? '#d4af37' : 'rgba(255,255,255,0.3)';
-        dot.style.cursor = 'pointer';
-        dot.style.transition = 'all 0.3s ease';
-        dot.onclick = () => goToReview(i);
-        dotsContainer.appendChild(dot);
-    }
+                    <!-- Review 2: Neetu Bhatia -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">NB</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">Neetu Bhatia</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Excellent service from shree radha travels! The cab was neat nd clean.the driver was very polite and experienced.our himachal trip was smooth and memorable .highly recommended.👌👌"</p>
+                        </div>
+                    </div>
 
-    function updateReviewPosition() {
-        reviewTrack.style.transform = `translateX(-${currentReviewIndex * 100}%)`;
-        
-        const dots = dotsContainer.children;
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].style.width = i === currentReviewIndex ? '20px' : '8px';
-            dots[i].style.background = i === currentReviewIndex ? '#d4af37' : 'rgba(255,255,255,0.3)';
-        }
-    }
+                    <!-- Review 3: Vishnu Mulik -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">VM</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">Vishnu Mulik</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Our trip to Manali was truly a memorable journey. Vijay Bhaiii guided us exceptionally well, arranged a comfortable 7-seater car, and took care of everything perfectly!"</p>
+                        </div>
+                    </div>
 
-    function nextReview() {
-        currentReviewIndex = (currentReviewIndex + 1) % totalReviews;
-        updateReviewPosition();
-    }
+                    <!-- Review 4: VEDant vande -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">VV</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">VEDant vande</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Lucky was my driver from Manali to Chandigarh. Extremely polite, professional, and helpful. Showed us all must-visit places in Chandigarh. True gentleman!"</p>
+                        </div>
+                    </div>
 
-    function prevReview() {
-        currentReviewIndex = (currentReviewIndex - 1 + totalReviews) % totalReviews;
-        updateReviewPosition();
-    }
+                    <!-- Review 5: Lalit Kumar -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">LK</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">Lalit Kumar</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Reliable, punctual, and very comfortable travel experience. Will book again."</p>
+                        </div>
+                    </div>
 
-    function goToReview(index) {
-        currentReviewIndex = index;
-        updateReviewPosition();
-    }
+                    <!-- Review 6: Rahul Verma -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">RV</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">Rahul Verma</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"The Force Urbania tempo traveller made our group trip so luxurious and memorable. Spotless interior and great service."</p>
+                        </div>
+                    </div>
 
-    // Auto Slide every 4.5 seconds
-    let reviewAutoSlide = setInterval(nextReview, 4500);
+                    <!-- Review 7: Amit Kumar -->
+                    <div class="review-slide" style="min-width: 100%; box-sizing: border-box;">
+                        <div style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); padding: 25px 20px; text-align: center;">
+                            <div style="width: 55px; height: 55px; background: #060b14; color: #dfba6d; font-size: 18px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; border: 2px solid #ffffff;">AK</div>
+                            <h3 style="color: #060b14; font-size: 18px; font-weight: 800; margin: 0;">Amit Kumar</h3>
+                        </div>
+                        <div style="padding: 25px; text-align: center; background: rgba(15, 23, 42, 0.9);">
+                            <div style="color: #dfba6d; font-size: 16px; margin-bottom: 12px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p style="color: #cbd5e1; font-size: 15px; line-height: 1.6; font-style: italic; margin: 0;">"Our family trip to Jaipur was wonderful. The Innova Crysta was spacious and comfortable for all of us."</p>
+                        </div>
+                    </div>
 
-    const reviewContainer = document.querySelector('.review-slider-container');
-    reviewContainer.addEventListener('mouseenter', () => clearInterval(reviewAutoSlide));
-    reviewContainer.addEventListener('mouseleave', () => reviewAutoSlide = setInterval(nextReview, 4500));
-</script>
-<!-- Footer Section with Official Logo & Dark Blue/Golden Theme -->
-<footer style="background: #0f172a; color: #ffffff; padding: 50px 20px 30px 20px; font-family: 'Poppins', sans-serif;">
-    <div style="max-width: 500px; margin: 0 auto; text-align: left;">
-        
-        <!-- Brand Header Box -->
-        <div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 30px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <!-- Official Circular Logo Image -->
-                    <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.4); display: flex; align-items: center; justify-content: center; background: #000;">
-                        <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'color:#d4af37; font-weight:800; font-size:14px;\'>SRT</span>';">
+                </div>
+            </div>
+
+            <!-- Navigation Controls (Arrows & Dots) -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 25px;">
+                <button onclick="prevReview()" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(15, 23, 42, 0.9); border: 1px solid #dfba6d; color: #dfba6d; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-chevron-left"></i></button>
+                <div id="reviewDots" style="display: flex; gap: 8px;"></div>
+                <button onclick="nextReview()" style="width: 45px; height: 45px; border-radius: 50%; background: rgba(15, 23, 42, 0.9); border: 1px solid #dfba6d; color: #dfba6d; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section with Official Logo & Luxury Theme -->
+    <footer class="anim-fade-up" style="background: #060b14; color: #ffffff; padding: 50px 20px 30px 20px; border-top: 1px solid rgba(223, 186, 109, 0.3);">
+        <div style="max-width: 500px; margin: 0 auto; text-align: left;">
+            
+            <!-- Brand Header Box -->
+            <div class="srt-service-card" style="margin-bottom: 25px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 1.5px solid #dfba6d; display: flex; align-items: center; justify-content: center; background: #000;">
+                            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h3 style="font-size: 18px; font-weight: 800; color: #ffffff; margin: 0; font-family: 'Playfair Display', serif;">Shri Radha</h3>
+                            <span style="font-size: 10px; font-weight: 700; color: #dfba6d; letter-spacing: 1.5px; text-transform: uppercase;">TRAVELS</span>
+                        </div>
+                    </div>
+                    <div onclick="openMenu()" style="font-size: 20px; color: #dfba6d; cursor: pointer;">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                
+                <p style="color: #94a3b8; font-size: 14px; line-height: 1.5; margin-bottom: 20px;">
+                    Experience luxury on every journey.
+                </p>
+
+                <!-- Social Icons -->
+                <div style="display: flex; gap: 10px;">
+                    <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #dfba6d; display: flex; align-items: center; justify-content: center; color: #dfba6d; text-decoration: none;"><i class="fab fa-facebook-f" style="font-size: 14px;"></i></a>
+                    <a href="https://www.instagram.com/shri_radha_travels" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #dfba6d; display: flex; align-items: center; justify-content: center; color: #dfba6d; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 14px;"></i></a>
+                    <a href="https://youtube.com/@shriradhatravels-001?si=hQbMjTZS5DRhHk0E" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid #dfba6d; border-radius: 50%; color: #dfba6d; text-decoration: none; font-size: 16px;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="srt-service-card" style="margin-bottom: 25px; padding: 20px;">
+                <h4 style="color: #dfba6d; font-size: 16px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                    <li><a href="index.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 8px 4px; display: block;">Home</a></li>
+                    <li><a href="about.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 8px 4px; display: block;">About Us</a></li>
+                    <li><a href="all-destinations.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 8px 4px; display: block;">Tours</a></li>
+                    <li><a href="blogs.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 8px 4px; display: block;">Blogs</a></li>
+                    <li><a href="contact.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 8px 4px; display: block;">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Our Services Section -->
+            <div class="srt-service-card" style="margin-bottom: 25px; padding: 20px;">
+                <h3 style="color: #dfba6d; font-size: 16px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">OUR SERVICES</h3>
+                <a href="airport-transfers.html" style="display: block; padding: 10px 4px; text-decoration: none; color: #ffffff; font-size: 15px; font-weight: 700;">✈️ Airport Transfers</a>
+                <a href="corporate-travel.html" style="display: block; padding: 10px 4px; text-decoration: none; color: #ffffff; font-size: 15px; font-weight: 700;">🏢 Corporate Travel</a>
+                <a href="outstation-trips.html" style="display: block; padding: 10px 4px; text-decoration: none; color: #ffffff; font-size: 15px; font-weight: 700;">🚖 Outstation Trips</a>
+                <a href="luxury-rides.html" style="display: block; padding: 10px 4px; text-decoration: none; color: #ffffff; font-size: 15px; font-weight: 700;">🚘 Luxury Rides</a>
+                <a href="tour-packages.html" style="display: block; padding: 10px 4px; text-decoration: none; color: #ffffff; font-size: 15px; font-weight: 700;">🏔️ Tour Packages</a>
+            </div>
+
+            <!-- Contact Us Section -->
+            <div class="srt-service-card" style="margin-bottom: 30px; padding: 20px;">
+                <h3 style="color: #dfba6d; font-size: 16px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">CONTACT US</h3>
+                <a href="https://www.google.com/maps/search/?api=1&query=Shri+Radha+Travels+SCO+38+Chaura+Bazaar+Zirakpur" target="_blank" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 4px; text-decoration: none;">
+                    <i class="fas fa-map-marker-alt" style="color: #dfba6d; font-size: 18px; margin-top: 4px;"></i>
+                    <span style="font-size: 14px; line-height: 1.5; color: #ffffff; font-weight: 600;">SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603, India</span>
+                </a>
+                <a href="tel:+916280544730" style="display: flex; align-items: center; gap: 14px; padding: 10px 4px; text-decoration: none;">
+                    <i class="fas fa-phone-alt" style="color: #dfba6d; font-size: 18px;"></i>
+                    <span style="font-size: 15px; font-weight: 700; color: #ffffff;">+91 6280544730</span>
+                </a>
+                <a href="mailto:shriradhatravels001@gmail.com" style="display: flex; align-items: center; gap: 14px; padding: 10px 4px; text-decoration: none;">
+                    <i class="fas fa-envelope" style="color: #dfba6d; font-size: 18px;"></i>
+                    <span style="font-size: 15px; font-weight: 700; color: #ffffff;">shriradhatravels001@gmail.com</span>
+                </a>
+                <a href="https://wa.me/916280544730" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 10px 4px; text-decoration: none;">
+                    <i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px;"></i>
+                    <span style="font-size: 15px; font-weight: 700; color: #ffffff;">WhatsApp Support (+91 6280544730)</span>
+                </a>
+                <div style="display: flex; align-items: center; gap: 14px; padding: 10px 4px;">
+                    <i class="fas fa-clock" style="color: #dfba6d; font-size: 18px;"></i>
+                    <span style="font-size: 15px; font-weight: 700; color: #ffffff;">24/7 Customer Support</span>
+                </div>
+            </div>
+
+            <!-- Divider & Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; text-align: center; font-size: 13px; color: #94a3b8;">
+                <p style="margin: 0 0 10px 0;">© 2026 Shri Radha Travels. All rights reserved.</p>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <a href="#" style="color: #94a3b8; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: #94a3b8; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Fullscreen Popup Menu Overlay -->
+    <div id="mobileNavMenu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 11, 20, 0.88); backdrop-filter: blur(10px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: rgba(15, 23, 42, 0.95); width: 100%; max-width: 400px; border-radius: 24px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); position: relative; border: 1.5px solid #dfba6d;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(223, 186, 109, 0.35); padding-bottom: 15px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1.5px solid #dfba6d;">
+                        <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div>
-                        <h3 style="font-size: 18px; font-weight: 800; color: #ffffff; margin: 0; letter-spacing: 0.5px;">Shri Radha</h3>
-                        <span style="font-size: 10px; font-weight: 600; color: #d4af37; letter-spacing: 1.5px; text-transform: uppercase;">TRAVELS</span>
+                        <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0; font-family: 'Playfair Display', serif;">Shri Radha</h3>
+                        <span style="font-size: 9px; font-weight: 700; color: #dfba6d; letter-spacing: 1px; text-transform: uppercase;">TRAVELS</span>
                     </div>
                 </div>
-                <div style="font-size: 20px; color: #d4af37; cursor: pointer;">
-                    <i class="fas fa-bars"></i>
+                <div onclick="closeMenu()" style="width: 34px; height: 34px; background: rgba(223, 186, 109, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #dfba6d; font-size: 16px;">
+                    <i class="fas fa-times"></i>
                 </div>
             </div>
-            
-            <p style="color: #94a3b8; font-size: 14px; line-height: 1.5; margin-bottom: 20px;">
-                Experience luxury on every journey.
-            </p>
 
-            <!-- Social Icons -->
-            <div style="display: flex; gap: 10px;">
-                <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(212, 175, 55, 0.4); display: flex; align-items: center; justify-content: center; color: #d4af37; text-decoration: none; transition: 0.3s;"><i class="fab fa-facebook-f" style="font-size: 14px;"></i></a>
-                <a href="https://www.instagram.com/shri_radha_travels" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(212, 175, 55, 0.4); display: flex; align-items: center; justify-content: center; color: #d4af37; text-decoration: none; transition: 0.3s;"><i class="fab fa-instagram" style="font-size: 14px;"></i></a>
-                 <a href="https://youtube.com/@shriradhatravels-001?si=hQbMjTZS5DRhHk0E" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid #d4af37; border-radius: 50%; color: #d4af37; text-decoration: none; font-size: 16px; transition: 0.3s;" onmouseover="this.style.background='#d4af37'; this.style.color='#0f172a'" onmouseout="this.style.background='transparent'; this.style.color='#d4af37'"><i class="fab fa-youtube"></i></a>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px;">
+                <a href="index.html" onclick="closeMenu()" style="padding: 12px 18px; background: rgba(223, 186, 109, 0.12); color: #dfba6d; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Home</a>
+                <a href="about.html" onclick="closeMenu()" style="padding: 12px 18px; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">About</a>
+                <a href="all-destinations.html" onclick="closeMenu()" style="padding: 12px 18px; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Tours</a>
+                <a href="blogs.html?v=2" onclick="closeMenu()" style="padding: 12px 18px; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Blogs</a>
+                <a href="contact.html" onclick="closeMenu()" style="padding: 12px 18px; color: #ffffff; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Contact</a>
             </div>
+
+            <a href="tel:+916280544730" class="srt-btn srt-btn-gold" style="border-radius: 14px;">
+                Book Ride
+            </a>
         </div>
-
-        <!-- Quick Links -->
-<div style="margin-bottom: 30px; background: #000000; padding: 15px; border-radius: 8px;">
-    <h4 style="color: #d4af37; font-size: 16px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px;">Quick Links</h4>
-    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-        <li><a href="index.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 14px; background: transparent; display: block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff'">Home</a></li>
-        
-        <li><a href="about.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 14px; background: transparent; display: block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff'">About Us</a></li>
-        
-        <li><a href="all-destinations.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 14px; background: transparent; display: block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff'">Tours</a></li>
-        
-        <li><a href="blogs.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 14px; background: transparent; display: block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff'">Blogs</a></li>
-        
-        <li><a href="contact.html" style="color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 10px 14px; background: transparent; display: block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff'">Contact</a></li>
-    </ul>
-</div>
-
-<!-- Our Services Section -->
-<div style="margin-top: 15px; margin-bottom: 30px; background: #000000; padding: 15px; border-radius: 8px;">
-    
-    <!-- section heading -->
-    <h3 style="color: #d4af37; font-size: 16px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">
-        OUR SERVICES
-    </h3>
-    
-    <!-- 1. Airport Transfers -->
-    <a href="airport-transfers.html" style="display: block; background: transparent; padding: 12px 4px; margin-bottom: 8px; text-decoration: none; color: #ffffff; font-size: 16px; font-weight: 700; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff';">
-        ✈️ Airport Transfers
-    </a>
-
-    <!-- 2. Corporate Travel -->
-    <a href="corporate-travel.html" style="display: block; background: transparent; padding: 12px 4px; margin-bottom: 8px; text-decoration: none; color: #ffffff; font-size: 16px; font-weight: 700; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff';">
-        🏢 Corporate Travel
-    </a>
-
-    <!-- 3. Outstation Trips -->
-    <a href="outstation-trips.html" style="display: block; background: transparent; padding: 12px 4px; margin-bottom: 8px; text-decoration: none; color: #ffffff; font-size: 16px; font-weight: 700; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff';">
-        🚖 Outstation Trips
-    </a>
-
-    <!-- 4. Luxury Rides -->
-    <a href="luxury-rides.html" style="display: block; background: transparent; padding: 12px 4px; margin-bottom: 8px; text-decoration: none; color: #ffffff; font-size: 16px; font-weight: 700; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff';">
-        🚘 Luxury Rides
-    </a>
-
-    <!-- 5. Tour Packages -->
-    <a href="tour-packages.html" style="display: block; background: transparent; padding: 12px 4px; margin-bottom: 8px; text-decoration: none; color: #ffffff; font-size: 16px; font-weight: 700; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.color='#d4af37';" onmouseout="this.style.transform='translateX(0)'; this.style.color='#ffffff';">
-        🏔️ Tour Packages
-    </a>
-
-</div>
-
-<!-- Contact Us Section -->
-<div style="margin-top: 30px; margin-bottom: 30px; background: #000000; padding: 15px; border-radius: 8px;">
-    
-    <!-- Section Heading -->
-    <h3 style="color: #d4af37; font-size: 16px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">
-        CONTACT US
-    </h3>
-
-    <!-- 1. Address Card -->
-    <a href="https://www.google.com/maps/search/?api=1&query=Shri+Radha+Travels+SCO+38+Chaura+Bazaar+Zirakpur" target="_blank" style="display: flex; align-items: flex-start; gap: 12px; background: transparent; padding: 10px 4px; margin-bottom: 8px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)';" onmouseout="this.style.transform='translateX(0)'">
-        <i class="fas fa-map-marker-alt" style="color: #d4af37; font-size: 18px; margin-top: 4px;"></i>
-        <span style="font-size: 15px; line-height: 1.5; color: #ffffff; font-weight: 700;">SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603, India</span>
-    </a>
-
-    <!-- 2. Phone Card -->
-    <a href="tel:+916280544730" style="display: flex; align-items: center; gap: 14px; background: transparent; padding: 10px 4px; margin-bottom: 8px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)';" onmouseout="this.style.transform='translateX(0)'">
-        <i class="fas fa-phone-alt" style="color: #d4af37; font-size: 18px;"></i>
-        <span style="font-size: 15px; font-weight: 700; color: #ffffff;">+91 6280544730</span>
-    </a>
-
-    <!-- 3. Email Card -->
-    <a href="mailto:shriradhatravels001@gmail.com" style="display: flex; align-items: center; gap: 14px; background: transparent; padding: 10px 4px; margin-bottom: 8px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)';" onmouseout="this.style.transform='translateX(0)'">
-        <i class="fas fa-envelope" style="color: #d4af37; font-size: 18px;"></i>
-        <span style="font-size: 15px; font-weight: 700; color: #ffffff;">shriradhatravels001@gmail.com</span>
-    </a>
-
-    <!-- 4. WhatsApp Card -->
-    <a href="https://wa.me/916280544730" target="_blank" style="display: flex; align-items: center; gap: 14px; background: transparent; padding: 10px 4px; margin-bottom: 8px; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)';" onmouseout="this.style.transform='translateX(0)'">
-        <i class="fab fa-whatsapp" style="color: #25D366; font-size: 20px;"></i>
-        <span style="font-size: 15px; font-weight: 700; color: #ffffff;">WhatsApp Support (+91 6280544730)</span>
-    </a>
-
-    <!-- 5. Timing Card -->
-    <div style="display: flex; align-items: center; gap: 14px; background: transparent; padding: 10px 4px; margin-bottom: 8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)';" onmouseout="this.style.transform='translateX(0)'">
-        <i class="fas fa-clock" style="color: #d4af37; font-size: 18px;"></i>
-        <span style="font-size: 15px; font-weight: 700; color: #ffffff;">24/7 Customer Support</span>
     </div>
 
-</div>
+    <!-- ALL SCRIPTS (Slideshow, Loader, Sliders, Auto-Counter, Smooth Scroll Animations) -->
+    <script>
+        // 1. Background Slideshow (17 Slides)
+        const bgSlides = document.querySelectorAll('.bg-slide');
+        let currentBgIndex = 0;
+        function changeBackground() {
+            if (!bgSlides.length) return;
+            bgSlides[currentBgIndex].classList.remove('active');
+            currentBgIndex = (currentBgIndex + 1) % bgSlides.length;
+            bgSlides[currentBgIndex].classList.add('active');
+        }
+        setInterval(changeBackground, 4000);
 
-        <!-- Divider & Copyright -->
-        <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; text-align: center; font-size: 13px; color: #94a3b8;">
-            <p style="margin: 0 0 10px 0;">© 2026 Shri Radha Travels. All rights reserved.</p>
-            <div style="display: flex; justify-content: center; gap: 15px;">
-                <a href="#" style="color: #94a3b8; text-decoration: none;">Privacy Policy</a>
-                <a href="#" style="color: #94a3b8; text-decoration: none;">Terms of Service</a>
-            </div>
-        </div>
-
-    </div>
-</footer>
-<!-- Fullscreen Popup Menu Overlay -->
-<div id="mobileNavMenu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-    
-    <!-- Menu Card Box with Golden Background -->
-    <div style="background: linear-gradient(135deg, #fdf6e2, #f3e5ab); width: 100%; max-width: 400px; border-radius: 24px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative; border: 1px solid #d4af37;">
-        
-        <!-- Top Bar inside Modal -->
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid rgba(212, 175, 55, 0.4); padding-bottom: 15px; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid #d4af37;">
-                    <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div>
-                    <h3 style="font-size: 16px; font-weight: 800; color: #1e3a8a; margin: 0;">Shri Radha</h3>
-                    <span style="font-size: 9px; font-weight: 700; color: #854d0e; letter-spacing: 1px; text-transform: uppercase;">TRAVELS</span>
-                </div>
-            </div>
-            <!-- Close Icon -->
-            <div onclick="closeMenu()" style="width: 32px; height: 32px; background: rgba(30, 58, 138, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #1e3a8a; font-size: 16px;">
-                <i class="fas fa-times"></i>
-            </div>
-        </div>
-
-        <!-- Navigation Links List with Blue Text -->
-        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px;">
-            <a href="index.html" style="padding: 12px 18px; background: rgba(30, 58, 138, 0.1); color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Home</a>
-            <a href="about.html" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">About</a>
-            <a href="all-destinations.html" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Tours</a>
-            <a href="blogs.html?v=2" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Blogs</a>
-            <a href="contact.html" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Contact</a>
-        </div>
-
-        <!-- Book Ride Button -->
-        <a href="tel:+916280544730" style="display: block; width: 100%; background: #1e3a8a; color: #ffffff; text-align: center; padding: 14px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 16px; box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);">
-            Book Ride
-        </a>
-
-    </div>
-</div>
-
-<!-- Fullscreen Popup Menu Overlay -->
-<div id="mobileNavMenu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-    <div style="background: linear-gradient(135deg, #fdf6e2, #f3e5ab); width: 100%; max-width: 400px; border-radius: 24px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative; border: 1px solid #d4af37;">
-        
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid rgba(212, 175, 55, 0.4); padding-bottom: 15px; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid #d4af37;">
-                    <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div>
-                    <h3 style="font-size: 16px; font-weight: 800; color: #1e3a8a; margin: 0;">Shri Radha</h3>
-                    <span style="font-size: 9px; font-weight: 700; color: #854d0e; letter-spacing: 1px; text-transform: uppercase;">TRAVELS</span>
-                </div>
-            </div>
-            <div onclick="closeMenu()" style="width: 32px; height: 32px; background: rgba(30, 58, 138, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #1e3a8a; font-size: 16px;">
-                <i class="fas fa-times"></i>
-            </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px;">
-            <a href="index.html" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Home</a>
-            <a href="about.html" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">About</a>
-            <a href="all-destinations.html" style="padding: 12px 18px; background: rgba(30, 58, 138, 0.1); color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Tours</a>
-            <a href="blogs.html?v=2" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Blogs</a>
-            <a href="contact.html" style="padding: 12px 18px; color: #1e3a8a; font-weight: 700; text-decoration: none; border-radius: 12px; font-size: 15px;">Contact</a>
-        </div>
-
-        <a href="tel:+916280544730" style="display: block; width: 100%; background: #1e3a8a; color: #ffffff; text-align: center; padding: 14px; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 16px; box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);">
-            Book Ride
-        </a>
-
-    </div>
-</div>
-
-<script>
-    function openMenu() {
-        document.getElementById('mobileNavMenu').style.display = 'flex';
-    }
-    function closeMenu() {
-        document.getElementById('mobileNavMenu').style.display = 'none';
-    }
-</script>
-
-<style>
-    header, .navbar, nav {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        z-index: 1000 !important;
-        background-color: rgba(6, 9, 19, 0.95) !important;
-        backdrop-filter: blur(10px) !important;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
-        padding: 15px 20px !important;
-    }
-    body {
-        padding-top: 90px !important;
-    }
-</style>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RTDKHHG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<script>
-    // Trending Locations Slider Controls
-    const slider = document.querySelector('.trending-slider');
-    const nextBtn = document.querySelector('.fa-arrow-right');
-    const prevBtn = document.querySelector('.fa-arrow-left');
-
-    if (nextBtn && slider) {
-        nextBtn.addEventListener('click', () => {
-            slider.scrollBy({ left: 300, behavior: 'smooth' });
-        });
-    }
-    if (prevBtn && slider) {
-        prevBtn.addEventListener('click', () => {
-            slider.scrollBy({ left: -300, behavior: 'smooth' });
-        });
-    }
-
-    // Destination Cards Click to Details Page
-    document.querySelectorAll('.destination-card, .card').forEach(card => {
-        card.addEventListener('click', function() {
-            const placeName = this.getAttribute('data-place') || this.querySelector('h3, h4, span')?.innerText.trim() || 'shimla';
-            window.location.href = `details.html?place=${encodeURIComponent(placeName.toLowerCase())}`;
-        });
-    });
-</script>
-<script>
-    window.addEventListener('DOMContentLoaded', function() {
-        const links = document.querySelectorAll('a[href="#tours"]');
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const amazingSection = document.getElementById('tours');
-                if (amazingSection) {
-                    amazingSection.scrollIntoView({ behavior: 'smooth' });
+        // 2. Loading Screen Hide
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                const loader = document.getElementById("loading-screen");
+                if (loader) {
+                    loader.style.opacity = "0";
+                    loader.style.visibility = "hidden";
                 }
+            }, 1300);
+        });
+
+        // 3. Mobile Menu Open/Close
+        function openMenu() {
+            const modal = document.getElementById('mobileNavMenu');
+            if (modal) modal.style.display = 'flex';
+        }
+        function closeMenu() {
+            const modal = document.getElementById('mobileNavMenu');
+            if (modal) modal.style.display = 'none';
+        }
+
+        // 4. One Way / Round Trip Button Toggle
+        document.addEventListener("DOMContentLoaded", function() {
+            const tripButtons = document.querySelectorAll('.trip-btn');
+            tripButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    tripButtons.forEach(btn => {
+                        btn.style.background = 'transparent';
+                        btn.style.color = '#dfba6d';
+                    });
+                    this.style.background = 'linear-gradient(135deg, #eed08d 0%, #c89736 100%)';
+                    this.style.color = '#060b14';
+                });
             });
         });
-    });
-</script> 
-#
-<!-- AAKHRI AUR PAKKA FIX -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const allLinks = document.querySelectorAll('a');
-        allLinks.forEach(link => {
-            if (link.textContent.trim() === 'Tours') {
-                link.href = 'all-destinations.html';
+
+        // 5. Trending Locations Horizontal Scroll
+        const scrollContainer = document.getElementById("scrollContainer");
+        function scrollLeftBtn() {
+            if (scrollContainer) scrollContainer.scrollBy({ left: -250, behavior: 'smooth' });
+        }
+        function scrollRightBtn() {
+            if (scrollContainer) scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+        }
+        setInterval(() => {
+            if (scrollContainer) {
+                if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
+                    scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+                }
             }
+        }, 3000);
+
+        // 6. Vehicle Slider Movement
+        let vehicleIndex = 0;
+        const totalVehicleSlides = 5;
+        function moveVehicleSlide(direction) {
+            const track = document.getElementById('sliderTrack');
+            if (!track) return;
+            vehicleIndex = (vehicleIndex + direction + totalVehicleSlides) % totalVehicleSlides;
+            track.style.transform = `translateX(-${vehicleIndex * 100}%)`;
+        }
+        setInterval(() => moveVehicleSlide(1), 4000);
+
+        // 7. Client Reviews Slider & Dots (All 7 Reviews)
+        let currentReviewIndex = 0;
+        const reviewTrack = document.getElementById('reviewTrack');
+        const reviewSlides = document.querySelectorAll('.review-slide');
+        const totalReviews = reviewSlides.length;
+        const dotsContainer = document.getElementById('reviewDots');
+
+        if (dotsContainer && totalReviews > 0) {
+            for (let i = 0; i < totalReviews; i++) {
+                const dot = document.createElement('div');
+                dot.style.width = i === currentReviewIndex ? '20px' : '8px';
+                dot.style.height = '8px';
+                dot.style.borderRadius = '4px';
+                dot.style.background = i === currentReviewIndex ? '#dfba6d' : 'rgba(255,255,255,0.3)';
+                dot.style.cursor = 'pointer';
+                dot.style.transition = 'all 0.3s ease';
+                dot.onclick = () => goToReview(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateReviewPosition() {
+            if (!reviewTrack) return;
+            reviewTrack.style.transform = `translateX(-${currentReviewIndex * 100}%)`;
+            if (dotsContainer) {
+                const dots = dotsContainer.children;
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].style.width = i === currentReviewIndex ? '20px' : '8px';
+                    dots[i].style.background = i === currentReviewIndex ? '#dfba6d' : 'rgba(255,255,255,0.3)';
+                }
+            }
+        }
+        function nextReview() {
+            currentReviewIndex = (currentReviewIndex + 1) % totalReviews;
+            updateReviewPosition();
+        }
+        function prevReview() {
+            currentReviewIndex = (currentReviewIndex - 1 + totalReviews) % totalReviews;
+            updateReviewPosition();
+        }
+        function goToReview(index) {
+            currentReviewIndex = index;
+            updateReviewPosition();
+        }
+        setInterval(nextReview, 4500);
+
+        // 8. Smooth Scroll Reveal (Left, Right, Up, Down, Zoom) & Stats Counter (0 to 10000+)
+        document.addEventListener("DOMContentLoaded", function() {
+            const animElements = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            animElements.forEach(el => revealObserver.observe(el));
+
+            // Stats Number Counter (0 to Target)
+            const counters = document.querySelectorAll('.stat-counter');
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseFloat(el.getAttribute('data-target'));
+                        const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+                        const suffix = el.getAttribute('data-suffix') || '';
+                        const duration = 2000;
+                        const startTime = performance.now();
+
+                        function updateNum(now) {
+                            const progress = Math.min((now - startTime) / duration, 1);
+                            const current = progress * target;
+                            el.textContent = current.toFixed(decimals) + suffix;
+                            if (progress < 1) {
+                                requestAnimationFrame(updateNum);
+                            } else {
+                                el.textContent = target.toFixed(decimals) + suffix;
+                            }
+                        }
+                        requestAnimationFrame(updateNum);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            counters.forEach(c => counterObserver.observe(c));
         });
-    });
-    <script>
-    const menu = document.getElementById('sideMenu');
-    if (menu) {
-        menu.style.background = '#000000';
-        menu.style.backgroundColor = '#000000';
-    }
-</script> 
+    </script>
+</body>
+</html>
