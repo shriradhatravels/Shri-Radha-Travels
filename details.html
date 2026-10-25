@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Details - Shri Radha Travels</title>
+    <title>Trip Details & Luxury Booking | Shri Radha Travels</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playball&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="/IMG_5108.jpeg">
     <style>
         :root {
-            --bg-deep: #060911;
-            --bg-card: #111520;
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
+            --bg-deep: #060b14;
+            --bg-card: rgba(15, 23, 42, 0.85);
+            --gold: #dfba6d;
+            --gold-light: #fff3d1;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
         }
 
         * {
@@ -31,6 +32,7 @@
             padding: 16px;
             min-height: 100vh;
             overflow-x: hidden;
+            padding-bottom: 90px;
         }
 
         .container {
@@ -40,8 +42,8 @@
 
         /* --- Watery Animated Header Text --- */
         .watery-text {
-            background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37, #ffdf00, #d4af37);
-            background-size: 300% 300%;
+            background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: wateryFlow 4s ease-in-out infinite;
@@ -67,10 +69,12 @@
         /* --- Smooth Rotating Golden Border Animation (Gol-Gol Ghumne Wala Border) --- */
         .glowing-border {
             position: relative;
-            background: var(--bg-card);
-            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 20px;
             z-index: 1;
             overflow: hidden;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(223, 186, 109, 0.25);
         }
 
         .glowing-border::before {
@@ -81,16 +85,16 @@
             right: -50%;
             bottom: -50%;
             z-index: -2;
-            background: conic-gradient(from 0deg at 50% 50%, rgba(212, 175, 55, 0) 0deg, rgba(212, 175, 55, 0) 260deg, #d4af37 310deg, #fff8dc 360deg);
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 260deg, #dfba6d 310deg, #fff3d1 360deg);
             animation: rotateBorder 4s linear infinite;
         }
 
         .glowing-border::after {
             content: '';
             position: absolute;
-            inset: 1.5px;
-            background: var(--bg-card);
-            border-radius: 17px;
+            inset: 2px;
+            background: linear-gradient(145deg, #0d1527, #090e1a);
+            border-radius: 18px;
             z-index: -1;
         }
 
@@ -104,9 +108,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             padding-bottom: 12px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(223, 186, 109, 0.3);
         }
 
         .brand-container {
@@ -117,10 +121,10 @@
         }
 
         .brand-logo {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            border: 1px solid var(--gold);
+            border: 1.5px solid var(--gold);
             object-fit: cover;
             background: #000;
             flex-shrink: 0;
@@ -128,80 +132,78 @@
 
         .brand-title {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 17px;
+            font-weight: 800;
             color: #ffffff;
-            letter-spacing: 0.3px;
         }
 
         .brand-title span {
-            font-family: 'Playball', cursive;
             color: var(--gold);
-            font-size: 24px;
-            font-weight: 400;
-            margin-left: 2px;
         }
 
         .call-now-btn {
-            background: linear-gradient(135deg, var(--gold), #b38f27);
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
             border: none;
-            color: #000;
+            color: #060b14;
             padding: 8px 16px;
-            border-radius: 30px;
+            border-radius: 10px;
             text-decoration: none;
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 800;
             display: flex;
             align-items: center;
             gap: 6px;
             transition: all 0.3s ease;
             white-space: nowrap;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 12px rgba(200, 151, 54, 0.3);
         }
 
         .call-now-btn:hover {
-            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(200, 151, 54, 0.5);
         }
 
         .trip-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .trip-header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-size: 30px;
+            font-weight: 800;
             margin-bottom: 6px;
         }
 
         .trip-meta {
             color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 13.5px;
+            font-weight: 600;
         }
 
         /* Cards Styling */
         .booking-card, .experience-card, .section-box {
             background: var(--bg-card);
-            border-radius: 18px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 24px;
             margin-bottom: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             color: var(--text-main);
+            border: 1px solid rgba(223, 186, 109, 0.25);
         }
 
         .card-title {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
+            font-size: 20px;
             color: var(--gold);
             margin-bottom: 4px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .card-subtitle {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .form-group {
@@ -212,11 +214,12 @@
 
         .form-group label {
             display: block;
-            font-size: 12px;
+            font-size: 11.5px;
             color: var(--text-muted);
             margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 700;
         }
 
         .trip-type-container {
@@ -229,33 +232,34 @@
             flex: 1;
             padding: 12px;
             background: rgba(255, 255, 255, 0.03);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
             color: var(--text-muted);
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .trip-btn.active {
             border-color: var(--gold);
-            color: #ffffff;
-            background: rgba(212, 175, 55, 0.15);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            color: #060b14;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            box-shadow: 0 0 12px rgba(223, 186, 109, 0.35);
         }
 
-        /* Strictly Fixed Date Input Field Overflow */
-        .input-field {
+        /* Strictly Fixed Input Field Overflow */
+        .input-field, .select-field {
             width: 100% !important;
             max-width: 100% !important;
             min-width: 0 !important;
             padding: 12px 14px;
-            background: rgba(255, 255, 255, 0.04) !important;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: #ffffff !important;
-            font-size: 15px;
+            background: rgba(255, 255, 255, 0.92) !important;
+            border: 2px solid rgba(223, 186, 109, 0.4);
+            border-radius: 12px;
+            color: #060b14 !important;
+            font-size: 14.5px;
+            font-weight: 600;
             outline: none;
             box-sizing: border-box;
             display: block;
@@ -263,47 +267,49 @@
         }
 
         .input-field::-webkit-calendar-picker-indicator {
-            filter: invert(1);
             cursor: pointer;
         }
 
-        .input-field:focus {
+        .input-field:focus, .select-field:focus {
             border-color: var(--gold);
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 10px rgba(223, 186, 109, 0.4);
         }
 
         .book-submit-btn {
             width: 100%;
-            padding: 13px;
-            background: linear-gradient(135deg, var(--gold), #b38f27);
+            padding: 14px;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
             border: none;
-            border-radius: 10px;
-            color: #060911;
-            font-size: 15px;
-            font-weight: 700;
+            border-radius: 12px;
+            color: #060b14;
+            font-size: 15.5px;
+            font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            margin-top: 6px;
-            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 16px rgba(200, 151, 54, 0.35);
+            margin-top: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .book-submit-btn:hover {
-            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(200, 151, 54, 0.5);
         }
 
         .experience-card p {
             color: var(--text-muted);
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.7;
             margin-top: 6px;
         }
 
         /* Places to Visit Section */
         .places-section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 22px;
             color: var(--gold);
-            margin: 20px 0 12px 0;
+            margin: 25px 0 14px 0;
             font-weight: 700;
         }
 
@@ -311,53 +317,61 @@
             background: var(--bg-card);
             border-radius: 16px;
             padding: 16px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 14px;
             color: var(--text-main);
+            border: 1px solid rgba(223, 186, 109, 0.2);
+            transition: 0.3s;
+        }
+
+        .place-item-card:hover {
+            border-color: var(--gold);
+            transform: translateX(4px);
         }
 
         .place-number {
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(223, 186, 109, 0.15);
             color: var(--gold);
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 13px;
             flex-shrink: 0;
             border: 1px solid var(--gold);
         }
 
         .place-details h4 {
-            font-size: 15px;
-            color: var(--text-main);
+            font-size: 15.5px;
+            color: #ffffff;
             margin-bottom: 3px;
+            font-weight: 700;
         }
 
         .place-details p {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         /* What's Included List Styling */
         .included-list {
             list-style: none;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         .included-list li {
-            font-size: 13px;
+            font-size: 13.5px;
             color: var(--text-muted);
-            padding: 7px 0;
+            padding: 9px 0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
         }
 
@@ -368,6 +382,29 @@
         .included-list li span {
             color: var(--gold);
             font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Floating Action Buttons */
+        .float-actions {
+            position: fixed;
+            bottom: 22px;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+        .float-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 23px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -378,9 +415,9 @@
         <header class="nav-header scroll-reveal">
             <a href="index.html" class="brand-container">
                 <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo" onerror="this.src='logo.png'">
-                <div class="brand-title">Shri Radha <span>Travels</span></div>
+                <div class="brand-title">Shri Radha <span style="color: var(--gold);">Travels</span></div>
             </a>
-            <a href="tel:+919876543210" class="call-now-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+            <a href="tel:+916280544730" class="call-now-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
         </header>
 
         <div class="trip-header scroll-reveal">
@@ -389,32 +426,42 @@
         </div>
 
         <div class="booking-card glowing-border scroll-reveal">
-            <div class="card-title">Book This Trip</div>
-            <div class="card-subtitle" id="subPlaceTitle">Trip Package</div>
+            <div class="card-title">Book This Experience</div>
+            <div class="card-subtitle" id="subPlaceTitle">Custom Tour Package</div>
 
             <div class="form-group">
                 <label>Trip Type</label>
                 <div class="trip-type-container">
-                    <button type="button" class="trip-btn active" id="oneWayBtn">One Way</button>
+                    <button type="button" class="trip-btn active" id="oneWayBtn">One Way Drop</button>
                     <button type="button" class="trip-btn" id="roundTripBtn">Round Trip</button>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Select Date</label>
+                <label>Select Vehicle Type</label>
+                <select id="vehicleSelect" class="select-field">
+                    <option value="Sedan - Swift Dzire (4+1)">Sedan - Swift Dzire (4+1 Seats)</option>
+                    <option value="SUV - Maruti Ertiga (6+1)">SUV - Maruti Ertiga (6+1 Seats)</option>
+                    <option value="MPV - Innova Crysta (7+1)">MPV - Innova Crysta (7+1 Captain)</option>
+                    <option value="Tempo Traveller - Force Urbania">Luxury Van - Force Urbania</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Travel Date</label>
                 <input type="date" class="input-field" id="tripDate">
             </div>
 
             <div class="form-group">
                 <label>Phone Number</label>
-                <input type="tel" class="input-field" id="phoneInput" placeholder="Enter your phone number">
+                <input type="tel" class="input-field" id="phoneInput" placeholder="Enter your 10-digit phone number">
             </div>
 
-            <button type="button" class="book-submit-btn" id="bookNowBtn">Book Now</button>
+            <button type="button" class="book-submit-btn" id="bookNowBtn"><i class="fab fa-whatsapp"></i> Book via WhatsApp</button>
         </div>
 
         <div class="experience-card glowing-border scroll-reveal">
-            <div class="card-title" style="font-size: 16px;">About This Experience</div>
+            <div class="card-title" style="font-size: 18px;">About This Experience</div>
             <p id="placeDescription">Discover breathtaking landscapes and rich culture with Shri Radha Travels.</p>
         </div>
 
@@ -426,14 +473,21 @@
 
         <!-- What's Included Section -->
         <div class="section-box glowing-border scroll-reveal">
-            <div class="card-title" style="font-size: 16px;">What's Included</div>
+            <div class="card-title" style="font-size: 18px;">What's Included in Package</div>
             <ul class="included-list">
-                <li><span>›</span> Professional verified driver</li>
-                <li><span>›</span> Comfortable AC vehicle</li>
-                <li><span>›</span> Flexible pickup & drop</li>
-                <li><span>›</span> 24/7 customer support</li>
+                <li><span>✓</span> Professional verified hill-expert driver</li>
+                <li><span>✓</span> Clean AC vehicle with spacious boot</li>
+                <li><span>✓</span> Flexible pickup & hotel drop</li>
+                <li><span>✓</span> Toll tax, state tax & driver allowance included</li>
+                <li><span>✓</span> 24/7 Live trip assistance from Zirakpur desk</li>
             </ul>
         </div>
+    </div>
+
+    <!-- Floating WhatsApp & Call Buttons -->
+    <div class="float-actions">
+        <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20a%20tour%20package." target="_blank" class="float-btn" style="background: #25D366; color: #fff;" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+916280544730" class="float-btn" style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14;" title="Call Us"><i class="fas fa-phone-alt" style="font-size: 20px;"></i></a>
     </div>
 
     <script>
@@ -442,198 +496,153 @@
 
         const locationsData = {
             "Shimla": { 
-                title: "Shimla Trip", 
-                location: "Himachal Pradesh, India | ⭐ 4.8", 
-                description: "Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys.",
+                title: "Shimla Tour Package", 
+                location: "Himachal Pradesh, India | ⭐ 4.8 Rating", 
+                description: "Explore the Queen of Hills with scenic beauty, colonial architecture, and lush green valleys in complete comfort.",
                 places: [
                     { name: "Mall Road", desc: "The main heart of Shimla filled with vibrant shops, cafes, and historic colonial buildings." },
                     { name: "The Ridge & Christ Church", desc: "A wide open cultural hub featuring the second oldest church in North India." },
                     { name: "Jakhoo Temple", desc: "Famous hilltop temple dedicated to Lord Hanuman with a massive 108ft statue." },
                     { name: "Kufri", desc: "Scenic hill station nearby known for panoramic snow views, fun parks, and horse riding." },
                     { name: "Viceregal Lodge (Rashtrapati Niwas)", desc: "Magnificent British architecture structure showcasing historical heritage." },
-                    { name: "Green Valley", desc: "Breathtaking photography viewpoint surrounded by dense pine and deodar forests." },
-                    { name: "Summer Hill", desc: "A quiet, serene town covered in greenery, part of the seven hills cluster." },
-                    { name: "Mall Road Gaiety Theatre", desc: "Historic cultural center hosting plays, heritage exhibitions, and social events." }
+                    { name: "Green Valley", desc: "Breathtaking photography viewpoint surrounded by dense pine and deodar forests." }
                 ]
             },
             "Manali": { 
                 title: "Manali Adventure Trip", 
-                location: "Himachal Pradesh, India | ⭐ 4.9", 
-                description: "Experience snow-capped mountains, thrilling adventure sports in Solang Valley, and Rohtang Pass.",
+                location: "Himachal Pradesh, India | ⭐ 4.9 Rating", 
+                description: "Experience snow-capped mountains, thrilling adventure sports in Solang Valley, and Atal Tunnel views.",
                 places: [
                     { name: "Solang Valley", desc: "Hub for adventure sports like paragliding, zorbing, quad biking, and skiing." },
                     { name: "Hadimba Temple", desc: "Historic wooden pagoda-style temple nestled peacefully inside dense cedar forests." },
                     { name: "Atal Tunnel & Sissu", desc: "Engineering marvel leading to breathtaking waterfalls and cold desert views." },
                     { name: "Old Manali", desc: "Charming cafes, beautiful apple orchards, and a vibrant bohemian backpacker culture." },
                     { name: "Jogini Waterfall", desc: "A scenic trek leading to a gorgeous cascading waterfall amidst nature." },
-                    { name: "Vashisht Hot Water Springs", desc: "Natural sulfur springs known for their traditional healing and relaxing properties." },
-                    { name: "Manali Gompa (Buddhist Monastery)", desc: "Peaceful monastery featuring striking Tibetan architecture and prayer wheels." },
-                    { name: "Naggar Castle", desc: "Historic medieval stone-and-wood castle overlooking the Kullu valley." }
+                    { name: "Vashisht Hot Water Springs", desc: "Natural sulfur springs known for their traditional healing and relaxing properties." }
                 ]
             },
             "Spiti-Valley": { 
                 title: "Spiti Valley Expedition", 
-                location: "Himachal Pradesh, India | ⭐ 4.9", 
-                description: "Journey through rugged cold desert mountains, ancient monasteries, and high-altitude lakes.",
+                location: "Himachal Pradesh, India | ⭐ 4.9 Rating", 
+                description: "Journey through rugged cold desert mountains, ancient cliff monasteries, and high-altitude lakes.",
                 places: [
                     { name: "Key Monastery", desc: "Famous thousand-year-old Tibetan Buddhist monastery perched dramatically on a hilltop." },
                     { name: "Chandratal Lake", desc: "Stunning crescent-shaped high altitude lake with crystal clear changing blue water." },
                     { name: "Kaza", desc: "The commercial hub and main administrative headquarters of the remote Spiti valley." },
                     { name: "Hikkim (World's Highest Post Office)", desc: "Send postcards from one of the highest inhabited settlements globally." },
                     { name: "Komic Village", desc: "One of the highest motorable villages in the world with a unique monastery." },
-                    { name: "Langza Buddha Statue", desc: "Giant statue of Lord Buddha overlooking the stunning valley landscape." },
-                    { name: "Pin Valley National Park", desc: "Cold desert national park famous for spotting the elusive snow leopard." },
-                    { name: "Dhankar Lake & Monastery", desc: "Cliff-hanging ancient fort monastery offering jaw-dropping gorge views." }
+                    { name: "Langza Buddha Statue", desc: "Giant statue of Lord Buddha overlooking the stunning valley landscape." }
                 ]
             },
             "Dalhousie": { 
                 title: "Dalhousie Peaceful Getaway", 
-                location: "Himachal Pradesh, India | ⭐ 4.7", 
+                location: "Himachal Pradesh, India | ⭐ 4.7 Rating", 
                 description: "Relax amidst pine-clad valleys, colonial-era buildings, and gorgeous sunset viewpoints.",
                 places: [
                     { name: "Khajjiar (Mini Switzerland)", desc: "Stunning saucer-shaped lush green meadow surrounded by dense pine forests." },
                     { name: "Dainkund Peak", desc: "Highest peak in Dalhousie offering incredible 360-degree valley vistas." },
                     { name: "Panchpula", desc: "Picturesque waterfalls and bubbling streams dedicated to freedom fighter Ajit Singh." },
                     { name: "Kalatop Wildlife Sanctuary", desc: "Dense forest reserve rich in flora, fauna, and scenic trekking trails." },
-                    { name: "St. John's Church", desc: "Oldest church in town showcasing remarkable British-era stained glass windows." },
-                    { name: "Subhash Baoli", desc: "Peaceful water spring surrounded by giant pine trees where Subhash Chandra Bose rested." },
-                    { name: "Bakrota Hills", desc: "Scenic walking circuit providing panoramic views of snow-capped mountains." },
-                    { name: "Gandhi Chowk", desc: "The bustling commercial market center lined with local handicrafts and eateries." }
+                    { name: "St. John's Church", desc: "Oldest church in town showcasing remarkable British-era stained glass windows." }
                 ]
             },
             "Dehradun": { 
-                title: "Dehradun Nature Tour", 
-                location: "Uttarakhand, India | ⭐ 4.6", 
-                description: "Enjoy pleasant weather, picturesque waterfalls, caves, and a gateway to several hill stations.",
+                title: "Dehradun & Rishikesh Nature Tour", 
+                location: "Uttarakhand, India | ⭐ 4.6 Rating", 
+                description: "Enjoy pleasant weather, picturesque waterfalls, caves, and spiritual Ganga Aarti.",
                 places: [
                     { name: "Robber's Cave (Guchhupani)", desc: "Natural river cave formation popular for fun short water walks and echoes." },
                     { name: "Sahastradhara", desc: "Thousand-fold spring known for its therapeutic sulfur water and waterfalls." },
                     { name: "Mindrolling Monastery", desc: "Magnificent Buddhist monastery featuring stunning gardens and huge stupa architecture." },
-                    { name: "Tapkeshwar Mahadev Temple", desc: "Ancient cave temple dedicated to Lord Shiva situated by a river stream." },
-                    { name: "Malsi Deer Park", desc: "Charming zoological park home to deer, nilgai, and diverse bird species." },
-                    { name: "Robber's Cave Trek", desc: "Scenic nature walking pathways nestled amidst lush lower Himalayan foothills." },
-                    { name: "Forest Research Institute (FRI)", desc: "Imposing colonial-era Greco-Roman architecture and massive forestry museum." },
-                    { name: "Rajaji National Park Safari", desc: "Exciting wildlife safari gateway known for elephants, leopards, and tigers." }
+                    { name: "Rishikesh Triveni Ghat", desc: "World famous spiritual hub for evening Ganga Aarti and adventure cafes." }
                 ]
             },
             "Delhi": { 
-                title: "Delhi Heritage & Food Walk", 
-                location: "Delhi, India | ⭐ 4.7", 
-                description: "Dive into rich history with majestic monuments, bustling street markets, and famous street food.",
+                title: "Delhi Heritage & Capital Tour", 
+                location: "Delhi, India | ⭐ 4.7 Rating", 
+                description: "Dive into rich history with majestic monuments, bustling street markets, and famous food.",
                 places: [
                     { name: "Red Fort & Chandni Chowk", desc: "Historic Mughal fortress and vibrant, bustling old Delhi street markets." },
                     { name: "Qutub Minar", desc: "Towering 73-meter victory tower built in the 12th century with rich carvings." },
                     { name: "India Gate", desc: "Iconic war memorial located grandly in the heart of New Delhi." },
-                    { name: "Humayun's Tomb", desc: "Stunning red sandstone Mughal garden-tomb that inspired the Taj Mahal." },
-                    { name: "Lotus Temple (Bahá'í House of Worship)", desc: "Architectural marvel shaped like a lotus flower, known for absolute silence." },
-                    { name: "Akshardham Temple", desc: "Massive spiritual-cultural complex featuring stunning architecture and boat rides." },
-                    { name: "Connaught Place", desc: "The vibrant commercial and shopping hub built in a grand circular Georgian style." },
-                    { name: "Hauz Khas Village", desc: "Trendy urban neighborhood blending medieval Islamic structures with chic cafes." }
+                    { name: "Lotus Temple", desc: "Architectural marvel shaped like a lotus flower, known for absolute silence." }
                 ]
             },
             "Amritsar": { 
-                title: "Amritsar Cultural Tour", 
-                location: "Punjab, India | ⭐ 4.9", 
+                title: "Amritsar Cultural & Wagah Tour", 
+                location: "Punjab, India | ⭐ 4.9 Rating", 
                 description: "Pay respects at the divine Golden Temple and experience the patriotic fervor at Wagah Border.",
                 places: [
                     { name: "Golden Temple (Harmandir Sahib)", desc: "The holiest Sikh shrine known for golden architecture and world's largest community kitchen." },
-                    { name: "Wagah Border", desc: "Famous energetic daily ceremonial lowering of flags border retreat ceremony." },
+                    { name: "Wagah Border", desc: "Famous energetic daily lowering of flags border retreat ceremony." },
                     { name: "Jallianwala Bagh", desc: "Historic public garden and emotional national freedom movement memorial." },
-                    { name: "Partition Museum", desc: "Deeply moving museum documenting the historical stories of the 1947 partition." },
-                    { name: "Gobindgarh Fort", desc: "Historic military fort turned cultural theme park with laser shows and museums." },
-                    { name: "Durgiana Temple", desc: "Hindu temple closely resembling the design style of the Golden Temple." },
-                    { name: "Hall Bazaar", desc: "Vibrant traditional shopping market famous for Phulkari suits and jootis." },
-                    { name: "Aam Papad Street", desc: "Famous local food lane offering mouth-watering spicy and sweet traditional snacks." }
+                    { name: "Partition Museum", desc: "Deeply moving museum documenting the historical stories of the 1947 partition." }
                 ]
             },
             "Mussoorie": { 
-                title: "Mussoorie Queen of Hills", 
-                location: "Uttarakhand, India | ⭐ 4.8", 
+                title: "Mussoorie Queen of Hills Tour", 
+                location: "Uttarakhand, India | ⭐ 4.8 Rating", 
                 description: "Stroll down Mall Road, visit Kempty Falls, and witness breathtaking views of the Doon Valley.",
                 places: [
                     { name: "Kempty Falls", desc: "Picturesque cascading waterfall surrounded by high rocky cliffs and splash pools." },
                     { name: "Mall Road & Camel's Back Road", desc: "Scenic walking trails, colonial shopping hubs, and sunset view points." },
                     { name: "Lal Tibba Scenic Point", desc: "Highest point in Mussoorie providing Japanese telescopes to view snow peaks." },
-                    { name: "Gun Hill Point", desc: "Second highest peak accessible via ropeway with stunning panoramic valley views." },
-                    { name: "Company Garden", desc: "Lush botanical garden featuring an artificial lake, boating, and colorful flowers." },
-                    { name: "Cloud's End", desc: "The scenic geographical end of Mussoorie surrounded by dense oak and deodar forests." },
-                    { name: "George Everest's House", desc: "Historic heritage landmark home to the surveyor general of India." },
-                    { name: "Jharipani Waterfall", desc: "A quiet, peaceful natural waterfall ideal for nature lovers and trekkers." }
+                    { name: "Gun Hill Point", desc: "Second highest peak accessible via ropeway with stunning panoramic valley views." }
                 ]
             },
             "Jaipur": { 
                 title: "Jaipur Royal Pink City Tour", 
-                location: "Rajasthan, India | ⭐ 4.8", 
+                location: "Rajasthan, India | ⭐ 4.8 Rating", 
                 description: "Explore majestic forts, royal palaces, rich Rajasthani heritage, and vibrant local bazaars.",
                 places: [
                     { name: "Amber Fort", desc: "Magnificent hilltop fortress blending stunning Hindu and Mughal architecture." },
                     { name: "Hawa Mahal", desc: "The iconic Palace of Winds featuring its unique honeycombed windows facade." },
                     { name: "City Palace", desc: "Grand royal residence featuring stunning courtyards, museums, and royal artifacts." },
-                    { name: "Jantar Mantar", desc: "UNESCO world heritage astronomical observatory built with massive stone instruments." },
-                    { name: "Jal Mahal", desc: "Enchanting water palace sitting gracefully in the middle of Man Sagar Lake." },
-                    { name: "Nahargarh Fort", desc: "Hilltop fort offering magical sunset views overlooking the entire pink city." },
-                    { name: "Jaigarh Fort", desc: "Historic fort housing the world's largest wheeled cannon known as Jaivana." },
-                    { name: "Bapu Bazaar", desc: "Vibrant traditional market famous for textiles, mojris, and handicrafts." }
+                    { name: "Jal Mahal", desc: "Enchanting water palace sitting gracefully in the middle of Man Sagar Lake." }
                 ]
             },
             "Mathura-Vrindavan": { 
                 title: "Mathura & Vrindavan Divine Tour", 
-                location: "Uttar Pradesh, India | ⭐ 4.9", 
-                description: "Immerse yourself in the divine land of Lord Krishna, beautiful temples, and vibrant cultural festivities.",
+                location: "Uttar Pradesh, India | ⭐ 4.9 Rating", 
+                description: "Immerse yourself in the divine land of Lord Krishna, beautiful temples, and cultural festivities.",
                 places: [
-                    { name: "Shri Krishna Janmabhoomi", desc: "The holy sacred birthplace temple complex of Lord Krishna in Mathura." },
                     { name: "Banke Bihari Temple", desc: "One of the most revered, lively, and visited temples in Vrindavan." },
                     { name: "Prem Mandir", desc: "Stunning white marble temple brilliantly illuminated with colorful changing lights at night." },
-                    { name: "ISKCON Temple (Balaram Mandir)", desc: "Peaceful international spiritual center famous worldwide for joyful kirtans." },
-                    { name: "Dwarkadhish Temple", desc: "Historic, architecturally rich temple located in the heart of Mathura." },
-                    { name: "Vishram Ghat", desc: "Sacred bathing ghat on the Yamuna river bank where evening aarti is performed." },
-                    { name: "Radha Raman Temple", desc: "Ancient temple holding immense spiritual value in Gaudiya Vaishnavism." },
-                    { name: "Nidhivan", desc: "Mysterious sacred forest where divine nocturnal Leelas are believed to happen." }
+                    { name: "Shri Krishna Janmabhoomi", desc: "The holy sacred birthplace temple complex of Lord Krishna in Mathura." },
+                    { name: "ISKCON Temple", desc: "Peaceful international spiritual center famous worldwide for joyful kirtans." }
                 ]
             },
             "Vaishno-Devi": { 
-                title: "Vaishno Devi Yatra", 
-                location: "Jammu & Kashmir, India | ⭐ 4.9", 
-                description: "Experience a spiritual journey to the holy shrine nestled in the Trikuta mountains.",
+                title: "Vaishno Devi Yatra Package", 
+                location: "Jammu & Kashmir, India | ⭐ 4.9 Rating", 
+                description: "Experience a safe and comfortable spiritual journey to the holy shrine nestled in Trikuta mountains.",
                 places: [
                     { name: "Katra Base Camp", desc: "The bustling starting point town for the holy mountain trek." },
                     { name: "Bhavan (Main Cave Shrine)", desc: "The sacred holy natural cave where Mata Vaishno Devi resides in pindies." },
                     { name: "Bhairon Nath Temple", desc: "Essential hilltop temple visit required to complete the spiritual pilgrimage loop." },
-                    { name: "Adhkuwari Cave (Garbhganj)", desc: "Sacred meditation cave halfway up the trek where the Goddess rested." },
-                    { name: "Sanji Sathi", desc: "Scenic resting plateau offering breathtaking views of the surrounding mountains." },
-                    { name: "Himkoti", desc: "Beautiful resting spot with landscaped gardens and nature walking tracks." },
-                    { name: "Baan Ganga", desc: "Sacred holy stream where it's believed Arjun shot an arrow to create water." },
-                    { name: "Charan Paduka", desc: "Holy shrine mark featuring the sacred footprints imprint of Goddess Vaishnavi." }
+                    { name: "Adhkuwari Cave", desc: "Sacred meditation cave halfway up the trek where the Goddess rested." }
                 ]
             },
             "Char-Dham": { 
-                title: "Char Dham Yatra", 
-                location: "Uttarakhand, India | ⭐ 5.0", 
-                description: "Embark on the sacred pilgrimage of Yamunotri, Gangotri, Kedarnath, and Badrinath.",
+                title: "Char Dham Yatra Package", 
+                location: "Uttarakhand, India | ⭐ 5.0 Rating", 
+                description: "Embark on the sacred pilgrimage of Yamunotri, Gangotri, Kedarnath, and Badrinath with expert drivers.",
                 places: [
                     { name: "Yamunotri Dham", desc: "Source of the sacred Yamuna river surrounded by majestic high-altitude peaks." },
                     { name: "Gangotri Dham", desc: "Holy shrine dedicated to Goddess Ganga situated at her actual origin point." },
                     { name: "Kedarnath Dham", desc: "Ancient and powerful Shiva Jyotirlinga nestled dramatically in the high Himalayas." },
-                    { name: "Badrinath Dham", desc: "Sacred holy abode of Lord Vishnu situated peacefully along the Alaknanda river." },
-                    { name: "Tapt Kund (Badrinath)", desc: "Natural hot sulfur water spring where pilgrims take a holy dip before temple darshan." },
-                    { name: "Gaumukh Glacier", desc: "The official true geographical source of the holy River Ganga near Gangotri." },
-                    { name: "Bhairavnath Temple (Kedarnath)", desc: "Guardian deity temple protecting the sacred Kedarnath valley shrine." },
-                    { name: "Mana Village", desc: "Last inhabited Indian village near the Indo-China border rich in mythological lore." }
+                    { name: "Badrinath Dham", desc: "Sacred holy abode of Lord Vishnu situated peacefully along the Alaknanda river." }
                 ]
             },
             "Leh-Ladakh": { 
-                title: "Leh Ladakh Adventure", 
-                location: "Ladakh, India | ⭐ 4.9", 
+                title: "Leh Ladakh Expedition", 
+                location: "Ladakh, India | ⭐ 4.9 Rating", 
                 description: "Discover high-altitude passes, crystal clear blue lakes, and stunning cold desert landscapes.",
                 places: [
                     { name: "Pangong Tso Lake", desc: "Breathtaking high-altitude changing-color blue lake stretching into Tibet." },
                     { name: "Nubra Valley & Sand Dunes", desc: "Famous for cold desert sand dunes, double-humped Bactrian camels, and monasteries." },
                     { name: "Khardung La Pass", desc: "One of the highest motorable mountain passes in the world at 18,380 feet." },
-                    { name: "Shanti Stupa", desc: "White-domed Buddhist stupa offering panoramic sunset views overlooking Leh city." },
-                    { name: "Magnetic Hill", desc: "Gravity-defying phenomenon where vehicles appear to roll uphill on neutral." },
-                    { name: "Thiksey Monastery", desc: "Stunning 12-story monastery complex resembling Tibet's Potala Palace." },
-                    { name: "Hemis Monastery", desc: "Wealthy and largest historical monastery known for its vibrant annual festival." },
-                    { name: "Confluence of Indus & Zanskar Rivers", desc: "Stunning visible meeting point of two contrasting colored rivers at Nimmu." }
+                    { name: "Shanti Stupa", desc: "White-domed Buddhist stupa offering panoramic sunset views overlooking Leh city." }
                 ]
             }
         };
@@ -667,15 +676,20 @@
         const roundTripBtn = document.getElementById('roundTripBtn');
         const bookNowBtn = document.getElementById('bookNowBtn');
         const phoneInput = document.getElementById('phoneInput');
+        const vehicleSelect = document.getElementById('vehicleSelect');
+
+        let tripType = "One Way Drop";
 
         oneWayBtn.onclick = function() {
             oneWayBtn.classList.add('active');
             roundTripBtn.classList.remove('active');
+            tripType = "One Way Drop";
         };
 
         roundTripBtn.onclick = function() {
             roundTripBtn.classList.add('active');
             oneWayBtn.classList.remove('active');
+            tripType = "Round Trip";
         };
 
         bookNowBtn.onclick = function() {
@@ -685,8 +699,11 @@
                 phoneInput.focus();
                 return;
             }
-            alert("🎉 Success! Your booking for " + currentData.title + " has been received.");
-            phoneInput.value = "";
+            const date = document.getElementById('tripDate').value;
+            const vehicle = vehicleSelect.value;
+
+            const text = `*New Tour Booking - Shri Radha Travels*%0A---------------------------%0A*Destination:* ${currentData.title}%0A*Trip Type:* ${tripType}%0A*Vehicle:* ${vehicle}%0A*Travel Date:* ${date}%0A*Phone:* ${phone}`;
+            window.open(`https://wa.me/916280544730?text=${text}`, '_blank');
         };
 
         document.addEventListener("DOMContentLoaded", function() {
