@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outstation Trips - Shri Radha Travels</title>
+    <title>Outstation Trips & Intercity Cab Services | Shri Radha Travels</title>
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/IMG_5108.jpeg">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b1329;
+            background-color: #060b14;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
+            padding-bottom: 90px;
         }
 
         /* Background Photos Auto Slider */
@@ -49,38 +57,97 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(11, 19, 41, 0.90);
+            background: linear-gradient(180deg, rgba(6, 11, 20, 0.88) 0%, rgba(6, 11, 20, 0.95) 100%);
             z-index: -1;
+        }
+
+        /* Gold Shimmer & Badge */
+        .srt-badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.4);
+            color: #dfba6d;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .srt-gold-shimmer {
+            background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: goldShine 4s linear infinite;
+            display: inline-block;
+        }
+        @keyframes goldShine {
+            to { background-position: 200% center; }
+        }
+
+        /* Smooth Scroll Reveal Animations */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-left {
+            opacity: 0;
+            transform: translateX(-45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-right {
+            opacity: 0;
+            transform: translateX(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-zoom-in {
+            opacity: 0;
+            transform: scale(0.88);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
         }
 
         /* Navbar */
         .header {
-            background: #0b1329;
-            padding: 12px 20px;
+            background: rgba(6, 11, 20, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 13px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 1px solid rgba(223, 186, 109, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
         .back-btn {
-            color: #d4af37;
+            color: #dfba6d;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 6px;
+            background: rgba(223, 186, 109, 0.1);
+            border: 1px solid rgba(223, 186, 109, 0.3);
+            padding: 8px 13px;
+            border-radius: 10px;
             transition: 0.3s;
         }
         .back-btn:hover {
-            color: #ffffff;
+            background: rgba(223, 186, 109, 0.2);
             transform: translateX(-3px);
         }
-
         .brand-box {
             display: flex;
             align-items: center;
@@ -92,65 +159,52 @@
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+            border: 1.5px solid #dfba6d;
+            box-shadow: 0 0 12px rgba(223, 186, 109, 0.4);
         }
         .brand-title {
+            font-family: 'Playfair Display', serif;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
             color: #ffffff;
-            line-height: 1.1;
         }
-        .brand-title span {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            color: #d4af37;
-            font-weight: 400;
-            font-size: 16px;
-        }
-
         .call-nav-btn {
-            background: linear-gradient(135deg, #e5c158 0%, #c49a2a 100%);
-            color: #0b1329;
-            padding: 8px 14px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            padding: 9px 15px;
+            border-radius: 10px;
             font-weight: 700;
             font-size: 13px;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 15px rgba(200, 151, 54, 0.3);
             transition: 0.3s;
         }
         .call-nav-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 6px 20px rgba(200, 151, 54, 0.5);
         }
 
-        /* Container */
+        /* Container & Main Card */
         .container {
-            max-width: 750px;
+            max-width: 850px;
             margin: 30px auto;
-            padding: 0 20px 60px 20px;
+            padding: 0 18px;
             position: relative;
             z-index: 2;
         }
-
-        /* Main Service Card with Rotating Golden Conic Border */
         .service-card {
-            background: linear-gradient(145deg, rgba(11, 19, 41, 0.96) 0%, rgba(15, 23, 42, 0.96) 100%);
-            border-radius: 16px;
-            padding: 40px 30px;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 22px;
+            padding: 36px 26px;
             position: relative;
             z-index: 1;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            opacity: 0;
-            transform: translateY(35px);
-            animation: scrollPopup 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.75);
+            margin-bottom: 40px;
         }
-
         .service-card::before {
             content: '';
             position: absolute;
@@ -158,91 +212,43 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(
-                transparent, 
-                transparent, 
-                transparent, 
-                #d4af37, 
-                #fff, 
-                #d4af37
-            );
+            background: conic-gradient(transparent, transparent, transparent, #dfba6d, #fff3d1, #c49633, transparent);
             animation: rotateBorder 5s linear infinite;
             z-index: -2;
         }
-
         .service-card::after {
             content: '';
             position: absolute;
             inset: 2px;
-            background: #0b1329;
-            border-radius: 14px;
+            background: rgba(10, 16, 30, 0.96);
+            border-radius: 20px;
             z-index: -1;
         }
-
         @keyframes rotateBorder {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes scrollPopup {
-            0% { opacity: 0; transform: translateY(40px) scale(0.97); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #d4af37;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
-
-        /* Heading with Shimmer Animation */
         h1 {
-            font-family: 'Georgia', serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 20px;
-            line-height: 1.35;
-            letter-spacing: 0.5px;
-            background: linear-gradient(90deg, #d4af37, #fff, #d4af37, #f3e5ab);
-            background-size: 300% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: textShimmer 6s linear infinite;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.25;
+            color: #ffffff;
         }
-        @keyframes textShimmer {
-            0% { background-position: 0% center; }
-            100% { background-position: 300% center; }
-        }
-        h1 span {
-            font-style: italic;
-        }
-
-        p {
-            color: #cbd5e1;
+        p.lead-desc {
+            color: #94a3b8;
             font-size: 15px;
-            font-weight: 400;
-            line-height: 1.8;
-            margin-bottom: 30px;
+            line-height: 1.75;
+            margin-bottom: 28px;
         }
-
         .section-title {
-            color: #d4af37;
-            font-size: 16px;
-            margin-bottom: 20px;
+            color: #dfba6d;
+            font-size: 13px;
+            margin-bottom: 18px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
@@ -252,166 +258,164 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: rgba(212, 175, 55, 0.3);
+            background: rgba(223, 186, 109, 0.3);
         }
 
-        /* Clean List Layout */
+        /* Feature Rows */
         .feature-grid {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin-bottom: 35px;
+            gap: 13px;
+            margin-bottom: 30px;
         }
         .feature-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            background: rgba(15, 23, 42, 0.7);
-            border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 15px 18px;
+            background: rgba(15, 23, 42, 0.75);
+            border-radius: 14px;
+            border: 1px solid rgba(223, 186, 109, 0.25);
             transition: all 0.3s ease;
-            position: relative;
+            gap: 10px;
         }
         .feature-row:hover {
-            background: rgba(212, 175, 55, 0.08);
-            border-color: #d4af37;
+            background: rgba(26, 38, 64, 0.9);
+            border-color: #dfba6d;
             transform: translateX(6px);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 18px rgba(223, 186, 109, 0.2);
         }
-        
         .feature-left {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             color: #ffffff;
-            font-size: 15px;
+            font-size: 14.5px;
             font-weight: 600;
         }
-
-        /* Rotating Golden Icon Ring Animation */
         .rotating-icon-box {
             width: 38px;
             height: 38px;
-            border: 2px dashed #d4af37;
+            border: 2px dashed #dfba6d;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 10px rgba(223, 186, 109, 0.25);
             animation: rotateRing 8s linear infinite;
             flex-shrink: 0;
         }
         .rotating-icon-box i {
-            color: #d4af37;
+            color: #dfba6d;
             font-size: 15px;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
         @keyframes rotateRing {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         .feature-tag {
             font-size: 11px;
-            background: rgba(212, 175, 55, 0.12);
-            color: #d4af37;
+            background: rgba(223, 186, 109, 0.12);
+            color: #dfba6d;
             padding: 5px 12px;
             border-radius: 20px;
             font-weight: 700;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(223, 186, 109, 0.35);
+            white-space: nowrap;
         }
 
-        /* --- NEW PROFESSIONAL POPULAR ROUTES CHIPS SECTION --- */
+        /* Routes Chips */
         .routes-section {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
         .routes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
             margin-top: 15px;
         }
         .route-chip {
             background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 10px 12px;
-            border-radius: 10px;
+            border: 1px solid rgba(223, 186, 109, 0.3);
+            padding: 12px;
+            border-radius: 12px;
             text-align: center;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 13.5px;
+            font-weight: 700;
             color: #f1f5f9;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         .route-chip i {
-            color: #d4af37;
-            font-size: 14px;
+            color: #dfba6d;
+            font-size: 16px;
         }
         .route-chip:hover {
-            background: rgba(212, 175, 55, 0.15);
-            border-color: #d4af37;
+            background: rgba(223, 186, 109, 0.15);
+            border-color: #dfba6d;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 5px 15px rgba(223, 186, 109, 0.25);
         }
 
-        /* --- NEW WHY CHOOSE US PERKS CARDS --- */
+        /* Perks Grid */
         .perks-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 35px;
+            gap: 14px;
+            margin-bottom: 30px;
         }
         .perk-box {
             background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
-            padding: 16px;
+            border: 1px solid rgba(223, 186, 109, 0.25);
+            border-radius: 16px;
+            padding: 20px;
             text-align: left;
             transition: 0.3s;
         }
         .perk-box:hover {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.05);
+            border-color: #dfba6d;
+            background: rgba(26, 38, 64, 0.9);
+            transform: translateY(-3px);
         }
         .perk-box i {
-            color: #d4af37;
-            font-size: 20px;
-            margin-bottom: 8px;
+            color: #dfba6d;
+            font-size: 22px;
+            margin-bottom: 12px;
         }
         .perk-box h4 {
-            font-size: 14px;
+            font-size: 16px;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             font-weight: 700;
         }
         .perk-box p {
-            font-size: 12px;
+            font-size: 13px;
             color: #94a3b8;
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* Action Buttons Layout (Standard Clean Buttons without outer box container) */
+        /* Action Buttons */
         .action-container {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         .book-btn {
             flex: 1;
-            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-            color: #0b1329;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
             text-align: center;
-            padding: 16px;
-            border-radius: 10px;
-            font-size: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
             font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 18px rgba(200, 151, 54, 0.3);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -419,33 +423,62 @@
             gap: 8px;
         }
         .book-btn:hover {
-            opacity: 0.95;
             transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+            box-shadow: 0 8px 25px rgba(200, 151, 54, 0.5);
         }
         .whatsapp-btn {
             background: #25d366;
             color: #ffffff;
-            padding: 16px 22px;
-            border-radius: 10px;
+            padding: 15px 20px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
             transition: all 0.3s ease;
         }
         .whatsapp-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Floating Actions & Footer */
+        .float-actions {
+            position: fixed;
+            bottom: 22px;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+        .float-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 23px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            border-top: 1px solid rgba(223, 186, 109, 0.2);
+            color: #94a3b8;
+            font-size: 13px;
         }
 
         @media (max-width: 576px) {
-            .service-card { padding: 25px 20px; }
-            h1 { font-size: 22px; }
+            .service-card { padding: 26px 18px; }
+            h1 { font-size: 25px; }
             .action-container { flex-direction: column; }
             .perks-grid { grid-template-columns: 1fr; }
+            .feature-row { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -462,30 +495,32 @@
     <div class="bg-overlay"></div>
 
     <!-- Header Navbar -->
-    <div class="header">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+    <header class="header">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
         <a href="index.html" class="brand-box">
             <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="brand-logo">
-            <div class="brand-title">Shri Radha <span>Travels</span></div>
+            <div class="brand-title">Shri Radha <span class="srt-gold-shimmer">Travels</span></div>
         </a>
-        <a href="tel:9876543210" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
-    </div>
+        <a href="tel:+916280544730" class="call-nav-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </header>
 
     <!-- Container -->
     <div class="container">
+        
         <!-- Main Card with Rotating Golden Conic Border -->
-        <div class="service-card">
-            <div class="service-badge"><i class="fas fa-route"></i> Outstation Travel Specialists</div>
+        <div class="service-card anim-fade-up">
+            <div class="srt-badge-tag"><i class="fas fa-route"></i> Outstation Travel Specialists</div>
             
-            <!-- Heading with Shimmer Animation -->
-            <h1>Outstation Cab Service – <span>Intercity & Long Distance Trips</span></h1>
+            <h1>Outstation Cab Service – <span class="srt-gold-shimmer">Intercity & Long Distance Trips</span></h1>
             
-            <p>Plan your outstation getaways and long-distance business tours with absolute peace of mind. We offer comfortable round-trip and multi-city cab rentals from Chandigarh, Mohali, and Zirakpur to popular hill stations, religious destinations, and neighboring states with courteous drivers and transparent per-kilometer pricing.</p>
+            <p class="lead-desc">
+                Plan your outstation getaways and long-distance business tours with absolute peace of mind. We offer comfortable round-trip and multi-city cab rentals from Chandigarh, Mohali, and Zirakpur to popular hill stations, religious destinations, and neighboring states with courteous drivers and transparent pricing.
+            </p>
             
             <div class="section-title">Trip Highlights</div>
             
             <div class="feature-grid">
-                <div class="feature-row">
+                <div class="feature-row anim-fade-left">
                     <div class="feature-left">
                         <div class="rotating-icon-box"><i class="fas fa-map-marked-alt"></i></div>
                         <span>Round-Trip & Multi-City Tour Packages</span>
@@ -493,7 +528,7 @@
                     <span class="feature-tag">Flexible</span>
                 </div>
                 
-                <div class="feature-row">
+                <div class="feature-row anim-fade-right">
                     <div class="feature-left">
                         <div class="rotating-icon-box"><i class="fas fa-mountain"></i></div>
                         <span>Hill Station & Sightseeing Experts</span>
@@ -501,21 +536,23 @@
                     <span class="feature-tag">Experienced</span>
                 </div>
 
-                <div class="feature-row">
+                <div class="feature-row anim-fade-left">
                     <div class="feature-left">
                         <div class="rotating-icon-box"><i class="fas fa-calculator"></i></div>
                         <span>Affordable Per-KM & Flat Rates</span>
                     </div>
                     <span class="feature-tag">Best Price</span>
                 </div>
-                <div class="feature-row">
+                
+                <div class="feature-row anim-fade-right">
                     <div class="feature-left">
                         <div class="rotating-icon-box"><i class="fas fa-shield-alt"></i></div>
                         <span>Well-Maintained Cars for Long Routes</span>
                     </div>
                     <span class="feature-tag">Safe Rides</span>
                 </div>
-                <div class="feature-row">
+
+                <div class="feature-row anim-fade-left">
                     <div class="feature-left">
                         <div class="rotating-icon-box"><i class="fas fa-headset"></i></div>
                         <span>24×7 Roadside Assistance & Support</span>
@@ -524,64 +561,64 @@
                 </div>
             </div>
 
-            <!-- Professional Popular Routes Section Added -->
+            <!-- Professional Popular Routes Section -->
             <div class="routes-section">
                 <div class="section-title">Popular Outstation Routes</div>
                 <div class="routes-grid">
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Manali" target="_blank" class="route-chip">
+                        <i class="fas fa-snowflake"></i>
                         <span>Manali / Shimla</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Ladakh" target="_blank" class="route-chip">
+                        <i class="fas fa-mountain"></i>
                         <span>Leh Ladakh</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Dharamshala" target="_blank" class="route-chip">
+                        <i class="fas fa-gopuram"></i>
                         <span>Dharamshala</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Dalhousie" target="_blank" class="route-chip">
+                        <i class="fas fa-tree"></i>
                         <span>Dalhousie</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Spiti%20Valley" target="_blank" class="route-chip">
+                        <i class="fas fa-compass"></i>
                         <span>Spiti Valley</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Mussoorie" target="_blank" class="route-chip">
+                        <i class="fas fa-cloud-sun"></i>
                         <span>Mussoorie</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Jaipur" target="_blank" class="route-chip">
+                        <i class="fas fa-crown"></i>
                         <span>Jaipur</span>
-                    </div>
-                    <div class="route-chip">
-                        <i class="fas fa-map-pin"></i>
+                    </a>
+                    <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20an%20outstation%20cab%20to%20Amritsar" target="_blank" class="route-chip">
+                        <i class="fas fa-place-of-worship"></i>
                         <span>Amritsar / Delhi</span>
-                    </div>
+                    </a>
                 </div>
             </div>
 
-            <!-- Professional Why Choose Us Perks Cards Added -->
+            <!-- Why Choose Us Perks Cards -->
             <div class="section-title">Why Travel With Us</div>
             <div class="perks-grid">
-                <div class="perk-box">
+                <div class="perk-box anim-fade-left">
                     <i class="fas fa-gas-pump"></i>
                     <h4>No Hidden Charges</h4>
                     <p>Transparent toll, state tax, and driver allowance terms upfront.</p>
                 </div>
-                <div class="perk-box">
+                <div class="perk-box anim-fade-right">
                     <i class="fas fa-user-check"></i>
                     <h4>Expert Hill Drivers</h4>
                     <p>Drivers well-versed with tough mountain terrain and safe driving.</p>
                 </div>
-                <div class="perk-box">
+                <div class="perk-box anim-fade-left">
                     <i class="fas fa-car"></i>
                     <h4>Clean & Sanitized</h4>
                     <p>Immaculate fleet conditions checked prior to every journey.</p>
                 </div>
-                <div class="perk-box">
+                <div class="perk-box anim-fade-right">
                     <i class="fas fa-clock"></i>
                     <h4>On-Time Pickup</h4>
                     <p>Punctual doorstep pickup right at your scheduled hour.</p>
@@ -591,26 +628,47 @@
             <!-- Direct Action Buttons -->
             <div class="action-container">
                 <a href="index.html#book" class="book-btn"><i class="fas fa-bookmark"></i> Outstation Booking</a>
-                <a href="https://wa.me/919876543210?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Outstation%20Trip%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Outstation%20Trip%20services." target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
             </div>
 
         </div>
+
     </div>
 
-    <!-- JavaScript for Background Photo Slider -->
+    <!-- Floating Action Buttons -->
+    <div class="float-actions">
+        <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20Outstation%20Trips." target="_blank" class="float-btn" style="background: #25D366; color: #fff;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+916280544730" class="float-btn" style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14;"><i class="fas fa-phone-alt" style="font-size: 20px;"></i></a>
+    </div>
+
+    <footer>
+        <p>© 2026 Shri Radha Travels • SCO 38, Chaura Bazar, Lohgarh, Zirakpur • +91 6280544730</p>
+    </footer>
+
+    <!-- JavaScript for Slider & Scroll Reveal -->
     <script>
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
 
         function nextSlide() {
+            if (!slides.length) return;
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-
-        // Change background image smoothly every 4 seconds
         setInterval(nextSlide, 4000);
-    </script>
 
+        document.addEventListener("DOMContentLoaded", function() {
+            const animEls = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animEls.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
