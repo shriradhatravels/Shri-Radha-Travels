@@ -3,34 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Shri Radha Travels</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>About Us | Shri Radha Travels - Luxury Chauffeur & Tour Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/IMG_5108.jpeg">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         body {
-            background-color: #0b132b; /* Exact Deep Navy Blue */
+            background-color: #060b14;
             color: #ffffff;
-            line-height: 1.6;
+            line-height: 1.65;
+            overflow-x: hidden;
+            padding-bottom: 90px;
         }
 
-        /* Exact Navbar */
+        /* ==========================================
+           EXACT SELECT YOUR RIDE GOLD SHIMMER & TAGS
+           ========================================== */
+        .srt-badge-tag {
+            display: inline-block;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.35);
+            color: #dfba6d;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .srt-gold-shimmer {
+            background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: goldShine 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes goldShine {
+            to { background-position: 200% center; }
+        }
+
+        /* ==========================================
+           SMOOTH SCROLL REVEAL ANIMATIONS
+           ========================================== */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-left {
+            opacity: 0;
+            transform: translateX(-45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-right {
+            opacity: 0;
+            transform: translateX(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-zoom-in {
+            opacity: 0;
+            transform: scale(0.88);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* ==========================================
+           STICKY LUXURY HEADER
+           ========================================== */
         header {
-            background: rgba(11, 19, 43, 0.98);
-            padding: 12px 30px;
+            background: rgba(6, 11, 20, 0.95);
+            padding: 14px 22px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(223, 186, 109, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
         .logo-container {
             display: flex;
@@ -38,100 +106,75 @@
             gap: 12px;
             text-decoration: none;
         }
-        /* Logo perfectly rounded with golden border matching IMG_7031 */
         .logo-img {
-            width: 52px;
-            height: 52px;
+            width: 44px;
+            height: 44px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid #d4af37;
+            border: 1.5px solid #dfba6d;
         }
         .brand-title {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 800;
             color: #ffffff;
-            line-height: 1.1;
         }
-        .brand-title .travels-text {
-            color: #d4af37;
-            font-style: italic;
-            font-weight: 700;
-            display: inline-block;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        /* Call Now Button */
+        .back-home-btn {
+            background: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            border: 1px solid rgba(223, 186, 109, 0.4);
+            padding: 9px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-home-btn:hover {
+            border-color: #dfba6d;
+            background: rgba(223, 186, 109, 0.12);
+        }
         .call-now-btn {
-            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            color: #0b132b;
-            padding: 10px 24px;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            padding: 9px 18px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            gap: 7px;
+            box-shadow: 0 4px 15px rgba(200, 151, 54, 0.3);
             transition: 0.3s ease;
         }
         .call-now-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 6px 22px rgba(200, 151, 54, 0.5);
         }
 
-        /* Hero Section */
-        .about-hero {
-            padding: 60px 20px 40px 20px;
-            text-align: center;
-            max-width: 950px;
-            margin: 0 auto;
-        }
-        .about-hero span {
-            color: #d4af37;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 13px;
-            display: block;
-            margin-bottom: 15px;
-        }
-        .about-hero h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            line-height: 1.3;
-            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .about-hero p {
-            color: #cbd5e1;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-
-        /* CONTINUOUS ROTATING GOL-GOL GOLDEN BORDER ANIMATION */
+        /* ==========================================
+           ROTATING GOLDEN BORDER + LUXURY CARD
+           ========================================== */
         @keyframes rotate-border {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-
         .animated-card {
             position: relative;
-            background: rgba(30, 41, 59, 0.85);
-            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.75);
+            border-radius: 22px;
             overflow: hidden;
             z-index: 1;
+            border: 1px solid rgba(223, 186, 109, 0.25);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
         }
-
         .animated-card::before {
             content: '';
             position: absolute;
@@ -139,299 +182,552 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(
-                transparent, 
-                transparent, 
-                transparent, 
-                #d4af37, 
-                #f3e7c4, 
-                #aa771c, 
-                transparent
-            );
-            animation: rotate-border 4s linear infinite;
+            background: conic-gradient(transparent, transparent, transparent, #dfba6d, #fff3d1, #c49633, transparent);
+            animation: rotate-border 5s linear infinite;
             z-index: -2;
         }
-
         .animated-card::after {
             content: '';
             position: absolute;
-            inset: 3px;
-            background: rgba(15, 23, 42, 0.95);
-            border-radius: 14px;
+            inset: 2px;
+            background: rgba(12, 19, 36, 0.96);
+            border-radius: 20px;
             z-index: -1;
         }
-
+        .animated-card:hover {
+            transform: translateY(-6px);
+            border-color: #dfba6d;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6), 0 0 22px rgba(223, 186, 109, 0.22);
+        }
         .animated-card-content {
             position: relative;
             z-index: 1;
-            padding: 35px 25px;
+            padding: 30px 24px;
         }
 
-        /* Stats Section */
+        /* ==========================================
+           HERO SECTION
+           ========================================== */
+        .about-hero {
+            padding: 65px 20px 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .about-hero p {
+            color: #94a3b8;
+            font-size: 15.5px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto 65px;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .section-heading p {
+            color: #94a3b8;
+            font-size: 14.5px;
+        }
+
+        /* ==========================================
+           STATS GRID (AUTO COUNTING)
+           ========================================== */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto 60px auto;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
         }
         .stat-card {
             text-align: center;
         }
+        .stat-card i {
+            font-size: 26px;
+            color: #dfba6d;
+            margin-bottom: 10px;
+        }
         .stat-card h3 {
-            font-size: 38px;
+            font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .stat-card p {
-            color: #94a3b8;
-            font-size: 15px;
-            font-weight: 500;
+            color: #cbd5e1;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Mission, Vision, Values Section */
-        .mvv-section {
-            max-width: 1100px;
-            margin: 0 auto 60px auto;
-            padding: 0 20px;
+        /* ==========================================
+           MISSION, VISION, VALUES GRID
+           ========================================== */
+        .mvv-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 24px;
         }
         .mvv-card i {
-            font-size: 34px;
-            color: #d4af37;
-            margin-bottom: 20px;
+            font-size: 30px;
+            color: #dfba6d;
+            margin-bottom: 16px;
         }
         .mvv-card h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
         .mvv-card p {
             color: #94a3b8;
-            font-size: 15px;
-            line-height: 1.6;
+            font-size: 14.5px;
         }
 
-        /* Contact Section */
-        .contact-section {
-            max-width: 1100px;
-            margin: 0 auto 80px auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        /* ==========================================
+           NEW SECTION 1: THE SHRI RADHA ROYAL STANDARD
+           ========================================== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
-        .contact-section h3 {
+        .pillar-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(223, 186, 109, 0.25);
+            border-radius: 20px;
+            padding: 26px 22px;
+            transition: 0.35s ease;
+        }
+        .pillar-box:hover {
+            transform: translateY(-6px);
+            border-color: #dfba6d;
+            background: rgba(26, 38, 64, 0.9);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(223, 186, 109, 0.2);
+        }
+        .pillar-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dfba6d;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .pillar-box h4 {
             font-family: 'Playfair Display', serif;
-            color: #d4af37;
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 8px;
         }
+        .pillar-box p {
+            color: #94a3b8;
+            font-size: 13.5px;
+        }
+
+        /* ==========================================
+           NEW SECTION 2: LUXURY FLEET SHOWCASE TAGS
+           ========================================== */
+        .fleet-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .fleet-pill {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(223, 186, 109, 0.35);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s ease;
+        }
+        .fleet-pill i {
+            color: #dfba6d;
+        }
+        .fleet-pill:hover {
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            transform: translateY(-3px);
+        }
+        .fleet-pill:hover i {
+            color: #060b14;
+        }
+
+        /* ==========================================
+           CONTACT & SOCIAL SECTION
+           ========================================== */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 25px;
         }
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
+            gap: 14px;
             color: #e2e8f0;
-            font-size: 16px;
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(223, 186, 109, 0.2);
         }
         .contact-item i {
-            color: #d4af37;
-            font-size: 22px;
+            color: #dfba6d;
+            font-size: 20px;
             margin-top: 4px;
         }
         .contact-item a {
             color: inherit;
             text-decoration: none;
-            transition: 0.2s;
+            font-weight: 600;
         }
         .contact-item a:hover {
-            color: #d4af37;
+            color: #dfba6d;
         }
-        
-        /* Social Media Container */
+
         .social-container {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .social-container p {
-            color: #94a3b8;
-            margin-bottom: 15px;
-            font-weight: 600;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(223, 186, 109, 0.2);
         }
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
+            margin-top: 15px;
         }
         .social-icons a {
-            background: rgba(212, 175, 55, 0.1);
-            color: #d4af37;
-            width: 50px;
-            height: 50px;
+            background: rgba(223, 186, 109, 0.12);
+            color: #dfba6d;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
             text-decoration: none;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(223, 186, 109, 0.35);
             transition: 0.3s;
         }
         .social-icons a:hover {
-            background: #d4af37;
-            color: #0b132b;
-            transform: scale(1.1);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #64748b;
-            font-size: 14px;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            transform: translateY(-4px);
         }
 
-        /* Mobile responsiveness */
+        /* Floating WhatsApp & Call */
+        .float-actions {
+            position: fixed;
+            bottom: 22px;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+        .float-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(223, 186, 109, 0.2);
+            color: #94a3b8;
+            font-size: 13.5px;
+        }
+
         @media(max-width: 768px) {
-            header {
-                padding: 10px 15px;
-            }
-            .brand-title {
-                font-size: 19px;
-            }
-            .logo-img {
-                width: 44px;
-                height: 44px;
-            }
-            .call-now-btn {
-                padding: 8px 16px;
-                font-size: 13px;
-            }
+            .about-hero h1 { font-size: 31px; }
+            .section-heading h2 { font-size: 27px; }
+            .brand-title { font-size: 17px; }
+            .back-home-btn { padding: 7px 11px; font-size: 12px; }
+            .call-now-btn { padding: 8px 14px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sticky Luxury Navbar -->
     <header>
         <a href="index.html" class="logo-container">
-            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="logo-img">
+            <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Shri Radha Travels Logo" class="logo-img">
             <div class="brand-title">
-                Shri Radha <span class="travels-text">Travels</span>
+                Shri Radha <span class="srt-gold-shimmer">Travels</span>
             </div>
         </a>
-        <a href="tel:+916280544730" class="call-now-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+        <div class="header-actions">
+            <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+            <a href="tel:+916280544730" class="call-now-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+        </div>
     </header>
 
-    <section class="about-hero">
-        <span>ABOUT OUR COMPANY</span>
-        <h2>Crafting Unforgettable Journeys Across Majestic Destinations</h2>
-        <p>At <strong style="color: #d4af37;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Manali, Shimla, Leh Ladakh, Spiti Valley, and beyond, we cater to modern explorers seeking comfort, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified and courteous drivers, and hygienic, high-end vehicles designed for long-distance endurance. Join thousands of happy customers who trust us to deliver punctual, transparent, and luxurious travel solutions tailored precisely to your schedule and preferences.</p>
+    <!-- Hero Section -->
+    <section class="about-hero anim-fade-up">
+        <span class="srt-badge-tag">ABOUT SHRI RADHA TRAVELS</span>
+        <h1>Crafting Unforgettable Journeys Across <span class="srt-gold-shimmer">Majestic Destinations.</span></h1>
+        <p>
+            At <strong style="color: #dfba6d;">Shri Radha Travels</strong>, we believe that the journey is just as important as the destination. Specializing in breathtaking routes across Chandigarh, Zirakpur, Manali, Shimla, Leh Ladakh, Spiti Valley, Amritsar, and Jaipur, we cater to modern explorers seeking luxury, safety, and reliability. Our commitment goes beyond simple cab booking; we offer personalized itineraries, verified uniformed chauffeurs, and showroom-condition vehicles designed for long-distance mountain and highway endurance.
+        </p>
     </section>
 
-    <div class="stats-grid">
-        <div class="stat-card animated-card">
-            <div class="animated-card-content">
-                <h3>5000+</h3>
-                <p>Happy Customers</p>
+    <!-- Auto-Counting Stats Section -->
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card animated-card anim-zoom-in">
+                <div class="animated-card-content">
+                    <i class="fas fa-users"></i>
+                    <h3 class="srt-gold-shimmer"><span class="stat-counter" data-target="10000" data-suffix="+">0+</span></h3>
+                    <p>Happy Travellers</p>
+                </div>
             </div>
-        </div>
-        <div class="stat-card animated-card">
-            <div class="animated-card-content">
-                <h3>1500+</h3>
-                <p>Trips Completed</p>
+            <div class="stat-card animated-card anim-zoom-in">
+                <div class="animated-card-content">
+                    <i class="fas fa-route"></i>
+                    <h3 class="srt-gold-shimmer"><span class="stat-counter" data-target="5000" data-suffix="+">0+</span></h3>
+                    <p>Successful Trips</p>
+                </div>
             </div>
-        </div>
-        <div class="stat-card animated-card">
-            <div class="animated-card-content">
-                <h3>50+</h3>
-                <p>Cities Covered</p>
+            <div class="stat-card animated-card anim-zoom-in">
+                <div class="animated-card-content">
+                    <i class="fas fa-city"></i>
+                    <h3 class="srt-gold-shimmer"><span class="stat-counter" data-target="50" data-suffix="+">0+</span></h3>
+                    <p>Cities Covered</p>
+                </div>
             </div>
-        </div>
-        <div class="stat-card animated-card">
-            <div class="animated-card-content">
-                <h3>5+</h3>
-                <p>Years Experience</p>
+            <div class="stat-card animated-card anim-zoom-in">
+                <div class="animated-card-content">
+                    <i class="fas fa-star"></i>
+                    <h3 class="srt-gold-shimmer"><span class="stat-counter" data-target="4.9" data-decimals="1" data-suffix="★">0.0★</span></h3>
+                    <p>Client Rating</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <section class="mvv-section">
-        <div class="mvv-card animated-card">
-            <div class="animated-card-content">
-                <i class="fas fa-bullseye"></i>
-                <h4>Our Mission</h4>
-                <p>To provide safe, reliable, and luxurious travel experiences that exceed our customers' expectations while maintaining the highest standards of hospitality.</p>
-            </div>
+    <!-- Mission, Vision & Core Values -->
+    <section class="container">
+        <div class="section-heading anim-fade-up">
+            <span class="srt-badge-tag">OUR FOUNDATION</span>
+            <h2>Driven By Trust. <span class="srt-gold-shimmer">Defined By Luxury.</span></h2>
+            <p>Why thousands of families and corporate travellers across North India choose us.</p>
         </div>
-        <div class="mvv-card animated-card">
-            <div class="animated-card-content">
-                <i class="fas fa-eye"></i>
-                <h4>Our Vision</h4>
-                <p>To become the most trusted and preferred travel partner nationwide known for our premium fleet, courteous drivers, and unmatched customer care.</p>
+
+        <div class="mvv-grid">
+            <div class="mvv-card animated-card anim-fade-left">
+                <div class="animated-card-content">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Our Mission</h4>
+                    <p>To provide safe, punctual, and first-class travel experiences that exceed expectations while maintaining the highest standards of Indian hospitality.</p>
+                </div>
             </div>
-        </div>
-        <div class="mvv-card animated-card">
-            <div class="animated-card-content">
-                <i class="fas fa-gem"></i>
-                <h4>Core Values</h4>
-                <p>Customer satisfaction, absolute safety, absolute transparency, luxury comfort, and punctuality form the foundational pillars of Shri Radha Travels.</p>
+            <div class="mvv-card animated-card anim-fade-up">
+                <div class="animated-card-content">
+                    <i class="fas fa-eye"></i>
+                    <h4>Our Vision</h4>
+                    <p>To become North India's most trusted luxury chauffeur and tour partner, recognized for our spotless fleet, hill-expert drivers, and transparent pricing.</p>
+                </div>
+            </div>
+            <div class="mvv-card animated-card anim-fade-right">
+                <div class="animated-card-content">
+                    <i class="fas fa-gem"></i>
+                    <h4>Core Values</h4>
+                    <p>Customer delight, 100% safety, zero hidden charges, showroom-clean interiors, and on-time pickups form the foundational pillars of Shri Radha Travels.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-section animated-card" style="max-width: 1100px; margin: 0 auto 80px auto;">
-        <div class="animated-card-content" style="padding: 45px;">
-            <h3>Get In Touch With Us</h3>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603, India</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <strong>Phone / WhatsApp:</strong><br>
-                        <a href="tel:+916280544730">+91 6280544730</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email Address:</strong><br>
-                        <a href="mailto:shriradhatravels001@gmail.com">shriradhatravels001@gmail.com</a>
-                    </div>
-                </div>
-            </div>
+    <!-- NEW LUXURY SECTION: THE SHRI RADHA ROYAL STANDARD -->
+    <section class="container">
+        <div class="section-heading anim-fade-up">
+            <span class="srt-badge-tag">THE ROYAL PROMISE</span>
+            <h2>The Gold Standard Of <span class="srt-gold-shimmer">Chauffeur Travel</span></h2>
+            <p>Every ride with Shri Radha Travels comes with four non-negotiable luxury guarantees.</p>
+        </div>
 
-            <div class="social-container">
-                <p>Connect With Us On Social Media & Maps</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/shri_radha_travels" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Shri+Radha+Travels+Zirakpur" target="_blank" title="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+        <div class="pillars-grid">
+            <div class="pillar-box anim-fade-left">
+                <div class="pillar-icon"><i class="fas fa-user-shield"></i></div>
+                <h4>Hill-Expert Chauffeurs</h4>
+                <p>Police-verified, polite, and experienced drivers specially trained for steep Himachal, Spiti & Kashmir mountain terrain.</p>
+            </div>
+            <div class="pillar-box anim-fade-right">
+                <div class="pillar-icon"><i class="fas fa-sparkles"></i></div>
+                <h4>Deep-Sanitized Fleet</h4>
+                <p>Every vehicle undergoes a multi-point interior cleaning, fresh air-freshener check, and safety inspection before pickup.</p>
+            </div>
+            <div class="pillar-box anim-fade-left">
+                <div class="pillar-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h4>100% Transparent Billing</h4>
+                <p>Clear all-inclusive or itemized quotes upfront—no last-minute surprises or hidden route charges.</p>
+            </div>
+            <div class="pillar-box anim-fade-right">
+                <div class="pillar-icon"><i class="fas fa-headset"></i></div>
+                <h4>24/7 Live Trip Support</h4>
+                <p>Whether it is a 3 AM Delhi Airport transfer or a family tour in Manali, our Zirakpur control desk tracks and supports your ride.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW LUXURY SECTION: OUR SIGNATURE FLEET LINEUP -->
+    <section class="container anim-fade-up" style="text-align: center;">
+        <span class="srt-badge-tag">TRAVEL IN CINEMATIC COMFORT</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 10px;">Our <span class="srt-gold-shimmer">Signature Fleet</span></h2>
+        <p style="color: #94a3b8; font-size: 14.5px; max-width: 650px; margin: 0 auto 20px;">Tap any vehicle below to enquire directly on WhatsApp for your upcoming one-way drop or family tour.</p>
+
+        <div class="fleet-pills">
+            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Toyota%20Glanza%20(4+1)" target="_blank" class="fleet-pill"><i class="fas fa-car"></i> Hatchback • Toyota Glanza (4+1)</a>
+            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Swift%20Dzire%20Sedan%20(4+1)" target="_blank" class="fleet-pill"><i class="fas fa-car-side"></i> Sedan • Swift Dzire (4+1)</a>
+            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Maruti%20Ertiga%20SUV%20(6+1)" target="_blank" class="fleet-pill"><i class="fas fa-shuttle-van"></i> SUV • Maruti Ertiga (6+1)</a>
+            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Innova%20Crysta%20(7+1)" target="_blank" class="fleet-pill"><i class="fas fa-crown"></i> VIP MPV • Innova Crysta (7+1)</a>
+            <a href="https://wa.me/916280544730?text=I%20want%20to%20book%20Force%20Urbania%20Luxury%20Van" target="_blank" class="fleet-pill"><i class="fas fa-bus"></i> Luxury Van • Force Urbania</a>
+        </div>
+    </section>
+
+    <!-- Contact & Headquarters Section -->
+    <section class="container">
+        <div class="animated-card anim-fade-up">
+            <div class="animated-card-content" style="padding: 38px 26px;">
+                <div style="text-align: center;">
+                    <span class="srt-badge-tag">24/7 CONCIERGE DESK</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 8px;">Get In <span class="srt-gold-shimmer">Touch With Us</span></h3>
+                    <p style="color: #94a3b8; font-size: 14px;">Visit our Zirakpur office or reach out anytime for instant cab and tour bookings.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong style="color: #dfba6d;">Head Office:</strong><br>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Shri+Radha+Travels+SCO+38+Chaura+Bazaar+Zirakpur" target="_blank">SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong style="color: #dfba6d;">24/7 Booking Helpline:</strong><br>
+                            <a href="tel:+916280544730">+91 6280544730</a><br>
+                            <a href="https://wa.me/916280544730" target="_blank" style="color: #25D366; font-size: 13px;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong style="color: #dfba6d;">Official Email:</strong><br>
+                            <a href="mailto:shriradhatravels001@gmail.com">shriradhatravels001@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-container">
+                    <p style="color: #cbd5e1; font-size: 14px; font-weight: 600;">Follow Our Journeys & Verified Reviews</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/shri_radha_travels" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@shriradhatravels-001?si=hQbMjTZS5DRhHk0E" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Shri+Radha+Travels+Zirakpur" target="_blank" title="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="float-actions">
+        <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20a%20cab." target="_blank" class="float-btn" style="background: #25D366; color: #fff;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+916280544730" class="float-btn" style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14;"><i class="fas fa-phone-alt" style="font-size: 20px;"></i></a>
+    </div>
 
     <footer>
         <p>© 2026 Shri Radha Travels. All rights reserved.</p>
     </footer>
 
+    <!-- Scroll Reveal & Auto-Counter Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smooth Scroll Reveal
+            const animItems = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, { threshold: 0.12 });
+            animItems.forEach(item => observer.observe(item));
+
+            // Auto-Counting Numbers (0 to 10000+)
+            const counters = document.querySelectorAll('.stat-counter');
+            const counterObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseFloat(el.getAttribute('data-target'));
+                        const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+                        const suffix = el.getAttribute('data-suffix') || '';
+                        const duration = 2000;
+                        const start = performance.now();
+
+                        function tick(now) {
+                            const progress = Math.min((now - start) / duration, 1);
+                            const current = progress * target;
+                            el.textContent = current.toFixed(decimals) + suffix;
+                            if (progress < 1) {
+                                requestAnimationFrame(tick);
+                            } else {
+                                el.textContent = target.toFixed(decimals) + suffix;
+                            }
+                        }
+                        requestAnimationFrame(tick);
+                        obs.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(c => counterObserver.observe(c));
+        });
+    </script>
 </body>
 </html>
