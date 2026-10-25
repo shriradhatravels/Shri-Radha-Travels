@@ -3,119 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Blogs - Shri Radha Travels</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Travel Blogs & Insights | Shri Radha Travels</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/IMG_5108.jpeg">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        body {
-            background-color: #0b132b; /* Exact Deep Navy Blue */
-            color: #ffffff;
-            line-height: 1.6;
+
+        html {
+            scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* Exact Navbar matching your branding */
+        body {
+            background-color: #060b14;
+            color: #ffffff;
+            line-height: 1.65;
+            overflow-x: hidden;
+            padding-bottom: 90px;
+        }
+
+        /* ==========================================
+           SELECT YOUR RIDE GOLD SHIMMER & TAGS
+           ========================================== */
+        .srt-badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.38);
+            color: #dfba6d;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .srt-gold-shimmer {
+            background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: goldShine 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes goldShine {
+            to { background-position: 200% center; }
+        }
+
+        /* ==========================================
+           SMOOTH SCROLL REVEAL ANIMATIONS
+           ========================================== */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-left {
+            opacity: 0;
+            transform: translateX(-45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-right {
+            opacity: 0;
+            transform: translateX(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-zoom-in {
+            opacity: 0;
+            transform: scale(0.88);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Sticky Luxury Navbar */
         header.site-header {
-            background: rgba(11, 19, 43, 0.98);
-            padding: 12px 30px;
+            background: rgba(6, 11, 20, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 13px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(223, 186, 109, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
         }
-        /* Logo perfectly rounded with golden border */
         .logo-img {
-            width: 50px;
-            height: 50px;
+            width: 42px;
+            height: 42px;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid #d4af37;
+            border: 1.5px solid #dfba6d;
         }
         .brand-title {
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 17px;
+            font-weight: 800;
             color: #ffffff;
-            line-height: 1.1;
-        }
-        .brand-title .travels-text {
-            color: #d4af37;
-            font-style: italic;
-            font-weight: 700;
-            display: inline-block;
         }
 
-        /* Navbar Right Actions */
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
-        /* Call Now Button */
         .call-now-btn {
-            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            color: #0b132b;
-            padding: 9px 20px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            padding: 9px 16px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13.5px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            gap: 7px;
+            box-shadow: 0 4px 15px rgba(200, 151, 54, 0.3);
             transition: 0.3s ease;
         }
         .call-now-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 6px 20px rgba(200, 151, 54, 0.5);
         }
-        /* Menu Trigger Button */
         .menu-trigger {
-            width: 42px;
-            height: 42px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.35);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: #d4af37;
-            font-size: 18px;
+            color: #dfba6d;
+            font-size: 16px;
             transition: 0.3s;
         }
         .menu-trigger:hover {
-            background: rgba(212, 175, 55, 0.25);
+            background: rgba(223, 186, 109, 0.22);
         }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-nav { animation: fadeInDown 0.8s ease-out; }
-        .animate-header { animation: fadeInUp 0.9s ease-out; }
 
         /* TRUE CONTINUOUS ROTATING GOL-GOL GOLDEN BORDER ANIMATION */
         @keyframes rotate-border {
@@ -125,14 +174,18 @@
 
         .animated-card {
             position: relative;
-            background: rgba(30, 41, 59, 0.85);
-            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.78);
+            border-radius: 20px;
             overflow: hidden;
             z-index: 1;
-            transition: transform 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(223, 186, 109, 0.25);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
         }
         .animated-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            border-color: #dfba6d;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.65), 0 0 22px rgba(223, 186, 109, 0.22);
         }
 
         .animated-card::before {
@@ -146,58 +199,42 @@
                 transparent, 
                 transparent, 
                 transparent, 
-                #d4af37, 
-                #f3e7c4, 
-                #aa771c, 
+                #dfba6d, 
+                #fff3d1, 
+                #c49633, 
                 transparent
             );
-            animation: rotate-border 4s linear infinite;
+            animation: rotate-border 4.5s linear infinite;
             z-index: -2;
         }
 
         .animated-card::after {
             content: '';
             position: absolute;
-            inset: 3px;
-            background: rgba(15, 23, 42, 0.95);
-            border-radius: 14px;
+            inset: 2px;
+            background: linear-gradient(145deg, #0d1527, #090e1a);
+            border-radius: 18px;
             z-index: -1;
         }
 
         .animated-card-content {
             position: relative;
             z-index: 1;
-            padding: 25px;
+            padding: 26px 22px;
         }
 
         /* Blog Header Section */
         .blogs-hero {
-            padding: 50px 20px 30px 20px;
+            padding: 55px 20px 30px 20px;
             text-align: center;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
-        }
-        .blogs-hero span.badge {
-            display: inline-block;
-            color: #d4af37;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            background: rgba(212, 175, 55, 0.1);
-            padding: 6px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         .blogs-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
         }
         .blogs-hero p {
             color: #94a3b8;
@@ -205,14 +242,41 @@
             line-height: 1.6;
         }
 
+        /* Category Filter Tabs */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .filter-pill {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(223, 186, 109, 0.3);
+            color: #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .filter-pill.active,
+        .filter-pill:hover {
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(200, 151, 54, 0.35);
+        }
+
         /* Blog Section Container */
         .blogs-container {
             padding: 10px 20px 60px 20px;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 22px;
         }
 
         .blog-meta-top {
@@ -224,11 +288,11 @@
         .category-pill {
             font-size: 11px;
             font-weight: 700;
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.12);
+            color: #dfba6d;
+            background: rgba(223, 186, 109, 0.12);
             padding: 5px 12px;
             border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(223, 186, 109, 0.3);
             display: inline-flex;
             align-items: center;
             gap: 5px;
@@ -244,28 +308,28 @@
             font-family: 'Playfair Display', serif;
             color: #ffffff;
             margin-bottom: 10px;
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 700;
-            line-height: 1.4;
+            line-height: 1.35;
         }
         .blog-desc {
-            color: #cbd5e1;
+            color: #94a3b8;
             font-size: 14px;
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
         .read-more-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #d4af37;
-            font-size: 14px;
+            color: #dfba6d;
+            font-size: 13.5px;
             font-weight: 700;
             text-decoration: none;
             transition: 0.2s;
         }
         .read-more-link:hover {
-            color: #f3e7c4;
+            color: #fff3d1;
             gap: 12px;
         }
 
@@ -277,27 +341,27 @@
             left: 0; 
             width: 100%; 
             height: 100%; 
-            background: rgba(11, 19, 43, 0.9); 
-            backdrop-filter: blur(10px); 
+            background: rgba(6, 11, 20, 0.9); 
+            backdrop-filter: blur(12px); 
             z-index: 9999; 
             justify-content: center; 
             align-items: center; 
             padding: 20px;
         }
         .menu-card {
-            background: linear-gradient(135deg, #fdf6e2, #f3e5ab); 
+            background: rgba(15, 23, 42, 0.95); 
             width: 100%; 
             max-width: 380px; 
             border-radius: 24px; 
             padding: 25px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
-            border: 1px solid #d4af37;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+            border: 1.5px solid #dfba6d;
         }
         .menu-header-flex {
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4); 
+            border-bottom: 1px solid rgba(223, 186, 109, 0.3); 
             padding-bottom: 15px; 
             margin-bottom: 20px;
         }
@@ -309,7 +373,7 @@
         }
         .menu-links a {
             padding: 12px 18px; 
-            color: #1e3a8a; 
+            color: #ffffff; 
             font-weight: 700; 
             text-decoration: none; 
             border-radius: 12px; 
@@ -317,62 +381,75 @@
             transition: 0.2s;
         }
         .menu-links a:hover, .menu-links a.active {
-            background: rgba(30, 58, 138, 0.12);
+            background: rgba(223, 186, 109, 0.15);
+            color: #dfba6d;
         }
         .book-ride-btn {
             display: block; 
             width: 100%; 
-            background: #1e3a8a; 
-            color: #ffffff; 
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); 
+            color: #060b14; 
             text-align: center; 
             padding: 14px; 
             border-radius: 14px; 
-            font-weight: 700; 
+            font-weight: 800; 
             text-decoration: none; 
             font-size: 16px; 
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            box-shadow: 0 4px 15px rgba(200, 151, 54, 0.35);
+        }
+
+        /* Floating Action Buttons */
+        .float-actions {
+            position: fixed;
+            bottom: 22px;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+        .float-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 23px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #64748b;
-            font-size: 14px;
+            border-top: 1px solid rgba(223, 186, 109, 0.2);
+            color: #94a3b8;
+            font-size: 13px;
         }
 
         @media(max-width: 768px) {
-            header.site-header {
-                padding: 10px 15px;
-            }
-            .brand-title {
-                font-size: 18px;
-            }
-            .logo-img {
-                width: 42px;
-                height: 42px;
-            }
-            .call-now-btn {
-                padding: 8px 14px;
-                font-size: 13px;
-            }
+            header.site-header { padding: 10px 15px; }
+            .brand-title { font-size: 16px; }
+            .blogs-hero h1 { font-size: 28px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="site-header animate-nav">
+    <!-- Sticky Luxury Header -->
+    <header class="site-header anim-fade-up">
         <a href="index.html" class="logo-container">
             <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" class="logo-img">
             <div class="brand-title">
-                Shri Radha <span class="travels-text">Travels</span>
+                Shri Radha <span class="srt-gold-shimmer">Travels</span>
             </div>
         </a>
 
         <div class="nav-actions">
             <a href="tel:+916280544730" class="call-now-btn">
-                <i class="fas fa-phone-alt"></i> Call Now
+                <i class="fas fa-phone-alt" style="font-size: 12px;"></i> Call Now
             </a>
             <div class="menu-trigger" onclick="openMenu()">
                 <i class="fas fa-bars"></i>
@@ -380,91 +457,128 @@
         </div>
     </header>
 
-    <section class="blogs-hero animate-header">
-        <span class="badge">
-            <i class="fas fa-star" style="font-size: 10px;"></i> Shri Radha Insights <i class="fas fa-star" style="font-size: 10px;"></i>
+    <!-- Hero Section -->
+    <section class="blogs-hero anim-fade-up">
+        <span class="srt-badge-tag">
+            <i class="fas fa-star" style="font-size: 10px;"></i> Shri Radha Insights
         </span>
-        <h1>Travel Guides & Soulful Stories</h1>
-        <p>Explore unique destinations and divine journeys specially curated for your comfortable outstation rides.</p>
+        <h1>Travel Guides & <span class="srt-gold-shimmer">Soulful Stories</span></h1>
+        <p>Explore unique destinations, safe road trip tips, and divine journeys specially curated for your comfortable outstation rides.</p>
     </section>
 
+    <!-- NEW FEATURE: Category Filter Tabs -->
+    <div class="filter-bar anim-fade-up">
+        <button class="filter-pill active" onclick="filterBlogs('all', this)">All Stories (5)</button>
+        <button class="filter-pill" onclick="filterBlogs('hidden', this)">Hidden Gems</button>
+        <button class="filter-pill" onclick="filterBlogs('luxury', this)">Luxury Travel</button>
+        <button class="filter-pill" onclick="filterBlogs('spiritual', this)">Spiritual Soul</button>
+        <button class="filter-pill" onclick="filterBlogs('adventure', this)">Mountain Road Trips</button>
+    </div>
+
+    <!-- Blogs Container (3 Original + 2 New Added) -->
     <section class="blogs-container">
         
-        <div class="animated-card">
+        <!-- Blog 1: Hidden Gems -->
+        <div class="animated-card blog-item hidden anim-fade-left">
             <div class="animated-card-content">
                 <div class="blog-meta-top">
-                    <span class="category-pill">
-                        <i class="fas fa-compass"></i> Hidden Gems
-                    </span>
-                    <span class="blog-date"><i class="fas fa-calendar-alt" style="color: #d4af37;"></i> June 2026</span>
+                    <span class="category-pill"><i class="fas fa-compass"></i> Hidden Gems</span>
+                    <span class="blog-date"><i class="fas fa-clock" style="color: #dfba6d;"></i> 4 Min Read</span>
                 </div>
-                <h3 class="blog-title">
-                    Secret Valleys of the North: Escaping the Crowd
-                </h3>
+                <h3 class="blog-title">Secret Valleys of the North: Escaping the Crowd</h3>
                 <p class="blog-desc">
-                    Explore untouched landscapes and peaceful mountain retreats where nature speaks in silence. Perfect for travelers seeking ultimate solace away from mainstream spots with our verified cabs.
+                    Explore untouched landscapes and peaceful mountain retreats where nature speaks in silence. Perfect for travelers seeking ultimate solace away from mainstream spots with our verified hill-expert cabs.
                 </p>
-                <a href="tel:+916280544730" class="read-more-link">
-                    <span>Call & Plan Journey</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20read%20your%20Secret%20Valleys%20blog%20and%20want%20to%20plan%20a%20trip." target="_blank" class="read-more-link">
+                    <span>Plan This Trip on WhatsApp</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
                 </a>
             </div>
         </div>
 
-        <div class="animated-card">
+        <!-- Blog 2: Luxury Travel -->
+        <div class="animated-card blog-item luxury anim-fade-right">
             <div class="animated-card-content">
                 <div class="blog-meta-top">
-                    <span class="category-pill">
-                        <i class="fas fa-gem"></i> Luxury Travel
-                    </span>
-                    <span class="blog-date"><i class="fas fa-calendar-alt" style="color: #d4af37;"></i> June 2026</span>
+                    <span class="category-pill"><i class="fas fa-gem"></i> Luxury Travel</span>
+                    <span class="blog-date"><i class="fas fa-clock" style="color: #dfba6d;"></i> 5 Min Read</span>
                 </div>
-                <h3 class="blog-title">
-                    Experiencing Royal Comfort Without Breaking the Bank
-                </h3>
+                <h3 class="blog-title">Experiencing Royal Comfort Without Breaking the Bank</h3>
                 <p class="blog-desc">
-                    Luxury isn't just about high costs; it's about smart planning. Discover insider tips on how to enjoy premium outstation rides and private transfers affordably and safely.
+                    Luxury isn't just about high costs; it's about smart planning. Discover insider tips on how to enjoy premium outstation rides in Swift Dzire, Ertiga, or Innova Crysta affordably and safely.
                 </p>
-                <a href="tel:+916280544730" class="read-more-link">
-                    <span>Call & Plan Journey</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20luxury%20cab%20package." target="_blank" class="read-more-link">
+                    <span>Enquire Luxury Fleet</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
                 </a>
             </div>
         </div>
 
-        <div class="animated-card">
+        <!-- Blog 3: Spiritual Soul -->
+        <div class="animated-card blog-item spiritual anim-fade-left">
             <div class="animated-card-content">
                 <div class="blog-meta-top">
-                    <span class="category-pill">
-                        <i class="fas fa-om"></i> Spiritual Soul
-                    </span>
-                    <span class="blog-date"><i class="fas fa-calendar-alt" style="color: #d4af37;"></i> June 2026</span>
+                    <span class="category-pill"><i class="fas fa-om"></i> Spiritual Soul</span>
+                    <span class="blog-date"><i class="fas fa-clock" style="color: #dfba6d;"></i> 4 Min Read</span>
                 </div>
-                <h3 class="blog-title">
-                    The Divine Calm: Why a Journey to Vrindavan Heals
-                </h3>
+                <h3 class="blog-title">The Divine Calm: Why a Journey to Vrindavan Heals</h3>
                 <p class="blog-desc">
-                    Immerse yourself in the eternal devotion of Braj. From peaceful ghats to evening aartis, experience a soulful spiritual awakening with our comfortable cab services.
+                    Immerse yourself in the eternal devotion of Braj. From peaceful ghats to evening aartis at Prem Mandir, experience a soulful spiritual awakening with our comfortable door-to-door cab services.
                 </p>
-                <a href="tel:+916280544730" class="read-more-link">
-                    <span>Call & Plan Journey</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20Mathura%20Vrindavan%20trip." target="_blank" class="read-more-link">
+                    <span>Book Braj Darshan Cab</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Blog 4: NEW ADDITION - Mountain Road Trips -->
+        <div class="animated-card blog-item adventure anim-fade-right">
+            <div class="animated-card-content">
+                <div class="blog-meta-top">
+                    <span class="category-pill"><i class="fas fa-mountain"></i> Mountain Road Trips</span>
+                    <span class="blog-date"><i class="fas fa-clock" style="color: #dfba6d;"></i> 6 Min Read</span>
+                </div>
+                <h3 class="blog-title">Conquering High Passes: Essential Tips for Shimla, Manali & Spiti</h3>
+                <p class="blog-desc">
+                    Planning a trip to the Himalayas? Learn why hiring an experienced hill-expert driver with a powerful 7-seater Innova Crysta or Ertiga is crucial for safe navigation over Rohtang and Atal Tunnel.
+                </p>
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20need%20a%20hill-expert%20driver%20for%20Himachal." target="_blank" class="read-more-link">
+                    <span>Talk to Mountain Expert</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Blog 5: NEW ADDITION - Family Road Trip vs Train -->
+        <div class="animated-card blog-item luxury anim-fade-left">
+            <div class="animated-card-content">
+                <div class="blog-meta-top">
+                    <span class="category-pill"><i class="fas fa-car-side"></i> Family Travel</span>
+                    <span class="blog-date"><i class="fas fa-clock" style="color: #dfba6d;"></i> 5 Min Read</span>
+                </div>
+                <h3 class="blog-title">Why a Private Outstation Cab Beats Trains & Buses Every Time</h3>
+                <p class="blog-desc">
+                    No luggage hassles, no waiting in crowded stations, and complete privacy for your family. Discover the unmatched convenience of door-to-door private cab rentals across North India.
+                </p>
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20an%20outstation%20cab%20for%20my%20family." target="_blank" class="read-more-link">
+                    <span>Book Family Cab Now</span> <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
                 </a>
             </div>
         </div>
 
     </section>
 
+    <!-- Fullscreen Popup Menu Overlay -->
     <div id="mobileNavMenu">
         <div class="menu-card">
             <div class="menu-header-flex">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid #d4af37;">
+                    <div style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1.5px solid #dfba6d;">
                         <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div>
-                        <h3 style="font-size: 15px; font-weight: 800; color: #1e3a8a; margin: 0;">Shri Radha</h3>
-                        <span style="font-size: 9px; font-weight: 700; color: #854d0e; letter-spacing: 1px; text-transform: uppercase;">TRAVELS</span>
+                        <h3 style="font-size: 16px; font-weight: 800; color: #ffffff; margin: 0; font-family: 'Playfair Display', serif;">Shri Radha</h3>
+                        <span style="font-size: 9px; font-weight: 700; color: #dfba6d; letter-spacing: 1px; text-transform: uppercase;">TRAVELS</span>
                     </div>
                 </div>
-                <div onclick="closeMenu()" style="width: 32px; height: 32px; background: rgba(30, 58, 138, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #1e3a8a; font-size: 16px;">
+                <div onclick="closeMenu()" style="width: 32px; height: 32px; background: rgba(223, 186, 109, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #dfba6d; font-size: 16px;">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
@@ -483,10 +597,17 @@
         </div>
     </div>
 
+    <!-- Floating WhatsApp & Call Buttons -->
+    <div class="float-actions">
+        <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20read%20your%20blogs%20and%20want%20to%20book%20a%20cab." target="_blank" class="float-btn" style="background: #25D366; color: #fff;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+916280544730" class="float-btn" style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14;"><i class="fas fa-phone-alt" style="font-size: 20px;"></i></a>
+    </div>
+
     <footer>
-        <p>© 2026 Shri Radha Travels. All rights reserved.</p>
+        <p>© 2026 Shri Radha Travels • SCO 38, Chaura Bazar, Lohgarh, Zirakpur • +91 6280544730</p>
     </footer>
 
+    <!-- Script for Filter & Reveal Animations -->
     <script>
         function openMenu() {
             document.getElementById('mobileNavMenu').style.display = 'flex';
@@ -494,6 +615,33 @@
         function closeMenu() {
             document.getElementById('mobileNavMenu').style.display = 'none';
         }
+
+        function filterBlogs(category, btn) {
+            const buttons = document.querySelectorAll('.filter-pill');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.blog-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const animEls = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animEls.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
