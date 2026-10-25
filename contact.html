@@ -3,23 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Shri Radha Travels</title>
+    <title>Contact Us & 24/7 Support | Shri Radha Travels</title>
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/IMG_5108.jpeg">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
-            background-color: #0b1120;
+            background-color: #060b14;
             color: #ffffff;
             overflow-x: hidden;
+            padding-bottom: 90px;
+        }
+
+        /* ==========================================
+           SELECT YOUR RIDE GOLD SHIMMER & TAGS
+           ========================================== */
+        .srt-badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.38);
+            color: #dfba6d;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .srt-gold-shimmer {
+            background: linear-gradient(120deg, #dfba6d 0%, #fff3d1 50%, #c49633 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: goldShine 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes goldShine {
+            to { background-position: 200% center; }
+        }
+
+        /* ==========================================
+           SMOOTH SCROLL REVEAL ANIMATIONS
+           ========================================== */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-left {
+            opacity: 0;
+            transform: translateX(-45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-fade-right {
+            opacity: 0;
+            transform: translateX(45px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-zoom-in {
+            opacity: 0;
+            transform: scale(0.88);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .anim-visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Sticky Luxury Navbar */
+        nav.luxury-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(6, 11, 20, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 13px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(223, 186, 109, 0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .call-now-btn {
+            background: linear-gradient(135deg, #eed08d 0%, #c89736 100%);
+            color: #060b14;
+            padding: 9px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13.5px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            box-shadow: 0 4px 15px rgba(200, 151, 54, 0.3);
+            transition: 0.3s ease;
+        }
+        .call-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 151, 54, 0.5);
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(223, 186, 109, 0.12);
+            border: 1px solid rgba(223, 186, 109, 0.4);
+            padding: 9px 13px;
+            border-radius: 10px;
+            color: #dfba6d;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .home-btn:hover {
+            background: rgba(223, 186, 109, 0.22);
         }
 
         /* TRUE CONTINUOUS ROTATING GOL-GOL GOLDEN BORDER ANIMATION */
@@ -30,12 +150,20 @@
 
         .animated-card {
             position: relative;
-            background: #131c31;
-            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.78);
+            border-radius: 20px;
             overflow: hidden;
             z-index: 1;
-            margin-bottom: 18px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(223, 186, 109, 0.25);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animated-card:hover {
+            transform: translateY(-5px);
+            border-color: #dfba6d;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(223, 186, 109, 0.2);
         }
 
         .animated-card::before {
@@ -49,12 +177,12 @@
                 transparent, 
                 transparent, 
                 transparent, 
-                #d4af37, 
-                #f3e7c4, 
-                #aa771c, 
+                #dfba6d, 
+                #fff3d1, 
+                #c49633, 
                 transparent
             );
-            animation: rotate-border 4s linear infinite;
+            animation: rotate-border 4.5s linear infinite;
             z-index: -2;
         }
 
@@ -62,138 +190,183 @@
             content: '';
             position: absolute;
             inset: 2px;
-            background: linear-gradient(145deg, #131c31, #0f172a);
-            border-radius: 15px;
+            background: linear-gradient(145deg, #0d1527, #090e1a);
+            border-radius: 18px;
             z-index: -1;
         }
 
         .animated-card-content {
             position: relative;
             z-index: 1;
-            padding: 22px;
+            padding: 26px 22px;
         }
 
-        /* Call Now Button Style */
-        .call-now-btn {
-            background: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            color: #0b1120;
-            padding: 8px 16px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 13.5px;
+        /* Form Inputs */
+        .form-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(223, 186, 109, 0.4);
+            background: rgba(255, 255, 255, 0.92);
+            color: #060b14;
+            font-size: 14px;
+            margin-bottom: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .form-input:focus {
+            border-color: #dfba6d;
+            box-shadow: 0 0 10px rgba(223, 186, 109, 0.3);
+        }
+
+        /* Floating Action Buttons */
+        .float-actions {
+            position: fixed;
+            bottom: 22px;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+        .float-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 7px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: 0.3s ease;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 23px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
-        .call-now-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(223, 186, 109, 0.2);
+            color: #94a3b8;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Proper Non-Overlapping Navbar with Logo & Call Button -->
-    <nav style="position: sticky; top: 0; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(212, 175, 55, 0.3);">
+    <!-- Sticky Luxury Navbar -->
+    <nav class="luxury-nav">
         <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-            <div style="width: 42px; height: 42px; border-radius: 50%; overflow: hidden; border: 2px solid #d4af37; flex-shrink: 0;">
+            <div style="width: 42px; height: 42px; border-radius: 50%; overflow: hidden; border: 1.5px solid #dfba6d; flex-shrink: 0;">
                 <img src="C5D16EF3-7CE7-4386-8FCE-C6749F20FCF5_946569FB-C024-4698-B95E-59C5796012AC.jpeg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <span style="color: white; font-weight: 700; font-size: 16px; font-family: 'Playfair Display', serif; letter-spacing: 0.5px;">Shri Radha <span style="color: #d4af37;">Travels</span></span>
+            <span style="color: white; font-weight: 800; font-size: 17px; font-family: 'Playfair Display', serif;">Shri Radha <span class="srt-gold-shimmer">Travels</span></span>
         </a>
 
         <div style="display: flex; align-items: center; gap: 10px;">
             <a href="tel:+916280544730" class="call-now-btn">
                 <i class="fas fa-phone-alt" style="font-size: 12px;"></i> Call Now
             </a>
-            <a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 10px; color: #d4af37; font-size: 12.5px; font-weight: 700; text-decoration: none;">
+            <a href="index.html" class="home-btn">
                 <i class="fas fa-home" style="font-size: 11px;"></i> Home
             </a>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <header style="padding: 35px 20px 20px 20px; text-align: center;">
-        <span style="display: inline-block; color: #d4af37; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">
-            <i class="fas fa-headset" style="margin-right: 4px;"></i> 24/7 Support
+    <header class="anim-fade-up" style="padding: 45px 20px 25px 20px; text-align: center;">
+        <span class="srt-badge-tag">
+            <i class="fas fa-headset"></i> 24/7 Concierge Desk
         </span>
-        <h1 style="color: #38bdf8; font-size: 26px; font-weight: 800; margin: 0 0 8px 0; letter-spacing: 0.5px; font-family: 'Playfair Display', serif;">
-            Get in Touch
+        <h1 style="color: #ffffff; font-size: 34px; font-weight: 800; margin: 0 0 10px 0; font-family: 'Playfair Display', serif;">
+            Get in <span class="srt-gold-shimmer">Touch</span>
         </h1>
-        <p style="color: #94a3b8; font-size: 13.5px; max-width: 420px; margin: 0 auto; line-height: 1.5;">
-            Have questions or want to book a cab? Connect with us instantly through call, WhatsApp, or visit our office.
+        <p style="color: #94a3b8; font-size: 14.5px; max-width: 480px; margin: 0 auto; line-height: 1.6;">
+            Have questions or want to book a cab? Connect with us instantly through call, WhatsApp, quick inquiry form, or visit our Zirakpur office.
         </p>
     </header>
 
     <!-- Contact Options Container -->
-    <main style="padding: 10px 20px 50px 20px; max-width: 500px; margin: 0 auto;">
+    <main style="padding: 10px 20px 60px 20px; max-width: 520px; margin: 0 auto;">
         
         <!-- Direct Phone Call Card -->
-        <div class="animated-card">
+        <div class="animated-card anim-fade-left">
             <div class="animated-card-content">
                 <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
-                    <div style="width: 45px; height: 45px; background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #d4af37; font-size: 20px; flex-shrink: 0;">
+                    <div style="width: 45px; height: 45px; background: rgba(223, 186, 109, 0.15); border: 1px solid #dfba6d; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 20px; flex-shrink: 0;">
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <div>
-                        <h3 style="color: #38bdf8; font-size: 16px; font-weight: 700; margin: 0 0 2px 0;">Direct Phone Call</h3>
+                        <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin: 0 0 2px 0;">Direct Phone Call</h3>
                         <p style="color: #94a3b8; font-size: 12.5px; margin: 0;">Speak directly with our travel desk</p>
                     </div>
                 </div>
-                <a href="tel:+916280544730" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: linear-gradient(135deg, #d4af37, #aa820a); color: #0b1120; text-align: center; padding: 13px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 15px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                <a href="tel:+916280544730" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14; text-align: center; padding: 13px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 15px; box-shadow: 0 4px 15px rgba(200, 151, 54, 0.35);">
                     <i class="fas fa-phone" style="font-size: 13px;"></i> +91 62805 44730
                 </a>
             </div>
         </div>
 
         <!-- WhatsApp Chat Card -->
-        <div class="animated-card">
+        <div class="animated-card anim-fade-right">
             <div class="animated-card-content">
                 <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
                     <div style="width: 45px; height: 45px; background: rgba(34, 197, 94, 0.15); border: 1px solid #22c55e; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #22c55e; font-size: 22px; flex-shrink: 0;">
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <div>
-                        <h3 style="color: #38bdf8; font-size: 16px; font-weight: 700; margin: 0 0 2px 0;">WhatsApp Chat</h3>
+                        <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin: 0 0 2px 0;">WhatsApp Chat</h3>
                         <p style="color: #94a3b8; font-size: 12.5px; margin: 0;">Get instant quotes & itineraries</p>
                     </div>
                 </div>
-                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20cab." target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: #22c55e; color: #ffffff; text-align: center; padding: 13px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 15px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);">
+                <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20a%20cab." target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: #25d366; color: #ffffff; text-align: center; padding: 13px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 15px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);">
                     <i class="fab fa-whatsapp" style="font-size: 16px;"></i> Chat on WhatsApp
                 </a>
             </div>
         </div>
 
+        <!-- NEW ADDITION: Quick Message Form -->
+        <div class="animated-card anim-fade-up">
+            <div class="animated-card-content">
+                <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 6px;"><i class="fas fa-paper-plane" style="color: #dfba6d; margin-right: 6px;"></i> Send Quick Enquiry</h3>
+                <p style="color: #94a3b8; font-size: 12.5px; margin-bottom: 16px;">Fill details and send directly via WhatsApp</p>
+                
+                <form onsubmit="sendQuickQuery(event)">
+                    <input type="text" id="qName" placeholder="Your Name" class="form-input" required>
+                    <input type="tel" id="qPhone" placeholder="Phone Number" class="form-input" required>
+                    <textarea id="qMsg" placeholder="Where do you want to travel?" class="form-input" rows="3" style="resize: none;" required></textarea>
+                    <button type="submit" style="display: block; width: 100%; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14; padding: 13px; border: none; border-radius: 12px; font-weight: 800; font-size: 14.5px; cursor: pointer; box-shadow: 0 4px 15px rgba(200, 151, 54, 0.35);">
+                        Send Enquiry to WhatsApp <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
         <!-- Email Card -->
-        <div class="animated-card">
+        <div class="animated-card anim-fade-left">
             <div class="animated-card-content">
                 <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
-                    <div style="width: 45px; height: 45px; background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #d4af37; font-size: 18px; flex-shrink: 0;">
+                    <div style="width: 45px; height: 45px; background: rgba(223, 186, 109, 0.15); border: 1px solid #dfba6d; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 18px; flex-shrink: 0;">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div>
-                        <h3 style="color: #38bdf8; font-size: 16px; font-weight: 700; margin: 0 0 2px 0;">Email Us</h3>
+                        <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin: 0 0 2px 0;">Email Us</h3>
                         <p style="color: #94a3b8; font-size: 12.5px; margin: 0;">For bookings and official queries</p>
                     </div>
                 </div>
-                <a href="mailto:Shriradhatravels001@gmail.com" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; color: #d4af37; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 14px;">
-                    <i class="fas fa-paper-plane" style="font-size: 12px;"></i> Shriradhatravels001@gmail.com
+                <a href="mailto:Shriradhatravels001@gmail.com" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.35); color: #dfba6d; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 13.5px;">
+                    <i class="fas fa-envelope-open-text" style="font-size: 12px;"></i> Shriradhatravels001@gmail.com
                 </a>
             </div>
         </div>
 
         <!-- Office Address Card -->
-        <div class="animated-card">
+        <div class="animated-card anim-fade-right">
             <div class="animated-card-content">
                 <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
-                    <div style="width: 45px; height: 45px; background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #d4af37; font-size: 18px; flex-shrink: 0;">
+                    <div style="width: 45px; height: 45px; background: rgba(223, 186, 109, 0.15); border: 1px solid #dfba6d; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #dfba6d; font-size: 18px; flex-shrink: 0;">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div>
-                        <h3 style="color: #38bdf8; font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">Our Office Address</h3>
+                        <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin: 0 0 4px 0;">Our Office Address</h3>
                         <p style="color: #cbd5e1; font-size: 13.5px; line-height: 1.5; margin: 0;">
                             SCO 38, Chaura Bazar, Green Park Colony, Lohgarh, Zirakpur, Punjab 140603, India
                         </p>
@@ -206,10 +379,10 @@
         </div>
 
         <!-- Google Map Embed Container -->
-        <div style="border-radius: 16px; overflow: hidden; margin-bottom: 18px; border: 1px solid rgba(212, 175, 55, 0.35);">
+        <div class="animated-card anim-zoom-in" style="border-radius: 16px; overflow: hidden; margin-bottom: 20px;">
             <iframe 
                 width="100%" 
-                height="350" 
+                height="320" 
                 style="border:0;" 
                 loading="lazy" 
                 allowfullscreen 
@@ -218,20 +391,17 @@
         </div>
 
         <!-- Social Media Links Section -->
-        <div class="animated-card">
+        <div class="animated-card anim-fade-up">
             <div class="animated-card-content" style="text-align: center;">
-                <h3 style="color: #38bdf8; font-size: 15px; font-weight: 700; margin: 0 0 14px 0;">Connect On Social Media</h3>
-                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/shriradhatravels" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; border-radius: 10px; box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3);">
-                        <i class="fab fa-instagram" style="font-size: 16px;"></i> Insta
+                <h3 style="color: #ffffff; font-size: 16px; font-weight: 700; margin: 0 0 14px 0;">Connect On Social Media</h3>
+                <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                    <a href="https://www.instagram.com/shri_radha_travels" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.35); color: #dfba6d; text-decoration: none; font-size: 13px; font-weight: 700; border-radius: 10px;">
+                        <i class="fab fa-instagram" style="font-size: 16px;"></i> Instagram
                     </a>
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/shriradhatravels" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; background: linear-gradient(135deg, #1877f2 0%, #0c5dc7 100%); color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; border-radius: 10px; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);">
-                        <i class="fab fa-facebook-f" style="font-size: 16px;"></i> FB
+                    <a href="https://www.facebook.com/share/1CwQF24NsF/" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.35); color: #dfba6d; text-decoration: none; font-size: 13px; font-weight: 700; border-radius: 10px;">
+                        <i class="fab fa-facebook-f" style="font-size: 16px;"></i> Facebook
                     </a>
-                    <!-- YouTube -->
-                    <a href="https://youtube.com/@shriradhatravels-001?si=hQbMjTZS5DRhHk0E" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 600; border-radius: 10px; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);">
+                    <a href="https://youtube.com/@shriradhatravels-001?si=hQbMjTZS5DRhHk0E" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; background: rgba(223, 186, 109, 0.12); border: 1px solid rgba(223, 186, 109, 0.35); color: #dfba6d; text-decoration: none; font-size: 13px; font-weight: 700; border-radius: 10px;">
                         <i class="fab fa-youtube" style="font-size: 16px;"></i> YouTube
                     </a>
                 </div>
@@ -240,5 +410,39 @@
 
     </main>
 
+    <!-- Floating WhatsApp & Call Buttons -->
+    <div class="float-actions">
+        <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20enquire%20about%20a%20cab." target="_blank" class="float-btn" style="background: #25D366; color: #fff;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+916280544730" class="float-btn" style="background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14;"><i class="fas fa-phone-alt" style="font-size: 20px;"></i></a>
+    </div>
+
+    <footer>
+        <p>© 2026 Shri Radha Travels • SCO 38, Chaura Bazar, Lohgarh, Zirakpur • +91 6280544730</p>
+    </footer>
+
+    <!-- Script for Quick Enquiry & Scroll Animations -->
+    <script>
+        function sendQuickQuery(e) {
+            e.preventDefault();
+            const name = document.getElementById('qName').value;
+            const phone = document.getElementById('qPhone').value;
+            const msg = document.getElementById('qMsg').value;
+            
+            const text = `*New Quick Enquiry - Shri Radha Travels*%0A---------------------------%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Message:* ${msg}`;
+            window.open(`https://wa.me/916280544730?text=${text}`, '_blank');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const animEls = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-zoom-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animEls.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
