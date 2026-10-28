@@ -241,7 +241,37 @@
             <button onclick="scrollRightBtn()" style="background: rgba(15, 23, 42, 0.9); border: 1px solid #dfba6d; color: #dfba6d;">&#8594;</button>
         </div>
     </section>
+    <!-- UNIQUE SECTION 1: INTERACTIVE TRIP VIBE SELECTOR -->
+    <section class="vibe-selector-section anim-fade-up" style="background: #060b14; padding: 55px 20px; border-bottom: 1px solid rgba(223, 186, 109, 0.2);">
+    <div style="max-width: 550px; margin: 0 auto; text-align: center;">
+        <span class="srt-badge-tag">CURATED FOR YOUR MOOD</span>
+        <h2 class="srt-section-title" style="color: #ffffff; margin: 8px 0 18px;">What's Your <span class="srt-gold-shimmer">Travel Vibe?</span></h2>
+        
+        <!-- Interactive Vibe Buttons -->
+        <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 18px; justify-content: flex-start; scrollbar-width: none;">
+            <button onclick="setVibe('snow', this)" class="vibe-btn" style="flex-shrink: 0; padding: 10px 16px; border-radius: 30px; border: 1px solid #dfba6d; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14; font-weight: 700; font-size: 13px; cursor: pointer;">❄️ Snow & Hills</button>
+            <button onclick="setVibe('spiritual', this)" class="vibe-btn" style="flex-shrink: 0; padding: 10px 16px; border-radius: 30px; border: 1px solid rgba(223,186,109,0.4); background: rgba(15,23,42,0.8); color: #dfba6d; font-weight: 600; font-size: 13px; cursor: pointer;">🛕 Spiritual Yatra</button>
+            <button onclick="setVibe('royal', this)" class="vibe-btn" style="flex-shrink: 0; padding: 10px 16px; border-radius: 30px; border: 1px solid rgba(223,186,109,0.4); background: rgba(15,23,42,0.8); color: #dfba6d; font-weight: 600; font-size: 13px; cursor: pointer;">👑 Royal Heritage</button>
+            <button onclick="setVibe('group', this)" class="vibe-btn" style="flex-shrink: 0; padding: 10px 16px; border-radius: 30px; border: 1px solid rgba(223,186,109,0.4); background: rgba(15,23,42,0.8); color: #dfba6d; font-weight: 600; font-size: 13px; cursor: pointer;">🚐 Big Family/Group</button>
+        </div>
 
+        <!-- Dynamic Vibe Display Card -->
+        <div id="vibeCard" class="srt-service-card" style="padding: 22px; border-radius: 24px; text-align: left; transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span id="vibeTag" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">MOST POPULAR IN WINTER</span>
+                <span id="vibeDuration" style="color: #dfba6d; font-size: 13px; font-weight: 700;"><i class="fas fa-clock"></i> 4 to 6 Days</span>
+            </div>
+            <h3 id="vibeTitle" style="color: #ffffff; font-size: 21px; font-weight: 800; margin: 0 0 8px 0; font-family: 'Playfair Display', serif;">Manali, Solang & Atal Tunnel</h3>
+            <p id="vibeDesc" style="color: #cbd5e1; font-size: 13.5px; line-height: 1.6; margin: 0 0 16px 0;">Experience fresh snowfall, pine valleys, and safe mountain driving with our hill-expert chauffeurs from Chandigarh/Zirakpur.</p>
+            <div style="background: rgba(6, 11, 20, 0.6); border: 1px solid rgba(223, 186, 109, 0.25); padding: 10px 14px; border-radius: 12px; margin-bottom: 18px; font-size: 13px; color: #ffffff;">
+                🚘 <strong>Recommended Ride:</strong> <span id="vibeCar" style="color: #dfba6d;">Innova Crysta / Maruti Ertiga</span>
+            </div>
+            <a id="vibeWaLink" href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20plan%20a%20Snow%20%26%20Hills%20Trip!" target="_blank" class="srt-btn srt-btn-gold" style="border-radius: 50px; padding: 13px; font-size: 14px; display: block; text-align: center;">
+                Plan This Vibe on WhatsApp &rarr;
+            </a>
+        </div>
+    </div>
+</section>
     <!-- HERO & SERVICES SECTION (Select Your Ride. Travel Without Limits) -->
     <section class="srt-hero-section">
         <div class="srt-container">
@@ -679,7 +709,36 @@
             </div>
         </div>
     </section>
+    <!-- UNIQUE SECTION 2: SMART CAB RECOMMENDER -->
+<section class="cab-finder-section anim-fade-up" style="background: #060b14; padding: 60px 20px; border-top: 1px solid rgba(223, 186, 109, 0.2);">
+    <div style="max-width: 480px; margin: 0 auto;">
+        <div class="srt-service-card" style="border-radius: 26px; padding: 28px 22px; border: 1.5px solid rgba(223, 186, 109, 0.5);">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="srt-badge-tag">CONFUSED WHICH CAR TO BOOK?</span>
+                <h2 class="srt-section-title" style="color: #ffffff; font-size: 24px; margin: 6px 0;">Smart <span class="srt-gold-shimmer">Cab Finder</span></h2>
+                <p style="color: #94a3b8; font-size: 13px; margin: 0;">Select your group size to find your perfect luxury match</p>
+            </div>
 
+            <!-- Group Size Selector -->
+            <label style="color: #dfba6d; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">1. How many people are travelling?</label>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
+                <button type="button" onclick="recommendCab('small', this)" class="finder-btn" style="padding: 12px 8px; border-radius: 12px; border: 1px solid #dfba6d; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); color: #060b14; font-weight: 700; font-size: 13px; cursor: pointer;">1 - 4 Pax</button>
+                <button type="button" onclick="recommendCab('medium', this)" class="finder-btn" style="padding: 12px 8px; border-radius: 12px; border: 1px solid rgba(223,186,109,0.4); background: rgba(6,11,20,0.8); color: #ffffff; font-weight: 600; font-size: 13px; cursor: pointer;">5 - 7 Pax</button>
+                <button type="button" onclick="recommendCab('large', this)" class="finder-btn" style="padding: 12px 8px; border-radius: 12px; border: 1px solid rgba(223,186,109,0.4); background: rgba(6,11,20,0.8); color: #ffffff; font-weight: 600; font-size: 13px; cursor: pointer;">8 - 16 Pax</button>
+            </div>
+
+            <!-- Live Result Box -->
+            <div id="cabResultBox" style="background: #060b14; border: 1px solid rgba(223, 186, 109, 0.35); border-radius: 18px; padding: 18px; text-align: center;">
+                <div style="font-size: 11px; color: #38bdf8; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px;">✨ PERFECT MATCH FOR YOU</div>
+                <h3 id="recCabName" class="srt-gold-shimmer" style="font-size: 22px; font-weight: 800; margin: 0 0 6px 0;">Swift Dzire / Toyota Glanza</h3>
+                <p id="recCabDetails" style="color: #cbd5e1; font-size: 13px; margin: 0 0 14px 0;">Ideal for couples & small families • 3 Medium Bags • Smooth Highway & Hill AC</p>
+                <a id="recCabBtn" href="https://wa.me/916280544730?text=Hello,%20I%20need%20a%20cab%20for%201-4%20passengers%20(Sedan/Glanza)." target="_blank" class="srt-btn srt-btn-gold" style="padding: 11px 20px; border-radius: 50px; font-size: 13.5px; width: 100%; box-sizing: border-box;">
+                    Check Availability & Fare
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Clean Fixed Vehicle Slider Section (All 5 Original Vehicles) -->
     <section id="fleet-slider" class="anim-fade-up" style="padding: 60px 20px; background: #060b14; border-top: 1px solid rgba(223, 186, 109, 0.2);">
         <div style="width: 100%; max-width: 400px; margin: 0 auto; text-align: center;">
@@ -913,6 +972,26 @@
 
         </div>
     </section>
+    <!-- UNIQUE SECTION 3: VIP CUSTOM ITINERARY BANNER -->
+<section class="vip-callout-section anim-zoom-in" style="background: #060b14; padding: 30px 20px 65px;">
+    <div style="max-width: 520px; margin: 0 auto; background: linear-gradient(135deg, #eed08d 0%, #c89736 100%); border-radius: 26px; padding: 30px 24px; text-align: center; box-shadow: 0 15px 40px rgba(200, 151, 54, 0.35); position: relative; overflow: hidden;">
+        <div style="display: inline-block; background: #060b14; color: #dfba6d; padding: 5px 14px; border-radius: 20px; font-size: 10.5px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px;">
+            <i class="fas fa-crown"></i> VIP CONCIERGE SERVICE
+        </div>
+        <h2 style="color: #060b14; font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 800; margin: 0 0 10px 0; line-height: 1.25;">Want a Custom Multi-Day Tour Plan?</h2>
+        <p style="color: #1e293b; font-size: 14px; font-weight: 600; line-height: 1.5; margin: 0 0 22px 0;">
+            Tell us your dates & budget! We will design a personalized Himachal, Kashmir, Spiti or Rajasthan itinerary with a dedicated chauffeur.
+        </p>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels!%20Please%20help%20me%20plan%20a%20custom%20multi-day%20tour%20package." target="_blank" style="background: #060b14; color: #dfba6d; text-decoration: none; padding: 14px 24px; border-radius: 50px; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 8px 20px rgba(6,11,20,0.4);">
+                <i class="fab fa-whatsapp" style="font-size: 18px; color: #25D366;"></i> Get Free Tour Plan
+            </a>
+            <a href="tel:+916280544730" style="background: rgba(6, 11, 20, 0.12); border: 1.5px solid #060b14; color: #060b14; text-decoration: none; padding: 13px 20px; border-radius: 50px; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-phone-alt"></i> Call Expert
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- Footer Section with Official Logo & Luxury Theme -->
     <footer class="anim-fade-up" style="background: #060b14; color: #ffffff; padding: 50px 20px 30px 20px; border-top: 1px solid rgba(223, 186, 109, 0.3);">
@@ -1205,6 +1284,88 @@
 
             counters.forEach(c => counterObserver.observe(c));
         });
+       // 9. Interactive Trip Vibe Selector Logic
+const vibeData = {
+    snow: {
+        tag: "MOST POPULAR IN WINTER",
+        duration: "4 to 6 Days",
+        title: "Manali, Solang & Spiti Valley",
+        desc: "Experience fresh snowfall, pine valleys, and safe mountain driving with our hill-expert chauffeurs from Chandigarh/Zirakpur.",
+        car: "Innova Crysta / Maruti Ertiga",
+        wa: "https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20plan%20a%20Snow%20%26%20Hills%20Trip!"
+    },
+    spiritual: {
+        tag: "PEACEFUL FAMILY YATRA",
+        duration: "2 to 4 Days",
+        title: "Golden Temple, Mathura & Vrindavan",
+        desc: "Comfortable, punctual darshan tours with polite, verified drivers who know all temple timings and VIP parking spots.",
+        car: "Swift Dzire / Innova Crysta",
+        wa: "https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20plan%20a%20Spiritual%20Yatra!"
+    },
+    royal: {
+        tag: "ROYAL HERITAGE TOUR",
+        duration: "3 to 5 Days",
+        title: "Jaipur, Udaipur & Royal Forts",
+        desc: "Travel in cinematic luxury across Rajasthan's palaces, vibrant bazaars, and desert highways in spotless AC vehicles.",
+        car: "Innova Crysta 7+1 / Sedan",
+        wa: "https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20plan%20a%20Royal%20Rajasthan%20Trip!"
+    },
+    group: {
+        tag: "LUXURY GROUP TRAVEL",
+        duration: "Flexible Days",
+        title: "Complete Himachal / Leh Group Tour",
+        desc: "Travel together without splitting into multiple cars! Enjoy pushback seats, ample luggage space, and premium music system.",
+        car: "Force Urbania Tempo Traveller",
+        wa: "https://wa.me/916280544730?text=Hello%20Shri%20Radha%20Travels,%20I%20want%20to%20book%20Force%20Urbania%20for%20a%20Group%20Trip!"
+    }
+};
+
+function setVibe(type, btnElement) {
+    document.querySelectorAll('.vibe-btn').forEach(btn => {
+        btn.style.background = 'rgba(15,23,42,0.8)';
+        btn.style.color = '#dfba6d';
+        btn.style.border = '1px solid rgba(223,186,109,0.4)';
+    });
+    btnElement.style.background = 'linear-gradient(135deg, #eed08d 0%, #c89736 100%)';
+    btnElement.style.color = '#060b14';
+    btnElement.style.border = '1px solid #dfba6d';
+
+    const data = vibeData[type];
+    document.getElementById('vibeTag').textContent = data.tag;
+    document.getElementById('vibeDuration').innerHTML = `<i class="fas fa-clock"></i> ${data.duration}`;
+    document.getElementById('vibeTitle').textContent = data.title;
+    document.getElementById('vibeDesc').textContent = data.desc;
+    document.getElementById('vibeCar').textContent = data.car;
+    document.getElementById('vibeWaLink').href = data.wa;
+}
+
+// 10. Smart Cab Recommender Logic
+function recommendCab(size, btnElement) {
+    document.querySelectorAll('.finder-btn').forEach(btn => {
+        btn.style.background = 'rgba(6,11,20,0.8)';
+        btn.style.color = '#ffffff';
+    });
+    btnElement.style.background = 'linear-gradient(135deg, #eed08d 0%, #c89736 100%)';
+    btnElement.style.color = '#060b14';
+
+    const nameEl = document.getElementById('recCabName');
+    const detailEl = document.getElementById('recCabDetails');
+    const linkEl = document.getElementById('recCabBtn');
+
+    if (size === 'small') {
+        nameEl.textContent = "Swift Dzire / Toyota Glanza";
+        detailEl.textContent = "Ideal for couples & small families • Up to 3 Bags • Smooth Highway & Hill AC";
+        linkEl.href = "https://wa.me/916280544730?text=Hello,%20I%20need%20a%20cab%20for%201-4%20passengers%20(Dzire/Glanza).";
+    } else if (size === 'medium') {
+        nameEl.textContent = "Innova Crysta (7+1) / Ertiga (6+1)";
+        detailEl.textContent = "Captain/Recliner Seats • Extra Legroom • Roof Carrier for 5-6 Large Bags";
+        linkEl.href = "https://wa.me/916280544730?text=Hello,%20I%20need%20an%20SUV/MPV%20for%205-7%20passengers%20(Innova%20Crysta/Ertiga).";
+    } else if (size === 'large') {
+        nameEl.textContent = "Luxury Force Urbania";
+        detailEl.textContent = "VIP Pushback Seats • High Roof Standing Space • Best for Big Families & Friends";
+        linkEl.href = "https://wa.me/916280544730?text=Hello,%20I%20need%20Force%20Urbania%20Tempo%20Traveller%20for%20a%20group%20of%208+%20passengers.";
+    }
+} 
     </script>
 </body>
 </html>
